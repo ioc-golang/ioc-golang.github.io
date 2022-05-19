@@ -1,0 +1,952 @@
+<!doctype html>
+<html lang="cn" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.88.1" />
+<link rel="canonical" type="text/html" href="/cn/docs/examples/">
+<link rel="alternate" type="application/rss&#43;xml" href="/cn/docs/examples/index.xml">
+<meta name="robots" content="noindex, nofollow">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>示例 | IOC-Golang</title>
+<meta name="description" content="">
+<meta property="og:title" content="示例" />
+<meta property="og:description" content="IOC-Golang doc site" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="/cn/docs/examples/" /><meta property="og:site_name" content="IOC-Golang" />
+
+<meta itemprop="name" content="示例">
+<meta itemprop="description" content="IOC-Golang doc site"><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="示例"/>
+<meta name="twitter:description" content="IOC-Golang doc site"/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.209ee91954d0f2f182770e6c71011a5580360636bcf2a9bcf7f1c3da478784ff.css" as="style">
+<link href="/scss/main.min.209ee91954d0f2f182770e6c71011a5580360636bcf2a9bcf7f1c3da478784ff.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-00000000-0', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/cn/">
+		<span class="navbar-logo"><svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 500 500" style="enable-background:new 0 0 500 500"><g><path style="fill:#fff" d="M116.8525 421.9722c-5.7041.0-10.3442-4.3127-10.3442-9.6129V88.183c0-5.3002 4.6401-9.6117 10.3442-9.6117H320.858c3.0347.0 9.3959.5498 11.7506 2.6302l.3545.3442 58.905 63.2912c2.3101 2.491 2.9202 8.4928 2.9202 11.3184v256.2039c0 5.3002-4.6407 9.6129-10.3436 9.6129H116.8525z"/><g><g><g><path style="fill:#767676" d="M384.4445 423.2066H116.852c-6.3839.0-11.5786-4.8658-11.5786-10.8474V88.1831c0-5.9804 5.1947-10.8461 11.5786-10.8461h204.0062c.377.0 9.2786.0329 12.568 2.9389l.3947.3833 58.9508 63.337c3.2135 3.4652 3.2514 11.7924 3.2514 12.1593v256.2036C396.0231 418.3408 390.8284 423.2066 384.4445 423.2066zM116.5079 411.9189c.0848.0278.1999.0531.3441.0531h267.5925c.1442.0.2581-.0253.3441-.0531V156.1556c-.0076-.9033-.3593-3.7347-.7034-5.0037l-57.6527-61.9416c-1.4651-.3176-4.4533-.6389-5.5742-.6389H116.852c-.143.0-.2594.024-.3441.0531V411.9189zm267.4533-261.149zM327.0321 89.371v.0013V89.371z"/></g></g></g><g><g><path style="fill:#5b7fc0" d="M189.0874 210.1754l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.025 2.454-11.4897 6.4116-15.4473C177.5953 212.627 183.0601 210.1742 189.0874 210.1754zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403S197.0816 234.1722 197.0804 232.033z"/><path style="opacity:.3;fill:#fff" d="M189.0898 210.176c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 212.6276 183.0612 210.176 189.0898 210.176zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 236.239 197.0839 234.2399 197.0839 232.0372z"/><g><defs><path id="SVGID_1_" d="M194.7376 237.6875c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.999 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 234.2399 196.1861 236.239 194.7376 237.6875z"/></defs><clipPath id="SVGID_2_"><use xlink:href="#SVGID_1_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_2_);fill:#fff" d="M190.0704 225.0237c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 225.7247 191.9774 225.0237 190.0704 225.0237z"/><path style="opacity:.13;clip-path:url(#SVGID_2_);fill:#020202" d="M190.0704 225.0237c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 225.7247 191.9774 225.0237 190.0704 225.0237z"/></g><g><defs><path id="SVGID_3_" d="M189.0898 210.176c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 212.6276 183.0612 210.176 189.0898 210.176zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 236.239 197.0839 234.2399 197.0839 232.0372z"/></defs><clipPath id="SVGID_4_"><use xlink:href="#SVGID_3_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_4_);fill:#5b7fc0" d="M172.6595 215.6045c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8612 12.0547.0024 21.8636-9.797 21.8613-21.8612.0024-3.8475-1.0151-7.6326-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 209.1953 176.6171 211.647 172.6595 215.6045z"/></g></g><rect x="198.8952" y="225.1043" style="fill:#5b7fc0" width="122.6266" height="13.8671"/></g><g><path style="fill:#d95140" d="M189.0874 155.7611l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.0249 2.454-11.4897 6.4116-15.4473C177.5953 158.2128 183.0601 155.7599 189.0874 155.7611zm7.993 21.8577c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403C196.2508 181.7667 197.0816 179.758 197.0804 177.6188z"/><path style="opacity:.3;fill:#fff" d="M189.0898 155.7617c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 158.2134 183.0612 155.7617 189.0898 155.7617zm7.9941 21.8613c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 181.8248 197.0839 179.8256 197.0839 177.623z"/><g><defs><path id="SVGID_5_" d="M194.7376 183.2733c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.9989 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 179.8256 196.1861 181.8248 194.7376 183.2733z"/></defs><clipPath id="SVGID_6_"><use xlink:href="#SVGID_5_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_6_);fill:#fff" d="M190.0704 170.6095c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 171.3104 191.9774 170.6095 190.0704 170.6095z"/><path style="opacity:.13;clip-path:url(#SVGID_6_);fill:#020202" d="M190.0704 170.6095c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 171.3104 191.9774 170.6095 190.0704 170.6095z"/></g><g><defs><path id="SVGID_7_" d="M189.0898 155.7617c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 158.2134 183.0612 155.7617 189.0898 155.7617zm7.9941 21.8613c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 181.8248 197.0839 179.8256 197.0839 177.623z"/></defs><clipPath id="SVGID_8_"><use xlink:href="#SVGID_7_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_8_);fill:#d95140" d="M172.6595 161.1903c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8613 12.0547.0024 21.8636-9.797 21.8613-21.8613.0024-3.8474-1.0151-7.6326-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 154.7811 176.6171 157.2327 172.6595 161.1903z"/></g><rect x="198.8952" y="170.69" style="fill:#d95140" width="122.6266" height="13.8671"/></g><g><g><path style="fill:#56a55c" d="M189.5379 264.6147l.0012-.0012c7.7751.0012 15.0294 4.1862 18.932 10.9235 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032-5.8394.0-11.3281-2.2733-15.458-6.4032-4.13-4.13-6.4032-9.6186-6.4056-15.4628.0012-6.0249 2.454-11.4897 6.4116-15.4472C178.0458 267.0663 183.5105 264.6135 189.5379 264.6147zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6538 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403C196.7013 290.6202 197.5321 288.6115 197.5309 286.4723z"/><path style="opacity:.3;fill:#fff" d="M189.5403 264.6153c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8065-21.8612-21.8613.0-6.0285 2.4516-11.492 6.4116-15.452C178.0482 267.0669 183.5117 264.6153 189.5403 264.6153zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.6366 290.6783 197.5344 288.6792 197.5344 286.4765z"/><g><defs><path id="SVGID_9_" d="M195.1881 292.1268c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.9989 7.9942-7.9941 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.5344 288.6792 196.6366 290.6783 195.1881 292.1268z"/></defs><clipPath id="SVGID_10_"><use xlink:href="#SVGID_9_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_10_);fill:#fff" d="M190.5209 279.463c-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7446-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9941 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C194.239 280.164 192.4279 279.463 190.5209 279.463z"/><path style="opacity:.13;clip-path:url(#SVGID_10_);fill:#020202" d="M190.5209 279.463c-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7446-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9941 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C194.239 280.164 192.4279 279.463 190.5209 279.463z"/></g><g><defs><path id="SVGID_11_" d="M189.5403 264.6153c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8065-21.8612-21.8613.0-6.0285 2.4516-11.492 6.4116-15.452C178.0482 267.0669 183.5117 264.6153 189.5403 264.6153zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.6366 290.6783 197.5344 288.6792 197.5344 286.4765z"/></defs><clipPath id="SVGID_12_"><use xlink:href="#SVGID_11_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_12_);fill:#56a55c" d="M173.11 270.0439c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8613 12.0547.0024 21.8636-9.797 21.8613-21.8613.0024-3.8474-1.0151-7.6326-2.9353-10.9462-3.8977-6.7325-11.1497-10.9151-18.926-10.9151C182.5311 263.6346 177.0676 266.0863 173.11 270.0439z"/></g></g><rect x="199.3456" y="279.5436" style="fill:#56a55c" width="122.6266" height="13.8671"/></g><g><g><path style="fill:#f1bc42" d="M189.0874 318.7208l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3305-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.025 2.454-11.4897 6.4116-15.4472C177.5953 321.1724 183.0601 318.7196 189.0874 318.7208zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403S197.0816 342.7176 197.0804 340.5784z"/><path style="opacity:.3;fill:#fff" d="M189.0898 318.7214c7.7763.0 15.0283 4.1826 18.926 10.915 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8612-12.0547.0024-21.8636-9.8065-21.8612-21.8612.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 321.173 183.0612 318.7214 189.0898 318.7214zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 344.7844 197.0839 342.7853 197.0839 340.5826z"/><g><defs><path id="SVGID_13_" d="M194.7376 346.2329c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.999 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 342.7853 196.1861 344.7844 194.7376 346.2329z"/></defs><clipPath id="SVGID_14_"><use xlink:href="#SVGID_13_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_14_);fill:#fff" d="M190.0704 333.5691c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0834 6.1218 2.8788C193.7885 334.2701 191.9774 333.5691 190.0704 333.5691z"/><path style="opacity:.13;clip-path:url(#SVGID_14_);fill:#020202" d="M190.0704 333.5691c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0834 6.1218 2.8788C193.7885 334.2701 191.9774 333.5691 190.0704 333.5691z"/></g><g><defs><path id="SVGID_15_" d="M189.0898 318.7214c7.7763.0 15.0283 4.1826 18.926 10.915 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8612-12.0547.0024-21.8636-9.8065-21.8612-21.8612.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 321.173 183.0612 318.7214 189.0898 318.7214zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 344.7844 197.0839 342.7853 197.0839 340.5826z"/></defs><clipPath id="SVGID_16_"><use xlink:href="#SVGID_15_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_16_);fill:#f1bc42" d="M172.6595 324.15c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8612 12.0547.0024 21.8636-9.797 21.8613-21.8612.0024-3.8474-1.0151-7.6327-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 317.7407 176.6171 320.1924 172.6595 324.15z"/></g></g><rect x="198.8952" y="333.6497" style="fill:#f1bc42" width="122.6266" height="13.8671"/></g></g></svg></span><span class="font-weight-bold">IOC-Golang</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/cn/docs/" ><span class="active">文档</span></a>
+			</li>
+			
+			
+			
+			<li class="nav-item dropdown mr-4 d-none d-lg-block">
+				
+
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	中文
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	
+	<a class="dropdown-item" href="/docs/examples/">English</a>
+	
+</div>
+			</li>
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block"><input type="search" class="form-control td-search-input" placeholder="&#xf002; Search this site…" aria-label="Search this site…" autocomplete="off">
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="print();return false;">Click here to print</a>.
+</p><p>
+<a href="/cn/docs/examples/">Return to the regular view of this page</a>.
+</p>
+</div>
+
+
+
+<h1 class="title">示例</h1>
+
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1: <a href="#pg-d1bfabe982fcde86b7790a80efd4bbb5">redis 客户端注入</a></li>
+
+
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-d25d20b55e1cbdb943b6a39ba7e9efde">GORM 客户端注入</a></li>
+
+
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-5e7d60ada500d8d3b5d0682c4597cba7">gRPC 客户端注入</a></li>
+
+
+    
+  
+    
+    
+	
+<li>4: <a href="#pg-82862a7ca34fc31b480a3cc048edae86">配置注入</a></li>
+
+
+    
+  
+    
+    
+	
+<li>5: <a href="#pg-c0b18b77c6430e0e26b0bc33e24732c1">通过 API 获取对象</a></li>
+
+
+    
+  
+    
+    
+	
+<li>6: <a href="#pg-ec4de8464ec8e0be0c9210cab691fe5a">使用调试功能</a></li>
+
+
+    
+  
+
+    </ul>
+
+
+<div class="content">
+      
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-d1bfabe982fcde86b7790a80efd4bbb5">1 - redis 客户端注入</h1>
+    
+	<h3 id="简介">简介</h3>
+<p>本示例展示了注入 Redis 客户端能力。</p>
+<p>在应用开发过程中，通过 SDK 操作 Redis 是一个常见的诉求。</p>
+<p>ioc-golang 框架提供了注入 Redis 连接的能力，开发者可以在配置文件中指定好 Redis 地址、密码、db名等信息，通过标签注入连接，无需手动创建、组装。</p>
+<h3 id="注入模型与结构">注入模型与结构</h3>
+<p><a href="https://github.com/alibaba/IOC-Golang/tree/master/extension/normal">多例（normal）依赖注入模型</a></p>
+<p><a href="https://github.com/alibaba/IOC-Golang/tree/master/extension/normal/redis">预定义的 redis 结构</a></p>
+<h3 id="关键代码">关键代码</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#204a87;font-weight:bold">import</span><span style="color:#000;font-weight:bold">(</span>
+	<span style="color:#000">normalMysql</span> <span style="color:#4e9a06">&#34;github.com/alibaba/ioc-golang/extension/normal/mysql&#34;</span>
+<span style="color:#000;font-weight:bold">)</span>
+
+<span style="color:#8f5902;font-style:italic">// +ioc:autowire=true
+</span><span style="color:#8f5902;font-style:italic">// +ioc:autowire:type=singleton
+</span><span style="color:#8f5902;font-style:italic"></span>
+<span style="color:#204a87;font-weight:bold">type</span> <span style="color:#000">App</span> <span style="color:#204a87;font-weight:bold">struct</span> <span style="color:#000;font-weight:bold">{</span>
+	<span style="color:#000">NormalRedis</span>    <span style="color:#000">normalRedis</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Redis</span> <span style="color:#4e9a06">`normal:&#34;Impl&#34;`</span>
+	<span style="color:#000">NormalDB1Redis</span> <span style="color:#000">normalRedis</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Redis</span> <span style="color:#4e9a06">`normal:&#34;Impl,db1-redis&#34;`</span>
+	<span style="color:#000">NormalDB2Redis</span> <span style="color:#000">normalRedis</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Redis</span> <span style="color:#4e9a06">`normal:&#34;Impl,db2-redis&#34;`</span>
+	<span style="color:#000">NormalDB3Redis</span> <span style="color:#000">normalRedis</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Redis</span> <span style="color:#4e9a06">`normal:&#34;Impl,address=127.0.0.1:6379&amp;db=3&#34;`</span>
+<span style="color:#000;font-weight:bold">}</span>
+</code></pre></div><ul>
+<li>
+<p>被注入字段类型</p>
+<p>normalRedis.Redis 接口</p>
+</li>
+<li>
+<p>标签</p>
+<p>开发人员可以为 normalRedis.Redis 类型的字段增加 <code>normal:&quot;Impl,$(configKey),$(tableName)&quot; </code>标签。从而注入Redis  sdk。</p>
+<p>例子中的 <code>normal:&quot;Impl&quot;</code> 的意义为，将配置文件内 <code>autowire.normal.Redis.Impl.param</code>定义的值作为参数。</p>
+<p>例子中的 <code>normal:&quot;Impl,db1-redis&quot;</code> 的意义为，将配置文件内 <code>autowire.normal.Redis.Impl.db1-redis.param</code>定义的值作为参数。</p>
+<p>例子中的 <code>normal:&quot;Impl,db2-redis&quot;</code>的意义为，将配置文件内 <code>autowire.normal.Redis.Impl.db2-redis.param</code>定义的值作为参数。</p>
+<p>例子中的 <code>normal:&quot;Impl,address=127.0.0.1:6379&amp;db=3&quot;</code> 的意义为，使用标签内定义的 key-value 作为参数配置。</p>
+<p>默认参数加载策略详情请参阅<a href="/cn/docs/concept/param_loader/">参数加载器</a></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">autowire</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">normal</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">Redis</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">Impl</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">db1-redis</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">param</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">address</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">localhost:6379</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">db</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">db2-redis</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">param</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">address</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">localhost:6379</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">db</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">param</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">address</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">localhost:6379</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">db</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div></li>
+</ul>
+<h3 id="运行示例">运行示例</h3>
+<p>例子会注入多个位于127.0.0.1:6379 的Redis 客户端，数据库id分别为 0、1、2、3.</p>
+<p>需要确保您本地运行了redis，可通过 <code>docker run -p6379:6379 redis:latest</code> 快速启动一个。</p>
+<p>注入后，方可调用该接口提供的方法。可获取裸 Redis 连接，也可以直接使用封装好的 API 操作Redis。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#204a87">cd</span> example/autowire_redis_client/cmd
+go run .
+  ___    ___     ____            ____           _                         
+ <span style="color:#000;font-weight:bold">|</span>_ _<span style="color:#000;font-weight:bold">|</span>  / _ <span style="color:#4e9a06">\ </span>  / ___<span style="color:#000;font-weight:bold">|</span>          / ___<span style="color:#000;font-weight:bold">|</span>   ___   <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>   __ _   _ __     __ _ 
+  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>      _____  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>  _   / _ <span style="color:#4e9a06">\ </span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>  / _<span style="color:#4e9a06">`</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#a40000">&#39;</span>_ <span style="color:#4e9a06">\ </span>  / _<span style="color:#4e9a06">`</span> <span style="color:#000;font-weight:bold">|</span>
+  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>___  <span style="color:#000;font-weight:bold">|</span>_____<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#ce5c00;font-weight:bold">(</span>_<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#ce5c00;font-weight:bold">(</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#ce5c00;font-weight:bold">(</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>
+ <span style="color:#000;font-weight:bold">|</span>___<span style="color:#000;font-weight:bold">|</span>  <span style="color:#4e9a06">\_</span>__/   <span style="color:#4e9a06">\_</span>___<span style="color:#000;font-weight:bold">|</span>          <span style="color:#4e9a06">\_</span>___<span style="color:#000;font-weight:bold">|</span>  <span style="color:#4e9a06">\_</span>__/  <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span>  <span style="color:#4e9a06">\_</span>_,_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span>  <span style="color:#4e9a06">\_</span>_, <span style="color:#000;font-weight:bold">|</span>
+                                                                    <span style="color:#000;font-weight:bold">|</span>___/ 
+Welcome to use ioc-golang!
+<span style="color:#ce5c00;font-weight:bold">[</span>Boot<span style="color:#ce5c00;font-weight:bold">]</span> Start to load ioc-golang config
+<span style="color:#ce5c00;font-weight:bold">[</span>Config<span style="color:#ce5c00;font-weight:bold">]</span> Load config file from ../conf/ioc_golang.yaml
+<span style="color:#ce5c00;font-weight:bold">[</span>Boot<span style="color:#ce5c00;font-weight:bold">]</span> Start to load debug
+<span style="color:#ce5c00;font-weight:bold">[</span>Debug<span style="color:#ce5c00;font-weight:bold">]</span> Debug mod is not enabled
+<span style="color:#ce5c00;font-weight:bold">[</span>Boot<span style="color:#ce5c00;font-weight:bold">]</span> Start to load autowire
+<span style="color:#ce5c00;font-weight:bold">[</span>Autowire Type<span style="color:#ce5c00;font-weight:bold">]</span> Found registered autowire <span style="color:#204a87">type</span> singleton
+<span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> singleton registered SD App-App
+<span style="color:#ce5c00;font-weight:bold">[</span>Autowire Type<span style="color:#ce5c00;font-weight:bold">]</span> Found registered autowire <span style="color:#204a87">type</span> normal
+<span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> normal registered SD Redis-Impl
+client0 get  db0
+client1 get  db1
+client2 get  db2
+client3 get  db3
+</code></pre></div><p>可看到打印出了已经写入四个 redis db 的值。</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-d25d20b55e1cbdb943b6a39ba7e9efde">2 - GORM 客户端注入</h1>
+    
+	<h3 id="简介">简介</h3>
+<p>本示例展示了注入基于 <a href="https://gorm.io/index.html">GORM</a> 的数据库客户端能力。</p>
+<p>在应用开发过程中，通过 SDK 操作数据库是一个常见的诉求，GORM 是应用较广泛的 Go 数据库 sdk。</p>
+<p>ioc-golang 框架提供了注入数据库连接的能力，开发者可以在配置文件中指定好数据库地址、密码信息，通过标签注入连接，无需手动创建、组装 GORM 客户端。</p>
+<h3 id="注入模型与结构">注入模型与结构</h3>
+<p><a href="https://github.com/alibaba/IOC-Golang/tree/master/extension/normal">多例（normal）依赖注入模型</a></p>
+<p><a href="https://github.com/alibaba/IOC-Golang/tree/master/extension/normal/mysql">预定义的 mysql 结构</a></p>
+<h3 id="关键代码">关键代码</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#204a87;font-weight:bold">import</span><span style="color:#000;font-weight:bold">(</span>
+	<span style="color:#000">normalMysql</span> <span style="color:#4e9a06">&#34;github.com/alibaba/ioc-golang/extension/normal/mysql&#34;</span>
+<span style="color:#000;font-weight:bold">)</span>
+
+<span style="color:#8f5902;font-style:italic">// +ioc:autowire=true
+</span><span style="color:#8f5902;font-style:italic">// +ioc:autowire:type=singleton
+</span><span style="color:#8f5902;font-style:italic"></span>
+<span style="color:#204a87;font-weight:bold">type</span> <span style="color:#000">App</span> <span style="color:#204a87;font-weight:bold">struct</span> <span style="color:#000;font-weight:bold">{</span>
+	<span style="color:#000">MyDataTable</span> <span style="color:#000">normalMysql</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Mysql</span> <span style="color:#4e9a06">`normal:&#34;Impl,my-mysql,mydata&#34;`</span>
+<span style="color:#000;font-weight:bold">}</span>
+</code></pre></div><ul>
+<li>
+<p>被注入字段类型</p>
+<p>normalMysql.Mysql 接口</p>
+</li>
+<li>
+<p>标签</p>
+<p>开发人员可以为 normalMysql.Mysql 类型的字段增加 <code>normal:&quot;Impl,$(configKey),$(tableName)&quot; </code>标签。从而注入指定数据库的指定表 sdk。</p>
+<p>例子中的 <code>normal:&quot;Impl,my-mysql,mydata&quot;</code> 的意义为，将配置文件内 <code>autowire.normal.Mysql.Impl,my-mysql.param</code>定义的值作为参数。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">autowire</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">normal</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">Mysql</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">Impl</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">my-mysql</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">param</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">host</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;127.0.0.1&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">port</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">3306</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">username</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;root&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">password</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;root&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">dbname</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;test&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div><p>例子会建立一个位于127.0.0.1:3306 的数据库连接，用户名为root、密码为 root、数据库名为test、表名为mydata。</p>
+<p>注入后，方可调用该接口提供的方法，获取裸 gorm 连接，或者直接使用封装好的 API 操作数据表。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#204a87;font-weight:bold">type</span> <span style="color:#000">Mysql</span> <span style="color:#204a87;font-weight:bold">interface</span> <span style="color:#000;font-weight:bold">{</span>
+	<span style="color:#000">GetDB</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">gorm</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">DB</span>
+	<span style="color:#000">SelectWhere</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">queryStr</span> <span style="color:#204a87;font-weight:bold">string</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">result</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{},</span> <span style="color:#000">args</span> <span style="color:#ce5c00;font-weight:bold">...</span><span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{})</span> <span style="color:#204a87;font-weight:bold">error</span>
+	<span style="color:#000">Insert</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">toInsertLines</span> <span style="color:#000">UserDefinedModel</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#204a87;font-weight:bold">error</span>
+	<span style="color:#000">Delete</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">toDeleteTarget</span> <span style="color:#000">UserDefinedModel</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#204a87;font-weight:bold">error</span>
+	<span style="color:#000">First</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">queryStr</span> <span style="color:#204a87;font-weight:bold">string</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">findTarget</span> <span style="color:#000">UserDefinedModel</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">args</span> <span style="color:#ce5c00;font-weight:bold">...</span><span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{})</span> <span style="color:#204a87;font-weight:bold">error</span>
+	<span style="color:#000">Update</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">queryStr</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">field</span> <span style="color:#204a87;font-weight:bold">string</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">target</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{},</span> <span style="color:#000">args</span> <span style="color:#ce5c00;font-weight:bold">...</span><span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{})</span> <span style="color:#204a87;font-weight:bold">error</span>
+<span style="color:#000;font-weight:bold">}</span>
+</code></pre></div></li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-5e7d60ada500d8d3b5d0682c4597cba7">3 - gRPC 客户端注入</h1>
+    
+	<h3 id="简介">简介</h3>
+<p>本示例展示了基于 ioc-golang 框架的 gRPC 客户端注入能力。</p>
+<p>在进行微服务开发过程中，服务间通信尤为重要，gRPC 是被应用最为广泛的 RPC 框架之一。</p>
+<p>在常规开发中，开发者需要从配置中手动读取下游主机名，启动 grpc 客户端。针对一个接口的网络客户端往往是单例模型，如果多个服务都需要使用同一客户端，则还需要开发者维护这个单例模型。</p>
+<p>基于 ioc-golang 框架的 gRPC 客户端注入能力，我们可以将客户端的生命周期交付给框架管理，并赋予客户端调试能力，开发者只需要关注注册和使用。</p>
+<h3 id="示例介绍">示例介绍</h3>
+<p>本示例实现了以下拓扑</p>
+<p><img src="https://raw.githubusercontent.com/ioc-golang/ioc-golang-website/main/resources/img/debug-topology.png" alt="debug"></p>
+<p>在这个例子中，App 结构会依此调用所有依赖对象，进而调用一个单例模型注入的 gRPC 客户端，该客户端发起网络请求，并获得结果。</p>
+<h3 id="依赖注入模型">依赖注入模型</h3>
+<p><a href="https://github.com/alibaba/IOC-Golang/tree/master/extension/grpc">grpc 依赖注入模型</a></p>
+<h3 id="关键代码">关键代码</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#204a87;font-weight:bold">import</span><span style="color:#000;font-weight:bold">(</span>
+  <span style="color:#4e9a06">&#34;github.com/alibaba/ioc-golang/extension/autowire/grpc&#34;</span>
+	<span style="color:#000">googleGRPC</span> <span style="color:#4e9a06">&#34;google.golang.org/grpc&#34;</span>
+<span style="color:#000;font-weight:bold">)</span>
+<span style="color:#204a87;font-weight:bold">func</span> <span style="color:#000">init</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+	<span style="color:#8f5902;font-style:italic">// register grpc client
+</span><span style="color:#8f5902;font-style:italic"></span>	<span style="color:#000">grpc</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">RegisterStructDescriptor</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">autowire</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">StructDescriptor</span><span style="color:#000;font-weight:bold">{</span>
+		<span style="color:#000">Interface</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87">new</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">api</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">HelloServiceClient</span><span style="color:#000;font-weight:bold">),</span>
+		<span style="color:#000">Factory</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">func</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{}</span> <span style="color:#000;font-weight:bold">{</span>
+			<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#204a87">new</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">api</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">HelloServiceClient</span><span style="color:#000;font-weight:bold">)</span>
+		<span style="color:#000;font-weight:bold">},</span>
+		<span style="color:#000">ParamFactory</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">func</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{}</span> <span style="color:#000;font-weight:bold">{</span>
+			<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">googleGRPC</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">ClientConn</span><span style="color:#000;font-weight:bold">{}</span>
+		<span style="color:#000;font-weight:bold">},</span>
+		<span style="color:#000">ConstructFunc</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">func</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">impl</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{},</span> <span style="color:#000">param</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{})</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{},</span> <span style="color:#204a87;font-weight:bold">error</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+			<span style="color:#000">conn</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">param</span><span style="color:#000;font-weight:bold">.(</span><span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">googleGRPC</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">ClientConn</span><span style="color:#000;font-weight:bold">)</span>
+			<span style="color:#000">fmt</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;create conn target &#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">conn</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Target</span><span style="color:#000;font-weight:bold">())</span>
+			<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">api</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">NewHelloServiceClient</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">conn</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#204a87;font-weight:bold">nil</span>
+		<span style="color:#000;font-weight:bold">},</span>
+	<span style="color:#000;font-weight:bold">})</span>
+<span style="color:#000;font-weight:bold">}</span>
+
+<span style="color:#8f5902;font-style:italic">// +ioc:autowire=true
+</span><span style="color:#8f5902;font-style:italic">// +ioc:autowire:type=singleton
+</span><span style="color:#8f5902;font-style:italic"></span>
+<span style="color:#204a87;font-weight:bold">type</span> <span style="color:#000">App</span> <span style="color:#204a87;font-weight:bold">struct</span> <span style="color:#000;font-weight:bold">{</span>
+	<span style="color:#000">HelloServiceClient</span> <span style="color:#000">api</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">HelloServiceClient</span> <span style="color:#4e9a06">`grpc:&#34;hello-service&#34;`</span>
+<span style="color:#000;font-weight:bold">}</span>
+</code></pre></div><p>需要在代码中手动注册 gRPC 客户端。在需要使用的地方，增加  <code>grpc:&quot;xxx&quot;</code> 标签</p>
+<p>框架会默认从 autowire.grpc.xxx 读取参数, 在例子中，为<code>autowire.grpc.hello-service </code></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">autowire</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">grpc</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">hello-service</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">address</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">localhost:8080</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div><h3 id="运行示例">运行示例</h3>
+<ol>
+<li>
+<p>启动 grpc Server</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">% <span style="color:#204a87">cd</span> example/denbug/grpc_server
+% go run .
+</code></pre></div></li>
+<li>
+<p>新开一个终端，启动客户端。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">% <span style="color:#204a87">cd</span> example/autowire_grpc_client/cmd
+% go run .
+  ___    ___     ____            ____           _                         
+ <span style="color:#000;font-weight:bold">|</span>_ _<span style="color:#000;font-weight:bold">|</span>  / _ <span style="color:#4e9a06">\ </span>  / ___<span style="color:#000;font-weight:bold">|</span>          / ___<span style="color:#000;font-weight:bold">|</span>   ___   <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>   __ _   _ __     __ _ 
+  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>      _____  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>  _   / _ <span style="color:#4e9a06">\ </span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>  / _<span style="color:#4e9a06">`</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#a40000">&#39;</span>_ <span style="color:#4e9a06">\ </span>  / _<span style="color:#4e9a06">`</span> <span style="color:#000;font-weight:bold">|</span>
+  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>___  <span style="color:#000;font-weight:bold">|</span>_____<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#ce5c00;font-weight:bold">(</span>_<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#ce5c00;font-weight:bold">(</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#ce5c00;font-weight:bold">(</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>
+ <span style="color:#000;font-weight:bold">|</span>___<span style="color:#000;font-weight:bold">|</span>  <span style="color:#4e9a06">\_</span>__/   <span style="color:#4e9a06">\_</span>___<span style="color:#000;font-weight:bold">|</span>          <span style="color:#4e9a06">\_</span>___<span style="color:#000;font-weight:bold">|</span>  <span style="color:#4e9a06">\_</span>__/  <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span>  <span style="color:#4e9a06">\_</span>_,_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span>  <span style="color:#4e9a06">\_</span>_, <span style="color:#000;font-weight:bold">|</span>
+                                                                    <span style="color:#000;font-weight:bold">|</span>___/ 
+Welcome to use ioc-golang!
+<span style="color:#ce5c00;font-weight:bold">[</span>Boot<span style="color:#ce5c00;font-weight:bold">]</span> Start to load ioc-golang config
+<span style="color:#ce5c00;font-weight:bold">[</span>Config<span style="color:#ce5c00;font-weight:bold">]</span> Load config file from ../conf/ioc_golang.yaml
+<span style="color:#ce5c00;font-weight:bold">[</span>Boot<span style="color:#ce5c00;font-weight:bold">]</span> Start to load debug
+<span style="color:#ce5c00;font-weight:bold">[</span>Debug<span style="color:#ce5c00;font-weight:bold">]</span> Debug mod is not enabled
+<span style="color:#ce5c00;font-weight:bold">[</span>Boot<span style="color:#ce5c00;font-weight:bold">]</span> Start to load autowire
+<span style="color:#ce5c00;font-weight:bold">[</span>Autowire Type<span style="color:#ce5c00;font-weight:bold">]</span> Found registered autowire <span style="color:#204a87">type</span> singleton
+<span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> singleton registered SD Service2-Impl1
+<span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> singleton registered SD Service2-Impl2
+<span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> singleton registered SD Struct1-Struct1
+<span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> singleton registered SD App-App
+<span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> singleton registered SD Service1-Impl1
+<span style="color:#ce5c00;font-weight:bold">[</span>Autowire Type<span style="color:#ce5c00;font-weight:bold">]</span> Found registered autowire <span style="color:#204a87">type</span> grpc
+<span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> grpc registered SD HelloServiceClient-HelloServiceClient
+create conn target  localhost:8080
+App call grpc get: Hello laurence
+ExampleService1Impl1 call grpc get :Hello laurence
+ExampleService2Impl1 call grpc get :Hello laurence_service2_impl1
+ExampleService2Impl2 call grpc get :Hello laurence_service2_impl2
+ExampleStruct1 call grpc get :Hello laurence_service1_impl1
+</code></pre></div></li>
+</ol>
+<h3 id="小节">小节</h3>
+<p>gRPC 客户端注入能力，所代表的是 ioc-golang 框架具备网络模型注入的能力。</p>
+<p>针对特定网络框架，可以在其服务提供者接口处，提供客户端注入代码，从而便于客户端引入后直接注入。</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-82862a7ca34fc31b480a3cc048edae86">4 - 配置注入</h1>
+    
+	<h3 id="简介">简介</h3>
+<p>本示例展示了从配置文件注入字段的能力。</p>
+<p>在应用开发过程中，从配置文件中读入配置是一个常见的诉求。例如读取数据库的账号密码、下游服务的主机名，以及一些业务配置等。</p>
+<p>ioc-golang 框架提供了便捷的基于文件注入配置的能力，使开发者无需手动解析配置文件，无需手动组装对象。</p>
+<h3 id="注入模型与结构">注入模型与结构</h3>
+<p><a href="https://github.com/alibaba/IOC-Golang/tree/master/extension/config">config 依赖注入模型</a></p>
+<h3 id="关键代码">关键代码：</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000;font-weight:bold">(</span>
+  <span style="color:#000">github</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">com</span><span style="color:#ce5c00;font-weight:bold">/</span><span style="color:#000">alibaba</span><span style="color:#ce5c00;font-weight:bold">/</span><span style="color:#000">ioc</span><span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#000">golang</span><span style="color:#ce5c00;font-weight:bold">/</span><span style="color:#000">extension</span><span style="color:#ce5c00;font-weight:bold">/</span><span style="color:#000">config</span>
+<span style="color:#000;font-weight:bold">)</span>
+
+<span style="color:#8f5902;font-style:italic">// +ioc:autowire=true
+</span><span style="color:#8f5902;font-style:italic">// +ioc:autowire:type=singleton
+</span><span style="color:#8f5902;font-style:italic"></span>
+<span style="color:#204a87;font-weight:bold">type</span> <span style="color:#000">App</span> <span style="color:#204a87;font-weight:bold">struct</span> <span style="color:#000;font-weight:bold">{</span>
+	<span style="color:#000">DemoConfigString</span> <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">config</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">ConfigString</span> <span style="color:#4e9a06">`config:&#34;ConfigString,autowire.config.demo-config.string-value&#34;`</span>
+	<span style="color:#000">DemoConfigInt</span>    <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">config</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">ConfigInt</span>    <span style="color:#4e9a06">`config:&#34;ConfigInt,autowire.config.demo-config.int-value&#34;`</span>
+	<span style="color:#000">DemoConfigMap</span>    <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">config</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">ConfigMap</span>    <span style="color:#4e9a06">`config:&#34;ConfigMap,autowire.config.demo-config.map-value&#34;`</span>
+	<span style="color:#000">DemoConfigSlice</span>  <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">config</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">ConfigSlice</span>  <span style="color:#4e9a06">`config:&#34;ConfigSlice,autowire.config.demo-config.slice-value&#34;`</span>
+<span style="color:#000;font-weight:bold">}</span>
+</code></pre></div><ul>
+<li>
+<p>被注入字段类型</p>
+<p>目前支持 ConfigString，ConfigInt，ConfigMap，ConfigSlice 四种类型。</p>
+<p>需要以 <strong>指针</strong> 的形式声明字段类型</p>
+</li>
+<li>
+<p>标签与注入位置</p>
+<p>开发人员可以给结构增加 ``config:<code>&quot;xxx&quot; </code> 标签, 标注需要注入的值类型，以及该字段位于配置文件的位置。</p>
+<p>例子中的</p>
+<p><code>config:&quot;ConfigString,autowire.config.demo-config.string-value&quot;</code></p>
+<p>的意义为，将配置文件内 <code>autowire.config.demo-config.string-value</code> 的值以 string 的方式注入到该字段。</p>
+<p>对应配置文件：ioc_golang.yaml 中的字符串 &ldquo;stringValue&rdquo;</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">autowire</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">config</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">demo-config</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">int-value</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">123</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">string-value</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">stringValue</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">map-value</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">key1</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">value1</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">key2</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">value2</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">key3</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">value3</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">obj</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">objkey1</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">objvalue1</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">objkey2</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">objvalue2</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">objkeyslice</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">objslicevalue</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">slice-value</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">        </span>- <span style="color:#000">sliceValue1</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">        </span>- <span style="color:#000">sliceValue2</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">        </span>- <span style="color:#000">sliceValue3</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">        </span>- <span style="color:#000">sliceValue4</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div></li>
+</ul>
+<h3 id="运行示例">运行示例</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#204a87">cd</span> example/autowire_config/cmd
+go run .
+  ___    ___     ____            ____           _                         
+ <span style="color:#000;font-weight:bold">|</span>_ _<span style="color:#000;font-weight:bold">|</span>  / _ <span style="color:#4e9a06">\ </span>  / ___<span style="color:#000;font-weight:bold">|</span>          / ___<span style="color:#000;font-weight:bold">|</span>   ___   <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>   __ _   _ __     __ _ 
+  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>      _____  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>  _   / _ <span style="color:#4e9a06">\ </span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>  / _<span style="color:#4e9a06">`</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#a40000">&#39;</span>_ <span style="color:#4e9a06">\ </span>  / _<span style="color:#4e9a06">`</span> <span style="color:#000;font-weight:bold">|</span>
+  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>___  <span style="color:#000;font-weight:bold">|</span>_____<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#ce5c00;font-weight:bold">(</span>_<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#ce5c00;font-weight:bold">(</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#ce5c00;font-weight:bold">(</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>
+ <span style="color:#000;font-weight:bold">|</span>___<span style="color:#000;font-weight:bold">|</span>  <span style="color:#4e9a06">\_</span>__/   <span style="color:#4e9a06">\_</span>___<span style="color:#000;font-weight:bold">|</span>          <span style="color:#4e9a06">\_</span>___<span style="color:#000;font-weight:bold">|</span>  <span style="color:#4e9a06">\_</span>__/  <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span>  <span style="color:#4e9a06">\_</span>_,_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span>  <span style="color:#4e9a06">\_</span>_, <span style="color:#000;font-weight:bold">|</span>
+                                                                    <span style="color:#000;font-weight:bold">|</span>___/ 
+Welcome to use ioc-golang!
+<span style="color:#ce5c00;font-weight:bold">[</span>Boot<span style="color:#ce5c00;font-weight:bold">]</span> Start to load ioc-golang config
+<span style="color:#ce5c00;font-weight:bold">[</span>Config<span style="color:#ce5c00;font-weight:bold">]</span> Load config file from ../conf/ioc_golang.yaml
+<span style="color:#ce5c00;font-weight:bold">[</span>Boot<span style="color:#ce5c00;font-weight:bold">]</span> Start to load debug
+<span style="color:#ce5c00;font-weight:bold">[</span>Debug<span style="color:#ce5c00;font-weight:bold">]</span> Debug mod is not enabled
+<span style="color:#ce5c00;font-weight:bold">[</span>Boot<span style="color:#ce5c00;font-weight:bold">]</span> Start to load autowire
+<span style="color:#ce5c00;font-weight:bold">[</span>Autowire Type<span style="color:#ce5c00;font-weight:bold">]</span> Found registered autowire <span style="color:#204a87">type</span> singleton
+<span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> singleton registered SD App-App
+<span style="color:#ce5c00;font-weight:bold">[</span>Autowire Type<span style="color:#ce5c00;font-weight:bold">]</span> Found registered autowire <span style="color:#204a87">type</span> normal
+<span style="color:#ce5c00;font-weight:bold">[</span>Autowire Type<span style="color:#ce5c00;font-weight:bold">]</span> Found registered autowire <span style="color:#204a87">type</span> config
+<span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> config registered SD ConfigInt-ConfigInt
+<span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> config registered SD ConfigMap-ConfigMap
+<span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> config registered SD ConfigSlice-ConfigSlice
+<span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> config registered SD ConfigString-ConfigString
+stringValue
+<span style="color:#0000cf;font-weight:bold">123</span>
+map<span style="color:#ce5c00;font-weight:bold">[</span>key1:value1 key2:value2 key3:value3 obj:map<span style="color:#ce5c00;font-weight:bold">[</span>objkey1:objvalue1 objkey2:objvalue2 objkeyslice:objslicevalue<span style="color:#ce5c00;font-weight:bold">]]</span>
+<span style="color:#ce5c00;font-weight:bold">[</span>sliceValue1 sliceValue2 sliceValue3 sliceValue4<span style="color:#ce5c00;font-weight:bold">]</span>
+</code></pre></div><p>可看到依次打印出了不同结构的注入配置。</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-c0b18b77c6430e0e26b0bc33e24732c1">5 - 通过 API 获取对象</h1>
+    
+	<h3 id="简介">简介</h3>
+<p>本示例展示了通过 API 调用的方式获取对象的能力。</p>
+<p>在应用开发过程中，部分依赖通过注入的方式预置在字段中，也有一部分依赖是在程序运行过程中动态生成的。常规做法是通过手动拼装结构的方式，或者通过调用构造函数的方式获取对象。</p>
+<p>ioc-golang 框架提供了中心化的获取对象 API。</p>
+<ul>
+<li>该 API 推荐被结构提供者封装，从而提供一个具象的 API 供用户调用。该 API 传入所需配置结构，返回具体的接口。</li>
+</ul>
+<p>extension/normal/redis/redis.go</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#204a87;font-weight:bold">func</span> <span style="color:#000">GetRedis</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">config</span> <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">Config</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">Redis</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">error</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+	<span style="color:#000">mysqlImpl</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">normal</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">GetImpl</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">SDID</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">config</span><span style="color:#000;font-weight:bold">)</span>
+	<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#204a87;font-weight:bold">nil</span> <span style="color:#000;font-weight:bold">{</span>
+		<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#204a87;font-weight:bold">nil</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">err</span>
+	<span style="color:#000;font-weight:bold">}</span>
+	<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">mysqlImpl</span><span style="color:#000;font-weight:bold">.(</span><span style="color:#000">Redis</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#204a87;font-weight:bold">nil</span>
+<span style="color:#000;font-weight:bold">}</span>
+</code></pre></div><ul>
+<li>如果结构提供者并没有提供上述 API，用户同样也可以直接调用，传入参数并获取对象。</li>
+</ul>
+<h3 id="对象获取-api">对象获取 API</h3>
+<ul>
+<li>
+<p>多例（normal）</p>
+<p>autowire/normal/normal.go</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#204a87;font-weight:bold">func</span> <span style="color:#000">GetImpl</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">sdID</span> <span style="color:#204a87;font-weight:bold">string</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">param</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{})</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{},</span> <span style="color:#204a87;font-weight:bold">error</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{}</span>
+</code></pre></div><p>每次调用多例获取 API，将创建一个新对象。</p>
+</li>
+<li>
+<p>单例（singleton）</p>
+<p>autowire/singleton/singleton.go</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#204a87;font-weight:bold">func</span> <span style="color:#000">GetImpl</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">sdID</span> <span style="color:#204a87;font-weight:bold">string</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{},</span> <span style="color:#204a87;font-weight:bold">error</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{}</span>
+</code></pre></div><p>单例模型全局只拥有一个对象，通过 API 只能获取而不能创建，在框架启动时所有单例模型指针将基于配置/标签创建好。</p>
+</li>
+</ul>
+<h3 id="关键代码">关键代码</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#204a87;font-weight:bold">import</span><span style="color:#000;font-weight:bold">(</span>
+	<span style="color:#4e9a06">&#34;github.com/alibaba/ioc-golang/autowire/normal&#34;</span>
+	<span style="color:#4e9a06">&#34;github.com/alibaba/ioc-golang/autowire/singleton&#34;</span>
+	<span style="color:#4e9a06">&#34;github.com/alibaba/ioc-golang/extension/normal/redis&#34;</span>
+<span style="color:#000;font-weight:bold">)</span>
+
+
+<span style="color:#204a87;font-weight:bold">func</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">a</span> <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">App</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000">Run</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+  <span style="color:#8f5902;font-style:italic">// 通过 normal 提供的全局 API，传递结构描述 ID 和配置结构，创建多例对象
+</span><span style="color:#8f5902;font-style:italic"></span>	<span style="color:#000">normalRedis</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">normal</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">GetImpl</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Redis-Impl&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">redis</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Config</span><span style="color:#000;font-weight:bold">{</span>
+		<span style="color:#000">Address</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;localhost:6379&#34;</span><span style="color:#000;font-weight:bold">,</span>
+		<span style="color:#000">DB</span><span style="color:#000;font-weight:bold">:</span>      <span style="color:#4e9a06">&#34;0&#34;</span><span style="color:#000;font-weight:bold">,</span>
+	<span style="color:#000;font-weight:bold">})</span>
+  <span style="color:#8f5902;font-style:italic">// 通过 redis 结构提供者定义好的 GetRedis 方法，传递配置结构，创建多例对象
+</span><span style="color:#8f5902;font-style:italic"></span>	<span style="color:#000">normalRedis2</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">redis</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">GetRedis</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">redis</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Config</span><span style="color:#000;font-weight:bold">{</span>
+		<span style="color:#000">Address</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;localhost:6379&#34;</span><span style="color:#000;font-weight:bold">,</span>
+		<span style="color:#000">DB</span><span style="color:#000;font-weight:bold">:</span>      <span style="color:#4e9a06">&#34;0&#34;</span><span style="color:#000;font-weight:bold">,</span>
+	<span style="color:#000;font-weight:bold">})</span>
+  <span style="color:#ce5c00;font-weight:bold">...</span>
+<span style="color:#000;font-weight:bold">}</span>
+
+<span style="color:#204a87;font-weight:bold">func</span> <span style="color:#000">main</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+	<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">ioc</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Load</span><span style="color:#000;font-weight:bold">();</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#204a87;font-weight:bold">nil</span> <span style="color:#000;font-weight:bold">{</span>
+		<span style="color:#204a87">panic</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">err</span><span style="color:#000;font-weight:bold">)</span>
+	<span style="color:#000;font-weight:bold">}</span>
+  <span style="color:#8f5902;font-style:italic">// 通过 singleton 提供的全局 API，传递结构描述 ID 获取单例对象
+</span><span style="color:#8f5902;font-style:italic"></span>	<span style="color:#000">appInterface</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">singleton</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">GetImpl</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;App-App&#34;</span><span style="color:#000;font-weight:bold">)</span>
+	<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#204a87;font-weight:bold">nil</span> <span style="color:#000;font-weight:bold">{</span>
+		<span style="color:#204a87">panic</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">err</span><span style="color:#000;font-weight:bold">)</span>
+	<span style="color:#000;font-weight:bold">}</span>
+	<span style="color:#000">app</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">appInterface</span><span style="color:#000;font-weight:bold">.(</span><span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">App</span><span style="color:#000;font-weight:bold">)</span>
+
+	<span style="color:#000">app</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Run</span><span style="color:#000;font-weight:bold">()</span>
+<span style="color:#000;font-weight:bold">}</span>
+
+</code></pre></div><h3 id="运行示例">运行示例</h3>
+<p>需要确保您本地运行了redis，可通过 <code>docker run -p6379:6379 redis:latest</code> 快速启动一个。</p>
+<p>例子会通过 API 获取 App 对象和 redis 对象，并调用 redis 对象提供的方法。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"> <span style="color:#204a87">cd</span> example/get_impl_by_api/cmd
+ go run .
+  ___    ___     ____            ____           _                         
+ <span style="color:#000;font-weight:bold">|</span>_ _<span style="color:#000;font-weight:bold">|</span>  / _ <span style="color:#4e9a06">\ </span>  / ___<span style="color:#000;font-weight:bold">|</span>          / ___<span style="color:#000;font-weight:bold">|</span>   ___   <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>   __ _   _ __     __ _ 
+  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>      _____  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>  _   / _ <span style="color:#4e9a06">\ </span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>  / _<span style="color:#4e9a06">`</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#a40000">&#39;</span>_ <span style="color:#4e9a06">\ </span>  / _<span style="color:#4e9a06">`</span> <span style="color:#000;font-weight:bold">|</span>
+  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>___  <span style="color:#000;font-weight:bold">|</span>_____<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#ce5c00;font-weight:bold">(</span>_<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#ce5c00;font-weight:bold">(</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#ce5c00;font-weight:bold">(</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>
+ <span style="color:#000;font-weight:bold">|</span>___<span style="color:#000;font-weight:bold">|</span>  <span style="color:#4e9a06">\_</span>__/   <span style="color:#4e9a06">\_</span>___<span style="color:#000;font-weight:bold">|</span>          <span style="color:#4e9a06">\_</span>___<span style="color:#000;font-weight:bold">|</span>  <span style="color:#4e9a06">\_</span>__/  <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span>  <span style="color:#4e9a06">\_</span>_,_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span>  <span style="color:#4e9a06">\_</span>_, <span style="color:#000;font-weight:bold">|</span>
+                                                                    <span style="color:#000;font-weight:bold">|</span>___/ 
+Welcome to use ioc-golang!
+<span style="color:#ce5c00;font-weight:bold">[</span>Boot<span style="color:#ce5c00;font-weight:bold">]</span> Start to load ioc-golang config
+<span style="color:#ce5c00;font-weight:bold">[</span>Config<span style="color:#ce5c00;font-weight:bold">]</span> Load config file from ../conf/ioc_golang.yaml
+Load ioc-golang config file failed. open ../conf/ioc_golang.yaml: no such file or directory
+The load procedure is <span style="color:#204a87;font-weight:bold">continue</span>
+<span style="color:#ce5c00;font-weight:bold">[</span>Boot<span style="color:#ce5c00;font-weight:bold">]</span> Start to load debug
+<span style="color:#ce5c00;font-weight:bold">[</span>Debug<span style="color:#ce5c00;font-weight:bold">]</span> Debug mod is not enabled
+<span style="color:#ce5c00;font-weight:bold">[</span>Boot<span style="color:#ce5c00;font-weight:bold">]</span> Start to load autowire
+<span style="color:#ce5c00;font-weight:bold">[</span>Autowire Type<span style="color:#ce5c00;font-weight:bold">]</span> Found registered autowire <span style="color:#204a87">type</span> normal
+<span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> normal registered SD Redis-Impl
+<span style="color:#ce5c00;font-weight:bold">[</span>Autowire Type<span style="color:#ce5c00;font-weight:bold">]</span> Found registered autowire <span style="color:#204a87">type</span> singleton
+<span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> singleton registered SD App-App
+get <span style="color:#000">val</span> <span style="color:#ce5c00;font-weight:bold">=</span>  db0
+</code></pre></div><p>可看到打印出了 redis 中的数据。</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-ec4de8464ec8e0be0c9210cab691fe5a">6 - 使用调试功能</h1>
+    
+	<h3 id="简介">简介</h3>
+<p>本示例展示了 ioc-golang 框架提供的代码调试能力</p>
+<p>调试能力对于程序性能有损耗，请您不要在追求性能的场景下开启调试能力。</p>
+<p>ioc_golang.yaml:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">debug</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># debug 开关，默认为 false</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div><p>debug 模式下，本框架基于 AOP 的思路，为每个注册在框架的结构方法都封装了一组拦截器。基于这些拦截器，可以实现具有很好扩展能力的调试功能。</p>
+<p>调试能力包括：</p>
+<ul>
+<li>基于 ioc-debug 协议，暴露调试端口</li>
+<li>查看所有接口、实现、方法列表</li>
+<li>监听、修改任意方法的入参和返回值</li>
+<li>性能瓶颈分析【开发中】</li>
+<li>可观测性【开发中】</li>
+</ul>
+<h3 id="示例介绍">示例介绍</h3>
+<p>本示例实现了以下拓扑</p>
+<p><img src="https://raw.githubusercontent.com/ioc-golang/ioc-golang-website/main/resources/img/debug-topology.png" alt="debug"></p>
+<p>在这个例子中，App 结构会依此调用所有依赖对象，进而调用一个单例模型注入的 gRPC 客户端，该客户端发起网络请求，并获得结果。</p>
+<p>我们将开启 debug 模式，通过 ioc-go-cli 工具查看接口、实现、方法，并监听通过 gRPC Client 发送的所有请求和返回值。</p>
+<h3 id="运行示例">运行示例</h3>
+<ol>
+<li>
+<p>启动 grpc Server</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">% <span style="color:#204a87">cd</span> example/denbug/grpc_server
+% go run .
+</code></pre></div></li>
+<li>
+<p>新开一个终端，启动客户端。</p>
+<p><strong>注意 GOARCH 环境变量和 -gcflags 编译参数, amd机器无需指定 GOARCH 环境变量。</strong></p>
+<p>正确在 ioc_golang.yaml 中开启debug模式后，会打印</p>
+<p><code>[Debug] Debug port is set to default :1999 </code>的日志。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">% <span style="color:#204a87">cd</span> example/debug/cmd
+% <span style="color:#000">GOARCH</span><span style="color:#ce5c00;font-weight:bold">=</span>amd64 go run -gcflags<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;-N -l&#34;</span> .
+  ___    ___     ____            ____           _                         
+ <span style="color:#000;font-weight:bold">|</span>_ _<span style="color:#000;font-weight:bold">|</span>  / _ <span style="color:#4e9a06">\ </span>  / ___<span style="color:#000;font-weight:bold">|</span>          / ___<span style="color:#000;font-weight:bold">|</span>   ___   <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>   __ _   _ __     __ _ 
+  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>      _____  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>  _   / _ <span style="color:#4e9a06">\ </span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>  / _<span style="color:#4e9a06">`</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#a40000">&#39;</span>_ <span style="color:#4e9a06">\ </span>  / _<span style="color:#4e9a06">`</span> <span style="color:#000;font-weight:bold">|</span>
+  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>___  <span style="color:#000;font-weight:bold">|</span>_____<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#ce5c00;font-weight:bold">(</span>_<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#ce5c00;font-weight:bold">(</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#ce5c00;font-weight:bold">(</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>
+ <span style="color:#000;font-weight:bold">|</span>___<span style="color:#000;font-weight:bold">|</span>  <span style="color:#4e9a06">\_</span>__/   <span style="color:#4e9a06">\_</span>___<span style="color:#000;font-weight:bold">|</span>          <span style="color:#4e9a06">\_</span>___<span style="color:#000;font-weight:bold">|</span>  <span style="color:#4e9a06">\_</span>__/  <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span>  <span style="color:#4e9a06">\_</span>_,_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span>  <span style="color:#4e9a06">\_</span>_, <span style="color:#000;font-weight:bold">|</span>
+                                                                    <span style="color:#000;font-weight:bold">|</span>___/ 
+Welcome to use ioc-golang!
+<span style="color:#ce5c00;font-weight:bold">[</span>Boot<span style="color:#ce5c00;font-weight:bold">]</span> Start to load ioc-golang config
+<span style="color:#ce5c00;font-weight:bold">[</span>Config<span style="color:#ce5c00;font-weight:bold">]</span> Load config file from ../conf/ioc_golang.yaml
+<span style="color:#ce5c00;font-weight:bold">[</span>Boot<span style="color:#ce5c00;font-weight:bold">]</span> Start to load debug
+<span style="color:#ce5c00;font-weight:bold">[</span>Debug<span style="color:#ce5c00;font-weight:bold">]</span> Debug port is <span style="color:#204a87">set</span> to default :1999
+<span style="color:#ce5c00;font-weight:bold">[</span>Boot<span style="color:#ce5c00;font-weight:bold">]</span> Start to load autowire
+<span style="color:#ce5c00;font-weight:bold">[</span>Autowire Type<span style="color:#ce5c00;font-weight:bold">]</span> Found registered autowire <span style="color:#204a87">type</span> singleton
+<span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> singleton registered SD Service1-Impl1
+<span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> singleton registered SD Service2-Impl1
+<span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> singleton registered SD Service2-Impl2
+<span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> singleton registered SD Struct1-Struct1
+<span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> singleton registered SD App-App
+<span style="color:#ce5c00;font-weight:bold">[</span>Autowire Type<span style="color:#ce5c00;font-weight:bold">]</span> Found registered autowire <span style="color:#204a87">type</span> grpc
+<span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> grpc registered SD HelloServiceClient-HelloServiceClient
+<span style="color:#ce5c00;font-weight:bold">[</span>Debug<span style="color:#ce5c00;font-weight:bold">]</span> Debug server listening at :1999
+create conn target  localhost:8080
+App call grpc get: Hello laurence
+ExampleService1Impl1 call grpc get :Hello laurence_service1_impl1
+ExampleService2Impl1 call grpc get :Hello laurence_service2_impl1
+ExampleService2Impl2 call grpc get :Hello laurence_service2_impl2
+ExampleStruct1 call grpc get :Hello laurence_service1_impl1
+</code></pre></div><p>每隔 5s，所有的对象都会发起一次 gRPC 请求。</p>
+</li>
+<li>
+<p>新开一个终端，查看所有接口、实现和方法。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">% ioc-go-cli list
+App
+App
+<span style="color:#ce5c00;font-weight:bold">[</span>Run<span style="color:#ce5c00;font-weight:bold">]</span>
+
+HelloServiceClient
+HelloServiceClient
+<span style="color:#ce5c00;font-weight:bold">[</span>SayHello<span style="color:#ce5c00;font-weight:bold">]</span>
+
+Service1
+Impl1
+<span style="color:#ce5c00;font-weight:bold">[</span>Hello<span style="color:#ce5c00;font-weight:bold">]</span>
+
+Service2
+Impl1
+<span style="color:#ce5c00;font-weight:bold">[</span>Hello<span style="color:#ce5c00;font-weight:bold">]</span>
+
+Service2
+Impl2
+<span style="color:#ce5c00;font-weight:bold">[</span>Hello<span style="color:#ce5c00;font-weight:bold">]</span>
+
+Struct1
+Struct1
+<span style="color:#ce5c00;font-weight:bold">[</span>Hello<span style="color:#ce5c00;font-weight:bold">]</span>
+</code></pre></div></li>
+<li>
+<p>监听 gRPC Client 的所有流量，每隔 5s 会打印出相关的请求、返回值信息。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">% ioc-go-cli watch HelloServiceClient HelloServiceClient <span style="color:#000">SayHello</span>
+<span style="color:#ce5c00;font-weight:bold">==========</span> On <span style="color:#000">Call</span> <span style="color:#ce5c00;font-weight:bold">==========</span>
+HelloServiceClient.<span style="color:#ce5c00;font-weight:bold">(</span>HelloServiceClient<span style="color:#ce5c00;font-weight:bold">)</span>.SayHello<span style="color:#ce5c00;font-weight:bold">()</span>
+Param 1: <span style="color:#ce5c00;font-weight:bold">(</span>*context.emptyCtx<span style="color:#ce5c00;font-weight:bold">)(</span>0xc0000280e0<span style="color:#ce5c00;font-weight:bold">)(</span>context.Background<span style="color:#ce5c00;font-weight:bold">)</span>
+
+Param 2: <span style="color:#ce5c00;font-weight:bold">(</span>*api.HelloRequest<span style="color:#ce5c00;font-weight:bold">)(</span>0xc000298640<span style="color:#ce5c00;font-weight:bold">)(</span>name:<span style="color:#4e9a06">&#34;laurence&#34;</span><span style="color:#ce5c00;font-weight:bold">)</span>
+
+Param 3: <span style="color:#ce5c00;font-weight:bold">([]</span>grpc.CallOption<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">len</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">2</span> <span style="color:#000">cap</span><span style="color:#ce5c00;font-weight:bold">=</span>2<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">{</span>
+ <span style="color:#ce5c00;font-weight:bold">(</span>grpc.MaxRecvMsgSizeCallOption<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">{</span>
+  MaxRecvMsgSize: <span style="color:#ce5c00;font-weight:bold">(</span>int<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#0000cf;font-weight:bold">1024</span>
+ <span style="color:#ce5c00;font-weight:bold">}</span>,
+ <span style="color:#ce5c00;font-weight:bold">(</span>grpc.MaxRecvMsgSizeCallOption<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">{</span>
+  MaxRecvMsgSize: <span style="color:#ce5c00;font-weight:bold">(</span>int<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#0000cf;font-weight:bold">1024</span>
+ <span style="color:#ce5c00;font-weight:bold">}</span>
+<span style="color:#ce5c00;font-weight:bold">}</span>
+
+
+<span style="color:#ce5c00;font-weight:bold">==========</span> On <span style="color:#000">Response</span> <span style="color:#ce5c00;font-weight:bold">==========</span>
+HelloServiceClient.<span style="color:#ce5c00;font-weight:bold">(</span>HelloServiceClient<span style="color:#ce5c00;font-weight:bold">)</span>.SayHello<span style="color:#ce5c00;font-weight:bold">()</span>
+Response 1: <span style="color:#ce5c00;font-weight:bold">(</span>*api.HelloResponse<span style="color:#ce5c00;font-weight:bold">)(</span>0xc000298740<span style="color:#ce5c00;font-weight:bold">)(</span>reply:<span style="color:#4e9a06">&#34;Hello laurence&#34;</span><span style="color:#ce5c00;font-weight:bold">)</span>
+
+Response 2: <span style="color:#ce5c00;font-weight:bold">(</span>interface <span style="color:#ce5c00;font-weight:bold">{})</span> &lt;nil&gt;
+
+
+<span style="color:#ce5c00;font-weight:bold">==========</span> On <span style="color:#000">Call</span> <span style="color:#ce5c00;font-weight:bold">==========</span>
+HelloServiceClient.<span style="color:#ce5c00;font-weight:bold">(</span>HelloServiceClient<span style="color:#ce5c00;font-weight:bold">)</span>.SayHello<span style="color:#ce5c00;font-weight:bold">()</span>
+Param 1: <span style="color:#ce5c00;font-weight:bold">(</span>*context.emptyCtx<span style="color:#ce5c00;font-weight:bold">)(</span>0xc0000280e0<span style="color:#ce5c00;font-weight:bold">)(</span>context.Background<span style="color:#ce5c00;font-weight:bold">)</span>
+
+Param 2: <span style="color:#ce5c00;font-weight:bold">(</span>*api.HelloRequest<span style="color:#ce5c00;font-weight:bold">)(</span>0xc000298900<span style="color:#ce5c00;font-weight:bold">)(</span>name:<span style="color:#4e9a06">&#34;laurence_service1_impl1&#34;</span><span style="color:#ce5c00;font-weight:bold">)</span>
+
+Param 3: <span style="color:#ce5c00;font-weight:bold">([]</span>grpc.CallOption<span style="color:#ce5c00;font-weight:bold">)</span> &lt;nil&gt;
+
+
+<span style="color:#ce5c00;font-weight:bold">==========</span> On <span style="color:#000">Response</span> <span style="color:#ce5c00;font-weight:bold">==========</span>
+HelloServiceClient.<span style="color:#ce5c00;font-weight:bold">(</span>HelloServiceClient<span style="color:#ce5c00;font-weight:bold">)</span>.SayHello<span style="color:#ce5c00;font-weight:bold">()</span>
+Response 1: <span style="color:#ce5c00;font-weight:bold">(</span>*api.HelloResponse<span style="color:#ce5c00;font-weight:bold">)(</span>0xc0002989c0<span style="color:#ce5c00;font-weight:bold">)(</span>reply:<span style="color:#4e9a06">&#34;Hello laurence_service1_impl1&#34;</span><span style="color:#ce5c00;font-weight:bold">)</span>
+
+Response 2: <span style="color:#ce5c00;font-weight:bold">(</span>interface <span style="color:#ce5c00;font-weight:bold">{})</span> &lt;nil&gt;
+
+...
+</code></pre></div></li>
+</ol>
+<h3 id="小结">小结</h3>
+<p>通过 Debug 能力，开发人员可以在测试环境内动态地监控流量，帮助排查问题。</p>
+<p>也可以基于 ioc-golang 提供的拦截器层，注册任何自己期望的流量拦截器，扩展调试、可观测、运维能力。</p>
+
+</div>
+
+
+
+    
+	
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="User mailing list" aria-label="User mailing list">
+    <a class="text-white" target="_blank" rel="noopener" href="https://example.org/mail" aria-label="User mailing list">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+    <a class="text-white" target="_blank" rel="noopener" href="https://example.org/twitter" aria-label="Twitter">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Stack Overflow" aria-label="Stack Overflow">
+    <a class="text-white" target="_blank" rel="noopener" href="https://example.org/stack" aria-label="Stack Overflow">
+      <i class="fab fa-stack-overflow"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
+    <a class="text-white" target="_blank" rel="noopener" href="https://github.com/google/docsy" aria-label="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Slack" aria-label="Slack">
+    <a class="text-white" target="_blank" rel="noopener" href="https://example.org/slack" aria-label="Slack">
+      <i class="fab fa-slack"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Developer mailing list" aria-label="Developer mailing list">
+    <a class="text-white" target="_blank" rel="noopener" href="https://example.org/mail" aria-label="Developer mailing list">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2022 The Docsy Authors All Rights Reserved</small>
+        <small class="ml-1"><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy Policy</a></small>
+	
+		
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/js/tabpane-persist.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.7380160122c24d59789a168af05fcec445fe4e5f2069dd9f3a0c991f10269ae0.js" integrity="sha256-c4AWASLCTVl4mhaK8F/OxEX&#43;Tl8gad2fOgyZHxAmmuA=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>
