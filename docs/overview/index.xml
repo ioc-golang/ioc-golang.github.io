@@ -56,12 +56,12 @@
 &lt;p&gt;Can take over object creation, parameter injection, factory methods. Customizable object parameter source.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Automatic code generation capability&lt;/p&gt;
-&lt;p&gt;We provide a code generation tool, and developers can annotate the structure through annotations, so as to easily generate structure registration code.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
 &lt;p&gt;Code debugging ability&lt;/p&gt;
 &lt;p&gt;Based on the idea of OP, it provides runtime monitoring and debugging capabilities for object methods taken over by the framework.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Automatic struct descriptors codes generation capability&lt;/p&gt;
+&lt;p&gt;We provide a code generation tool, and developers can annotate the structure through annotations, so as to easily generate structure registration code.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Scalability&lt;/p&gt;

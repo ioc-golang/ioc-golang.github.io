@@ -21,7 +21,35 @@
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
 <title>Concept | IOC-Golang</title>
-<meta name="description" content="">
+<meta name="description" content="Concept
+
+
+
+Chinese
+English
+Description
+
+
+
+
+结构
+Struct
+Go 语言的 struct 类型结构体
+
+
+对象
+Object
+Go 语言中的实例化对象
+
+
+接口
+Interface
+Go 语言中的 interface 类型接口
+
+
+方法
+Method
+Go …">
 <meta property="og:title" content="Concept" />
 <meta property="og:description" content="IOC-Golang doc site" />
 <meta property="og:type" content="website" />
@@ -138,7 +166,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1: <a href="#pg-5c763969b73849d7b8635f31698de957">Dependency Injection</a></li>
+<li>1: <a href="#pg-5c763969b73849d7b8635f31698de957">依赖注入</a></li>
 
 
     
@@ -146,7 +174,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>2: <a href="#pg-8fae84f51ace81fe2401d941c8598831">Autowire Model</a></li>
+<li>2: <a href="#pg-8fae84f51ace81fe2401d941c8598831">自动装载模型</a></li>
 
 
     
@@ -154,7 +182,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>3: <a href="#pg-6d66895ec3961a0f07f75b9d3b53124b">Struct Description</a></li>
+<li>3: <a href="#pg-6d66895ec3961a0f07f75b9d3b53124b">结构描述符</a></li>
 
 
     
@@ -162,7 +190,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>4: <a href="#pg-498a61452dd050f0a493d9c9da70425b">Param Loader</a></li>
+<li>4: <a href="#pg-498a61452dd050f0a493d9c9da70425b">参数加载器</a></li>
 
 
     
@@ -170,7 +198,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>5: <a href="#pg-91b059c80c8a87c84f32d97ab49aa5af">Annotation</a></li>
+<li>5: <a href="#pg-91b059c80c8a87c84f32d97ab49aa5af">注解</a></li>
 
 
     
@@ -180,7 +208,59 @@ This is the multi-page printable view of this section.
 
 
 <div class="content">
-      
+      <h3 id="concept">Concept</h3>
+<table>
+<thead>
+<tr>
+<th>Chinese</th>
+<th>English</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>结构</td>
+<td>Struct</td>
+<td>Go 语言的 struct 类型结构体</td>
+</tr>
+<tr>
+<td>对象</td>
+<td>Object</td>
+<td>Go 语言中的实例化对象</td>
+</tr>
+<tr>
+<td>接口</td>
+<td>Interface</td>
+<td>Go 语言中的 interface 类型接口</td>
+</tr>
+<tr>
+<td>方法</td>
+<td>Method</td>
+<td>Go 语言中的接口、对象大写字母开头的函数方法</td>
+</tr>
+<tr>
+<td>依赖注入</td>
+<td>Dependency Injection（DI）</td>
+<td></td>
+</tr>
+<tr>
+<td>自动装载</td>
+<td>Auto Wire</td>
+<td></td>
+</tr>
+<tr>
+<td>结构描述符</td>
+<td>Struct Descriptor （SD）</td>
+<td></td>
+</tr>
+<tr>
+<td>结构描述键</td>
+<td>Struct Descriptor Identification（SDID）</td>
+<td>自动装载模型内索引结构的唯一ID。</td>
+</tr>
+</tbody>
+</table>
+
 </div>
 </div>
 
@@ -199,11 +279,61 @@ This is the multi-page printable view of this section.
 	
     
 
-<div class="td-content" style="">
+<div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-5c763969b73849d7b8635f31698de957">1 - Dependency Injection</h1>
+	<h1 id="pg-5c763969b73849d7b8635f31698de957">1 - 依赖注入</h1>
     
-	
+	<h3 id="概念">概念</h3>
+<p>依赖注入是指开发人员无需显式地创建对象，而是通过标签的方式声明字段，由框架负责将实例化对象写入该字段。</p>
+<h3 id="优点">优点</h3>
+<p>依赖注入可以降低代码的耦合度，减少冗余代码量，优化代码逻辑。帮助开发人员面向对象编程，面向接口编程。</p>
+<h3 id="ioc-golang-的依赖注入能力">IOC-Golang 的依赖注入能力</h3>
+<p>本框架从两个角度实现依赖注入：</p>
+<ul>
+<li>
+<p>结构如何被提供</p>
+<p>开发人员需要准备好需要被注入的结构，将它注册到框架。注册到框架的代码可以由开发人员手动编写，开发人员也可以通过使用<a href="../annotation">注解</a>标记结构，使用 <a href="http://localhost:1313/cn/docs/reference/ioc-go-cli/#%E7%BB%93%E6%9E%84%E6%B3%A8%E8%A7%A3">ioc-go-cli</a> 的代码生成能力自动生成注册代码，从而减少工作量。</p>
+<p>一个带有<a href="../annotation">注解</a>的结构</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#8f5902;font-style:italic">// +ioc:autowire=true
+</span><span style="color:#8f5902;font-style:italic">// +ioc:autowire:type=singleton
+</span><span style="color:#8f5902;font-style:italic"></span>
+<span style="color:#204a87;font-weight:bold">type</span> <span style="color:#000">App</span> <span style="color:#204a87;font-weight:bold">struct</span> <span style="color:#000;font-weight:bold">{}</span>
+</code></pre></div><p>由 ioc-go-cli 工具生成，或用户手动编写的注册代码。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#204a87;font-weight:bold">func</span> <span style="color:#000">init</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+	<span style="color:#000">singleton</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">RegisterStructDescriptor</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">autowire</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">StructDescriptor</span><span style="color:#000;font-weight:bold">{</span>
+      <span style="color:#000">Interface</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">App</span><span style="color:#000;font-weight:bold">{},</span>
+      <span style="color:#000">Factory</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">func</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{}</span> <span style="color:#000;font-weight:bold">{</span>
+          <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">App</span><span style="color:#000;font-weight:bold">{}</span>
+      <span style="color:#000;font-weight:bold">},</span>
+	<span style="color:#000;font-weight:bold">})</span>
+<span style="color:#000;font-weight:bold">}</span>
+</code></pre></div></li>
+<li>
+<p>结构如何被使用</p>
+<ul>
+<li>
+<p>通过标签注入</p>
+<p>开发人员需要通过标签来标记需要注入的结构字段。</p>
+<p>需要通过标签注入依赖的结构，其本身必须也注册在框架上。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#8f5902;font-style:italic">// +ioc:autowire=true
+</span><span style="color:#8f5902;font-style:italic">// +ioc:autowire:type=singleton
+</span><span style="color:#8f5902;font-style:italic"></span>
+<span style="color:#204a87;font-weight:bold">type</span> <span style="color:#000">App</span> <span style="color:#204a87;font-weight:bold">struct</span> <span style="color:#000;font-weight:bold">{</span>
+	<span style="color:#000">MySubService</span> <span style="color:#000">Service</span> <span style="color:#4e9a06">`singleton:&#34;ServiceImpl1&#34;`</span> 
+<span style="color:#000;font-weight:bold">}</span>
+</code></pre></div></li>
+<li>
+<p>通过 API 获取，入参为 <a href="/cn/docs/concept/sd/#%E7%BB%93%E6%9E%84%E6%8F%8F%E8%BF%B0id">结构描述 ID</a> ，即可获取对象。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#000">appInterface</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">singleton</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">GetImpl</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;App-App&#34;</span><span style="color:#000;font-weight:bold">)</span>
+	<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#204a87;font-weight:bold">nil</span> <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#204a87">panic</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">err</span><span style="color:#000;font-weight:bold">)</span>
+	<span style="color:#000;font-weight:bold">}</span>
+	<span style="color:#000">app</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">appInterface</span><span style="color:#000;font-weight:bold">.(</span><span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">App</span><span style="color:#000;font-weight:bold">)</span>
+</code></pre></div></li>
+</ul>
+</li>
+</ul>
+
 </div>
 
 
@@ -218,9 +348,14 @@ This is the multi-page printable view of this section.
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-8fae84f51ace81fe2401d941c8598831">2 - Autowire Model</h1>
+	<h1 id="pg-8fae84f51ace81fe2401d941c8598831">2 - 自动装载模型</h1>
     
-	
+	<h3 id="概念">概念</h3>
+<p>自动装载模型封装了一类对象的装载方式，是本框架对装载过程抽象出的概念和接口。</p>
+<p>用户需要定义的结构千变万化，如果每个结构描述符都要提供完整的装载过程信息，将是一件很麻烦的事情。我们可以将一类相似的结构抽象出一个自动装载模型，选择注册在该模型的所有对象都需要遵循该模型的加载策略，这大大降低了用户提供的结构描述符数据量，提高开发效率。</p>
+<p>框架内置了两个基础自动装载模型：单例模型（singleton），多例模型（normal）</p>
+<p>框架提供了两个扩展的自动装载模型：配置（config），gRPC 客户端（grpc）。其中配置模型是多例模型的扩展，gRPC 客户端是单例模型的扩展。框架内置了基于“配置自动装载模型”的多个结构。用户可以用几行代码将 “gRPC 客户端存根”注册在 “grpc 装载模型” 之上。方便地从配置文件中的指定位置读入下游主机名、从标签读入客户端名称，注入客户端单例指针。</p>
+
 </div>
 
 
@@ -235,9 +370,110 @@ This is the multi-page printable view of this section.
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-6d66895ec3961a0f07f75b9d3b53124b">3 - Struct Description</h1>
+	<h1 id="pg-6d66895ec3961a0f07f75b9d3b53124b">3 - 结构描述符</h1>
     
-	
+	<h3 id="概念">概念</h3>
+<p>结构描述符用于描述一个开发者定义的结构，其包含了对象生命周期的全部信息，例如结构类型是什么，实现了哪些接口，如何被构造等等。</p>
+<p>结构描述符可以通过注解的方式使用工具<a href="/cn/docs/reference/ioc-go-cli/#%E7%BB%93%E6%9E%84%E6%B3%A8%E8%A7%A3">自动生成</a>。但还是推荐开发人员了解本框架定义的结构生命周期和结构描述信息，以便更清晰地开发应用。</p>
+<h3 id="对象生命周期">对象生命周期</h3>
+<p>开发人员在 Go 语言开发过程中需要时时关注对象的生命周期，一个常见的对象生命周期如下：</p>
+<ol>
+<li>对象定义：开发人员编码，编写结构，实现接口，确定模型（单例、多例..) 。</li>
+<li>加载全部依赖：依赖的下游对象创建、配置读入等。</li>
+<li>对象创建：产生一个基于该对象的指针</li>
+<li>对象构造：获取全部依赖，并将其组装到空对象中，产生可用对象。</li>
+<li>对象使用：调用对象的方法，读写对象字段。</li>
+<li>对象销毁：销毁对象，销毁无需再使用的依赖对象。</li>
+</ol>
+<h3 id="参数">参数</h3>
+<p>本框架的“参数”概念，是一个结构体，该结构体包含了创建一个对象所需全部依赖，并提供了构造方法。</p>
+<p>例如</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#204a87;font-weight:bold">type</span> <span style="color:#000">Config</span> <span style="color:#204a87;font-weight:bold">struct</span> <span style="color:#000;font-weight:bold">{</span>
+	<span style="color:#000">Host</span>      <span style="color:#204a87;font-weight:bold">string</span>
+	<span style="color:#000">Port</span>      <span style="color:#204a87;font-weight:bold">string</span>
+	<span style="color:#000">Username</span>  <span style="color:#204a87;font-weight:bold">string</span>
+	<span style="color:#000">Password</span>  <span style="color:#204a87;font-weight:bold">string</span>
+<span style="color:#000;font-weight:bold">}</span>
+
+<span style="color:#204a87;font-weight:bold">func</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">c</span> <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">Config</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000">New</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">mysqlImpl</span> <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">Impl</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">Impl</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">error</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+	<span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">err</span> <span style="color:#204a87;font-weight:bold">error</span>
+	<span style="color:#000">mysqlImpl</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">db</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">err</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000">gorm</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Open</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">mysql</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Open</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">getMysqlLinkStr</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">c</span><span style="color:#000;font-weight:bold">)),</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">gorm</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Config</span><span style="color:#000;font-weight:bold">{})</span>
+	<span style="color:#000">mysqlImpl</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">tableName</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000">c</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">TableName</span>
+	<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">mysqlImpl</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">err</span>
+<span style="color:#000;font-weight:bold">}</span>
+</code></pre></div><p>Config 结构即为 Impl 结构的“参数”。其包含了产生 Impl 结构的全部信息。</p>
+<h3 id="结构描述符-struct-descriptor">结构描述符 （Struct Descriptor）</h3>
+<p>本框架定义的结构描述符如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#204a87;font-weight:bold">type</span> <span style="color:#000">StructDescriptor</span> <span style="color:#204a87;font-weight:bold">struct</span> <span style="color:#000;font-weight:bold">{</span>
+	<span style="color:#000">Interface</span>     <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{}</span>
+	<span style="color:#000">Factory</span>       <span style="color:#204a87;font-weight:bold">func</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{}</span> 
+	<span style="color:#000">ParamFactory</span>  <span style="color:#204a87;font-weight:bold">func</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{}</span>
+	<span style="color:#000">ParamLoader</span>   <span style="color:#000">ParamLoader</span>
+	<span style="color:#000">ConstructFunc</span> <span style="color:#204a87;font-weight:bold">func</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">impl</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{},</span> <span style="color:#000">param</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{})</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{},</span> <span style="color:#204a87;font-weight:bold">error</span><span style="color:#000;font-weight:bold">)</span>
+	<span style="color:#000">DestroyFunc</span>   <span style="color:#204a87;font-weight:bold">func</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">impl</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{})</span>
+
+	<span style="color:#000">autowireType</span>    <span style="color:#204a87;font-weight:bold">string</span>
+<span style="color:#000;font-weight:bold">}</span>
+</code></pre></div><ul>
+<li>
+<p>Interface 【必要】</p>
+<p>结构实现的接口指针</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#000">new</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">MyInterface</span><span style="color:#000;font-weight:bold">)</span>
+</code></pre></div><p>如果结构没有实现任何接口，则使用结构指针。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">Impl</span><span style="color:#000;font-weight:bold">{}</span>
+</code></pre></div></li>
+<li>
+<p>Factory【必要】</p>
+<p>结构的工厂函数，返回值是未经初始化的空结构指针，例如</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#204a87;font-weight:bold">func</span> <span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{}{</span>
+	<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">App</span><span style="color:#000;font-weight:bold">{}</span>
+<span style="color:#000;font-weight:bold">}</span>
+</code></pre></div></li>
+<li>
+<p>ParamFactory【非必要】</p>
+<p>参数的工厂函数，返回值是未经初始化的空参数指针，例如</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#204a87;font-weight:bold">func</span> <span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{}{</span>
+	<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">Config</span><span style="color:#000;font-weight:bold">{}</span>
+<span style="color:#000;font-weight:bold">}</span>
+</code></pre></div></li>
+<li>
+<p>ParamLoader【非必要】</p>
+<p>参数加载器定义了参数的各个字段如何被加载，是从注入标签传入、还是从配置读入、或是以一些定制化的方式。</p>
+<p>框架提供了默认的参数加载器，详情参阅 <a href="/cn/docs/concept/param_loader">参数加载器概念</a></p>
+</li>
+<li>
+<p>Constructor【非必要】</p>
+<p>构造函数定义了对象被组装的过程。</p>
+<p>入参为对象指针和参数指针，其中对象指针的所有依赖标签<strong>都已被注入下游对象</strong>，可以在构造函数中调用下游对象。参数指针的所有字段<strong>都已经按照参数加载器的要求加载好</strong>。构造函数只负责拼装。</p>
+<p>返回值为经过拼装后的指针。例如：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#204a87;font-weight:bold">func</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">i</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{},</span> <span style="color:#000">p</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{})</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{},</span> <span style="color:#204a87;font-weight:bold">error</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+  <span style="color:#000">param</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">p</span><span style="color:#000;font-weight:bold">.(</span><span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">Config</span><span style="color:#000;font-weight:bold">)</span>
+  <span style="color:#000">impl</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">i</span><span style="color:#000;font-weight:bold">.(</span><span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">Impl</span><span style="color:#000;font-weight:bold">)</span>
+  <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">param</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">New</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">impl</span><span style="color:#000;font-weight:bold">)</span>
+<span style="color:#000;font-weight:bold">},</span>
+</code></pre></div></li>
+<li>
+<p>DestroyFunc 【非必要】</p>
+<p>定义了对象的销毁过程，入参为对象指针。</p>
+</li>
+<li>
+<p>autowireType 【必要】</p>
+<p>定义了对象的自动装载模型，例如单例模型、多例模型等，详情参阅 <a href="/cn/docs/concept/autowire">自动装载模型概念</a></p>
+</li>
+</ul>
+<h3 id="结构描述id">结构描述ID</h3>
+<ul>
+<li>定义</li>
+</ul>
+<p>结构描述 ID （Struct Description Identification) 在本文档和项目中多处被缩写为 SDID。</p>
+<p>SDID 是一类“自动装载模型“内唯一的，用于索引结构的键，类型为字符串。</p>
+<p>如果一个类实现了接口，SDID为：&quot;$(接口名)-$(结构名)“</p>
+<p>如果一个类没有实现任何接口，SDID为：“&quot;$(结构名)-$(结构名)“</p>
+<ul>
+<li>使用</li>
+</ul>
+<p>开发人员在<a href="/cn/docs/examples/api">使用 API 的方式从自动装载模型获取对象</a>时，需要传入SDID来获取。</p>
+
 </div>
 
 
@@ -252,9 +488,120 @@ This is the multi-page printable view of this section.
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-498a61452dd050f0a493d9c9da70425b">4 - Param Loader</h1>
+	<h1 id="pg-498a61452dd050f0a493d9c9da70425b">4 - 参数加载器</h1>
     
-	
+	<h3 id="概念">概念</h3>
+<p>参数加载器描述了依赖参数如何在对象构造之前被加载，包括但不限于从配置加载、从标签参数加载等等。</p>
+<p>参数加载器作为 SD（文件描述符）的一部分，可以被结构提供方定制化，也可以使用自动装载模型提供的默认参数加载器。</p>
+<h3 id="默认参数加载器">默认参数加载器</h3>
+<p>任何 SD 内定义参数加载器均被优先执行，如果加载失败，则尝试使用默认参数加载器加载。</p>
+<p>默认参数加载器被两个基础自动装载模型（singleton、normal）引入。依此采用三种方式加载参数，如果三种方式均加载失败，则抛出错误。</p>
+<ul>
+<li>
+<p>方式1 从标签指向的对象名加载参数，参考  <a href="/cn/docs/reference/yaml_structure">配置文件结构规范</a></p>
+<pre tabindex="0"><code>Load support load struct described like:
+```go
+normal.RegisterStructDescriptor(&amp;autowire.StructDescriptor{
+      Interface: new(Redis),
+      Factory:   func() interface{}{
+          return &amp;Impl{}
+      },
+      ParamFactory: func() interface{}{
+          return &amp;Config{}
+      },
+      ConstructFunc: func(i interface{}, p interface{}) (interface{}, error) {
+          return i, nil
+      },
+	})
+}
+
+type Config struct {
+	Address  string
+	Password string
+	DB       string
+}
+
+```
+with
+Autowire type 'normal'
+InterfaceName 'Redis'
+StructName 'Impl'
+Field:
+	MyRedis Redis `normal:&quot;Impl, redis-1&quot;`
+
+from:
+
+```yaml
+extension:
+  normal:
+    Redis:
+      Impl:
+        redis-1:
+          param:
+            address: 127.0.0.1
+            password: xxx
+            db: 0
+</code></pre></li>
+<li>
+<p>方式2 从标签加载参数</p>
+<pre tabindex="0"><code>Load support load param like:
+```go
+type Config struct {
+	Address  string
+	Password string
+	DB       string
+}
+```
+
+from field:
+
+```go
+NormalRedis  normalRedis.Redis  `normal:&quot;Impl,address=127.0.0.1&amp;password=xxx&amp;db=0&quot;`
+```
+</code></pre></li>
+<li>
+<p>方式3 从配置加载参数，参考 <a href="/cn/docs/reference/yaml_structure">配置文件结构规范</a></p>
+<pre tabindex="0"><code>Load support load struct described like:
+```go
+normal.RegisterStructDescriptor(&amp;autowire.StructDescriptor{
+      Interface: new(Redis),
+      Factory:   func() interface{}{
+          return &amp;Impl{}
+      },
+      ParamFactory: func() interface{}{
+          return &amp;Config{}
+      },
+      ConstructFunc: func(i interface{}, p interface{}) (interface{}, error) {
+          return i, nil
+      },
+	})
+}
+
+type Config struct {
+	Address  string
+	Password string
+	DB       string
+}
+```
+with
+Autowire type 'normal'
+InterfaceName 'Redis'
+StructName 'Impl'
+
+from:
+
+```yaml
+autowire:
+  normal:
+    Redis:
+      Impl:
+        param:
+          address: 127.0.0.1
+          password: xxx
+          db: 0
+</code></pre></li>
+</ul>
+
 </div>
 
 
@@ -269,9 +616,13 @@ This is the multi-page printable view of this section.
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-91b059c80c8a87c84f32d97ab49aa5af">5 - Annotation</h1>
+	<h1 id="pg-91b059c80c8a87c84f32d97ab49aa5af">5 - 注解</h1>
     
-	
+	<h3 id="注解与代码生成">注解与代码生成</h3>
+<p>注解与代码生成能力，是为了让开发人员无需关心SD （SD）的组装和注册。只需定义好相关结构，正确标注注解，即可使用 ioc-go-cli 工具自动生成所有目录下的 SD 。</p>
+<h3 id="ioc-go-cli-工具支持的注解">ioc-go-cli 工具支持的注解</h3>
+<p>详情参阅 <a href="/cn/docs/reference/ioc-go-cli">ioc-go-cli 工具</a></p>
+
 </div>
 
 

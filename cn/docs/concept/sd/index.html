@@ -19,21 +19,46 @@
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
 <title>结构描述符 | IOC-Golang</title>
-<meta name="description" content="">
+<meta name="description" content="概念
+结构描述符用于描述一个开发者定义的结构，其包含了对象生命周期的全部信息，例如结构类型是什么，实现了哪些接口，如何被构造等等。
+结构描述符可以通过注解的方式使用工具自动生成。但还是推荐开发人员了解本框架定义的结构生命周期和结构描述信息，以便更清晰地开发应用。
+对象生命周期
+开发人员在 Go 语言 …">
 <meta property="og:title" content="结构描述符" />
-<meta property="og:description" content="" />
+<meta property="og:description" content="概念 结构描述符用于描述一个开发者定义的结构，其包含了对象生命周期的全部信息，例如结构类型是什么，实现了哪些接口，如何被构造等等。
+结构描述符可以通过注解的方式使用工具自动生成。但还是推荐开发人员了解本框架定义的结构生命周期和结构描述信息，以便更清晰地开发应用。
+对象生命周期 开发人员在 Go 语言开发过程中需要时时关注对象的生命周期，一个常见的对象生命周期如下：
+ 对象定义：开发人员编码，编写结构，实现接口，确定模型（单例、多例..) 。 加载全部依赖：依赖的下游对象创建、配置读入等。 对象创建：产生一个基于该对象的指针 对象构造：获取全部依赖，并将其组装到空对象中，产生可用对象。 对象使用：调用对象的方法，读写对象字段。 对象销毁：销毁对象，销毁无需再使用的依赖对象。  参数 本框架的“参数”概念，是一个结构体，该结构体包含了创建一个对象所需全部依赖，并提供了构造方法。
+例如
+type Config struct { Host string Port string Username string Password string } func (c *Config) New(mysqlImpl *Impl) (*Impl, error) { var err error mysqlImpl.db, err = gorm.Open(mysql.Open(getMysqlLinkStr(c)), &amp;gorm.Config{}) mysqlImpl.tableName = c.TableName return mysqlImpl, err } Config 结构即为 Impl 结构的“参数”。其包含了产生 Impl 结构的全部信息。
+结构描述符 （Struct Descriptor） 本框架定义的结构描述符如下：
+type StructDescriptor struct { Interface interface{} Factory func() interface{} ParamFactory func() interface{} ParamLoader ParamLoader ConstructFunc func(impl interface{}, param interface{}) (interface{}, error) DestroyFunc func(impl interface{}) autowireType string }   Interface 【必要】" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/cn/docs/concept/sd/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2017-01-05T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-05-18T23:51:12+08:00" /><meta property="og:site_name" content="IOC-Golang" />
+<meta property="article:modified_time" content="2022-05-19T23:31:29+08:00" /><meta property="og:site_name" content="IOC-Golang" />
 
 <meta itemprop="name" content="结构描述符">
-<meta itemprop="description" content=""><meta itemprop="datePublished" content="2017-01-05T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-05-18T23:51:12+08:00" />
-<meta itemprop="wordCount" content="0">
+<meta itemprop="description" content="概念 结构描述符用于描述一个开发者定义的结构，其包含了对象生命周期的全部信息，例如结构类型是什么，实现了哪些接口，如何被构造等等。
+结构描述符可以通过注解的方式使用工具自动生成。但还是推荐开发人员了解本框架定义的结构生命周期和结构描述信息，以便更清晰地开发应用。
+对象生命周期 开发人员在 Go 语言开发过程中需要时时关注对象的生命周期，一个常见的对象生命周期如下：
+ 对象定义：开发人员编码，编写结构，实现接口，确定模型（单例、多例..) 。 加载全部依赖：依赖的下游对象创建、配置读入等。 对象创建：产生一个基于该对象的指针 对象构造：获取全部依赖，并将其组装到空对象中，产生可用对象。 对象使用：调用对象的方法，读写对象字段。 对象销毁：销毁对象，销毁无需再使用的依赖对象。  参数 本框架的“参数”概念，是一个结构体，该结构体包含了创建一个对象所需全部依赖，并提供了构造方法。
+例如
+type Config struct { Host string Port string Username string Password string } func (c *Config) New(mysqlImpl *Impl) (*Impl, error) { var err error mysqlImpl.db, err = gorm.Open(mysql.Open(getMysqlLinkStr(c)), &amp;gorm.Config{}) mysqlImpl.tableName = c.TableName return mysqlImpl, err } Config 结构即为 Impl 结构的“参数”。其包含了产生 Impl 结构的全部信息。
+结构描述符 （Struct Descriptor） 本框架定义的结构描述符如下：
+type StructDescriptor struct { Interface interface{} Factory func() interface{} ParamFactory func() interface{} ParamLoader ParamLoader ConstructFunc func(impl interface{}, param interface{}) (interface{}, error) DestroyFunc func(impl interface{}) autowireType string }   Interface 【必要】"><meta itemprop="datePublished" content="2017-01-05T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-05-19T23:31:29+08:00" />
+<meta itemprop="wordCount" content="161">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="结构描述符"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:description" content="概念 结构描述符用于描述一个开发者定义的结构，其包含了对象生命周期的全部信息，例如结构类型是什么，实现了哪些接口，如何被构造等等。
+结构描述符可以通过注解的方式使用工具自动生成。但还是推荐开发人员了解本框架定义的结构生命周期和结构描述信息，以便更清晰地开发应用。
+对象生命周期 开发人员在 Go 语言开发过程中需要时时关注对象的生命周期，一个常见的对象生命周期如下：
+ 对象定义：开发人员编码，编写结构，实现接口，确定模型（单例、多例..) 。 加载全部依赖：依赖的下游对象创建、配置读入等。 对象创建：产生一个基于该对象的指针 对象构造：获取全部依赖，并将其组装到空对象中，产生可用对象。 对象使用：调用对象的方法，读写对象字段。 对象销毁：销毁对象，销毁无需再使用的依赖对象。  参数 本框架的“参数”概念，是一个结构体，该结构体包含了创建一个对象所需全部依赖，并提供了构造方法。
+例如
+type Config struct { Host string Port string Username string Password string } func (c *Config) New(mysqlImpl *Impl) (*Impl, error) { var err error mysqlImpl.db, err = gorm.Open(mysql.Open(getMysqlLinkStr(c)), &amp;gorm.Config{}) mysqlImpl.tableName = c.TableName return mysqlImpl, err } Config 结构即为 Impl 结构的“参数”。其包含了产生 Impl 结构的全部信息。
+结构描述符 （Struct Descriptor） 本框架定义的结构描述符如下：
+type StructDescriptor struct { Interface interface{} Factory func() interface{} ParamFactory func() interface{} ParamLoader ParamLoader ConstructFunc func(impl interface{}, param interface{}) (interface{}, error) DestroyFunc func(impl interface{}) autowireType string }   Interface 【必要】"/>
 
 
 
@@ -171,7 +196,7 @@ if (!doNotTrack) {
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-cndocsexamplesredis-li">
   <a href="/cn/docs/examples/redis/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocsexamplesredis"><span class="">redis 客户端注入</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-cndocsexamplesgorm-li">
-  <a href="/cn/docs/examples/gorm/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocsexamplesgorm"><span class="">配置注入</span></a>
+  <a href="/cn/docs/examples/gorm/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocsexamplesgorm"><span class="">GORM 客户端注入</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-cndocsexamplesgrpc-li">
   <a href="/cn/docs/examples/grpc/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocsexamplesgrpc"><span class="">gRPC 客户端注入</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-cndocsexamplesconfig-li">
@@ -197,7 +222,7 @@ if (!doNotTrack) {
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-cndocsreferencetag_format-li">
   <a href="/cn/docs/reference/tag_format/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocsreferencetag_format"><span class="">标签定义规范</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-cndocsreferenceyaml_structure-li">
-  <a href="/cn/docs/reference/yaml_structure/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocsreferenceyaml_structure"><span class="">Yaml 配置文件结构规范</span></a>
+  <a href="/cn/docs/reference/yaml_structure/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocsreferenceyaml_structure"><span class="">配置文件结构规范</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-cndocsreferenceioc_debug_protocol-li">
   <a href="/cn/docs/reference/ioc_debug_protocol/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocsreferenceioc_debug_protocol"><span class="">ioc_debug 协议</span></a>
 </li>
@@ -237,6 +262,20 @@ if (!doNotTrack) {
 
             
 
+
+<div class="td-toc"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#概念">概念</a></li>
+        <li><a href="#对象生命周期">对象生命周期</a></li>
+        <li><a href="#参数">参数</a></li>
+        <li><a href="#结构描述符-struct-descriptor">结构描述符 （Struct Descriptor）</a></li>
+        <li><a href="#结构描述id">结构描述ID</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
 
 
 
@@ -307,7 +346,108 @@ if (!doNotTrack) {
 
 		
 	</header>    
-	
+	<h3 id="概念">概念</h3>
+<p>结构描述符用于描述一个开发者定义的结构，其包含了对象生命周期的全部信息，例如结构类型是什么，实现了哪些接口，如何被构造等等。</p>
+<p>结构描述符可以通过注解的方式使用工具<a href="/cn/docs/reference/ioc-go-cli/#%E7%BB%93%E6%9E%84%E6%B3%A8%E8%A7%A3">自动生成</a>。但还是推荐开发人员了解本框架定义的结构生命周期和结构描述信息，以便更清晰地开发应用。</p>
+<h3 id="对象生命周期">对象生命周期</h3>
+<p>开发人员在 Go 语言开发过程中需要时时关注对象的生命周期，一个常见的对象生命周期如下：</p>
+<ol>
+<li>对象定义：开发人员编码，编写结构，实现接口，确定模型（单例、多例..) 。</li>
+<li>加载全部依赖：依赖的下游对象创建、配置读入等。</li>
+<li>对象创建：产生一个基于该对象的指针</li>
+<li>对象构造：获取全部依赖，并将其组装到空对象中，产生可用对象。</li>
+<li>对象使用：调用对象的方法，读写对象字段。</li>
+<li>对象销毁：销毁对象，销毁无需再使用的依赖对象。</li>
+</ol>
+<h3 id="参数">参数</h3>
+<p>本框架的“参数”概念，是一个结构体，该结构体包含了创建一个对象所需全部依赖，并提供了构造方法。</p>
+<p>例如</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#204a87;font-weight:bold">type</span> <span style="color:#000">Config</span> <span style="color:#204a87;font-weight:bold">struct</span> <span style="color:#000;font-weight:bold">{</span>
+	<span style="color:#000">Host</span>      <span style="color:#204a87;font-weight:bold">string</span>
+	<span style="color:#000">Port</span>      <span style="color:#204a87;font-weight:bold">string</span>
+	<span style="color:#000">Username</span>  <span style="color:#204a87;font-weight:bold">string</span>
+	<span style="color:#000">Password</span>  <span style="color:#204a87;font-weight:bold">string</span>
+<span style="color:#000;font-weight:bold">}</span>
+
+<span style="color:#204a87;font-weight:bold">func</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">c</span> <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">Config</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000">New</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">mysqlImpl</span> <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">Impl</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">Impl</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">error</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+	<span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">err</span> <span style="color:#204a87;font-weight:bold">error</span>
+	<span style="color:#000">mysqlImpl</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">db</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">err</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000">gorm</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Open</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">mysql</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Open</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">getMysqlLinkStr</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">c</span><span style="color:#000;font-weight:bold">)),</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">gorm</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Config</span><span style="color:#000;font-weight:bold">{})</span>
+	<span style="color:#000">mysqlImpl</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">tableName</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000">c</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">TableName</span>
+	<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">mysqlImpl</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">err</span>
+<span style="color:#000;font-weight:bold">}</span>
+</code></pre></div><p>Config 结构即为 Impl 结构的“参数”。其包含了产生 Impl 结构的全部信息。</p>
+<h3 id="结构描述符-struct-descriptor">结构描述符 （Struct Descriptor）</h3>
+<p>本框架定义的结构描述符如下：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#204a87;font-weight:bold">type</span> <span style="color:#000">StructDescriptor</span> <span style="color:#204a87;font-weight:bold">struct</span> <span style="color:#000;font-weight:bold">{</span>
+	<span style="color:#000">Interface</span>     <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{}</span>
+	<span style="color:#000">Factory</span>       <span style="color:#204a87;font-weight:bold">func</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{}</span> 
+	<span style="color:#000">ParamFactory</span>  <span style="color:#204a87;font-weight:bold">func</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{}</span>
+	<span style="color:#000">ParamLoader</span>   <span style="color:#000">ParamLoader</span>
+	<span style="color:#000">ConstructFunc</span> <span style="color:#204a87;font-weight:bold">func</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">impl</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{},</span> <span style="color:#000">param</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{})</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{},</span> <span style="color:#204a87;font-weight:bold">error</span><span style="color:#000;font-weight:bold">)</span>
+	<span style="color:#000">DestroyFunc</span>   <span style="color:#204a87;font-weight:bold">func</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">impl</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{})</span>
+
+	<span style="color:#000">autowireType</span>    <span style="color:#204a87;font-weight:bold">string</span>
+<span style="color:#000;font-weight:bold">}</span>
+</code></pre></div><ul>
+<li>
+<p>Interface 【必要】</p>
+<p>结构实现的接口指针</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#000">new</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">MyInterface</span><span style="color:#000;font-weight:bold">)</span>
+</code></pre></div><p>如果结构没有实现任何接口，则使用结构指针。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">Impl</span><span style="color:#000;font-weight:bold">{}</span>
+</code></pre></div></li>
+<li>
+<p>Factory【必要】</p>
+<p>结构的工厂函数，返回值是未经初始化的空结构指针，例如</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#204a87;font-weight:bold">func</span> <span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{}{</span>
+	<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">App</span><span style="color:#000;font-weight:bold">{}</span>
+<span style="color:#000;font-weight:bold">}</span>
+</code></pre></div></li>
+<li>
+<p>ParamFactory【非必要】</p>
+<p>参数的工厂函数，返回值是未经初始化的空参数指针，例如</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#204a87;font-weight:bold">func</span> <span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{}{</span>
+	<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">Config</span><span style="color:#000;font-weight:bold">{}</span>
+<span style="color:#000;font-weight:bold">}</span>
+</code></pre></div></li>
+<li>
+<p>ParamLoader【非必要】</p>
+<p>参数加载器定义了参数的各个字段如何被加载，是从注入标签传入、还是从配置读入、或是以一些定制化的方式。</p>
+<p>框架提供了默认的参数加载器，详情参阅 <a href="/cn/docs/concept/param_loader">参数加载器概念</a></p>
+</li>
+<li>
+<p>Constructor【非必要】</p>
+<p>构造函数定义了对象被组装的过程。</p>
+<p>入参为对象指针和参数指针，其中对象指针的所有依赖标签<strong>都已被注入下游对象</strong>，可以在构造函数中调用下游对象。参数指针的所有字段<strong>都已经按照参数加载器的要求加载好</strong>。构造函数只负责拼装。</p>
+<p>返回值为经过拼装后的指针。例如：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#204a87;font-weight:bold">func</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">i</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{},</span> <span style="color:#000">p</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{})</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{},</span> <span style="color:#204a87;font-weight:bold">error</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+  <span style="color:#000">param</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">p</span><span style="color:#000;font-weight:bold">.(</span><span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">Config</span><span style="color:#000;font-weight:bold">)</span>
+  <span style="color:#000">impl</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">i</span><span style="color:#000;font-weight:bold">.(</span><span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">Impl</span><span style="color:#000;font-weight:bold">)</span>
+  <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">param</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">New</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">impl</span><span style="color:#000;font-weight:bold">)</span>
+<span style="color:#000;font-weight:bold">},</span>
+</code></pre></div></li>
+<li>
+<p>DestroyFunc 【非必要】</p>
+<p>定义了对象的销毁过程，入参为对象指针。</p>
+</li>
+<li>
+<p>autowireType 【必要】</p>
+<p>定义了对象的自动装载模型，例如单例模型、多例模型等，详情参阅 <a href="/cn/docs/concept/autowire">自动装载模型概念</a></p>
+</li>
+</ul>
+<h3 id="结构描述id">结构描述ID</h3>
+<ul>
+<li>定义</li>
+</ul>
+<p>结构描述 ID （Struct Description Identification) 在本文档和项目中多处被缩写为 SDID。</p>
+<p>SDID 是一类“自动装载模型“内唯一的，用于索引结构的键，类型为字符串。</p>
+<p>如果一个类实现了接口，SDID为：&quot;$(接口名)-$(结构名)“</p>
+<p>如果一个类没有实现任何接口，SDID为：“&quot;$(结构名)-$(结构名)“</p>
+<ul>
+<li>使用</li>
+</ul>
+<p>开发人员在<a href="/cn/docs/examples/api">使用 API 的方式从自动装载模型获取对象</a>时，需要传入SDID来获取。</p>
+
 	
 		<style>
   .feedback--answer {
@@ -373,7 +513,7 @@ if (!doNotTrack) {
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified May 18, 2022: <a href="https://github.com/google/docsy-example/commit/2fd0d1c7c52c4b7161aeee09a0a2f62047138f04">fix: init cn docs (2fd0d1c)</a>
+  Last modified May 19, 2022: <a href="https://github.com/google/docsy-example/commit/75dddd7bcf07dd7e072f59ef81673a2e3b7e1b53">Fix: update docs (75dddd7)</a>
 </div>
 
 </div>

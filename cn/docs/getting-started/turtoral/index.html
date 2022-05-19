@@ -27,13 +27,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/cn/docs/getting-started/turtoral/" /><meta property="article:section" content="docs" />
 
-<meta property="og:site_name" content="IOC-Golang" />
+<meta property="article:modified_time" content="2022-05-19T23:31:29+08:00" /><meta property="og:site_name" content="IOC-Golang" />
 
 <meta itemprop="name" content="实现依赖注入demo">
 <meta itemprop="description" content="使用 ioc-golang 实现依赖注入demo
 ">
-
-<meta itemprop="wordCount" content="449">
+<meta itemprop="dateModified" content="2022-05-19T23:31:29+08:00" />
+<meta itemprop="wordCount" content="453">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="实现依赖注入demo"/>
 <meta name="twitter:description" content="使用 ioc-golang 实现依赖注入demo
@@ -175,7 +175,7 @@ if (!doNotTrack) {
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-cndocsexamplesredis-li">
   <a href="/cn/docs/examples/redis/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocsexamplesredis"><span class="">redis 客户端注入</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-cndocsexamplesgorm-li">
-  <a href="/cn/docs/examples/gorm/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocsexamplesgorm"><span class="">配置注入</span></a>
+  <a href="/cn/docs/examples/gorm/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocsexamplesgorm"><span class="">GORM 客户端注入</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-cndocsexamplesgrpc-li">
   <a href="/cn/docs/examples/grpc/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocsexamplesgrpc"><span class="">gRPC 客户端注入</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-cndocsexamplesconfig-li">
@@ -201,7 +201,7 @@ if (!doNotTrack) {
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-cndocsreferencetag_format-li">
   <a href="/cn/docs/reference/tag_format/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocsreferencetag_format"><span class="">标签定义规范</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-cndocsreferenceyaml_structure-li">
-  <a href="/cn/docs/reference/yaml_structure/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocsreferenceyaml_structure"><span class="">Yaml 配置文件结构规范</span></a>
+  <a href="/cn/docs/reference/yaml_structure/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocsreferenceyaml_structure"><span class="">配置文件结构规范</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-cndocsreferenceioc_debug_protocol-li">
   <a href="/cn/docs/reference/ioc_debug_protocol/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocsreferenceioc_debug_protocol"><span class="">ioc_debug 协议</span></a>
 </li>
@@ -409,25 +409,25 @@ if (!doNotTrack) {
 <span style="color:#000;font-weight:bold">)</span>
 
 <span style="color:#204a87;font-weight:bold">func</span> <span style="color:#000">init</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
-	<span style="color:#000">singleton</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">RegisterStructDescriber</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">autowire</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">StructDescriber</span><span style="color:#000;font-weight:bold">{</span>
+	<span style="color:#000">singleton</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">RegisterStructDescriptor</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">autowire</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">StructDescriptor</span><span style="color:#000;font-weight:bold">{</span>
 		<span style="color:#000">Interface</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">App</span><span style="color:#000;font-weight:bold">{},</span>
 		<span style="color:#000">Factory</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">func</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{}</span> <span style="color:#000;font-weight:bold">{</span>
 			<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">App</span><span style="color:#000;font-weight:bold">{}</span>
 		<span style="color:#000;font-weight:bold">},</span>
 	<span style="color:#000;font-weight:bold">})</span>
-	<span style="color:#000">singleton</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">RegisterStructDescriber</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">autowire</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">StructDescriber</span><span style="color:#000;font-weight:bold">{</span>
+	<span style="color:#000">singleton</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">RegisterStructDescriptor</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">autowire</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">StructDescriptor</span><span style="color:#000;font-weight:bold">{</span>
 		<span style="color:#000">Interface</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87">new</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Service</span><span style="color:#000;font-weight:bold">),</span>
 		<span style="color:#000">Factory</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">func</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{}</span> <span style="color:#000;font-weight:bold">{</span>
 			<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">ServiceImpl1</span><span style="color:#000;font-weight:bold">{}</span>
 		<span style="color:#000;font-weight:bold">},</span>
 	<span style="color:#000;font-weight:bold">})</span>
-	<span style="color:#000">singleton</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">RegisterStructDescriber</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">autowire</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">StructDescriber</span><span style="color:#000;font-weight:bold">{</span>
+	<span style="color:#000">singleton</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">RegisterStructDescriptor</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">autowire</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">StructDescriptor</span><span style="color:#000;font-weight:bold">{</span>
 		<span style="color:#000">Interface</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87">new</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Service</span><span style="color:#000;font-weight:bold">),</span>
 		<span style="color:#000">Factory</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">func</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{}</span> <span style="color:#000;font-weight:bold">{</span>
 			<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">ServiceImpl2</span><span style="color:#000;font-weight:bold">{}</span>
 		<span style="color:#000;font-weight:bold">},</span>
 	<span style="color:#000;font-weight:bold">})</span>
-	<span style="color:#000">singleton</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">RegisterStructDescriber</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">autowire</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">StructDescriber</span><span style="color:#000;font-weight:bold">{</span>
+	<span style="color:#000">singleton</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">RegisterStructDescriptor</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">autowire</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">StructDescriptor</span><span style="color:#000;font-weight:bold">{</span>
 		<span style="color:#000">Interface</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">ServiceStruct</span><span style="color:#000;font-weight:bold">{},</span>
 		<span style="color:#000">Factory</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">func</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{}</span> <span style="color:#000;font-weight:bold">{</span>
 			<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">ServiceStruct</span><span style="color:#000;font-weight:bold">{}</span>
@@ -470,6 +470,8 @@ This is ServiceImpl1, hello world
 This is ServiceImpl2, hello world
 This is ServiceStruct, hello world
 </code></pre></div><p>可看到，注入成功，程序正常运行。</p>
+<h3 id="更多">更多</h3>
+<p>您可以参阅 <a href="/cn/docs/examples">示例</a> 查阅更多例子和框架高级用法</p>
 
 	
 		<style>
@@ -535,7 +537,10 @@ This is ServiceStruct, hello world
 		<br />
 	
 	
-	
+	<div class="text-muted mt-5 pt-3 border-top">
+  Last modified May 19, 2022: <a href="https://github.com/google/docsy-example/commit/75dddd7bcf07dd7e072f59ef81673a2e3b7e1b53">Fix: update docs (75dddd7)</a>
+</div>
+
 </div>
 
 

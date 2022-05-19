@@ -28,13 +28,13 @@ package main import ( &#34;fmt&#34; &#34;github.com/alibaba/ioc-golang&#34; &#34
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/getting-started/turtoral/" /><meta property="article:section" content="docs" />
 
-<meta property="og:site_name" content="IOC-Golang" />
+<meta property="article:modified_time" content="2022-05-19T23:31:29+08:00" /><meta property="og:site_name" content="IOC-Golang" />
 
 <meta itemprop="name" content="Start dependency injection demo">
 <meta itemprop="description" content="Tutorial We will develop a project with the following topology, in this example, we can demonstrate code generation, interface injection, object pointer injection, and API access to objects capabilities.
 All the code the user needs to write: main.go
 package main import ( &#34;fmt&#34; &#34;github.com/alibaba/ioc-golang&#34; &#34;github.com/alibaba/ioc-golang/autowire/singleton&#34; ) // &#43;ioc:autowire=true // &#43;ioc:autowire:type=singleton  type App struct { ServiceImpl1 Service `singleton:&#34;ServiceImpl1&#34;` // inject Service &#39;s ServiceImpl1 implementation 	ServiceImpl2 Service `singleton:&#34;ServiceImpl2&#34;` // inject Service &#39;s ServiceImpl2 implementation 	ServiceStruct *ServiceStruct `singleton:&#34;ServiceStruct&#34;` // inject ServiceStruct struct pointer } func (a*App) Run(){ a.">
-
+<meta itemprop="dateModified" content="2022-05-19T23:31:29+08:00" />
 <meta itemprop="wordCount" content="643">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Start dependency injection demo"/>
@@ -152,15 +152,15 @@ if (!doNotTrack) {
   <a href="/docs/concept/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconcept"><span class="">Concept</span></a>
   <ul class="ul-2 foldable">
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptdi-li">
-  <a href="/docs/concept/di/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconceptdi"><span class="">Dependency Injection</span></a>
+  <a href="/docs/concept/di/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconceptdi"><span class="">依赖注入</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptautowire-li">
-  <a href="/docs/concept/autowire/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconceptautowire"><span class="">Autowire Model</span></a>
+  <a href="/docs/concept/autowire/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconceptautowire"><span class="">自动装载模型</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptsd-li">
-  <a href="/docs/concept/sd/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconceptsd"><span class="">Struct Description</span></a>
+  <a href="/docs/concept/sd/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconceptsd"><span class="">结构描述符</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptparam_loader-li">
-  <a href="/docs/concept/param_loader/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconceptparam_loader"><span class="">Param Loader</span></a>
+  <a href="/docs/concept/param_loader/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconceptparam_loader"><span class="">参数加载器</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptannotation-li">
-  <a href="/docs/concept/annotation/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconceptannotation"><span class="">Annotation</span></a>
+  <a href="/docs/concept/annotation/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconceptannotation"><span class="">注解</span></a>
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docsgetting-started-li">
@@ -425,25 +425,25 @@ if (!doNotTrack) {
 <span style="color:#000;font-weight:bold">)</span>
 
 <span style="color:#204a87;font-weight:bold">func</span> <span style="color:#000">init</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
-	<span style="color:#000">singleton</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">RegisterStructDescriber</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">autowire</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">StructDescriber</span><span style="color:#000;font-weight:bold">{</span>
+	<span style="color:#000">singleton</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">RegisterStructDescriptor</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">autowire</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">StructDescriptor</span><span style="color:#000;font-weight:bold">{</span>
 		<span style="color:#000">Interface</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">App</span><span style="color:#000;font-weight:bold">{},</span>
 		<span style="color:#000">Factory</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">func</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{}</span> <span style="color:#000;font-weight:bold">{</span>
 			<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">App</span><span style="color:#000;font-weight:bold">{}</span>
 		<span style="color:#000;font-weight:bold">},</span>
 	<span style="color:#000;font-weight:bold">})</span>
-	<span style="color:#000">singleton</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">RegisterStructDescriber</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">autowire</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">StructDescriber</span><span style="color:#000;font-weight:bold">{</span>
+	<span style="color:#000">singleton</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">RegisterStructDescriptor</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">autowire</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">StructDescriptor</span><span style="color:#000;font-weight:bold">{</span>
 		<span style="color:#000">Interface</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87">new</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Service</span><span style="color:#000;font-weight:bold">),</span>
 		<span style="color:#000">Factory</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">func</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{}</span> <span style="color:#000;font-weight:bold">{</span>
 			<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">ServiceImpl1</span><span style="color:#000;font-weight:bold">{}</span>
 		<span style="color:#000;font-weight:bold">},</span>
 	<span style="color:#000;font-weight:bold">})</span>
-	<span style="color:#000">singleton</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">RegisterStructDescriber</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">autowire</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">StructDescriber</span><span style="color:#000;font-weight:bold">{</span>
+	<span style="color:#000">singleton</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">RegisterStructDescriptor</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">autowire</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">StructDescriptor</span><span style="color:#000;font-weight:bold">{</span>
 		<span style="color:#000">Interface</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87">new</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Service</span><span style="color:#000;font-weight:bold">),</span>
 		<span style="color:#000">Factory</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">func</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{}</span> <span style="color:#000;font-weight:bold">{</span>
 			<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">ServiceImpl2</span><span style="color:#000;font-weight:bold">{}</span>
 		<span style="color:#000;font-weight:bold">},</span>
 	<span style="color:#000;font-weight:bold">})</span>
-	<span style="color:#000">singleton</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">RegisterStructDescriber</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">autowire</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">StructDescriber</span><span style="color:#000;font-weight:bold">{</span>
+	<span style="color:#000">singleton</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">RegisterStructDescriptor</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">autowire</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">StructDescriptor</span><span style="color:#000;font-weight:bold">{</span>
 		<span style="color:#000">Interface</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">ServiceStruct</span><span style="color:#000;font-weight:bold">{},</span>
 		<span style="color:#000">Factory</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">func</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{}</span> <span style="color:#000;font-weight:bold">{</span>
 			<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">ServiceStruct</span><span style="color:#000;font-weight:bold">{}</span>
@@ -566,7 +566,10 @@ See the NOTICE file for more information.</p>
 		<br />
 	
 	
-	
+	<div class="text-muted mt-5 pt-3 border-top">
+  Last modified May 19, 2022: <a href="https://github.com/google/docsy-example/commit/75dddd7bcf07dd7e072f59ef81673a2e3b7e1b53">Fix: update docs (75dddd7)</a>
+</div>
+
 </div>
 
 

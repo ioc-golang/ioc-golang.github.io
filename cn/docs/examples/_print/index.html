@@ -146,7 +146,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>2: <a href="#pg-d25d20b55e1cbdb943b6a39ba7e9efde">配置注入</a></li>
+<li>2: <a href="#pg-d25d20b55e1cbdb943b6a39ba7e9efde">GORM 客户端注入</a></li>
 
 
     
@@ -304,7 +304,7 @@ client3 get  db3
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-d25d20b55e1cbdb943b6a39ba7e9efde">2 - 配置注入</h1>
+	<h1 id="pg-d25d20b55e1cbdb943b6a39ba7e9efde">2 - GORM 客户端注入</h1>
     
 	<h3 id="简介">简介</h3>
 <p>本示例展示了注入基于 <a href="https://gorm.io/index.html">GORM</a> 的数据库客户端能力。</p>
@@ -391,7 +391,7 @@ client3 get  db3
 <span style="color:#000;font-weight:bold">)</span>
 <span style="color:#204a87;font-weight:bold">func</span> <span style="color:#000">init</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
 	<span style="color:#8f5902;font-style:italic">// register grpc client
-</span><span style="color:#8f5902;font-style:italic"></span>	<span style="color:#000">grpc</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">RegisterStructDescriber</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">autowire</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">StructDescriber</span><span style="color:#000;font-weight:bold">{</span>
+</span><span style="color:#8f5902;font-style:italic"></span>	<span style="color:#000">grpc</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">RegisterStructDescriptor</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">autowire</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">StructDescriptor</span><span style="color:#000;font-weight:bold">{</span>
 		<span style="color:#000">Interface</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87">new</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">api</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">HelloServiceClient</span><span style="color:#000;font-weight:bold">),</span>
 		<span style="color:#000">Factory</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">func</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{}</span> <span style="color:#000;font-weight:bold">{</span>
 			<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#204a87">new</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">api</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">HelloServiceClient</span><span style="color:#000;font-weight:bold">)</span>

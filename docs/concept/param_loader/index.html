@@ -18,22 +18,41 @@
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
-<title>Param Loader | IOC-Golang</title>
-<meta name="description" content="">
-<meta property="og:title" content="Param Loader" />
-<meta property="og:description" content="" />
+<title>参数加载器 | IOC-Golang</title>
+<meta name="description" content="概念
+参数加载器描述了依赖参数如何在对象构造之前被加载，包括但不限于从配置加载、从标签参数加载等等。
+参数加载器作为 SD（文件描述符）的一部分，可以被结构提供方定制化，也可以使用自动装载模型提供的默认参数加载器。
+默认参数加载器
+任何 SD 内定义参数加载器均被优先执行，如果加载失败，则尝试使用默 …">
+<meta property="og:title" content="参数加载器" />
+<meta property="og:description" content="概念 参数加载器描述了依赖参数如何在对象构造之前被加载，包括但不限于从配置加载、从标签参数加载等等。
+参数加载器作为 SD（文件描述符）的一部分，可以被结构提供方定制化，也可以使用自动装载模型提供的默认参数加载器。
+默认参数加载器 任何 SD 内定义参数加载器均被优先执行，如果加载失败，则尝试使用默认参数加载器加载。
+默认参数加载器被两个基础自动装载模型（singleton、normal）引入。依此采用三种方式加载参数，如果三种方式均加载失败，则抛出错误。
+  方式1 从标签指向的对象名加载参数，参考 配置文件结构规范
+Load support load struct described like: ```go normal.RegisterStructDescriptor(&amp;autowire.StructDescriptor{ Interface: new(Redis), Factory: func() interface{}{ return &amp;Impl{} }, ParamFactory: func() interface{}{ return &amp;Config{} }, ConstructFunc: func(i interface{}, p interface{}) (interface{}, error) { return i, nil }, }) } type Config struct { Address string Password string DB string } ``` with Autowire type &#39;normal&#39; InterfaceName &#39;Redis&#39; StructName &#39;Impl&#39; Field: MyRedis Redis `normal:&quot;Impl, redis-1&quot;` from: ```yaml extension: normal: Redis: Impl: redis-1: param: address: 127." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/concept/param_loader/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2017-01-05T00:00:00+00:00" />
-<meta property="article:modified_time" content="2017-01-05T00:00:00+00:00" /><meta property="og:site_name" content="IOC-Golang" />
+<meta property="article:modified_time" content="2022-05-19T23:31:29+08:00" /><meta property="og:site_name" content="IOC-Golang" />
 
-<meta itemprop="name" content="Param Loader">
-<meta itemprop="description" content=""><meta itemprop="datePublished" content="2017-01-05T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2017-01-05T00:00:00+00:00" />
-<meta itemprop="wordCount" content="0">
+<meta itemprop="name" content="参数加载器">
+<meta itemprop="description" content="概念 参数加载器描述了依赖参数如何在对象构造之前被加载，包括但不限于从配置加载、从标签参数加载等等。
+参数加载器作为 SD（文件描述符）的一部分，可以被结构提供方定制化，也可以使用自动装载模型提供的默认参数加载器。
+默认参数加载器 任何 SD 内定义参数加载器均被优先执行，如果加载失败，则尝试使用默认参数加载器加载。
+默认参数加载器被两个基础自动装载模型（singleton、normal）引入。依此采用三种方式加载参数，如果三种方式均加载失败，则抛出错误。
+  方式1 从标签指向的对象名加载参数，参考 配置文件结构规范
+Load support load struct described like: ```go normal.RegisterStructDescriptor(&amp;autowire.StructDescriptor{ Interface: new(Redis), Factory: func() interface{}{ return &amp;Impl{} }, ParamFactory: func() interface{}{ return &amp;Config{} }, ConstructFunc: func(i interface{}, p interface{}) (interface{}, error) { return i, nil }, }) } type Config struct { Address string Password string DB string } ``` with Autowire type &#39;normal&#39; InterfaceName &#39;Redis&#39; StructName &#39;Impl&#39; Field: MyRedis Redis `normal:&quot;Impl, redis-1&quot;` from: ```yaml extension: normal: Redis: Impl: redis-1: param: address: 127."><meta itemprop="datePublished" content="2017-01-05T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-05-19T23:31:29+08:00" />
+<meta itemprop="wordCount" content="186">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Param Loader"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:title" content="参数加载器"/>
+<meta name="twitter:description" content="概念 参数加载器描述了依赖参数如何在对象构造之前被加载，包括但不限于从配置加载、从标签参数加载等等。
+参数加载器作为 SD（文件描述符）的一部分，可以被结构提供方定制化，也可以使用自动装载模型提供的默认参数加载器。
+默认参数加载器 任何 SD 内定义参数加载器均被优先执行，如果加载失败，则尝试使用默认参数加载器加载。
+默认参数加载器被两个基础自动装载模型（singleton、normal）引入。依此采用三种方式加载参数，如果三种方式均加载失败，则抛出错误。
+  方式1 从标签指向的对象名加载参数，参考 配置文件结构规范
+Load support load struct described like: ```go normal.RegisterStructDescriptor(&amp;autowire.StructDescriptor{ Interface: new(Redis), Factory: func() interface{}{ return &amp;Impl{} }, ParamFactory: func() interface{}{ return &amp;Config{} }, ConstructFunc: func(i interface{}, p interface{}) (interface{}, error) { return i, nil }, }) } type Config struct { Address string Password string DB string } ``` with Autowire type &#39;normal&#39; InterfaceName &#39;Redis&#39; StructName &#39;Impl&#39; Field: MyRedis Redis `normal:&quot;Impl, redis-1&quot;` from: ```yaml extension: normal: Redis: Impl: redis-1: param: address: 127."/>
 
 
 
@@ -145,15 +164,15 @@ if (!doNotTrack) {
   <a href="/docs/concept/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconcept"><span class="">Concept</span></a>
   <ul class="ul-2 foldable">
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconceptdi-li">
-  <a href="/docs/concept/di/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconceptdi"><span class="">Dependency Injection</span></a>
+  <a href="/docs/concept/di/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconceptdi"><span class="">依赖注入</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconceptautowire-li">
-  <a href="/docs/concept/autowire/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconceptautowire"><span class="">Autowire Model</span></a>
+  <a href="/docs/concept/autowire/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconceptautowire"><span class="">自动装载模型</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconceptsd-li">
-  <a href="/docs/concept/sd/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconceptsd"><span class="">Struct Description</span></a>
+  <a href="/docs/concept/sd/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconceptsd"><span class="">结构描述符</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-docsconceptparam_loader-li">
-  <a href="/docs/concept/param_loader/" class="align-left pl-0 active td-sidebar-link td-sidebar-link__page" id="m-docsconceptparam_loader"><span class="td-sidebar-nav-active-item">Param Loader</span></a>
+  <a href="/docs/concept/param_loader/" class="align-left pl-0 active td-sidebar-link td-sidebar-link__page" id="m-docsconceptparam_loader"><span class="td-sidebar-nav-active-item">参数加载器</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconceptannotation-li">
-  <a href="/docs/concept/annotation/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconceptannotation"><span class="">Annotation</span></a>
+  <a href="/docs/concept/annotation/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsconceptannotation"><span class="">注解</span></a>
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsgetting-started-li">
@@ -229,7 +248,7 @@ if (!doNotTrack) {
 <a href="https://github.com/google/docsy-example/tree/master/content/en/docs/Concept/param_loader.md" class="td-page-meta--view" target="_blank" rel="noopener"><i class="fa fa-file-alt fa-fw"></i> View page source</a>
   <a href="https://github.com/google/docsy-example/edit/master/content/en/docs/Concept/param_loader.md" class="td-page-meta--edit" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
   <a href="https://github.com/google/docsy-example/new/master/content/en/docs/Concept/param_loader.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Create child page</a>
-  <a href="https://github.com/google/docsy-example/issues/new?title=Param%20Loader" class="td-page-meta--issue" target="_blank" rel="noopener"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
+  <a href="https://github.com/google/docsy-example/issues/new?title=%e5%8f%82%e6%95%b0%e5%8a%a0%e8%bd%bd%e5%99%a8" class="td-page-meta--issue" target="_blank" rel="noopener"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
   <a href="https://github.com/google/docsy/issues/new" class="td-page-meta--project-issue" target="_blank" rel="noopener"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
   <a id="print" href="/docs/concept/_print/"><i class="fa fa-print fa-fw"></i> Print entire section</a>
 
@@ -237,6 +256,17 @@ if (!doNotTrack) {
 
             
 
+
+<div class="td-toc"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#概念">概念</a></li>
+        <li><a href="#默认参数加载器">默认参数加载器</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
 
 
 
@@ -282,13 +312,13 @@ if (!doNotTrack) {
     <a href="/docs/concept/">Concept</a>
   </li>
   <li class="breadcrumb-item active" aria-current="page">
-    <a href="/docs/concept/param_loader/">Param Loader</a>
+    <a href="/docs/concept/param_loader/">参数加载器</a>
   </li>
   </ol>
 </nav>
             
 <div class="td-content">
-	<h1>Param Loader</h1>
+	<h1>参数加载器</h1>
 	
 	<header class="article-meta">
 		
@@ -307,7 +337,118 @@ if (!doNotTrack) {
 
 		
 	</header>    
-	
+	<h3 id="概念">概念</h3>
+<p>参数加载器描述了依赖参数如何在对象构造之前被加载，包括但不限于从配置加载、从标签参数加载等等。</p>
+<p>参数加载器作为 SD（文件描述符）的一部分，可以被结构提供方定制化，也可以使用自动装载模型提供的默认参数加载器。</p>
+<h3 id="默认参数加载器">默认参数加载器</h3>
+<p>任何 SD 内定义参数加载器均被优先执行，如果加载失败，则尝试使用默认参数加载器加载。</p>
+<p>默认参数加载器被两个基础自动装载模型（singleton、normal）引入。依此采用三种方式加载参数，如果三种方式均加载失败，则抛出错误。</p>
+<ul>
+<li>
+<p>方式1 从标签指向的对象名加载参数，参考  <a href="/cn/docs/reference/yaml_structure">配置文件结构规范</a></p>
+<pre tabindex="0"><code>Load support load struct described like:
+```go
+normal.RegisterStructDescriptor(&amp;autowire.StructDescriptor{
+      Interface: new(Redis),
+      Factory:   func() interface{}{
+          return &amp;Impl{}
+      },
+      ParamFactory: func() interface{}{
+          return &amp;Config{}
+      },
+      ConstructFunc: func(i interface{}, p interface{}) (interface{}, error) {
+          return i, nil
+      },
+	})
+}
+
+type Config struct {
+	Address  string
+	Password string
+	DB       string
+}
+
+```
+with
+Autowire type 'normal'
+InterfaceName 'Redis'
+StructName 'Impl'
+Field:
+	MyRedis Redis `normal:&quot;Impl, redis-1&quot;`
+
+from:
+
+```yaml
+extension:
+  normal:
+    Redis:
+      Impl:
+        redis-1:
+          param:
+            address: 127.0.0.1
+            password: xxx
+            db: 0
+</code></pre></li>
+<li>
+<p>方式2 从标签加载参数</p>
+<pre tabindex="0"><code>Load support load param like:
+```go
+type Config struct {
+	Address  string
+	Password string
+	DB       string
+}
+```
+
+from field:
+
+```go
+NormalRedis  normalRedis.Redis  `normal:&quot;Impl,address=127.0.0.1&amp;password=xxx&amp;db=0&quot;`
+```
+</code></pre></li>
+<li>
+<p>方式3 从配置加载参数，参考 <a href="/cn/docs/reference/yaml_structure">配置文件结构规范</a></p>
+<pre tabindex="0"><code>Load support load struct described like:
+```go
+normal.RegisterStructDescriptor(&amp;autowire.StructDescriptor{
+      Interface: new(Redis),
+      Factory:   func() interface{}{
+          return &amp;Impl{}
+      },
+      ParamFactory: func() interface{}{
+          return &amp;Config{}
+      },
+      ConstructFunc: func(i interface{}, p interface{}) (interface{}, error) {
+          return i, nil
+      },
+	})
+}
+
+type Config struct {
+	Address  string
+	Password string
+	DB       string
+}
+```
+with
+Autowire type 'normal'
+InterfaceName 'Redis'
+StructName 'Impl'
+
+from:
+
+```yaml
+autowire:
+  normal:
+    Redis:
+      Impl:
+        param:
+          address: 127.0.0.1
+          password: xxx
+          db: 0
+</code></pre></li>
+</ul>
+
 	
 		<style>
   .feedback--answer {
@@ -372,7 +513,10 @@ if (!doNotTrack) {
 		<br />
 	
 	
-	
+	<div class="text-muted mt-5 pt-3 border-top">
+  Last modified May 19, 2022: <a href="https://github.com/google/docsy-example/commit/75dddd7bcf07dd7e072f59ef81673a2e3b7e1b53">Fix: update docs (75dddd7)</a>
+</div>
+
 </div>
 
 
