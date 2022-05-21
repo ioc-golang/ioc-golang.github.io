@@ -22,58 +22,53 @@
 <meta name="description" content="简介
 本示例展示了 ioc-golang 框架提供的代码调试能力
 调试能力对于程序性能有损耗，请您不要在追求性能的场景下开启调试能力。
-ioc_golang.yaml:
-debug:
-  enable: true # debug 开关，默认为 false
-debug 模式下，本框架基于 AOP 的思 …">
+debug 模式下，本框架基于 AOP 的思路，为每个注册在框架的结构方法都封装了一组拦截器。基于这些拦截器，可以实现具有扩展性的调试功能。
+调试能力包括： …">
 <meta property="og:title" content="使用调试功能" />
 <meta property="og:description" content="简介 本示例展示了 ioc-golang 框架提供的代码调试能力
 调试能力对于程序性能有损耗，请您不要在追求性能的场景下开启调试能力。
-ioc_golang.yaml:
-debug:enable:true# debug 开关，默认为 falsedebug 模式下，本框架基于 AOP 的思路，为每个注册在框架的结构方法都封装了一组拦截器。基于这些拦截器，可以实现具有很好扩展能力的调试功能。
+debug 模式下，本框架基于 AOP 的思路，为每个注册在框架的结构方法都封装了一组拦截器。基于这些拦截器，可以实现具有扩展性的调试功能。
 调试能力包括：
  基于 ioc-debug 协议，暴露调试端口 查看所有接口、实现、方法列表 监听、修改任意方法的入参和返回值 性能瓶颈分析【开发中】 可观测性【开发中】  示例介绍 本示例实现了以下拓扑
 在这个例子中，App 结构会依此调用所有依赖对象，进而调用一个单例模型注入的 gRPC 客户端，该客户端发起网络请求，并获得结果。
 我们将开启 debug 模式，通过 ioc-go-cli 工具查看接口、实现、方法，并监听通过 gRPC Client 发送的所有请求和返回值。
 运行示例   启动 grpc Server
 % cd example/denbug/grpc_server % go run .   新开一个终端，启动客户端。
-注意 GOARCH 环境变量和 -gcflags 编译参数, amd机器无需指定 GOARCH 环境变量。
+注意 GOARCH 环境变量和 &lsquo;-gcflags=&quot;-N -l&quot; -tags iocdebug&rsquo; 编译参数, amd机器无需指定 GOARCH 环境变量。
 正确在 ioc_golang.yaml 中开启debug模式后，会打印
 [Debug] Debug port is set to default :1999 的日志。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/cn/docs/examples/debug/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2017-01-05T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-05-19T01:52:15+08:00" /><meta property="og:site_name" content="IOC-Golang" />
+<meta property="article:modified_time" content="2022-05-22T01:43:54+08:00" /><meta property="og:site_name" content="IOC-Golang" />
 
 <meta itemprop="name" content="使用调试功能">
 <meta itemprop="description" content="简介 本示例展示了 ioc-golang 框架提供的代码调试能力
 调试能力对于程序性能有损耗，请您不要在追求性能的场景下开启调试能力。
-ioc_golang.yaml:
-debug:enable:true# debug 开关，默认为 falsedebug 模式下，本框架基于 AOP 的思路，为每个注册在框架的结构方法都封装了一组拦截器。基于这些拦截器，可以实现具有很好扩展能力的调试功能。
+debug 模式下，本框架基于 AOP 的思路，为每个注册在框架的结构方法都封装了一组拦截器。基于这些拦截器，可以实现具有扩展性的调试功能。
 调试能力包括：
  基于 ioc-debug 协议，暴露调试端口 查看所有接口、实现、方法列表 监听、修改任意方法的入参和返回值 性能瓶颈分析【开发中】 可观测性【开发中】  示例介绍 本示例实现了以下拓扑
 在这个例子中，App 结构会依此调用所有依赖对象，进而调用一个单例模型注入的 gRPC 客户端，该客户端发起网络请求，并获得结果。
 我们将开启 debug 模式，通过 ioc-go-cli 工具查看接口、实现、方法，并监听通过 gRPC Client 发送的所有请求和返回值。
 运行示例   启动 grpc Server
 % cd example/denbug/grpc_server % go run .   新开一个终端，启动客户端。
-注意 GOARCH 环境变量和 -gcflags 编译参数, amd机器无需指定 GOARCH 环境变量。
+注意 GOARCH 环境变量和 &lsquo;-gcflags=&quot;-N -l&quot; -tags iocdebug&rsquo; 编译参数, amd机器无需指定 GOARCH 环境变量。
 正确在 ioc_golang.yaml 中开启debug模式后，会打印
 [Debug] Debug port is set to default :1999 的日志。"><meta itemprop="datePublished" content="2017-01-05T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-05-19T01:52:15+08:00" />
-<meta itemprop="wordCount" content="425">
+<meta itemprop="dateModified" content="2022-05-22T01:43:54+08:00" />
+<meta itemprop="wordCount" content="426">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="使用调试功能"/>
 <meta name="twitter:description" content="简介 本示例展示了 ioc-golang 框架提供的代码调试能力
 调试能力对于程序性能有损耗，请您不要在追求性能的场景下开启调试能力。
-ioc_golang.yaml:
-debug:enable:true# debug 开关，默认为 falsedebug 模式下，本框架基于 AOP 的思路，为每个注册在框架的结构方法都封装了一组拦截器。基于这些拦截器，可以实现具有很好扩展能力的调试功能。
+debug 模式下，本框架基于 AOP 的思路，为每个注册在框架的结构方法都封装了一组拦截器。基于这些拦截器，可以实现具有扩展性的调试功能。
 调试能力包括：
  基于 ioc-debug 协议，暴露调试端口 查看所有接口、实现、方法列表 监听、修改任意方法的入参和返回值 性能瓶颈分析【开发中】 可观测性【开发中】  示例介绍 本示例实现了以下拓扑
 在这个例子中，App 结构会依此调用所有依赖对象，进而调用一个单例模型注入的 gRPC 客户端，该客户端发起网络请求，并获得结果。
 我们将开启 debug 模式，通过 ioc-go-cli 工具查看接口、实现、方法，并监听通过 gRPC Client 发送的所有请求和返回值。
 运行示例   启动 grpc Server
 % cd example/denbug/grpc_server % go run .   新开一个终端，启动客户端。
-注意 GOARCH 环境变量和 -gcflags 编译参数, amd机器无需指定 GOARCH 环境变量。
+注意 GOARCH 环境变量和 &lsquo;-gcflags=&quot;-N -l&quot; -tags iocdebug&rsquo; 编译参数, amd机器无需指定 GOARCH 环境变量。
 正确在 ioc_golang.yaml 中开启debug模式后，会打印
 [Debug] Debug port is set to default :1999 的日志。"/>
 
@@ -203,8 +198,8 @@ if (!doNotTrack) {
   <ul class="ul-2 foldable">
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-cndocsgetting-startedenv-li">
   <a href="/cn/docs/getting-started/env/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocsgetting-startedenv"><span class="">环境安装</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-cndocsgetting-startedturtoral-li">
-  <a href="/cn/docs/getting-started/turtoral/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocsgetting-startedturtoral"><span class="">实现依赖注入demo</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-cndocsgetting-startedtutorial-li">
+  <a href="/cn/docs/getting-started/tutorial/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocsgetting-startedtutorial"><span class="">实现依赖注入demo</span></a>
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-cndocsexamples-li">
@@ -244,17 +239,17 @@ if (!doNotTrack) {
   <a href="/cn/docs/reference/ioc_debug_protocol/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocsreferenceioc_debug_protocol"><span class="">ioc_debug 协议</span></a>
 </li>
   </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-cndocscontribution-guidelines-li">
-  <a href="/cn/docs/contribution-guidelines/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-cndocscontribution-guidelines"><span class="">开发者文档</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-cndocsdeveloper-li">
+  <a href="/cn/docs/developer/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-cndocsdeveloper"><span class="">开发者文档</span></a>
   <ul class="ul-2 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-cndocscontribution-guidelinesproject-li">
-  <a href="/cn/docs/contribution-guidelines/project/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocscontribution-guidelinesproject"><span class="">项目结构</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-cndocscontribution-guidelinesdevelop_struct_or_interface-li">
-  <a href="/cn/docs/contribution-guidelines/develop_struct_or_interface/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocscontribution-guidelinesdevelop_struct_or_interface"><span class="">开发接口或结构</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-cndocscontribution-guidelinesdevelop_autowire-li">
-  <a href="/cn/docs/contribution-guidelines/develop_autowire/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocscontribution-guidelinesdevelop_autowire"><span class="">开发自动装载模型</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-cndocscontribution-guidelinesdevelop_debug_interceptor-li">
-  <a href="/cn/docs/contribution-guidelines/develop_debug_interceptor/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocscontribution-guidelinesdevelop_debug_interceptor"><span class="">开发 debug 拦截器</span></a>
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-cndocsdeveloperproject-li">
+  <a href="/cn/docs/developer/project/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocsdeveloperproject"><span class="">项目结构</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-cndocsdeveloperdevelop_struct_or_interface-li">
+  <a href="/cn/docs/developer/develop_struct_or_interface/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocsdeveloperdevelop_struct_or_interface"><span class="">开发接口或结构</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-cndocsdeveloperdevelop_autowire-li">
+  <a href="/cn/docs/developer/develop_autowire/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocsdeveloperdevelop_autowire"><span class="">开发自动装载模型</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-cndocsdeveloperdevelop_debug_interceptor-li">
+  <a href="/cn/docs/developer/develop_debug_interceptor/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocsdeveloperdevelop_debug_interceptor"><span class="">开发 debug 拦截器</span></a>
 </li>
   </ul>
 </li>
@@ -365,13 +360,10 @@ if (!doNotTrack) {
 	<h3 id="简介">简介</h3>
 <p>本示例展示了 ioc-golang 框架提供的代码调试能力</p>
 <p>调试能力对于程序性能有损耗，请您不要在追求性能的场景下开启调试能力。</p>
-<p>ioc_golang.yaml:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">debug</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># debug 开关，默认为 false</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></code></pre></div><p>debug 模式下，本框架基于 AOP 的思路，为每个注册在框架的结构方法都封装了一组拦截器。基于这些拦截器，可以实现具有很好扩展能力的调试功能。</p>
+<p>debug 模式下，本框架基于 AOP 的思路，为每个注册在框架的结构方法都封装了一组拦截器。基于这些拦截器，可以实现具有扩展性的调试功能。</p>
 <p>调试能力包括：</p>
 <ul>
-<li>基于 ioc-debug 协议，暴露调试端口</li>
+<li>基于 <a href="/cn/docs/reference/ioc_debug_protocol">ioc-debug</a> 协议，暴露调试端口</li>
 <li>查看所有接口、实现、方法列表</li>
 <li>监听、修改任意方法的入参和返回值</li>
 <li>性能瓶颈分析【开发中】</li>
@@ -391,11 +383,11 @@ if (!doNotTrack) {
 </code></pre></div></li>
 <li>
 <p>新开一个终端，启动客户端。</p>
-<p><strong>注意 GOARCH 环境变量和 -gcflags 编译参数, amd机器无需指定 GOARCH 环境变量。</strong></p>
+<p><strong>注意 GOARCH 环境变量和 &lsquo;-gcflags=&quot;-N -l&quot; -tags iocdebug&rsquo; 编译参数, amd机器无需指定 GOARCH 环境变量。</strong></p>
 <p>正确在 ioc_golang.yaml 中开启debug模式后，会打印</p>
 <p><code>[Debug] Debug port is set to default :1999 </code>的日志。</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">% <span style="color:#204a87">cd</span> example/debug/cmd
-% <span style="color:#000">GOARCH</span><span style="color:#ce5c00;font-weight:bold">=</span>amd64 go run -gcflags<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;-N -l&#34;</span> .
+% <span style="color:#000">GOARCH</span><span style="color:#ce5c00;font-weight:bold">=</span>amd64 go run -gcflags<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;-N -l&#34;</span> -tags iocdebug  .
   ___    ___     ____            ____           _                         
  <span style="color:#000;font-weight:bold">|</span>_ _<span style="color:#000;font-weight:bold">|</span>  / _ <span style="color:#4e9a06">\ </span>  / ___<span style="color:#000;font-weight:bold">|</span>          / ___<span style="color:#000;font-weight:bold">|</span>   ___   <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>   __ _   _ __     __ _ 
   <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>      _____  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>  _   / _ <span style="color:#4e9a06">\ </span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>  / _<span style="color:#4e9a06">`</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#a40000">&#39;</span>_ <span style="color:#4e9a06">\ </span>  / _<span style="color:#4e9a06">`</span> <span style="color:#000;font-weight:bold">|</span>
@@ -498,7 +490,7 @@ Response 2: <span style="color:#ce5c00;font-weight:bold">(</span>interface <span
 </ol>
 <h3 id="小结">小结</h3>
 <p>通过 Debug 能力，开发人员可以在测试环境内动态地监控流量，帮助排查问题。</p>
-<p>也可以基于 ioc-golang 提供的拦截器层，注册任何自己期望的流量拦截器，扩展调试、可观测、运维能力。</p>
+<p>也可以基于 ioc-golang 提供的拦截器层，注册任何自己期望的<a href="cn/docs/developer/develop_debug_interceptor/">调试拦截器</a>，扩展调试、可观测、运维能力。</p>
 
 	
 		<style>
@@ -565,7 +557,7 @@ Response 2: <span style="color:#ce5c00;font-weight:bold">(</span>interface <span
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified May 19, 2022: <a href="https://github.com/google/docsy-example/commit/2a2941953aa50588fa1148ec3286001baad30241">fix: update docs (2a29419)</a>
+  Last modified May 22, 2022: <a href="https://github.com/google/docsy-example/commit/d65b1567ad9043b505dc0311f5adf0d751547492">update (d65b156)</a>
 </div>
 
 </div>

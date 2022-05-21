@@ -284,7 +284,7 @@ This is the multi-page printable view of this section.
 	<h1 id="pg-5c763969b73849d7b8635f31698de957">1 - 依赖注入</h1>
     
 	<h3 id="概念">概念</h3>
-<p>依赖注入是指开发人员无需显式地创建对象，而是通过标签的方式声明字段，由框架负责将实例化对象写入该字段。</p>
+<p>依赖注入(Dependency Injection)是指开发人员无需显式地创建对象，而是通过<a href="/cn/docs/reference/tag_format">标签</a>的方式声明字段，由框架负责将实例化对象写入该字段。</p>
 <h3 id="优点">优点</h3>
 <p>依赖注入可以降低代码的耦合度，减少冗余代码量，优化代码逻辑。帮助开发人员面向对象编程，面向接口编程。</p>
 <h3 id="ioc-golang-的依赖注入能力">IOC-Golang 的依赖注入能力</h3>
@@ -292,7 +292,7 @@ This is the multi-page printable view of this section.
 <ul>
 <li>
 <p>结构如何被提供</p>
-<p>开发人员需要准备好需要被注入的结构，将它注册到框架。注册到框架的代码可以由开发人员手动编写，开发人员也可以通过使用<a href="../annotation">注解</a>标记结构，使用 <a href="http://localhost:1313/cn/docs/reference/ioc-go-cli/#%E7%BB%93%E6%9E%84%E6%B3%A8%E8%A7%A3">ioc-go-cli</a> 的代码生成能力自动生成注册代码，从而减少工作量。</p>
+<p>开发人员需要准备好需要被注入的结构，将它注册到框架。注册到框架的代码可以由开发人员手动编写，开发人员也可以通过使用<a href="../annotation">注解</a>标记结构，使用 <a href="http://localhost:1313/cn/docs/reference/ioc-go-cli/#%E7%BB%93%E6%9E%84%E6%B3%A8%E8%A7%A3%E4%B8%8Esdcndocsconceptsd%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90">ioc-go-cli</a> 的代码生成能力自动生成注册代码，从而减少工作量。</p>
 <p>一个带有<a href="../annotation">注解</a>的结构</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#8f5902;font-style:italic">// +ioc:autowire=true
 </span><span style="color:#8f5902;font-style:italic">// +ioc:autowire:type=singleton
@@ -323,12 +323,20 @@ This is the multi-page printable view of this section.
 <span style="color:#000;font-weight:bold">}</span>
 </code></pre></div></li>
 <li>
-<p>通过 API 获取，入参为 <a href="/cn/docs/concept/sd/#%E7%BB%93%E6%9E%84%E6%8F%8F%E8%BF%B0id">结构描述 ID</a> ，即可获取对象。</p>
+<p>通过 API 可获取对象，入参为 <a href="/cn/docs/concept/sd/#%E7%BB%93%E6%9E%84%E6%8F%8F%E8%BF%B0id">结构描述 ID</a> 和构造参数(如需要)。</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#000">appInterface</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">singleton</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">GetImpl</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;App-App&#34;</span><span style="color:#000;font-weight:bold">)</span>
-	<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#204a87;font-weight:bold">nil</span> <span style="color:#000;font-weight:bold">{</span>
-        <span style="color:#204a87">panic</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">err</span><span style="color:#000;font-weight:bold">)</span>
-	<span style="color:#000;font-weight:bold">}</span>
-	<span style="color:#000">app</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">appInterface</span><span style="color:#000;font-weight:bold">.(</span><span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">App</span><span style="color:#000;font-weight:bold">)</span>
+<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#204a87;font-weight:bold">nil</span> <span style="color:#000;font-weight:bold">{</span>
+  <span style="color:#204a87">panic</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">err</span><span style="color:#000;font-weight:bold">)</span>
+<span style="color:#000;font-weight:bold">}</span>
+<span style="color:#000">app</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">appInterface</span><span style="color:#000;font-weight:bold">.(</span><span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">App</span><span style="color:#000;font-weight:bold">)</span>
+
+<span style="color:#000">redisInterface</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">normal</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">GetImpl</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Redis-Impl&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">Config</span><span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#000">Address</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;localhost:6379&#34;</span>
+<span style="color:#000;font-weight:bold">})</span>
+<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#204a87;font-weight:bold">nil</span> <span style="color:#000;font-weight:bold">{</span>
+  <span style="color:#204a87">panic</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">err</span><span style="color:#000;font-weight:bold">)</span>
+<span style="color:#000;font-weight:bold">}</span>
+<span style="color:#000">redisClient</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">redisInterface</span><span style="color:#000;font-weight:bold">.(</span><span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">Impl</span><span style="color:#000;font-weight:bold">)</span>
 </code></pre></div></li>
 </ul>
 </li>
@@ -351,10 +359,10 @@ This is the multi-page printable view of this section.
 	<h1 id="pg-8fae84f51ace81fe2401d941c8598831">2 - 自动装载模型</h1>
     
 	<h3 id="概念">概念</h3>
-<p>自动装载模型封装了一类对象的装载方式，是本框架对装载过程抽象出的概念和接口。</p>
+<p>自动装载(Autowire)模型封装了一类对象的装载方式，是本框架对装载过程抽象出的概念和接口。</p>
 <p>用户需要定义的结构千变万化，如果每个结构描述符都要提供完整的装载过程信息，将是一件很麻烦的事情。我们可以将一类相似的结构抽象出一个自动装载模型，选择注册在该模型的所有对象都需要遵循该模型的加载策略，这大大降低了用户提供的结构描述符数据量，提高开发效率。</p>
 <p>框架内置了两个基础自动装载模型：单例模型（singleton），多例模型（normal）</p>
-<p>框架提供了两个扩展的自动装载模型：配置（config），gRPC 客户端（grpc）。其中配置模型是多例模型的扩展，gRPC 客户端是单例模型的扩展。框架内置了基于“配置自动装载模型”的多个结构。用户可以用几行代码将 “gRPC 客户端存根”注册在 “grpc 装载模型” 之上。方便地从配置文件中的指定位置读入下游主机名、从标签读入客户端名称，注入客户端单例指针。</p>
+<p>框架提供了两个扩展的自动装载模型：配置（config），gRPC 客户端（grpc）。其中配置模型是多例模型的扩展，gRPC 客户端是单例模型的扩展。框架内置了基于“配置自动装载模型”的多个结构。例如，用户可以用几行代码将 “gRPC 客户端存根”注册在 “grpc 装载模型” 之上<a href="/cn/docs/examples/grpc">【示例】</a>,方便地从配置文件中的指定位置读入下游主机名、从标签读入客户端名称，注入客户端单例指针。</p>
 
 </div>
 
@@ -373,8 +381,8 @@ This is the multi-page printable view of this section.
 	<h1 id="pg-6d66895ec3961a0f07f75b9d3b53124b">3 - 结构描述符</h1>
     
 	<h3 id="概念">概念</h3>
-<p>结构描述符用于描述一个开发者定义的结构，其包含了对象生命周期的全部信息，例如结构类型是什么，实现了哪些接口，如何被构造等等。</p>
-<p>结构描述符可以通过注解的方式使用工具<a href="/cn/docs/reference/ioc-go-cli/#%E7%BB%93%E6%9E%84%E6%B3%A8%E8%A7%A3">自动生成</a>。但还是推荐开发人员了解本框架定义的结构生命周期和结构描述信息，以便更清晰地开发应用。</p>
+<p><a href="/cn/docs/concept/sd/#%E7%BB%93%E6%9E%84%E6%8F%8F%E8%BF%B0%E7%AC%A6-struct-descriptor">结构描述符</a>(Struct Descriptor, SD)用于描述一个被开发者定义的结构，包含对象生命周期的全部信息，例如结构类型是什么，实现了哪些接口，如何被构造等等。</p>
+<p>SD可以通过<a href="/cn/docs/concept/annotation">注解</a>的方式使用工具<a href="/cn/docs/reference/ioc-go-cli/#%E7%BB%93%E6%9E%84%E6%B3%A8%E8%A7%A3%E4%B8%8Esdcndocsconceptsd%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90">自动生成</a>。但还是推荐开发人员了解本框架定义的结构生命周期和结构描述信息，以便更清晰地开发应用。</p>
 <h3 id="对象生命周期">对象生命周期</h3>
 <p>开发人员在 Go 语言开发过程中需要时时关注对象的生命周期，一个常见的对象生命周期如下：</p>
 <ol>
@@ -491,8 +499,8 @@ This is the multi-page printable view of this section.
 	<h1 id="pg-498a61452dd050f0a493d9c9da70425b">4 - 参数加载器</h1>
     
 	<h3 id="概念">概念</h3>
-<p>参数加载器描述了依赖参数如何在对象构造之前被加载，包括但不限于从配置加载、从标签参数加载等等。</p>
-<p>参数加载器作为 SD（文件描述符）的一部分，可以被结构提供方定制化，也可以使用自动装载模型提供的默认参数加载器。</p>
+<p>参数加载器描述了依赖参数如何在对象构造之前被加载，包括但不限于从配置加载、从<a href="/cn/docs/reference/tag_format">标签</a>参数加载等等。</p>
+<p>参数加载器作为 <a href="/cn/docs/concept/sd">SD(结构描述符)</a>的一部分，可以被结构提供方定制化，也可以使用自动装载模型提供的默认参数加载器。</p>
 <h3 id="默认参数加载器">默认参数加载器</h3>
 <p>任何 SD 内定义参数加载器均被优先执行，如果加载失败，则尝试使用默认参数加载器加载。</p>
 <p>默认参数加载器被两个基础自动装载模型（singleton、normal）引入。依此采用三种方式加载参数，如果三种方式均加载失败，则抛出错误。</p>
@@ -618,10 +626,21 @@ autowire:
     
 	<h1 id="pg-91b059c80c8a87c84f32d97ab49aa5af">5 - 注解</h1>
     
-	<h3 id="注解与代码生成">注解与代码生成</h3>
-<p>注解与代码生成能力，是为了让开发人员无需关心SD （SD）的组装和注册。只需定义好相关结构，正确标注注解，即可使用 ioc-go-cli 工具自动生成所有目录下的 SD 。</p>
+	<h3 id="概念">概念</h3>
+<p>注解(annotation) 是 Go 代码中符合特定格式的注释，一般位于结构定义之前。可被命令行工具扫描，从而获取结构信息，自动生成需要的代码。
+例如<a href="/cn/docs/getting-started/tutorial">快速开始</a>示例中的</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#8f5902;font-style:italic">// +ioc:autowire=true
+</span><span style="color:#8f5902;font-style:italic">// +ioc:autowire:type=singleton
+</span><span style="color:#8f5902;font-style:italic"></span>
+<span style="color:#204a87;font-weight:bold">type</span> <span style="color:#000">App</span> <span style="color:#204a87;font-weight:bold">struct</span> <span style="color:#000;font-weight:bold">{</span>
+	<span style="color:#ce5c00;font-weight:bold">...</span>
+<span style="color:#000;font-weight:bold">}</span>
+
+</code></pre></div><p>注解在 Go 应用开发的过程中，是一种直观、清晰的结构描述方式，通过使用注解进行标注，使用工具自动生成相关代码，可减少开发人员的工作量，降低代码重复率。</p>
+<h3 id="注解与代码生成">注解与代码生成</h3>
+<p>注解与代码生成能力，是为了让开发者无需关心<a href="/cn/docs/concept/sd">SD(结构描述符)</a>的组装和注册。开发者只需定义好结构，正确标注注解，即可使用 ioc-go-cli 工具自动生成当前目录和子目录下的 SD 。</p>
 <h3 id="ioc-go-cli-工具支持的注解">ioc-go-cli 工具支持的注解</h3>
-<p>详情参阅 <a href="/cn/docs/reference/ioc-go-cli">ioc-go-cli 工具</a></p>
+<p>详情参阅 <a href="/cn/docs/reference/ioc-go-cli#%E7%BB%93%E6%9E%84%E6%B3%A8%E8%A7%A3%E4%B8%8Esdcndocsconceptsd%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90">ioc-go-cli #结构注解</a></p>
 
 </div>
 

@@ -31,7 +31,7 @@
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;结构如何被提供&lt;/p&gt;
-&lt;p&gt;开发人员需要准备好需要被注入的结构，将它注册到框架。注册到框架的代码可以由开发人员手动编写，开发人员也可以通过使用&lt;a href=&#34;../annotation&#34;&gt;注解&lt;/a&gt;标记结构，使用 &lt;a href=&#34;http://localhost:1313/cn/docs/reference/ioc-go-cli/#%E7%BB%93%E6%9E%84%E6%B3%A8%E8%A7%A3&#34;&gt;ioc-go-cli&lt;/a&gt; 的代码生成能力自动生成注册代码，从而减少工作量。&lt;/p&gt;
+&lt;p&gt;开发人员需要准备好需要被注入的结构，将它注册到框架。注册到框架的代码可以由开发人员手动编写，开发人员也可以通过使用&lt;a href=&#34;../annotation&#34;&gt;注解&lt;/a&gt;标记结构，使用 &lt;a href=&#34;http://localhost:1313/cn/docs/reference/ioc-go-cli/#%E7%BB%93%E6%9E%84%E6%B3%A8%E8%A7%A3%E4%B8%8Esdcndocsconceptsd%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90&#34;&gt;ioc-go-cli&lt;/a&gt; 的代码生成能力自动生成注册代码，从而减少工作量。&lt;/p&gt;
 &lt;p&gt;一个带有&lt;a href=&#34;../annotation&#34;&gt;注解&lt;/a&gt;的结构&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// +ioc:autowire=true
 &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// +ioc:autowire:type=singleton

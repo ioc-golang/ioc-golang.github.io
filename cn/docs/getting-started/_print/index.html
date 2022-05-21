@@ -146,7 +146,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>2: <a href="#pg-c46d8836b4b1b128b3c172fc06305e02">实现依赖注入demo</a></li>
+<li>2: <a href="#pg-77f7bde3b8b2215f9ba4777f8aeaef2c">实现依赖注入demo</a></li>
 
 
     
@@ -200,16 +200,26 @@ This is the multi-page printable view of this section.
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-c46d8836b4b1b128b3c172fc06305e02">2 - 实现依赖注入demo</h1>
+	<h1 id="pg-77f7bde3b8b2215f9ba4777f8aeaef2c">2 - 实现依赖注入demo</h1>
     <div class="lead">使用 ioc-golang 实现依赖注入demo</div>
 	<h3 id="教程">教程</h3>
-<p>我们将开发一个具有以下拓扑的工程，在本例子中，可以展示代码生成、接口注入、对象指针注入、API 获取对象能力。
-<img src="https://raw.githubusercontent.com/ioc-golang/ioc-golang-website/main/resources/img/ioc-golang-quickstart-structure.png" alt="ioc-golang-quickstart-structure"></p>
+<p><img src="https://raw.githubusercontent.com/ioc-golang/ioc-golang-website/main/resources/video/ioc-golang-demo.gif" alt="demogif"></p>
+<div style="text-align: center;">依赖注入和调试教程演示</div>
+<p>我们将开发一个具有以下拓扑的工程，在本例子中，可以展示</p>
+<ol>
+<li>注册代码生成</li>
+<li>接口注入</li>
+<li>对象指针注入</li>
+<li>API 获取对象</li>
+<li>调试能力，查看运行中的接口、实现、方法；以及实时监听参数值、返回值。</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/ioc-golang/ioc-golang-website/main/resources/img/ioc-golang-quickstart-structure.png" alt="ioc-golang-quickstart-structure"></p>
 <p>用户所需编写的全部代码：main.go</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#204a87;font-weight:bold">package</span> <span style="color:#000">main</span>
 
 <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000;font-weight:bold">(</span>
 	<span style="color:#4e9a06">&#34;fmt&#34;</span>
+	<span style="color:#4e9a06">&#34;time&#34;</span>
 	<span style="color:#4e9a06">&#34;github.com/alibaba/ioc-golang&#34;</span>
 	<span style="color:#4e9a06">&#34;github.com/alibaba/ioc-golang/autowire/singleton&#34;</span>
 <span style="color:#000;font-weight:bold">)</span>
@@ -224,9 +234,13 @@ This is the multi-page printable view of this section.
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000;font-weight:bold">}</span>
 
 <span style="color:#204a87;font-weight:bold">func</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">a</span><span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">App</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000">Run</span><span style="color:#000;font-weight:bold">(){</span>
-	<span style="color:#000">a</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">ServiceImpl1</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Hello</span><span style="color:#000;font-weight:bold">()</span>
-	<span style="color:#000">a</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">ServiceImpl2</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Hello</span><span style="color:#000;font-weight:bold">()</span>
-	<span style="color:#000">a</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">ServiceStruct</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Hello</span><span style="color:#000;font-weight:bold">()</span>
+	<span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">{</span>
+		<span style="color:#000">time</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Sleep</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">time</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Second</span><span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">)</span>
+		<span style="color:#000">a</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">ServiceImpl1</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Hello</span><span style="color:#000;font-weight:bold">()</span>
+		<span style="color:#000">a</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">ServiceImpl2</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Hello</span><span style="color:#000;font-weight:bold">()</span>
+		
+		<span style="color:#000">fmt</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">a</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">ServiceStruct</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">GetString</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;laurence&#34;</span><span style="color:#000;font-weight:bold">))</span>
+    <span style="color:#000;font-weight:bold">}</span>
 <span style="color:#000;font-weight:bold">}</span>
 
 
@@ -265,8 +279,8 @@ This is the multi-page printable view of this section.
 
 <span style="color:#000;font-weight:bold">}</span>
 
-<span style="color:#204a87;font-weight:bold">func</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">s</span> <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">ServiceStruct</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000">Hello</span><span style="color:#000;font-weight:bold">(){</span>
-	<span style="color:#000">fmt</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;This is ServiceStruct, hello world&#34;</span><span style="color:#000;font-weight:bold">)</span>
+<span style="color:#204a87;font-weight:bold">func</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">s</span> <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">ServiceStruct</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000">GetString</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">name</span> <span style="color:#204a87;font-weight:bold">string</span><span style="color:#000;font-weight:bold">)</span><span style="color:#204a87;font-weight:bold">string</span><span style="color:#000;font-weight:bold">{</span>
+	<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">fmt</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Sprintf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Hello %s&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">name</span><span style="color:#000;font-weight:bold">)</span>
 <span style="color:#000;font-weight:bold">}</span>
 
 <span style="color:#204a87;font-weight:bold">func</span> <span style="color:#000">main</span><span style="color:#000;font-weight:bold">(){</span>
@@ -284,8 +298,10 @@ This is the multi-page printable view of this section.
 	<span style="color:#000">app</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">appInterface</span><span style="color:#000;font-weight:bold">.(</span><span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">App</span><span style="color:#000;font-weight:bold">)</span>
 	<span style="color:#000">app</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Run</span><span style="color:#000;font-weight:bold">()</span>
 <span style="color:#000;font-weight:bold">}</span>
-</code></pre></div><p>编写完毕后，当前目录命令行执行（mac 环境可能因为权限原因需要sudo）：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo ioc-go-cli gen
+</code></pre></div><p>编写完毕后，当前目录执行以下命令，初始化 go mod ，生成结构注册代码。（mac 环境可能因权限原因需要sudo）：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">% go mod init ioc-golang-demo
+% go mod tidy
+% sudo ioc-go-cli gen
 </code></pre></div><p>会在当前目录生成：zz_generated.ioc.go，开发者无需关心这一文件，该文件包含了所有接口的描述信息，</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#8f5902;font-style:italic">//go:build !ignore_autogenerated
 </span><span style="color:#8f5902;font-style:italic">// +build !ignore_autogenerated
@@ -295,7 +311,7 @@ This is the multi-page printable view of this section.
 <span style="color:#204a87;font-weight:bold">package</span> <span style="color:#000">main</span>
 
 <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000;font-weight:bold">(</span>
-	<span style="color:#4e9a06">&#34;github.com/alibaba/ioc-golang/autowire&#34;</span>
+	<span style="color:#000">autowire</span> <span style="color:#4e9a06">&#34;github.com/alibaba/ioc-golang/autowire&#34;</span>
 	<span style="color:#4e9a06">&#34;github.com/alibaba/ioc-golang/autowire/singleton&#34;</span>
 <span style="color:#000;font-weight:bold">)</span>
 
@@ -326,16 +342,15 @@ This is the multi-page printable view of this section.
 	<span style="color:#000;font-weight:bold">})</span>
 <span style="color:#000;font-weight:bold">}</span>
 
-</code></pre></div><p>初始化 go mod ，执行</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">% go mod init ioc-golang-demo
-% go mod tidy
-% tree
+</code></pre></div><p>查看当前目录文件</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">% tree
 .
 ├── go.mod
 ├── go.sum
 ├── main.go
 └── zz_generated.ioc.go
-</code></pre></div><p>执行程序：</p>
+</code></pre></div><h4 id="执行程序">执行程序</h4>
+<p><strong>正常方式启动程序</strong></p>
 <p><code>go run .</code></p>
 <p>控制台打印输出：</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">  ___    ___     ____            ____           _                         
@@ -347,8 +362,8 @@ This is the multi-page printable view of this section.
 Welcome to use ioc-golang!
 <span style="color:#ce5c00;font-weight:bold">[</span>Boot<span style="color:#ce5c00;font-weight:bold">]</span> Start to load ioc-golang config
 <span style="color:#ce5c00;font-weight:bold">[</span>Config<span style="color:#ce5c00;font-weight:bold">]</span> Load config file from ../conf/ioc_golang.yaml
-Load ioc_golang config file failed. open ../conf/ioc_golang.yaml: no such file or directory
- The load procedure is <span style="color:#204a87;font-weight:bold">continue</span>
+Load ioc-golang config file failed. open ../conf/ioc_golang.yaml: no such file or directory
+The load procedure is <span style="color:#204a87;font-weight:bold">continue</span>
 <span style="color:#ce5c00;font-weight:bold">[</span>Boot<span style="color:#ce5c00;font-weight:bold">]</span> Start to load debug
 <span style="color:#ce5c00;font-weight:bold">[</span>Debug<span style="color:#ce5c00;font-weight:bold">]</span> Debug mod is not enabled
 <span style="color:#ce5c00;font-weight:bold">[</span>Boot<span style="color:#ce5c00;font-weight:bold">]</span> Start to load autowire
@@ -359,9 +374,43 @@ Load ioc_golang config file failed. open ../conf/ioc_golang.yaml: no such file o
 <span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> singleton registered SD ServiceStruct-ServiceStruct
 This is ServiceImpl1, hello world
 This is ServiceImpl2, hello world
-This is ServiceStruct, hello world
+Hello laurence
+...
 </code></pre></div><p>可看到，注入成功，程序正常运行。</p>
-<h3 id="更多">更多</h3>
+<p><strong>以调试模式启动程序</strong></p>
+<p><code>GOARCH=amd64 go run -gcflags=&quot;-N -l&quot; -tags iocdebug .</code></p>
+<p>可看到打印出的日志中包含</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#ce5c00;font-weight:bold">[</span>Debug<span style="color:#ce5c00;font-weight:bold">]</span> Debug server listening at :1999
+</code></pre></div><p>查看所有接口、实现和方法</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">% ioc-go-cli list
+App
+App
+<span style="color:#ce5c00;font-weight:bold">[</span>Run<span style="color:#ce5c00;font-weight:bold">]</span>
+
+Service
+ServiceImpl1
+<span style="color:#ce5c00;font-weight:bold">[</span>Hello<span style="color:#ce5c00;font-weight:bold">]</span>
+
+Service
+ServiceImpl2
+<span style="color:#ce5c00;font-weight:bold">[</span>Hello<span style="color:#ce5c00;font-weight:bold">]</span>
+
+ServiceStruct
+ServiceStruct
+<span style="color:#ce5c00;font-weight:bold">[</span>GetString<span style="color:#ce5c00;font-weight:bold">]</span>
+</code></pre></div><p>监听方法的参数和返回值。以监听 GetString 方法为例，每隔三秒钟函数被调用的时候，打印参数和返回值。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">% ioc-go-cli watch ServiceStruct ServiceStruct <span style="color:#000">GetString</span>
+
+<span style="color:#ce5c00;font-weight:bold">==========</span> On <span style="color:#000">Call</span> <span style="color:#ce5c00;font-weight:bold">==========</span>
+ServiceStruct.<span style="color:#ce5c00;font-weight:bold">(</span>ServiceStruct<span style="color:#ce5c00;font-weight:bold">)</span>.GetString<span style="color:#ce5c00;font-weight:bold">()</span>
+Param 1: <span style="color:#ce5c00;font-weight:bold">(</span>string<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">len</span><span style="color:#ce5c00;font-weight:bold">=</span>8<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#4e9a06">&#34;laurence&#34;</span>
+
+
+<span style="color:#ce5c00;font-weight:bold">==========</span> On <span style="color:#000">Response</span> <span style="color:#ce5c00;font-weight:bold">==========</span>
+ServiceStruct.<span style="color:#ce5c00;font-weight:bold">(</span>ServiceStruct<span style="color:#ce5c00;font-weight:bold">)</span>.GetString<span style="color:#ce5c00;font-weight:bold">()</span>
+Response 1: <span style="color:#ce5c00;font-weight:bold">(</span>string<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">len</span><span style="color:#ce5c00;font-weight:bold">=</span>14<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#4e9a06">&#34;Hello laurence&#34;</span>
+...
+</code></pre></div><h3 id="更多">更多</h3>
 <p>您可以参阅 <a href="/cn/docs/examples">示例</a> 查阅更多例子和框架高级用法</p>
 
 </div>

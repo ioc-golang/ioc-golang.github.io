@@ -199,139 +199,19 @@ This is the multi-page printable view of this section.
 <ul>
 <li>
 <p>代码调试</p>
-<p>开发者可以配置启动 ioc-go 内核提供的调试能力，ioc-go-cli 作为调试客户端。</p>
+<p>开发者启动 ioc-golang 框架提供的<a href="/cn/docs/examples/debug">调试</a>能力，ioc-go-cli 作为调试客户端。</p>
 </li>
 <li>
 <p>结构描述注册信息生成</p>
-<p>开发者可以为需要依赖注入的结构体增加注解，ioc-go-cli 会识别这些注解，并产生结构描述符，注册在 ioc-go 框架内。</p>
+<p>开发者可以为需要依赖注入的结构体增加<a href="/cn/docs/concept/annotation">注解</a>，ioc-go-cli 会识别这些<a href="/cn/docs/concept/annotation">注解</a>，自动生成<a href="/cn/docs/concept/sd">SD(结构描述符)</a>代码，注册至框架。</p>
 </li>
 </ul>
 <h2 id="安装">安装</h2>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">go install github.com/alibaba/ioc-golang/ioc-go-cli@latest
 </code></pre></div><h2 id="代码调试能力">代码调试能力</h2>
-<p>ioc-golang 框架拥有首创的基于 AOP 思路的 Go 运行时程序调试能力。</p>
-<p>使用前提：非生产环境，amd64 架构机器。arm/M1 芯片需要增加 GOARCH=amd64 兼容。</p>
-<h3 id="开启代码调试能力">开启代码调试能力</h3>
-<p>我们以的 demo 为基础，开启代码调试能力，并使用 ioc-go-cli 进行调试。</p>
-<p>修改 main 函数 Run 方法调用方式为隔 5s 调用一次</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#204a87;font-weight:bold">func</span> <span style="color:#000">main</span><span style="color:#000;font-weight:bold">(){</span>
-	<span style="color:#8f5902;font-style:italic">// 框架启动
-</span><span style="color:#8f5902;font-style:italic"></span>	<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">ioc</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Load</span><span style="color:#000;font-weight:bold">();</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#204a87;font-weight:bold">nil</span><span style="color:#000;font-weight:bold">{</span>
-		<span style="color:#204a87">panic</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">err</span><span style="color:#000;font-weight:bold">)</span>
-	<span style="color:#000;font-weight:bold">}</span>
-
-	<span style="color:#8f5902;font-style:italic">// App-App 即结构ID： &#39;$(接口名)-$(方法名)&#39;， 对于结构指针，接口名默认为方法名
-</span><span style="color:#8f5902;font-style:italic"></span>	<span style="color:#8f5902;font-style:italic">// 可通过这一 ID 获取实例
-</span><span style="color:#8f5902;font-style:italic"></span>	<span style="color:#000">appInterface</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">singleton</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">GetImpl</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;App-App&#34;</span><span style="color:#000;font-weight:bold">)</span>
-	<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#204a87;font-weight:bold">nil</span><span style="color:#000;font-weight:bold">{</span>
-		<span style="color:#204a87">panic</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">err</span><span style="color:#000;font-weight:bold">)</span>
-	<span style="color:#000;font-weight:bold">}</span>
-	<span style="color:#000">app</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">appInterface</span><span style="color:#000;font-weight:bold">.(</span><span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">App</span><span style="color:#000;font-weight:bold">)</span>
-	<span style="color:#204a87;font-weight:bold">for</span><span style="color:#000;font-weight:bold">{</span>
-		<span style="color:#000">time</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Sleep</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">time</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Second</span><span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#0000cf;font-weight:bold">5</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#8f5902;font-style:italic">// 5s 调用一次
-</span><span style="color:#8f5902;font-style:italic"></span>		<span style="color:#000">app</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Run</span><span style="color:#000;font-weight:bold">()</span>
-	<span style="color:#000;font-weight:bold">}</span>
-<span style="color:#000;font-weight:bold">}</span>
-</code></pre></div><p>指定配置文件环境变量</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#204a87">export</span> <span style="color:#000">IOC_GOLANG_CONFIG_PATH</span><span style="color:#ce5c00;font-weight:bold">=</span>./ioc_golang.yaml
-</code></pre></div><p>ioc_golang.yaml:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">debug</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># 开启调试模式</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">% tree .
-.
-├── ioc_golang.yaml
-├── go.mod
-├── go.sum
-├── main.go
-└── zz_generated.ioc.go
-</code></pre></div><p>启动程序：非amd64 机器需要指定架构，GOARCH=amd64。-gcflags=&quot;-N -l&quot; 关闭编译器优化内联。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"> %  <span style="color:#000">GOARCH</span><span style="color:#ce5c00;font-weight:bold">=</span>amd64 go run -gcflags <span style="color:#4e9a06">&#34;-N -l&#34;</span> .
-  ___    ___     ____            ____           _                         
- <span style="color:#000;font-weight:bold">|</span>_ _<span style="color:#000;font-weight:bold">|</span>  / _ <span style="color:#4e9a06">\ </span>  / ___<span style="color:#000;font-weight:bold">|</span>          / ___<span style="color:#000;font-weight:bold">|</span>   ___   <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>   __ _   _ __     __ _ 
-  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>      _____  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>  _   / _ <span style="color:#4e9a06">\ </span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>  / _<span style="color:#4e9a06">`</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#a40000">&#39;</span>_ <span style="color:#4e9a06">\ </span>  / _<span style="color:#4e9a06">`</span> <span style="color:#000;font-weight:bold">|</span>
-  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>___  <span style="color:#000;font-weight:bold">|</span>_____<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#ce5c00;font-weight:bold">(</span>_<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#ce5c00;font-weight:bold">(</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#ce5c00;font-weight:bold">(</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>
- <span style="color:#000;font-weight:bold">|</span>___<span style="color:#000;font-weight:bold">|</span>  <span style="color:#4e9a06">\_</span>__/   <span style="color:#4e9a06">\_</span>___<span style="color:#000;font-weight:bold">|</span>          <span style="color:#4e9a06">\_</span>___<span style="color:#000;font-weight:bold">|</span>  <span style="color:#4e9a06">\_</span>__/  <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span>  <span style="color:#4e9a06">\_</span>_,_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span>  <span style="color:#4e9a06">\_</span>_, <span style="color:#000;font-weight:bold">|</span>
-                                                                    <span style="color:#000;font-weight:bold">|</span>___/ 
-Welcome to use ioc-golang!
-<span style="color:#ce5c00;font-weight:bold">[</span>Boot<span style="color:#ce5c00;font-weight:bold">]</span> Start to load ioc-golan config
-<span style="color:#ce5c00;font-weight:bold">[</span>Config<span style="color:#ce5c00;font-weight:bold">]</span> Environment IOC_GOLANG_CONFIG_PATH is <span style="color:#204a87">set</span> to ./ioc_golang.yaml
-<span style="color:#ce5c00;font-weight:bold">[</span>Config<span style="color:#ce5c00;font-weight:bold">]</span> Load config file from ./ioc-golang.yaml
-<span style="color:#ce5c00;font-weight:bold">[</span>Boot<span style="color:#ce5c00;font-weight:bold">]</span> Start to load debug
-<span style="color:#ce5c00;font-weight:bold">[</span>Debug<span style="color:#ce5c00;font-weight:bold">]</span> Debug port is <span style="color:#204a87">set</span> to default :1999
-<span style="color:#ce5c00;font-weight:bold">[</span>Boot<span style="color:#ce5c00;font-weight:bold">]</span> Start to load autowire
-<span style="color:#ce5c00;font-weight:bold">[</span>Autowire Type<span style="color:#ce5c00;font-weight:bold">]</span> Found registered autowire <span style="color:#204a87">type</span> singleton
-<span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> singleton registered SD App-App
-<span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> singleton registered SD Service-ServiceImpl1
-<span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> singleton registered SD Service-ServiceImpl2
-<span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> singleton registered SD ServiceStruct-ServiceStruct
-<span style="color:#ce5c00;font-weight:bold">[</span>Debug<span style="color:#ce5c00;font-weight:bold">]</span> Debug server listening at :1999
-This is ServiceImpl1, hello world
-This is ServiceImpl2, hello world
-This is ServiceStruct, hello world
-</code></pre></div><p>可看到 debug 端口监听1999</p>
-<p>新启动一个终端，查看所有接口实现和方法：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ioc-go-cli list
-App
-App
-<span style="color:#ce5c00;font-weight:bold">[</span>Run<span style="color:#ce5c00;font-weight:bold">]</span>
-
-Service
-ServiceImpl1
-<span style="color:#ce5c00;font-weight:bold">[</span>Hello<span style="color:#ce5c00;font-weight:bold">]</span>
-
-Service
-ServiceImpl2
-<span style="color:#ce5c00;font-weight:bold">[</span>Hello<span style="color:#ce5c00;font-weight:bold">]</span>
-
-ServiceStruct
-ServiceStruct
-<span style="color:#ce5c00;font-weight:bold">[</span>Hello<span style="color:#ce5c00;font-weight:bold">]</span>
-</code></pre></div><p>监听一个实现类的方法：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">% ioc-go-cli watch Service ServiceImpl1 <span style="color:#000">Hello</span>
-
-<span style="color:#ce5c00;font-weight:bold">==========</span> On <span style="color:#000">Call</span> <span style="color:#ce5c00;font-weight:bold">==========</span>
-Service.<span style="color:#ce5c00;font-weight:bold">(</span>ServiceImpl1<span style="color:#ce5c00;font-weight:bold">)</span>.Hello<span style="color:#ce5c00;font-weight:bold">()</span>
-</code></pre></div><p>对于有入参和返回值的参数，可以监听到具体参数类型和值。一个监听 grpc 客户端的例子如下：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#ce5c00;font-weight:bold">==========</span> On <span style="color:#000">Call</span> <span style="color:#ce5c00;font-weight:bold">==========</span>
-HelloServiceClient.<span style="color:#ce5c00;font-weight:bold">(</span>HelloServiceClient<span style="color:#ce5c00;font-weight:bold">)</span>.SayHello<span style="color:#ce5c00;font-weight:bold">()</span>
-Param 1: <span style="color:#ce5c00;font-weight:bold">(</span>*context.emptyCtx<span style="color:#ce5c00;font-weight:bold">)(</span>0xc0000a0000<span style="color:#ce5c00;font-weight:bold">)(</span>context.Background<span style="color:#ce5c00;font-weight:bold">)</span>
-
-Param 2: <span style="color:#ce5c00;font-weight:bold">(</span>*api.HelloRequest<span style="color:#ce5c00;font-weight:bold">)(</span>0xc00050c640<span style="color:#ce5c00;font-weight:bold">)(</span>name:<span style="color:#4e9a06">&#34;laurence&#34;</span><span style="color:#ce5c00;font-weight:bold">)</span>
-
-Param 3: <span style="color:#ce5c00;font-weight:bold">([]</span>grpc.CallOption<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">len</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">2</span> <span style="color:#000">cap</span><span style="color:#ce5c00;font-weight:bold">=</span>2<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">{</span>
- <span style="color:#ce5c00;font-weight:bold">(</span>grpc.MaxRecvMsgSizeCallOption<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">{</span>
-  MaxRecvMsgSize: <span style="color:#ce5c00;font-weight:bold">(</span>int<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#0000cf;font-weight:bold">1024</span>
- <span style="color:#ce5c00;font-weight:bold">}</span>,
- <span style="color:#ce5c00;font-weight:bold">(</span>grpc.MaxRecvMsgSizeCallOption<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">{</span>
-  MaxRecvMsgSize: <span style="color:#ce5c00;font-weight:bold">(</span>int<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#0000cf;font-weight:bold">1024</span>
- <span style="color:#ce5c00;font-weight:bold">}</span>
-<span style="color:#ce5c00;font-weight:bold">}</span>
-
-
-<span style="color:#ce5c00;font-weight:bold">==========</span> On <span style="color:#000">Response</span> <span style="color:#ce5c00;font-weight:bold">==========</span>
-HelloServiceClient.<span style="color:#ce5c00;font-weight:bold">(</span>HelloServiceClient<span style="color:#ce5c00;font-weight:bold">)</span>.SayHello<span style="color:#ce5c00;font-weight:bold">()</span>
-Response 1: <span style="color:#ce5c00;font-weight:bold">(</span>*api.HelloResponse<span style="color:#ce5c00;font-weight:bold">)(</span>0xc00050c700<span style="color:#ce5c00;font-weight:bold">)(</span>reply:<span style="color:#4e9a06">&#34;Hello laurence&#34;</span><span style="color:#ce5c00;font-weight:bold">)</span>
-
-Response 2: <span style="color:#ce5c00;font-weight:bold">(</span>interface <span style="color:#ce5c00;font-weight:bold">{})</span> &lt;nil&gt;
-
-
-<span style="color:#ce5c00;font-weight:bold">==========</span> On <span style="color:#000">Call</span> <span style="color:#ce5c00;font-weight:bold">==========</span>
-HelloServiceClient.<span style="color:#ce5c00;font-weight:bold">(</span>HelloServiceClient<span style="color:#ce5c00;font-weight:bold">)</span>.SayHello<span style="color:#ce5c00;font-weight:bold">()</span>
-Param 1: <span style="color:#ce5c00;font-weight:bold">(</span>*context.emptyCtx<span style="color:#ce5c00;font-weight:bold">)(</span>0xc0000a0000<span style="color:#ce5c00;font-weight:bold">)(</span>context.Background<span style="color:#ce5c00;font-weight:bold">)</span>
-
-Param 2: <span style="color:#ce5c00;font-weight:bold">(</span>*api.HelloRequest<span style="color:#ce5c00;font-weight:bold">)(</span>0xc00050c8c0<span style="color:#ce5c00;font-weight:bold">)(</span>name:<span style="color:#4e9a06">&#34;laurence_service1_impl1&#34;</span><span style="color:#ce5c00;font-weight:bold">)</span>
-
-Param 3: <span style="color:#ce5c00;font-weight:bold">([]</span>grpc.CallOption<span style="color:#ce5c00;font-weight:bold">)</span> &lt;nil&gt;
-
-
-<span style="color:#ce5c00;font-weight:bold">==========</span> On <span style="color:#000">Response</span> <span style="color:#ce5c00;font-weight:bold">==========</span>
-HelloServiceClient.<span style="color:#ce5c00;font-weight:bold">(</span>HelloServiceClient<span style="color:#ce5c00;font-weight:bold">)</span>.SayHello<span style="color:#ce5c00;font-weight:bold">()</span>
-Response 1: <span style="color:#ce5c00;font-weight:bold">(</span>*api.HelloResponse<span style="color:#ce5c00;font-weight:bold">)(</span>0xc00050c980<span style="color:#ce5c00;font-weight:bold">)(</span>reply:<span style="color:#4e9a06">&#34;Hello laurence_service1_impl1&#34;</span><span style="color:#ce5c00;font-weight:bold">)</span>
-
-Response 2: <span style="color:#ce5c00;font-weight:bold">(</span>interface <span style="color:#ce5c00;font-weight:bold">{})</span> &lt;nil&gt;
-
-
-</code></pre></div><p>基于该思路，我们可以扩展更丰富的调试能力，例如：</p>
+<p>ioc-golang 框架拥有首创的基于 AOP 思路的 Go 运行时程序调试能力。基于 <a href="/cn/docs/reference/ioc_debug_protocol">ioc debug 协议</a></p>
+<p>代码调试示例可参考 <a href="/cn/docs/examples/debug">调试能力示例</a> 或 <a href="/cn/docs/getting-started/tutorial">快速开始</a></p>
+<p>基于该思路，我们可以扩展出更丰富的 cli 端调试能力，例如：</p>
 <ul>
 <li>流量过滤、监控</li>
 <li>参数编辑</li>
@@ -339,7 +219,7 @@ Response 2: <span style="color:#ce5c00;font-weight:bold">(</span>interface <span
 <li>耗时瓶颈分析</li>
 <li>&hellip;</li>
 </ul>
-<h2 id="结构注解">结构注解</h2>
+<h2 id="结构注解与sdcndocsconceptsd代码生成">结构注解与<a href="/cn/docs/concept/sd">SD</a>代码生成</h2>
 <p>ioc-go-cli 可以一键生成当前目录和子目录下的所有标记结构的描述符</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo ioc-go-cli gen
 </code></pre></div><p>可以识别以下注解：</p>

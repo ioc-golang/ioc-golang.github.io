@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>/cn/docs/reference/ioc-go-cli/</loc>
-    <lastmod>2022-05-19T23:31:29+08:00</lastmod>
+    <lastmod>2022-05-22T01:43:54+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -16,7 +16,7 @@
                 />
   </url><url>
     <loc>/cn/docs/concept/di/</loc>
-    <lastmod>2022-05-19T23:31:29+08:00</lastmod>
+    <lastmod>2022-05-22T01:43:54+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -28,17 +28,17 @@
                 href="/cn/docs/concept/di/"
                 />
   </url><url>
-    <loc>/cn/docs/contribution-guidelines/project/</loc>
-    <lastmod>2022-05-19T01:52:15+08:00</lastmod>
+    <loc>/cn/docs/developer/project/</loc>
+    <lastmod>2022-05-22T01:43:54+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/docs/contribution-guidelines/project/"
+                href="/docs/developer/project/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
-                href="/cn/docs/contribution-guidelines/project/"
+                href="/cn/docs/developer/project/"
                 />
   </url><url>
     <loc>/cn/docs/overview/</loc>
@@ -80,30 +80,30 @@
                 href="/cn/docs/examples/redis/"
                 />
   </url><url>
-    <loc>/cn/docs/contribution-guidelines/develop_struct_or_interface/</loc>
-    <lastmod>2022-05-19T01:52:15+08:00</lastmod>
+    <loc>/cn/docs/developer/develop_struct_or_interface/</loc>
+    <lastmod>2022-05-22T01:43:54+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/docs/contribution-guidelines/develop_struct_or_interface/"
+                href="/docs/developer/develop_struct_or_interface/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
-                href="/cn/docs/contribution-guidelines/develop_struct_or_interface/"
+                href="/cn/docs/developer/develop_struct_or_interface/"
                 />
   </url><url>
-    <loc>/cn/docs/contribution-guidelines/develop_autowire/</loc>
-    <lastmod>2022-05-19T01:52:15+08:00</lastmod>
+    <loc>/cn/docs/developer/develop_autowire/</loc>
+    <lastmod>2022-05-22T01:43:54+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/docs/contribution-guidelines/develop_autowire/"
+                href="/docs/developer/develop_autowire/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
-                href="/cn/docs/contribution-guidelines/develop_autowire/"
+                href="/cn/docs/developer/develop_autowire/"
                 />
   </url><url>
     <loc>/cn/docs/reference/tag_format/</loc>
@@ -120,7 +120,7 @@
                 />
   </url><url>
     <loc>/cn/docs/concept/autowire/</loc>
-    <lastmod>2022-05-19T23:31:29+08:00</lastmod>
+    <lastmod>2022-05-21T23:13:52+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -132,17 +132,17 @@
                 href="/cn/docs/concept/autowire/"
                 />
   </url><url>
-    <loc>/cn/docs/getting-started/turtoral/</loc>
-    <lastmod>2022-05-19T23:31:29+08:00</lastmod>
+    <loc>/cn/docs/getting-started/tutorial/</loc>
+    <lastmod>2022-05-21T23:13:52+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/docs/getting-started/turtoral/"
+                href="/docs/getting-started/tutorial/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
-                href="/cn/docs/getting-started/turtoral/"
+                href="/cn/docs/getting-started/tutorial/"
                 />
   </url><url>
     <loc>/cn/docs/concept/</loc>
@@ -171,21 +171,21 @@
                 href="/cn/docs/examples/gorm/"
                 />
   </url><url>
-    <loc>/cn/docs/contribution-guidelines/develop_debug_interceptor/</loc>
-    <lastmod>2022-05-19T01:52:15+08:00</lastmod>
+    <loc>/cn/docs/developer/develop_debug_interceptor/</loc>
+    <lastmod>2022-05-22T01:43:54+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/docs/contribution-guidelines/develop_debug_interceptor/"
+                href="/docs/developer/develop_debug_interceptor/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
-                href="/cn/docs/contribution-guidelines/develop_debug_interceptor/"
+                href="/cn/docs/developer/develop_debug_interceptor/"
                 />
   </url><url>
     <loc>/cn/docs/concept/sd/</loc>
-    <lastmod>2022-05-19T23:31:29+08:00</lastmod>
+    <lastmod>2022-05-22T01:43:54+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -250,7 +250,7 @@
                 />
   </url><url>
     <loc>/cn/docs/overview/feature/</loc>
-    <lastmod>2022-05-19T23:31:29+08:00</lastmod>
+    <lastmod>2022-05-22T01:43:54+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -263,7 +263,7 @@
                 />
   </url><url>
     <loc>/cn/docs/concept/param_loader/</loc>
-    <lastmod>2022-05-19T23:31:29+08:00</lastmod>
+    <lastmod>2022-05-22T01:43:54+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -315,7 +315,7 @@
                 />
   </url><url>
     <loc>/cn/docs/concept/annotation/</loc>
-    <lastmod>2022-05-19T23:31:29+08:00</lastmod>
+    <lastmod>2022-05-22T01:43:54+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -354,7 +354,7 @@
                 />
   </url><url>
     <loc>/cn/docs/examples/debug/</loc>
-    <lastmod>2022-05-19T01:52:15+08:00</lastmod>
+    <lastmod>2022-05-22T01:43:54+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -379,17 +379,17 @@
                 href="/cn/docs/reference/"
                 />
   </url><url>
-    <loc>/cn/docs/contribution-guidelines/</loc>
-    <lastmod>2022-05-19T01:52:15+08:00</lastmod>
+    <loc>/cn/docs/developer/</loc>
+    <lastmod>2022-05-22T01:43:54+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/docs/contribution-guidelines/"
+                href="/docs/developer/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
-                href="/cn/docs/contribution-guidelines/"
+                href="/cn/docs/developer/"
                 />
   </url><url>
     <loc>/cn/docs/</loc>

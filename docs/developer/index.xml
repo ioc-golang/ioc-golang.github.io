@@ -1,0 +1,132 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>IOC-Golang – Developer</title>
+    <link>/docs/developer/</link>
+    <description>Recent content in Developer on IOC-Golang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	  <atom:link href="/docs/developer/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Project Structure</title>
+      <link>/docs/developer/project/</link>
+      <pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/developer/project/</guid>
+      <description>
+        
+        
+        &lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;autowire:&lt;/strong&gt; Provides two basic injection models: singleton model and multi-instance model&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;config:&lt;/strong&gt; Configuration loading module, responsible for parsing user yaml configuration files&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;debug:&lt;/strong&gt; Debug module: Provide debugging API, provide debugging injection layer implementation&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;extension:&lt;/strong&gt; Component extension directory: Provides preset implementation structures based on various injection models:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;autowire: autoload model extensions&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;grpc: grpc client model definition&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;config: configure the model definition&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;config: configuration injection model extension structure&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;string,int,map,slice&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;normal: multi-instance model extension structure&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;redis&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;mysql&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;rocketmq&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;nacos&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;singleton: singleton model extension structure&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;http-server&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;example:&lt;/strong&gt; example repository&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;ioc-go-cli:&lt;/strong&gt; code generation/program debugging tool&lt;/p&gt;
+&lt;p&gt;Provides the ability to automatically generate annotation-based structural description information&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Develop autowire model</title>
+      <link>/docs/developer/develop_autowire/</link>
+      <pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/developer/develop_autowire/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Develop Struct or Interface</title>
+      <link>/docs/developer/develop_struct_or_interface/</link>
+      <pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/developer/develop_struct_or_interface/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Develop Debug Interceptor</title>
+      <link>/docs/developer/develop_debug_interceptor/</link>
+      <pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/developer/develop_debug_interceptor/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>

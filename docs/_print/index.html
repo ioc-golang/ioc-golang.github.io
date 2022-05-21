@@ -255,7 +255,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>3.2: <a href="#pg-c46d8836b4b1b128b3c172fc06305e02">Start dependency injection demo</a></li>
+<li>3.2: <a href="#pg-77f7bde3b8b2215f9ba4777f8aeaef2c">Start dependency injection demo</a></li>
 
 
     
@@ -423,7 +423,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>7: <a href="#pg-8efbf7499fe9c7bde8d2c1bb7ff6ee3c">Developers</a></li>
+<li>7: <a href="#pg-2cef3c6755217e322bb8d43947b44822">Developer</a></li>
 
 
     
@@ -438,7 +438,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>7.1: <a href="#pg-06dc014163e2497951dbf28853a37178">Project Structure</a></li>
+<li>7.1: <a href="#pg-9496b24f376e1e851c99a37b88d75cf3">Project Structure</a></li>
 
 
     
@@ -446,7 +446,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>7.2: <a href="#pg-6992d32bc252ae8238b329ded6702a8d">Develop autowire model</a></li>
+<li>7.2: <a href="#pg-f1fa4a389630b3878b129a8c740366eb">Develop autowire model</a></li>
 
 
     
@@ -454,7 +454,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>7.3: <a href="#pg-fbba124fa3e09c2c3a4cf7019fe78a55">Develop Struct or Interface</a></li>
+<li>7.3: <a href="#pg-aaebf5db7edcfa451ca582b9cd19abc0">Develop Struct or Interface</a></li>
 
 
     
@@ -462,7 +462,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>7.4: <a href="#pg-ff5b6245c2e14b8e6e84659c0f519541">Develop Debug Interceptor</a></li>
+<li>7.4: <a href="#pg-9e51bcdde9763db5df2dbe8667d3b63c">Develop Debug Interceptor</a></li>
 
 
     
@@ -687,7 +687,7 @@ This is the multi-page printable view of this section.
 <ul>
 <li>
 <p>结构如何被提供</p>
-<p>开发人员需要准备好需要被注入的结构，将它注册到框架。注册到框架的代码可以由开发人员手动编写，开发人员也可以通过使用<a href="../annotation">注解</a>标记结构，使用 <a href="http://localhost:1313/cn/docs/reference/ioc-go-cli/#%E7%BB%93%E6%9E%84%E6%B3%A8%E8%A7%A3">ioc-go-cli</a> 的代码生成能力自动生成注册代码，从而减少工作量。</p>
+<p>开发人员需要准备好需要被注入的结构，将它注册到框架。注册到框架的代码可以由开发人员手动编写，开发人员也可以通过使用<a href="../annotation">注解</a>标记结构，使用 <a href="http://localhost:1313/cn/docs/reference/ioc-go-cli/#%E7%BB%93%E6%9E%84%E6%B3%A8%E8%A7%A3%E4%B8%8Esdcndocsconceptsd%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90">ioc-go-cli</a> 的代码生成能力自动生成注册代码，从而减少工作量。</p>
 <p>一个带有<a href="../annotation">注解</a>的结构</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#8f5902;font-style:italic">// +ioc:autowire=true
 </span><span style="color:#8f5902;font-style:italic">// +ioc:autowire:type=singleton
@@ -1084,9 +1084,11 @@ autowire:
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-c46d8836b4b1b128b3c172fc06305e02">3.2 - Start dependency injection demo</h1>
+	<h1 id="pg-77f7bde3b8b2215f9ba4777f8aeaef2c">3.2 - Start dependency injection demo</h1>
     
 	<h3 id="tutorial">Tutorial</h3>
+<p><img src="https://raw.githubusercontent.com/ioc-golang/ioc-golang-website/main/resources/video/ioc-golang-demo.gif" alt="demogif"></p>
+<div style="text-align: center;">dependency injection and debug show</div>
 <p>We will develop a project with the following topology, in this example, we can demonstrate code generation, interface injection, object pointer injection, and API access to objects capabilities.</p>
 <p><img src="https://raw.githubusercontent.com/ioc-golang/ioc-golang-website/main/resources/img/ioc-golang-quickstart-structure-en.png" alt="ioc-golang-quickstart-structure"></p>
 <p>All the code the user needs to write: main.go</p>
@@ -2093,7 +2095,7 @@ Response 2: <span style="color:#ce5c00;font-weight:bold">(</span>interface <span
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-8efbf7499fe9c7bde8d2c1bb7ff6ee3c">7 - Developers</h1>
+	<h1 id="pg-2cef3c6755217e322bb8d43947b44822">7 - Developer</h1>
     
 	
 </div>
@@ -2118,7 +2120,7 @@ Response 2: <span style="color:#ce5c00;font-weight:bold">(</span>interface <span
 
 <div class="td-content" style="">
     
-	<h1 id="pg-06dc014163e2497951dbf28853a37178">7.1 - Project Structure</h1>
+	<h1 id="pg-9496b24f376e1e851c99a37b88d75cf3">7.1 - Project Structure</h1>
     <div class="lead">IOC-Golang Project Structure</div>
 	<ul>
 <li>
@@ -2198,7 +2200,7 @@ Response 2: <span style="color:#ce5c00;font-weight:bold">(</span>interface <span
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-6992d32bc252ae8238b329ded6702a8d">7.2 - Develop autowire model</h1>
+	<h1 id="pg-f1fa4a389630b3878b129a8c740366eb">7.2 - Develop autowire model</h1>
     
 	
 </div>
@@ -2215,7 +2217,7 @@ Response 2: <span style="color:#ce5c00;font-weight:bold">(</span>interface <span
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-fbba124fa3e09c2c3a4cf7019fe78a55">7.3 - Develop Struct or Interface</h1>
+	<h1 id="pg-aaebf5db7edcfa451ca582b9cd19abc0">7.3 - Develop Struct or Interface</h1>
     
 	
 </div>
@@ -2232,7 +2234,7 @@ Response 2: <span style="color:#ce5c00;font-weight:bold">(</span>interface <span
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-ff5b6245c2e14b8e6e84659c0f519541">7.4 - Develop Debug Interceptor</h1>
+	<h1 id="pg-9e51bcdde9763db5df2dbe8667d3b63c">7.4 - Develop Debug Interceptor</h1>
     
 	
 </div>

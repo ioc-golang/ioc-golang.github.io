@@ -20,16 +20,13 @@
 
 <title>依赖注入 | IOC-Golang</title>
 <meta name="description" content="概念
-依赖注入是指开发人员无需显式地创建对象，而是通过标签的方式声明字段，由框架负责将实例化对象写入该字段。
+依赖注入(Dependency Injection)是指开发人员无需显式地创建对象，而是通过标签的方式声明字段，由框架负责将实例化对象写入该字段。
 优点
 依赖注入可以降低代码的耦合度，减少冗余代码量，优化代码逻辑。帮助开发人员面向对象编程，面向接口编程。
 IOC-Golang 的依赖注入能力
-本框架从两个角度实现依赖注入：
-
-
-结构如何 …">
+ …">
 <meta property="og:title" content="依赖注入" />
-<meta property="og:description" content="概念 依赖注入是指开发人员无需显式地创建对象，而是通过标签的方式声明字段，由框架负责将实例化对象写入该字段。
+<meta property="og:description" content="概念 依赖注入(Dependency Injection)是指开发人员无需显式地创建对象，而是通过标签的方式声明字段，由框架负责将实例化对象写入该字段。
 优点 依赖注入可以降低代码的耦合度，减少冗余代码量，优化代码逻辑。帮助开发人员面向对象编程，面向接口编程。
 IOC-Golang 的依赖注入能力 本框架从两个角度实现依赖注入：
   结构如何被提供
@@ -40,14 +37,14 @@ func init() { singleton.RegisterStructDescriptor(&amp;autowire.StructDescriptor{
   通过标签注入
 开发人员需要通过标签来标记需要注入的结构字段。
 需要通过标签注入依赖的结构，其本身必须也注册在框架上。
-// &#43;ioc:autowire=true // &#43;ioc:autowire:type=singleton  type App struct { MySubService Service `singleton:&#34;ServiceImpl1&#34;` }   通过 API 获取，入参为 结构描述 ID ，即可获取对象。" />
+// &#43;ioc:autowire=true // &#43;ioc:autowire:type=singleton  type App struct { MySubService Service `singleton:&#34;ServiceImpl1&#34;` }   通过 API 可获取对象，入参为 结构描述 ID 和构造参数(如需要)。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/cn/docs/concept/di/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2017-01-05T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-05-19T23:31:29+08:00" /><meta property="og:site_name" content="IOC-Golang" />
+<meta property="article:modified_time" content="2022-05-22T01:43:54+08:00" /><meta property="og:site_name" content="IOC-Golang" />
 
 <meta itemprop="name" content="依赖注入">
-<meta itemprop="description" content="概念 依赖注入是指开发人员无需显式地创建对象，而是通过标签的方式声明字段，由框架负责将实例化对象写入该字段。
+<meta itemprop="description" content="概念 依赖注入(Dependency Injection)是指开发人员无需显式地创建对象，而是通过标签的方式声明字段，由框架负责将实例化对象写入该字段。
 优点 依赖注入可以降低代码的耦合度，减少冗余代码量，优化代码逻辑。帮助开发人员面向对象编程，面向接口编程。
 IOC-Golang 的依赖注入能力 本框架从两个角度实现依赖注入：
   结构如何被提供
@@ -58,12 +55,12 @@ func init() { singleton.RegisterStructDescriptor(&amp;autowire.StructDescriptor{
   通过标签注入
 开发人员需要通过标签来标记需要注入的结构字段。
 需要通过标签注入依赖的结构，其本身必须也注册在框架上。
-// &#43;ioc:autowire=true // &#43;ioc:autowire:type=singleton  type App struct { MySubService Service `singleton:&#34;ServiceImpl1&#34;` }   通过 API 获取，入参为 结构描述 ID ，即可获取对象。"><meta itemprop="datePublished" content="2017-01-05T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-05-19T23:31:29+08:00" />
-<meta itemprop="wordCount" content="74">
+// &#43;ioc:autowire=true // &#43;ioc:autowire:type=singleton  type App struct { MySubService Service `singleton:&#34;ServiceImpl1&#34;` }   通过 API 可获取对象，入参为 结构描述 ID 和构造参数(如需要)。"><meta itemprop="datePublished" content="2017-01-05T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-05-22T01:43:54+08:00" />
+<meta itemprop="wordCount" content="93">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="依赖注入"/>
-<meta name="twitter:description" content="概念 依赖注入是指开发人员无需显式地创建对象，而是通过标签的方式声明字段，由框架负责将实例化对象写入该字段。
+<meta name="twitter:description" content="概念 依赖注入(Dependency Injection)是指开发人员无需显式地创建对象，而是通过标签的方式声明字段，由框架负责将实例化对象写入该字段。
 优点 依赖注入可以降低代码的耦合度，减少冗余代码量，优化代码逻辑。帮助开发人员面向对象编程，面向接口编程。
 IOC-Golang 的依赖注入能力 本框架从两个角度实现依赖注入：
   结构如何被提供
@@ -74,7 +71,7 @@ func init() { singleton.RegisterStructDescriptor(&amp;autowire.StructDescriptor{
   通过标签注入
 开发人员需要通过标签来标记需要注入的结构字段。
 需要通过标签注入依赖的结构，其本身必须也注册在框架上。
-// &#43;ioc:autowire=true // &#43;ioc:autowire:type=singleton  type App struct { MySubService Service `singleton:&#34;ServiceImpl1&#34;` }   通过 API 获取，入参为 结构描述 ID ，即可获取对象。"/>
+// &#43;ioc:autowire=true // &#43;ioc:autowire:type=singleton  type App struct { MySubService Service `singleton:&#34;ServiceImpl1&#34;` }   通过 API 可获取对象，入参为 结构描述 ID 和构造参数(如需要)。"/>
 
 
 
@@ -202,8 +199,8 @@ if (!doNotTrack) {
   <ul class="ul-2 foldable">
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-cndocsgetting-startedenv-li">
   <a href="/cn/docs/getting-started/env/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocsgetting-startedenv"><span class="">环境安装</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-cndocsgetting-startedturtoral-li">
-  <a href="/cn/docs/getting-started/turtoral/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocsgetting-startedturtoral"><span class="">实现依赖注入demo</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-cndocsgetting-startedtutorial-li">
+  <a href="/cn/docs/getting-started/tutorial/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocsgetting-startedtutorial"><span class="">实现依赖注入demo</span></a>
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-cndocsexamples-li">
@@ -243,17 +240,17 @@ if (!doNotTrack) {
   <a href="/cn/docs/reference/ioc_debug_protocol/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocsreferenceioc_debug_protocol"><span class="">ioc_debug 协议</span></a>
 </li>
   </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-cndocscontribution-guidelines-li">
-  <a href="/cn/docs/contribution-guidelines/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-cndocscontribution-guidelines"><span class="">开发者文档</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-cndocsdeveloper-li">
+  <a href="/cn/docs/developer/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-cndocsdeveloper"><span class="">开发者文档</span></a>
   <ul class="ul-2 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-cndocscontribution-guidelinesproject-li">
-  <a href="/cn/docs/contribution-guidelines/project/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocscontribution-guidelinesproject"><span class="">项目结构</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-cndocscontribution-guidelinesdevelop_struct_or_interface-li">
-  <a href="/cn/docs/contribution-guidelines/develop_struct_or_interface/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocscontribution-guidelinesdevelop_struct_or_interface"><span class="">开发接口或结构</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-cndocscontribution-guidelinesdevelop_autowire-li">
-  <a href="/cn/docs/contribution-guidelines/develop_autowire/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocscontribution-guidelinesdevelop_autowire"><span class="">开发自动装载模型</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-cndocscontribution-guidelinesdevelop_debug_interceptor-li">
-  <a href="/cn/docs/contribution-guidelines/develop_debug_interceptor/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocscontribution-guidelinesdevelop_debug_interceptor"><span class="">开发 debug 拦截器</span></a>
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-cndocsdeveloperproject-li">
+  <a href="/cn/docs/developer/project/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocsdeveloperproject"><span class="">项目结构</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-cndocsdeveloperdevelop_struct_or_interface-li">
+  <a href="/cn/docs/developer/develop_struct_or_interface/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocsdeveloperdevelop_struct_or_interface"><span class="">开发接口或结构</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-cndocsdeveloperdevelop_autowire-li">
+  <a href="/cn/docs/developer/develop_autowire/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocsdeveloperdevelop_autowire"><span class="">开发自动装载模型</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-cndocsdeveloperdevelop_debug_interceptor-li">
+  <a href="/cn/docs/developer/develop_debug_interceptor/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocsdeveloperdevelop_debug_interceptor"><span class="">开发 debug 拦截器</span></a>
 </li>
   </ul>
 </li>
@@ -361,7 +358,7 @@ if (!doNotTrack) {
 		
 	</header>    
 	<h3 id="概念">概念</h3>
-<p>依赖注入是指开发人员无需显式地创建对象，而是通过标签的方式声明字段，由框架负责将实例化对象写入该字段。</p>
+<p>依赖注入(Dependency Injection)是指开发人员无需显式地创建对象，而是通过<a href="/cn/docs/reference/tag_format">标签</a>的方式声明字段，由框架负责将实例化对象写入该字段。</p>
 <h3 id="优点">优点</h3>
 <p>依赖注入可以降低代码的耦合度，减少冗余代码量，优化代码逻辑。帮助开发人员面向对象编程，面向接口编程。</p>
 <h3 id="ioc-golang-的依赖注入能力">IOC-Golang 的依赖注入能力</h3>
@@ -369,7 +366,7 @@ if (!doNotTrack) {
 <ul>
 <li>
 <p>结构如何被提供</p>
-<p>开发人员需要准备好需要被注入的结构，将它注册到框架。注册到框架的代码可以由开发人员手动编写，开发人员也可以通过使用<a href="../annotation">注解</a>标记结构，使用 <a href="http://localhost:1313/cn/docs/reference/ioc-go-cli/#%E7%BB%93%E6%9E%84%E6%B3%A8%E8%A7%A3">ioc-go-cli</a> 的代码生成能力自动生成注册代码，从而减少工作量。</p>
+<p>开发人员需要准备好需要被注入的结构，将它注册到框架。注册到框架的代码可以由开发人员手动编写，开发人员也可以通过使用<a href="../annotation">注解</a>标记结构，使用 <a href="http://localhost:1313/cn/docs/reference/ioc-go-cli/#%E7%BB%93%E6%9E%84%E6%B3%A8%E8%A7%A3%E4%B8%8Esdcndocsconceptsd%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90">ioc-go-cli</a> 的代码生成能力自动生成注册代码，从而减少工作量。</p>
 <p>一个带有<a href="../annotation">注解</a>的结构</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#8f5902;font-style:italic">// +ioc:autowire=true
 </span><span style="color:#8f5902;font-style:italic">// +ioc:autowire:type=singleton
@@ -400,12 +397,20 @@ if (!doNotTrack) {
 <span style="color:#000;font-weight:bold">}</span>
 </code></pre></div></li>
 <li>
-<p>通过 API 获取，入参为 <a href="/cn/docs/concept/sd/#%E7%BB%93%E6%9E%84%E6%8F%8F%E8%BF%B0id">结构描述 ID</a> ，即可获取对象。</p>
+<p>通过 API 可获取对象，入参为 <a href="/cn/docs/concept/sd/#%E7%BB%93%E6%9E%84%E6%8F%8F%E8%BF%B0id">结构描述 ID</a> 和构造参数(如需要)。</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#000">appInterface</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">singleton</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">GetImpl</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;App-App&#34;</span><span style="color:#000;font-weight:bold">)</span>
-	<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#204a87;font-weight:bold">nil</span> <span style="color:#000;font-weight:bold">{</span>
-        <span style="color:#204a87">panic</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">err</span><span style="color:#000;font-weight:bold">)</span>
-	<span style="color:#000;font-weight:bold">}</span>
-	<span style="color:#000">app</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">appInterface</span><span style="color:#000;font-weight:bold">.(</span><span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">App</span><span style="color:#000;font-weight:bold">)</span>
+<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#204a87;font-weight:bold">nil</span> <span style="color:#000;font-weight:bold">{</span>
+  <span style="color:#204a87">panic</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">err</span><span style="color:#000;font-weight:bold">)</span>
+<span style="color:#000;font-weight:bold">}</span>
+<span style="color:#000">app</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">appInterface</span><span style="color:#000;font-weight:bold">.(</span><span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">App</span><span style="color:#000;font-weight:bold">)</span>
+
+<span style="color:#000">redisInterface</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">normal</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">GetImpl</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Redis-Impl&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">Config</span><span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#000">Address</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;localhost:6379&#34;</span>
+<span style="color:#000;font-weight:bold">})</span>
+<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#204a87;font-weight:bold">nil</span> <span style="color:#000;font-weight:bold">{</span>
+  <span style="color:#204a87">panic</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">err</span><span style="color:#000;font-weight:bold">)</span>
+<span style="color:#000;font-weight:bold">}</span>
+<span style="color:#000">redisClient</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">redisInterface</span><span style="color:#000;font-weight:bold">.(</span><span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">Impl</span><span style="color:#000;font-weight:bold">)</span>
 </code></pre></div></li>
 </ul>
 </li>
@@ -476,7 +481,7 @@ if (!doNotTrack) {
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified May 19, 2022: <a href="https://github.com/google/docsy-example/commit/75dddd7bcf07dd7e072f59ef81673a2e3b7e1b53">Fix: update docs (75dddd7)</a>
+  Last modified May 22, 2022: <a href="https://github.com/google/docsy-example/commit/d65b1567ad9043b505dc0311f5adf0d751547492">update (d65b156)</a>
 </div>
 
 </div>

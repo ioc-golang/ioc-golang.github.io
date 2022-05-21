@@ -21,12 +21,12 @@
 <title>参数加载器 | IOC-Golang</title>
 <meta name="description" content="概念
 参数加载器描述了依赖参数如何在对象构造之前被加载，包括但不限于从配置加载、从标签参数加载等等。
-参数加载器作为 SD（文件描述符）的一部分，可以被结构提供方定制化，也可以使用自动装载模型提供的默认参数加载器。
+参数加载器作为 SD(结构描述符)的一部分，可以被结构提供方定制化，也可以使用自动装载模型提供的默认参数加载器。
 默认参数加载器
 任何 SD 内定义参数加载器均被优先执行，如果加载失败，则尝试使用默 …">
 <meta property="og:title" content="参数加载器" />
 <meta property="og:description" content="概念 参数加载器描述了依赖参数如何在对象构造之前被加载，包括但不限于从配置加载、从标签参数加载等等。
-参数加载器作为 SD（文件描述符）的一部分，可以被结构提供方定制化，也可以使用自动装载模型提供的默认参数加载器。
+参数加载器作为 SD(结构描述符)的一部分，可以被结构提供方定制化，也可以使用自动装载模型提供的默认参数加载器。
 默认参数加载器 任何 SD 内定义参数加载器均被优先执行，如果加载失败，则尝试使用默认参数加载器加载。
 默认参数加载器被两个基础自动装载模型（singleton、normal）引入。依此采用三种方式加载参数，如果三种方式均加载失败，则抛出错误。
   方式1 从标签指向的对象名加载参数，参考 配置文件结构规范
@@ -34,21 +34,21 @@ Load support load struct described like: ```go normal.RegisterStructDescriptor(&
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/cn/docs/concept/param_loader/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2017-01-05T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-05-19T23:31:29+08:00" /><meta property="og:site_name" content="IOC-Golang" />
+<meta property="article:modified_time" content="2022-05-22T01:43:54+08:00" /><meta property="og:site_name" content="IOC-Golang" />
 
 <meta itemprop="name" content="参数加载器">
 <meta itemprop="description" content="概念 参数加载器描述了依赖参数如何在对象构造之前被加载，包括但不限于从配置加载、从标签参数加载等等。
-参数加载器作为 SD（文件描述符）的一部分，可以被结构提供方定制化，也可以使用自动装载模型提供的默认参数加载器。
+参数加载器作为 SD(结构描述符)的一部分，可以被结构提供方定制化，也可以使用自动装载模型提供的默认参数加载器。
 默认参数加载器 任何 SD 内定义参数加载器均被优先执行，如果加载失败，则尝试使用默认参数加载器加载。
 默认参数加载器被两个基础自动装载模型（singleton、normal）引入。依此采用三种方式加载参数，如果三种方式均加载失败，则抛出错误。
   方式1 从标签指向的对象名加载参数，参考 配置文件结构规范
 Load support load struct described like: ```go normal.RegisterStructDescriptor(&amp;autowire.StructDescriptor{ Interface: new(Redis), Factory: func() interface{}{ return &amp;Impl{} }, ParamFactory: func() interface{}{ return &amp;Config{} }, ConstructFunc: func(i interface{}, p interface{}) (interface{}, error) { return i, nil }, }) } type Config struct { Address string Password string DB string } ``` with Autowire type &#39;normal&#39; InterfaceName &#39;Redis&#39; StructName &#39;Impl&#39; Field: MyRedis Redis `normal:&quot;Impl, redis-1&quot;` from: ```yaml extension: normal: Redis: Impl: redis-1: param: address: 127."><meta itemprop="datePublished" content="2017-01-05T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-05-19T23:31:29+08:00" />
+<meta itemprop="dateModified" content="2022-05-22T01:43:54+08:00" />
 <meta itemprop="wordCount" content="186">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="参数加载器"/>
 <meta name="twitter:description" content="概念 参数加载器描述了依赖参数如何在对象构造之前被加载，包括但不限于从配置加载、从标签参数加载等等。
-参数加载器作为 SD（文件描述符）的一部分，可以被结构提供方定制化，也可以使用自动装载模型提供的默认参数加载器。
+参数加载器作为 SD(结构描述符)的一部分，可以被结构提供方定制化，也可以使用自动装载模型提供的默认参数加载器。
 默认参数加载器 任何 SD 内定义参数加载器均被优先执行，如果加载失败，则尝试使用默认参数加载器加载。
 默认参数加载器被两个基础自动装载模型（singleton、normal）引入。依此采用三种方式加载参数，如果三种方式均加载失败，则抛出错误。
   方式1 从标签指向的对象名加载参数，参考 配置文件结构规范
@@ -180,8 +180,8 @@ if (!doNotTrack) {
   <ul class="ul-2 foldable">
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-cndocsgetting-startedenv-li">
   <a href="/cn/docs/getting-started/env/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocsgetting-startedenv"><span class="">环境安装</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-cndocsgetting-startedturtoral-li">
-  <a href="/cn/docs/getting-started/turtoral/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocsgetting-startedturtoral"><span class="">实现依赖注入demo</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-cndocsgetting-startedtutorial-li">
+  <a href="/cn/docs/getting-started/tutorial/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocsgetting-startedtutorial"><span class="">实现依赖注入demo</span></a>
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-cndocsexamples-li">
@@ -221,17 +221,17 @@ if (!doNotTrack) {
   <a href="/cn/docs/reference/ioc_debug_protocol/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocsreferenceioc_debug_protocol"><span class="">ioc_debug 协议</span></a>
 </li>
   </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-cndocscontribution-guidelines-li">
-  <a href="/cn/docs/contribution-guidelines/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-cndocscontribution-guidelines"><span class="">开发者文档</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-cndocsdeveloper-li">
+  <a href="/cn/docs/developer/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-cndocsdeveloper"><span class="">开发者文档</span></a>
   <ul class="ul-2 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-cndocscontribution-guidelinesproject-li">
-  <a href="/cn/docs/contribution-guidelines/project/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocscontribution-guidelinesproject"><span class="">项目结构</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-cndocscontribution-guidelinesdevelop_struct_or_interface-li">
-  <a href="/cn/docs/contribution-guidelines/develop_struct_or_interface/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocscontribution-guidelinesdevelop_struct_or_interface"><span class="">开发接口或结构</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-cndocscontribution-guidelinesdevelop_autowire-li">
-  <a href="/cn/docs/contribution-guidelines/develop_autowire/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocscontribution-guidelinesdevelop_autowire"><span class="">开发自动装载模型</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-cndocscontribution-guidelinesdevelop_debug_interceptor-li">
-  <a href="/cn/docs/contribution-guidelines/develop_debug_interceptor/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocscontribution-guidelinesdevelop_debug_interceptor"><span class="">开发 debug 拦截器</span></a>
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-cndocsdeveloperproject-li">
+  <a href="/cn/docs/developer/project/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocsdeveloperproject"><span class="">项目结构</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-cndocsdeveloperdevelop_struct_or_interface-li">
+  <a href="/cn/docs/developer/develop_struct_or_interface/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocsdeveloperdevelop_struct_or_interface"><span class="">开发接口或结构</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-cndocsdeveloperdevelop_autowire-li">
+  <a href="/cn/docs/developer/develop_autowire/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocsdeveloperdevelop_autowire"><span class="">开发自动装载模型</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-cndocsdeveloperdevelop_debug_interceptor-li">
+  <a href="/cn/docs/developer/develop_debug_interceptor/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocsdeveloperdevelop_debug_interceptor"><span class="">开发 debug 拦截器</span></a>
 </li>
   </ul>
 </li>
@@ -338,8 +338,8 @@ if (!doNotTrack) {
 		
 	</header>    
 	<h3 id="概念">概念</h3>
-<p>参数加载器描述了依赖参数如何在对象构造之前被加载，包括但不限于从配置加载、从标签参数加载等等。</p>
-<p>参数加载器作为 SD（文件描述符）的一部分，可以被结构提供方定制化，也可以使用自动装载模型提供的默认参数加载器。</p>
+<p>参数加载器描述了依赖参数如何在对象构造之前被加载，包括但不限于从配置加载、从<a href="/cn/docs/reference/tag_format">标签</a>参数加载等等。</p>
+<p>参数加载器作为 <a href="/cn/docs/concept/sd">SD(结构描述符)</a>的一部分，可以被结构提供方定制化，也可以使用自动装载模型提供的默认参数加载器。</p>
 <h3 id="默认参数加载器">默认参数加载器</h3>
 <p>任何 SD 内定义参数加载器均被优先执行，如果加载失败，则尝试使用默认参数加载器加载。</p>
 <p>默认参数加载器被两个基础自动装载模型（singleton、normal）引入。依此采用三种方式加载参数，如果三种方式均加载失败，则抛出错误。</p>
@@ -514,7 +514,7 @@ autowire:
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified May 19, 2022: <a href="https://github.com/google/docsy-example/commit/75dddd7bcf07dd7e072f59ef81673a2e3b7e1b53">Fix: update docs (75dddd7)</a>
+  Last modified May 22, 2022: <a href="https://github.com/google/docsy-example/commit/d65b1567ad9043b505dc0311f5adf0d751547492">update (d65b156)</a>
 </div>
 
 </div>

@@ -24,7 +24,7 @@
         
         &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;/cn/docs/getting-started/turtoral/&#34;&gt;依赖注入&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;/cn/docs/getting-started/tutorial/&#34;&gt;依赖注入&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;支持任何结构、接口的依赖注入。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
@@ -33,18 +33,18 @@
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;a href=&#34;/cn/docs/examples/debug/&#34;&gt;代码调试能力&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;基于 AOP 的思路，为由框架接管的对象方法提供运行状态的接口查询、方法参数监听、参数编辑等调试能力。&lt;/p&gt;
+&lt;p&gt;基于 AOP 的思路，为由框架接管的对象方法提供运行时监控、调试能力。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;/cn/docs/reference/ioc-go-cli/#%E7%BB%93%E6%9E%84%E6%B3%A8%E8%A7%A3&#34;&gt;结构描述代码生成能力&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;我们提供了代码生成工具，开发者可以通过注解的方式标注结构，从而便捷地生成结构描述代码。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;/cn/docs/reference/ioc-go-cli/#%E7%BB%93%E6%9E%84%E6%B3%A8%E8%A7%A3%E4%B8%8Esdcndocsconceptsd%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90&#34;&gt;结构注册代码生成能力&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;我们提供了代码生成工具，开发者可以通过注解的方式标注结构，从而便捷地生成结构注册代码。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;可扩展能力&lt;/p&gt;
-&lt;p&gt;支持自动装载模型的扩展、注入参数来源的扩展、对象方法 AOP 层的扩展。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;/cn/docs/developer/&#34;&gt;可扩展能力&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;支持被注入结构的扩展、自动装载模型的扩展、调试 AOP 层的扩展。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;完备的预制组件&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;/cn/docs/examples/&#34;&gt;完备的预制组件&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;提供覆盖主流中间件的预制对象，方便直接注入使用。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;

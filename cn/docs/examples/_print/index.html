@@ -690,13 +690,10 @@ get <span style="color:#000">val</span> <span style="color:#ce5c00;font-weight:b
 	<h3 id="简介">简介</h3>
 <p>本示例展示了 ioc-golang 框架提供的代码调试能力</p>
 <p>调试能力对于程序性能有损耗，请您不要在追求性能的场景下开启调试能力。</p>
-<p>ioc_golang.yaml:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">debug</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># debug 开关，默认为 false</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></code></pre></div><p>debug 模式下，本框架基于 AOP 的思路，为每个注册在框架的结构方法都封装了一组拦截器。基于这些拦截器，可以实现具有很好扩展能力的调试功能。</p>
+<p>debug 模式下，本框架基于 AOP 的思路，为每个注册在框架的结构方法都封装了一组拦截器。基于这些拦截器，可以实现具有扩展性的调试功能。</p>
 <p>调试能力包括：</p>
 <ul>
-<li>基于 ioc-debug 协议，暴露调试端口</li>
+<li>基于 <a href="/cn/docs/reference/ioc_debug_protocol">ioc-debug</a> 协议，暴露调试端口</li>
 <li>查看所有接口、实现、方法列表</li>
 <li>监听、修改任意方法的入参和返回值</li>
 <li>性能瓶颈分析【开发中】</li>
@@ -716,11 +713,11 @@ get <span style="color:#000">val</span> <span style="color:#ce5c00;font-weight:b
 </code></pre></div></li>
 <li>
 <p>新开一个终端，启动客户端。</p>
-<p><strong>注意 GOARCH 环境变量和 -gcflags 编译参数, amd机器无需指定 GOARCH 环境变量。</strong></p>
+<p><strong>注意 GOARCH 环境变量和 &lsquo;-gcflags=&quot;-N -l&quot; -tags iocdebug&rsquo; 编译参数, amd机器无需指定 GOARCH 环境变量。</strong></p>
 <p>正确在 ioc_golang.yaml 中开启debug模式后，会打印</p>
 <p><code>[Debug] Debug port is set to default :1999 </code>的日志。</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">% <span style="color:#204a87">cd</span> example/debug/cmd
-% <span style="color:#000">GOARCH</span><span style="color:#ce5c00;font-weight:bold">=</span>amd64 go run -gcflags<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;-N -l&#34;</span> .
+% <span style="color:#000">GOARCH</span><span style="color:#ce5c00;font-weight:bold">=</span>amd64 go run -gcflags<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;-N -l&#34;</span> -tags iocdebug  .
   ___    ___     ____            ____           _                         
  <span style="color:#000;font-weight:bold">|</span>_ _<span style="color:#000;font-weight:bold">|</span>  / _ <span style="color:#4e9a06">\ </span>  / ___<span style="color:#000;font-weight:bold">|</span>          / ___<span style="color:#000;font-weight:bold">|</span>   ___   <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>   __ _   _ __     __ _ 
   <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>      _____  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>  _   / _ <span style="color:#4e9a06">\ </span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>  / _<span style="color:#4e9a06">`</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#a40000">&#39;</span>_ <span style="color:#4e9a06">\ </span>  / _<span style="color:#4e9a06">`</span> <span style="color:#000;font-weight:bold">|</span>
@@ -823,7 +820,7 @@ Response 2: <span style="color:#ce5c00;font-weight:bold">(</span>interface <span
 </ol>
 <h3 id="小结">小结</h3>
 <p>通过 Debug 能力，开发人员可以在测试环境内动态地监控流量，帮助排查问题。</p>
-<p>也可以基于 ioc-golang 提供的拦截器层，注册任何自己期望的流量拦截器，扩展调试、可观测、运维能力。</p>
+<p>也可以基于 ioc-golang 提供的拦截器层，注册任何自己期望的<a href="cn/docs/developer/develop_debug_interceptor/">调试拦截器</a>，扩展调试、可观测、运维能力。</p>
 
 </div>
 

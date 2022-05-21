@@ -482,13 +482,10 @@ get &lt;span style=&#34;color:#000&#34;&gt;val&lt;/span&gt; &lt;span style=&#34;
         &lt;h3 id=&#34;简介&#34;&gt;简介&lt;/h3&gt;
 &lt;p&gt;本示例展示了 ioc-golang 框架提供的代码调试能力&lt;/p&gt;
 &lt;p&gt;调试能力对于程序性能有损耗，请您不要在追求性能的场景下开启调试能力。&lt;/p&gt;
-&lt;p&gt;ioc_golang.yaml:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;debug&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
-&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;enable&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# debug 开关，默认为 false&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;debug 模式下，本框架基于 AOP 的思路，为每个注册在框架的结构方法都封装了一组拦截器。基于这些拦截器，可以实现具有很好扩展能力的调试功能。&lt;/p&gt;
+&lt;p&gt;debug 模式下，本框架基于 AOP 的思路，为每个注册在框架的结构方法都封装了一组拦截器。基于这些拦截器，可以实现具有扩展性的调试功能。&lt;/p&gt;
 &lt;p&gt;调试能力包括：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;基于 ioc-debug 协议，暴露调试端口&lt;/li&gt;
+&lt;li&gt;基于 &lt;a href=&#34;/cn/docs/reference/ioc_debug_protocol&#34;&gt;ioc-debug&lt;/a&gt; 协议，暴露调试端口&lt;/li&gt;
 &lt;li&gt;查看所有接口、实现、方法列表&lt;/li&gt;
 &lt;li&gt;监听、修改任意方法的入参和返回值&lt;/li&gt;
 &lt;li&gt;性能瓶颈分析【开发中】&lt;/li&gt;
@@ -508,11 +505,11 @@ get &lt;span style=&#34;color:#000&#34;&gt;val&lt;/span&gt; &lt;span style=&#34;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;新开一个终端，启动客户端。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;注意 GOARCH 环境变量和 -gcflags 编译参数, amd机器无需指定 GOARCH 环境变量。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;注意 GOARCH 环境变量和 &amp;lsquo;-gcflags=&amp;quot;-N -l&amp;quot; -tags iocdebug&amp;rsquo; 编译参数, amd机器无需指定 GOARCH 环境变量。&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;正确在 ioc_golang.yaml 中开启debug模式后，会打印&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;[Debug] Debug port is set to default :1999 &lt;/code&gt;的日志。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;% &lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; example/debug/cmd
-% &lt;span style=&#34;color:#000&#34;&gt;GOARCH&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;amd64 go run -gcflags&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;-N -l&amp;#34;&lt;/span&gt; .
+% &lt;span style=&#34;color:#000&#34;&gt;GOARCH&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;amd64 go run -gcflags&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;-N -l&amp;#34;&lt;/span&gt; -tags iocdebug  .
   ___    ___     ____            ____           _                         
  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;_ _&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;  / _ &lt;span style=&#34;color:#4e9a06&#34;&gt;\ &lt;/span&gt;  / ___&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;          / ___&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   ___   &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   __ _   _ __     __ _ 
   &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;      _____  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;  _   / _ &lt;span style=&#34;color:#4e9a06&#34;&gt;\ &lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;  / _&lt;span style=&#34;color:#4e9a06&#34;&gt;`&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#a40000&#34;&gt;&amp;#39;&lt;/span&gt;_ &lt;span style=&#34;color:#4e9a06&#34;&gt;\ &lt;/span&gt;  / _&lt;span style=&#34;color:#4e9a06&#34;&gt;`&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;
@@ -615,7 +612,7 @@ Response 2: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/spa
 &lt;/ol&gt;
 &lt;h3 id=&#34;小结&#34;&gt;小结&lt;/h3&gt;
 &lt;p&gt;通过 Debug 能力，开发人员可以在测试环境内动态地监控流量，帮助排查问题。&lt;/p&gt;
-&lt;p&gt;也可以基于 ioc-golang 提供的拦截器层，注册任何自己期望的流量拦截器，扩展调试、可观测、运维能力。&lt;/p&gt;
+&lt;p&gt;也可以基于 ioc-golang 提供的拦截器层，注册任何自己期望的&lt;a href=&#34;cn/docs/developer/develop_debug_interceptor/&#34;&gt;调试拦截器&lt;/a&gt;，扩展调试、可观测、运维能力。&lt;/p&gt;
 
       </description>
     </item>

@@ -28,10 +28,10 @@
     
     <item>
       <title>Docs: Project Structure</title>
-      <link>/docs/contribution-guidelines/project/</link>
+      <link>/docs/developer/project/</link>
       <pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>/docs/contribution-guidelines/project/</guid>
+      <guid>/docs/developer/project/</guid>
       <description>
         
         
@@ -120,7 +120,7 @@
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;结构如何被提供&lt;/p&gt;
-&lt;p&gt;开发人员需要准备好需要被注入的结构，将它注册到框架。注册到框架的代码可以由开发人员手动编写，开发人员也可以通过使用&lt;a href=&#34;../annotation&#34;&gt;注解&lt;/a&gt;标记结构，使用 &lt;a href=&#34;http://localhost:1313/cn/docs/reference/ioc-go-cli/#%E7%BB%93%E6%9E%84%E6%B3%A8%E8%A7%A3&#34;&gt;ioc-go-cli&lt;/a&gt; 的代码生成能力自动生成注册代码，从而减少工作量。&lt;/p&gt;
+&lt;p&gt;开发人员需要准备好需要被注入的结构，将它注册到框架。注册到框架的代码可以由开发人员手动编写，开发人员也可以通过使用&lt;a href=&#34;../annotation&#34;&gt;注解&lt;/a&gt;标记结构，使用 &lt;a href=&#34;http://localhost:1313/cn/docs/reference/ioc-go-cli/#%E7%BB%93%E6%9E%84%E6%B3%A8%E8%A7%A3%E4%B8%8Esdcndocsconceptsd%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90&#34;&gt;ioc-go-cli&lt;/a&gt; 的代码生成能力自动生成注册代码，从而减少工作量。&lt;/p&gt;
 &lt;p&gt;一个带有&lt;a href=&#34;../annotation&#34;&gt;注解&lt;/a&gt;的结构&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// +ioc:autowire=true
 &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// +ioc:autowire:type=singleton
@@ -186,10 +186,10 @@
     
     <item>
       <title>Docs: Develop autowire model</title>
-      <link>/docs/contribution-guidelines/develop_autowire/</link>
+      <link>/docs/developer/develop_autowire/</link>
       <pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>/docs/contribution-guidelines/develop_autowire/</guid>
+      <guid>/docs/developer/develop_autowire/</guid>
       <description>
         
         
@@ -199,10 +199,10 @@
     
     <item>
       <title>Docs: Develop Struct or Interface</title>
-      <link>/docs/contribution-guidelines/develop_struct_or_interface/</link>
+      <link>/docs/developer/develop_struct_or_interface/</link>
       <pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>/docs/contribution-guidelines/develop_struct_or_interface/</guid>
+      <guid>/docs/developer/develop_struct_or_interface/</guid>
       <description>
         
         
@@ -334,14 +334,16 @@ client3 get  db3
     
     <item>
       <title>Docs: Start dependency injection demo</title>
-      <link>/docs/getting-started/turtoral/</link>
+      <link>/docs/getting-started/tutorial/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/getting-started/turtoral/</guid>
+      <guid>/docs/getting-started/tutorial/</guid>
       <description>
         
         
         &lt;h3 id=&#34;tutorial&#34;&gt;Tutorial&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/ioc-golang/ioc-golang-website/main/resources/video/ioc-golang-demo.gif&#34; alt=&#34;demogif&#34;&gt;&lt;/p&gt;
+&lt;div style=&#34;text-align: center;&#34;&gt;dependency injection and debug show&lt;/div&gt;
 &lt;p&gt;We will develop a project with the following topology, in this example, we can demonstrate code generation, interface injection, object pointer injection, and API access to objects capabilities.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/ioc-golang/ioc-golang-website/main/resources/img/ioc-golang-quickstart-structure-en.png&#34; alt=&#34;ioc-golang-quickstart-structure&#34;&gt;&lt;/p&gt;
 &lt;p&gt;All the code the user needs to write: main.go&lt;/p&gt;
@@ -521,10 +523,10 @@ See the NOTICE file for more information.&lt;/p&gt;
     
     <item>
       <title>Docs: Develop Debug Interceptor</title>
-      <link>/docs/contribution-guidelines/develop_debug_interceptor/</link>
+      <link>/docs/developer/develop_debug_interceptor/</link>
       <pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>/docs/contribution-guidelines/develop_debug_interceptor/</guid>
+      <guid>/docs/developer/develop_debug_interceptor/</guid>
       <description>
         
         
