@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.88.1" />
+<meta name="generator" content="Hugo 0.100.0-DEV" />
 <meta name="robots" content="index, follow">
 
 
@@ -30,7 +30,7 @@
 默认参数加载器 任何 SD 内定义参数加载器均被优先执行，如果加载失败，则尝试使用默认参数加载器加载。
 默认参数加载器被两个基础自动装载模型（singleton、normal）引入。依此采用三种方式加载参数，如果三种方式均加载失败，则抛出错误。
   方式1 从标签指向的对象名加载参数，参考 配置文件结构规范
-Load support load struct described like: ```go normal.RegisterStructDescriptor(&amp;autowire.StructDescriptor{ Interface: new(Redis), Factory: func() interface{}{ return &amp;Impl{} }, ParamFactory: func() interface{}{ return &amp;Config{} }, ConstructFunc: func(i interface{}, p interface{}) (interface{}, error) { return i, nil }, }) } type Config struct { Address string Password string DB string } ``` with Autowire type &#39;normal&#39; InterfaceName &#39;Redis&#39; StructName &#39;Impl&#39; Field: MyRedis Redis `normal:&quot;Impl, redis-1&quot;` from: ```yaml extension: normal: Redis: Impl: redis-1: param: address: 127." />
+Load support load struct described like: ```go normal.RegisterStructDescriptor(&amp;autowire.StructDescriptor{ Interface: new(Redis), Factory: func() interface{}{ return &amp;Impl{} }, ParamFactory: func() interface{}{ return &amp;Config{} }, ConstructFunc: func(i interface{}, p interface{}) (interface{}, error) { return i, nil }, }) } type Config struct { Address string Password string DB string } ``` with Autowire type &#39;normal&#39; InterfaceName &#39;Redis&#39; StructName &#39;Impl&#39; Field: MyRedis Redis `normal:&#34;Impl, redis-1&#34;` from: ```yaml extension: normal: Redis: Impl: redis-1: param: address: 127." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/cn/docs/concept/param_loader/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2017-01-05T00:00:00+00:00" />
@@ -42,7 +42,7 @@ Load support load struct described like: ```go normal.RegisterStructDescriptor(&
 默认参数加载器 任何 SD 内定义参数加载器均被优先执行，如果加载失败，则尝试使用默认参数加载器加载。
 默认参数加载器被两个基础自动装载模型（singleton、normal）引入。依此采用三种方式加载参数，如果三种方式均加载失败，则抛出错误。
   方式1 从标签指向的对象名加载参数，参考 配置文件结构规范
-Load support load struct described like: ```go normal.RegisterStructDescriptor(&amp;autowire.StructDescriptor{ Interface: new(Redis), Factory: func() interface{}{ return &amp;Impl{} }, ParamFactory: func() interface{}{ return &amp;Config{} }, ConstructFunc: func(i interface{}, p interface{}) (interface{}, error) { return i, nil }, }) } type Config struct { Address string Password string DB string } ``` with Autowire type &#39;normal&#39; InterfaceName &#39;Redis&#39; StructName &#39;Impl&#39; Field: MyRedis Redis `normal:&quot;Impl, redis-1&quot;` from: ```yaml extension: normal: Redis: Impl: redis-1: param: address: 127."><meta itemprop="datePublished" content="2017-01-05T00:00:00+00:00" />
+Load support load struct described like: ```go normal.RegisterStructDescriptor(&amp;autowire.StructDescriptor{ Interface: new(Redis), Factory: func() interface{}{ return &amp;Impl{} }, ParamFactory: func() interface{}{ return &amp;Config{} }, ConstructFunc: func(i interface{}, p interface{}) (interface{}, error) { return i, nil }, }) } type Config struct { Address string Password string DB string } ``` with Autowire type &#39;normal&#39; InterfaceName &#39;Redis&#39; StructName &#39;Impl&#39; Field: MyRedis Redis `normal:&#34;Impl, redis-1&#34;` from: ```yaml extension: normal: Redis: Impl: redis-1: param: address: 127."><meta itemprop="datePublished" content="2017-01-05T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-05-22T01:43:54+08:00" />
 <meta itemprop="wordCount" content="186">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
@@ -52,7 +52,7 @@ Load support load struct described like: ```go normal.RegisterStructDescriptor(&
 默认参数加载器 任何 SD 内定义参数加载器均被优先执行，如果加载失败，则尝试使用默认参数加载器加载。
 默认参数加载器被两个基础自动装载模型（singleton、normal）引入。依此采用三种方式加载参数，如果三种方式均加载失败，则抛出错误。
   方式1 从标签指向的对象名加载参数，参考 配置文件结构规范
-Load support load struct described like: ```go normal.RegisterStructDescriptor(&amp;autowire.StructDescriptor{ Interface: new(Redis), Factory: func() interface{}{ return &amp;Impl{} }, ParamFactory: func() interface{}{ return &amp;Config{} }, ConstructFunc: func(i interface{}, p interface{}) (interface{}, error) { return i, nil }, }) } type Config struct { Address string Password string DB string } ``` with Autowire type &#39;normal&#39; InterfaceName &#39;Redis&#39; StructName &#39;Impl&#39; Field: MyRedis Redis `normal:&quot;Impl, redis-1&quot;` from: ```yaml extension: normal: Redis: Impl: redis-1: param: address: 127."/>
+Load support load struct described like: ```go normal.RegisterStructDescriptor(&amp;autowire.StructDescriptor{ Interface: new(Redis), Factory: func() interface{}{ return &amp;Impl{} }, ParamFactory: func() interface{}{ return &amp;Config{} }, ConstructFunc: func(i interface{}, p interface{}) (interface{}, error) { return i, nil }, }) } type Config struct { Address string Password string DB string } ``` with Autowire type &#39;normal&#39; InterfaceName &#39;Redis&#39; StructName &#39;Impl&#39; Field: MyRedis Redis `normal:&#34;Impl, redis-1&#34;` from: ```yaml extension: normal: Redis: Impl: redis-1: param: address: 127."/>
 
 
 
@@ -211,8 +211,8 @@ if (!doNotTrack) {
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-cndocsreference-li">
   <a href="/cn/docs/reference/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-cndocsreference"><span class="">引用</span></a>
   <ul class="ul-2 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-cndocsreferenceioc-go-cli-li">
-  <a href="/cn/docs/reference/ioc-go-cli/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocsreferenceioc-go-cli"><span class="">ioc-go-cli 工具</span></a>
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-cndocsreferenceiocli-li">
+  <a href="/cn/docs/reference/iocli/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocsreferenceiocli"><span class="">iocli 工具</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-cndocsreferencetag_format-li">
   <a href="/cn/docs/reference/tag_format/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocsreferencetag_format"><span class="">标签定义规范</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-cndocsreferenceyaml_structure-li">
@@ -349,16 +349,16 @@ if (!doNotTrack) {
 <pre tabindex="0"><code>Load support load struct described like:
 ```go
 normal.RegisterStructDescriptor(&amp;autowire.StructDescriptor{
-      Interface: new(Redis),
-      Factory:   func() interface{}{
-          return &amp;Impl{}
-      },
-      ParamFactory: func() interface{}{
-          return &amp;Config{}
-      },
-      ConstructFunc: func(i interface{}, p interface{}) (interface{}, error) {
-          return i, nil
-      },
+		Interface: new(Redis),
+		Factory:   func() interface{}{
+			return &amp;Impl{}
+		},
+		ParamFactory: func() interface{}{
+			return &amp;Config{}
+		},
+		ConstructFunc: func(i interface{}, p interface{}) (interface{}, error) {
+			return i, nil
+		},
 	})
 }
 
@@ -370,11 +370,11 @@ type Config struct {
 
 ```
 with
-Autowire type 'normal'
-InterfaceName 'Redis'
-StructName 'Impl'
+Autowire type &#39;normal&#39;
+InterfaceName &#39;Redis&#39;
+StructName &#39;Impl&#39;
 Field:
-	MyRedis Redis `normal:&quot;Impl, redis-1&quot;`
+	MyRedis Redis `normal:&#34;Impl, redis-1&#34;`
 
 from:
 
@@ -403,7 +403,7 @@ type Config struct {
 from field:
 
 ```go
-NormalRedis  normalRedis.Redis  `normal:&quot;Impl,address=127.0.0.1&amp;password=xxx&amp;db=0&quot;`
+NormalRedis  normalRedis.Redis  `normal:&#34;Impl,address=127.0.0.1&amp;password=xxx&amp;db=0&#34;`
 ```
 </code></pre></li>
 <li>
@@ -411,16 +411,16 @@ NormalRedis  normalRedis.Redis  `normal:&quot;Impl,address=127.0.0.1&amp;passwor
 <pre tabindex="0"><code>Load support load struct described like:
 ```go
 normal.RegisterStructDescriptor(&amp;autowire.StructDescriptor{
-      Interface: new(Redis),
-      Factory:   func() interface{}{
-          return &amp;Impl{}
-      },
-      ParamFactory: func() interface{}{
-          return &amp;Config{}
-      },
-      ConstructFunc: func(i interface{}, p interface{}) (interface{}, error) {
-          return i, nil
-      },
+		Interface: new(Redis),
+		Factory:   func() interface{}{
+			return &amp;Impl{}
+		},
+		ParamFactory: func() interface{}{
+			return &amp;Config{}
+		},
+		ConstructFunc: func(i interface{}, p interface{}) (interface{}, error) {
+			return i, nil
+		},
 	})
 }
 
@@ -431,9 +431,9 @@ type Config struct {
 }
 ```
 with
-Autowire type 'normal'
-InterfaceName 'Redis'
-StructName 'Impl'
+Autowire type &#39;normal&#39;
+InterfaceName &#39;Redis&#39;
+StructName &#39;Impl&#39;
 
 from:
 
@@ -628,7 +628,7 @@ autowire:
 
 
 
-<script src="/js/main.min.7380160122c24d59789a168af05fcec445fe4e5f2069dd9f3a0c991f10269ae0.js" integrity="sha256-c4AWASLCTVl4mhaK8F/OxEX&#43;Tl8gad2fOgyZHxAmmuA=" crossorigin="anonymous"></script>
+<script src="/js/main.min.68e31ec429bf4c76d0cfc803a06912682cfe4274c4cafeb4d70d00cfe3c3b618.js" integrity="sha256-aOMexCm/THbQz8gDoGkSaCz&#43;QnTEyv601w0Az&#43;PDthg=" crossorigin="anonymous"></script>
 
 
 

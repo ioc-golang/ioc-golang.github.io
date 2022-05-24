@@ -81,7 +81,7 @@
 &lt;p&gt;&lt;strong&gt;example:&lt;/strong&gt; example repository&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;ioc-go-cli:&lt;/strong&gt; code generation/program debugging tool&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;iocli:&lt;/strong&gt; code generation/program debugging tool&lt;/p&gt;
 &lt;p&gt;Provides the ability to automatically generate annotation-based structural description information&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.88.1" />
+<meta name="generator" content="Hugo 0.100.0-DEV" />
 <meta name="robots" content="index, follow">
 
 
@@ -26,7 +26,7 @@ We will develop a project with the following topology, in this example, we can d
 <meta property="og:title" content="Start dependency injection demo" />
 <meta property="og:description" content="Tutorial dependency injection and debug show We will develop a project with the following topology, in this example, we can demonstrate code generation, interface injection, object pointer injection, and API access to objects capabilities.
 All the code the user needs to write: main.go
-package main import ( &#34;fmt&#34; &#34;github.com/alibaba/ioc-golang&#34; &#34;github.com/alibaba/ioc-golang/autowire/singleton&#34; ) // &#43;ioc:autowire=true // &#43;ioc:autowire:type=singleton  type App struct { ServiceImpl1 Service `singleton:&#34;ServiceImpl1&#34;` // inject Service &#39;s ServiceImpl1 implementation 	ServiceImpl2 Service `singleton:&#34;ServiceImpl2&#34;` // inject Service &#39;s ServiceImpl2 implementation 	ServiceStruct *ServiceStruct `singleton:&#34;ServiceStruct&#34;` // inject ServiceStruct struct pointer } func (a*App) Run(){ a." />
+package main  import ( 	&#34;fmt&#34; 	&#34;github.com/alibaba/ioc-golang&#34; 	&#34;github.com/alibaba/ioc-golang/autowire/singleton&#34; )  // &#43;ioc:autowire=true // &#43;ioc:autowire:type=singleton  type App struct { 	ServiceImpl1 Service `singleton:&#34;ServiceImpl1&#34;` // inject Service &#39;s ServiceImpl1 implementation 	ServiceImpl2 Service `singleton:&#34;ServiceImpl2&#34;` // inject Service &#39;s ServiceImpl2 implementation 	ServiceStruct *ServiceStruct `singleton:&#34;ServiceStruct&#34;` // inject ServiceStruct struct pointer }  func (a*App) Run(){ 	a." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/getting-started/tutorial/" /><meta property="article:section" content="docs" />
 
@@ -35,14 +35,14 @@ package main import ( &#34;fmt&#34; &#34;github.com/alibaba/ioc-golang&#34; &#34
 <meta itemprop="name" content="Start dependency injection demo">
 <meta itemprop="description" content="Tutorial dependency injection and debug show We will develop a project with the following topology, in this example, we can demonstrate code generation, interface injection, object pointer injection, and API access to objects capabilities.
 All the code the user needs to write: main.go
-package main import ( &#34;fmt&#34; &#34;github.com/alibaba/ioc-golang&#34; &#34;github.com/alibaba/ioc-golang/autowire/singleton&#34; ) // &#43;ioc:autowire=true // &#43;ioc:autowire:type=singleton  type App struct { ServiceImpl1 Service `singleton:&#34;ServiceImpl1&#34;` // inject Service &#39;s ServiceImpl1 implementation 	ServiceImpl2 Service `singleton:&#34;ServiceImpl2&#34;` // inject Service &#39;s ServiceImpl2 implementation 	ServiceStruct *ServiceStruct `singleton:&#34;ServiceStruct&#34;` // inject ServiceStruct struct pointer } func (a*App) Run(){ a.">
+package main  import ( 	&#34;fmt&#34; 	&#34;github.com/alibaba/ioc-golang&#34; 	&#34;github.com/alibaba/ioc-golang/autowire/singleton&#34; )  // &#43;ioc:autowire=true // &#43;ioc:autowire:type=singleton  type App struct { 	ServiceImpl1 Service `singleton:&#34;ServiceImpl1&#34;` // inject Service &#39;s ServiceImpl1 implementation 	ServiceImpl2 Service `singleton:&#34;ServiceImpl2&#34;` // inject Service &#39;s ServiceImpl2 implementation 	ServiceStruct *ServiceStruct `singleton:&#34;ServiceStruct&#34;` // inject ServiceStruct struct pointer }  func (a*App) Run(){ 	a.">
 <meta itemprop="dateModified" content="2022-05-22T01:43:54+08:00" />
 <meta itemprop="wordCount" content="648">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Start dependency injection demo"/>
 <meta name="twitter:description" content="Tutorial dependency injection and debug show We will develop a project with the following topology, in this example, we can demonstrate code generation, interface injection, object pointer injection, and API access to objects capabilities.
 All the code the user needs to write: main.go
-package main import ( &#34;fmt&#34; &#34;github.com/alibaba/ioc-golang&#34; &#34;github.com/alibaba/ioc-golang/autowire/singleton&#34; ) // &#43;ioc:autowire=true // &#43;ioc:autowire:type=singleton  type App struct { ServiceImpl1 Service `singleton:&#34;ServiceImpl1&#34;` // inject Service &#39;s ServiceImpl1 implementation 	ServiceImpl2 Service `singleton:&#34;ServiceImpl2&#34;` // inject Service &#39;s ServiceImpl2 implementation 	ServiceStruct *ServiceStruct `singleton:&#34;ServiceStruct&#34;` // inject ServiceStruct struct pointer } func (a*App) Run(){ a."/>
+package main  import ( 	&#34;fmt&#34; 	&#34;github.com/alibaba/ioc-golang&#34; 	&#34;github.com/alibaba/ioc-golang/autowire/singleton&#34; )  // &#43;ioc:autowire=true // &#43;ioc:autowire:type=singleton  type App struct { 	ServiceImpl1 Service `singleton:&#34;ServiceImpl1&#34;` // inject Service &#39;s ServiceImpl1 implementation 	ServiceImpl2 Service `singleton:&#34;ServiceImpl2&#34;` // inject Service &#39;s ServiceImpl2 implementation 	ServiceStruct *ServiceStruct `singleton:&#34;ServiceStruct&#34;` // inject ServiceStruct struct pointer }  func (a*App) Run(){ 	a."/>
 
 
 
@@ -201,8 +201,8 @@ if (!doNotTrack) {
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsreference-li">
   <a href="/docs/reference/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreference"><span class="">Reference</span></a>
   <ul class="ul-2 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferenceioc-go-cli-li">
-  <a href="/docs/reference/ioc-go-cli/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsreferenceioc-go-cli"><span class="">ioc-go-cli Tool</span></a>
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferenceiocli-li">
+  <a href="/docs/reference/iocli/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsreferenceiocli"><span class="">iocli Tool</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferencetag_format-li">
   <a href="/docs/reference/tag_format/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsreferencetag_format"><span class="">Tag Structure Standard</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferenceyaml_structure-li">
@@ -335,172 +335,171 @@ if (!doNotTrack) {
 <p>We will develop a project with the following topology, in this example, we can demonstrate code generation, interface injection, object pointer injection, and API access to objects capabilities.</p>
 <p><img src="https://raw.githubusercontent.com/ioc-golang/ioc-golang-website/main/resources/img/ioc-golang-quickstart-structure-en.png" alt="ioc-golang-quickstart-structure"></p>
 <p>All the code the user needs to write: main.go</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#204a87;font-weight:bold">package</span> <span style="color:#000">main</span>
-
-<span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000;font-weight:bold">(</span>
-	<span style="color:#4e9a06">&#34;fmt&#34;</span>
-	<span style="color:#4e9a06">&#34;github.com/alibaba/ioc-golang&#34;</span>
-	<span style="color:#4e9a06">&#34;github.com/alibaba/ioc-golang/autowire/singleton&#34;</span>
-<span style="color:#000;font-weight:bold">)</span>
-
-<span style="color:#8f5902;font-style:italic">// +ioc:autowire=true
-</span><span style="color:#8f5902;font-style:italic">// +ioc:autowire:type=singleton
-</span><span style="color:#8f5902;font-style:italic"></span>
-<span style="color:#204a87;font-weight:bold">type</span> <span style="color:#000">App</span> <span style="color:#204a87;font-weight:bold">struct</span> <span style="color:#000;font-weight:bold">{</span>
-	<span style="color:#000">ServiceImpl1</span> <span style="color:#000">Service</span> <span style="color:#4e9a06">`singleton:&#34;ServiceImpl1&#34;`</span> <span style="color:#8f5902;font-style:italic">// inject Service &#39;s ServiceImpl1 implementation
-</span><span style="color:#8f5902;font-style:italic"></span>	<span style="color:#000">ServiceImpl2</span> <span style="color:#000">Service</span> <span style="color:#4e9a06">`singleton:&#34;ServiceImpl2&#34;`</span> <span style="color:#8f5902;font-style:italic">// inject Service &#39;s ServiceImpl2 implementation
-</span><span style="color:#8f5902;font-style:italic"></span>	<span style="color:#000">ServiceStruct</span> <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">ServiceStruct</span> <span style="color:#4e9a06">`singleton:&#34;ServiceStruct&#34;`</span> <span style="color:#8f5902;font-style:italic">// inject ServiceStruct struct pointer
-</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000;font-weight:bold">}</span>
-
-<span style="color:#204a87;font-weight:bold">func</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">a</span><span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">App</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000">Run</span><span style="color:#000;font-weight:bold">(){</span>
-	<span style="color:#000">a</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">ServiceImpl1</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Hello</span><span style="color:#000;font-weight:bold">()</span>
-	<span style="color:#000">a</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">ServiceImpl2</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Hello</span><span style="color:#000;font-weight:bold">()</span>
-	<span style="color:#000">a</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">ServiceStruct</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Hello</span><span style="color:#000;font-weight:bold">()</span>
-<span style="color:#000;font-weight:bold">}</span>
-
-
-<span style="color:#204a87;font-weight:bold">type</span> <span style="color:#000">Service</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{</span>
-	<span style="color:#000">Hello</span><span style="color:#000;font-weight:bold">()</span>
-<span style="color:#000;font-weight:bold">}</span>
-
-<span style="color:#8f5902;font-style:italic">// +ioc:autowire=true
-</span><span style="color:#8f5902;font-style:italic">// +ioc:autowire:type=singleton
-</span><span style="color:#8f5902;font-style:italic">// +ioc:autowire:interface=Service
-</span><span style="color:#8f5902;font-style:italic"></span>
-<span style="color:#204a87;font-weight:bold">type</span> <span style="color:#000">ServiceImpl1</span> <span style="color:#204a87;font-weight:bold">struct</span> <span style="color:#000;font-weight:bold">{</span>
-
-<span style="color:#000;font-weight:bold">}</span>
-
-<span style="color:#204a87;font-weight:bold">func</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">s</span> <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">ServiceImpl1</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000">Hello</span><span style="color:#000;font-weight:bold">(){</span>
-	<span style="color:#000">fmt</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;This is ServiceImpl1, hello world&#34;</span><span style="color:#000;font-weight:bold">)</span>
-<span style="color:#000;font-weight:bold">}</span>
-
-<span style="color:#8f5902;font-style:italic">// +ioc:autowire=true
-</span><span style="color:#8f5902;font-style:italic">// +ioc:autowire:type=singleton
-</span><span style="color:#8f5902;font-style:italic">// +ioc:autowire:interface=Service
-</span><span style="color:#8f5902;font-style:italic"></span>
-<span style="color:#204a87;font-weight:bold">type</span> <span style="color:#000">ServiceImpl2</span> <span style="color:#204a87;font-weight:bold">struct</span> <span style="color:#000;font-weight:bold">{</span>
-
-<span style="color:#000;font-weight:bold">}</span>
-
-<span style="color:#204a87;font-weight:bold">func</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">s</span> <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">ServiceImpl2</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000">Hello</span><span style="color:#000;font-weight:bold">(){</span>
-	<span style="color:#000">fmt</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;This is ServiceImpl2, hello world&#34;</span><span style="color:#000;font-weight:bold">)</span>
-<span style="color:#000;font-weight:bold">}</span>
-
-<span style="color:#8f5902;font-style:italic">// +ioc:autowire=true
-</span><span style="color:#8f5902;font-style:italic">// +ioc:autowire:type=singleton
-</span><span style="color:#8f5902;font-style:italic"></span>
-<span style="color:#204a87;font-weight:bold">type</span> <span style="color:#000">ServiceStruct</span> <span style="color:#204a87;font-weight:bold">struct</span> <span style="color:#000;font-weight:bold">{</span>
-
-<span style="color:#000;font-weight:bold">}</span>
-
-<span style="color:#204a87;font-weight:bold">func</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">s</span> <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">ServiceStruct</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000">Hello</span><span style="color:#000;font-weight:bold">(){</span>
-	<span style="color:#000">fmt</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;This is ServiceStruct, hello world&#34;</span><span style="color:#000;font-weight:bold">)</span>
-<span style="color:#000;font-weight:bold">}</span>
-
-<span style="color:#204a87;font-weight:bold">func</span> <span style="color:#000">main</span><span style="color:#000;font-weight:bold">(){</span>
-	<span style="color:#8f5902;font-style:italic">// start
-</span><span style="color:#8f5902;font-style:italic"></span>	<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">ioc</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Load</span><span style="color:#000;font-weight:bold">();</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#204a87;font-weight:bold">nil</span><span style="color:#000;font-weight:bold">{</span>
-		<span style="color:#204a87">panic</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">err</span><span style="color:#000;font-weight:bold">)</span>
-	<span style="color:#000;font-weight:bold">}</span>
-
-	<span style="color:#8f5902;font-style:italic">// App-App is the format of： &#39;$(interfaceName)-$(implementationStructName)&#39;
-</span><span style="color:#8f5902;font-style:italic"></span>	<span style="color:#8f5902;font-style:italic">// We can get instance by ths id
-</span><span style="color:#8f5902;font-style:italic"></span>	<span style="color:#000">appInterface</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">singleton</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">GetImpl</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;App-App&#34;</span><span style="color:#000;font-weight:bold">)</span>
-	<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#204a87;font-weight:bold">nil</span><span style="color:#000;font-weight:bold">{</span>
-		<span style="color:#204a87">panic</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">err</span><span style="color:#000;font-weight:bold">)</span>
-	<span style="color:#000;font-weight:bold">}</span>
-	<span style="color:#000">app</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">appInterface</span><span style="color:#000;font-weight:bold">.(</span><span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">App</span><span style="color:#000;font-weight:bold">)</span>
-	<span style="color:#000">app</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Run</span><span style="color:#000;font-weight:bold">()</span>
-<span style="color:#000;font-weight:bold">}</span>
-</code></pre></div><p>After writing, you can exec the following cli command.  (mac may require sudo due to permissions)</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo ioc-go-cli gen
-</code></pre></div><p>It will be generated in the current directory: zz_generated.ioc.go, developers <strong>do not need to care about this file</strong>, this file contains the description information of all interfaces,</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#8f5902;font-style:italic">//go:build !ignore_autogenerated
-</span><span style="color:#8f5902;font-style:italic">// +build !ignore_autogenerated
-</span><span style="color:#8f5902;font-style:italic"></span>
-<span style="color:#8f5902;font-style:italic">// Code generated by ioc-go-cli
-</span><span style="color:#8f5902;font-style:italic"></span>
-<span style="color:#204a87;font-weight:bold">package</span> <span style="color:#000">main</span>
-
-<span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000;font-weight:bold">(</span>
-	<span style="color:#4e9a06">&#34;github.com/alibaba/ioc-golang/autowire&#34;</span>
-	<span style="color:#4e9a06">&#34;github.com/alibaba/ioc-golang/autowire/singleton&#34;</span>
-<span style="color:#000;font-weight:bold">)</span>
-
-<span style="color:#204a87;font-weight:bold">func</span> <span style="color:#000">init</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
-	<span style="color:#000">singleton</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">RegisterStructDescriptor</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">autowire</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">StructDescriptor</span><span style="color:#000;font-weight:bold">{</span>
-		<span style="color:#000">Interface</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">App</span><span style="color:#000;font-weight:bold">{},</span>
-		<span style="color:#000">Factory</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">func</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{}</span> <span style="color:#000;font-weight:bold">{</span>
-			<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">App</span><span style="color:#000;font-weight:bold">{}</span>
-		<span style="color:#000;font-weight:bold">},</span>
-	<span style="color:#000;font-weight:bold">})</span>
-	<span style="color:#000">singleton</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">RegisterStructDescriptor</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">autowire</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">StructDescriptor</span><span style="color:#000;font-weight:bold">{</span>
-		<span style="color:#000">Interface</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87">new</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Service</span><span style="color:#000;font-weight:bold">),</span>
-		<span style="color:#000">Factory</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">func</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{}</span> <span style="color:#000;font-weight:bold">{</span>
-			<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">ServiceImpl1</span><span style="color:#000;font-weight:bold">{}</span>
-		<span style="color:#000;font-weight:bold">},</span>
-	<span style="color:#000;font-weight:bold">})</span>
-	<span style="color:#000">singleton</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">RegisterStructDescriptor</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">autowire</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">StructDescriptor</span><span style="color:#000;font-weight:bold">{</span>
-		<span style="color:#000">Interface</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87">new</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Service</span><span style="color:#000;font-weight:bold">),</span>
-		<span style="color:#000">Factory</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">func</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{}</span> <span style="color:#000;font-weight:bold">{</span>
-			<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">ServiceImpl2</span><span style="color:#000;font-weight:bold">{}</span>
-		<span style="color:#000;font-weight:bold">},</span>
-	<span style="color:#000;font-weight:bold">})</span>
-	<span style="color:#000">singleton</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">RegisterStructDescriptor</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">autowire</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">StructDescriptor</span><span style="color:#000;font-weight:bold">{</span>
-		<span style="color:#000">Interface</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">ServiceStruct</span><span style="color:#000;font-weight:bold">{},</span>
-		<span style="color:#000">Factory</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">func</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{}</span> <span style="color:#000;font-weight:bold">{</span>
-			<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">ServiceStruct</span><span style="color:#000;font-weight:bold">{}</span>
-		<span style="color:#000;font-weight:bold">},</span>
-	<span style="color:#000;font-weight:bold">})</span>
-<span style="color:#000;font-weight:bold">}</span>
-
-</code></pre></div><p>initialize go mod</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">package</span> <span style="color:#000">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000;font-weight:bold">(</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#4e9a06">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#4e9a06">&#34;github.com/alibaba/ioc-golang&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#4e9a06">&#34;github.com/alibaba/ioc-golang/autowire/singleton&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// +ioc:autowire=true
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// +ioc:autowire:type=singleton
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">type</span> <span style="color:#000">App</span> <span style="color:#204a87;font-weight:bold">struct</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#000">ServiceImpl1</span> <span style="color:#000">Service</span> <span style="color:#4e9a06">`singleton:&#34;ServiceImpl1&#34;`</span> <span style="color:#8f5902;font-style:italic">// inject Service &#39;s ServiceImpl1 implementation
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>	<span style="color:#000">ServiceImpl2</span> <span style="color:#000">Service</span> <span style="color:#4e9a06">`singleton:&#34;ServiceImpl2&#34;`</span> <span style="color:#8f5902;font-style:italic">// inject Service &#39;s ServiceImpl2 implementation
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>	<span style="color:#000">ServiceStruct</span> <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">ServiceStruct</span> <span style="color:#4e9a06">`singleton:&#34;ServiceStruct&#34;`</span> <span style="color:#8f5902;font-style:italic">// inject ServiceStruct struct pointer
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">func</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">a</span><span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">App</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000">Run</span><span style="color:#000;font-weight:bold">(){</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#000">a</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">ServiceImpl1</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Hello</span><span style="color:#000;font-weight:bold">()</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#000">a</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">ServiceImpl2</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Hello</span><span style="color:#000;font-weight:bold">()</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#000">a</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">ServiceStruct</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Hello</span><span style="color:#000;font-weight:bold">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">type</span> <span style="color:#000">Service</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#000">Hello</span><span style="color:#000;font-weight:bold">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// +ioc:autowire=true
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// +ioc:autowire:type=singleton
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// +ioc:autowire:interface=Service
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">type</span> <span style="color:#000">ServiceImpl1</span> <span style="color:#204a87;font-weight:bold">struct</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">func</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">s</span> <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">ServiceImpl1</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000">Hello</span><span style="color:#000;font-weight:bold">(){</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#000">fmt</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;This is ServiceImpl1, hello world&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// +ioc:autowire=true
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// +ioc:autowire:type=singleton
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// +ioc:autowire:interface=Service
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">type</span> <span style="color:#000">ServiceImpl2</span> <span style="color:#204a87;font-weight:bold">struct</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">func</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">s</span> <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">ServiceImpl2</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000">Hello</span><span style="color:#000;font-weight:bold">(){</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#000">fmt</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;This is ServiceImpl2, hello world&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// +ioc:autowire=true
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// +ioc:autowire:type=singleton
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">type</span> <span style="color:#000">ServiceStruct</span> <span style="color:#204a87;font-weight:bold">struct</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">func</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">s</span> <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">ServiceStruct</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000">Hello</span><span style="color:#000;font-weight:bold">(){</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#000">fmt</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;This is ServiceStruct, hello world&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">func</span> <span style="color:#000">main</span><span style="color:#000;font-weight:bold">(){</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#8f5902;font-style:italic">// start
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>	<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">ioc</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Load</span><span style="color:#000;font-weight:bold">();</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#204a87;font-weight:bold">nil</span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#204a87">panic</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">err</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#8f5902;font-style:italic">// App-App is the format of： &#39;$(interfaceName)-$(implementationStructName)&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>	<span style="color:#8f5902;font-style:italic">// We can get instance by ths id
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>	<span style="color:#000">appInterface</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">singleton</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">GetImpl</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;App-App&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#204a87;font-weight:bold">nil</span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#204a87">panic</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">err</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#000">app</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">appInterface</span><span style="color:#000;font-weight:bold">.(</span><span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">App</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#000">app</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Run</span><span style="color:#000;font-weight:bold">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>After writing, you can exec the following cli command.  (mac may require sudo due to permissions)</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo iocli gen
+</span></span></code></pre></div><p>It will be generated in the current directory: zz_generated.ioc.go, developers <strong>do not need to care about this file</strong>, this file contains the description information of all interfaces,</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">//go:build !ignore_autogenerated
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// +build !ignore_autogenerated
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// Code generated by iocli
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">package</span> <span style="color:#000">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000;font-weight:bold">(</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#4e9a06">&#34;github.com/alibaba/ioc-golang/autowire&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#4e9a06">&#34;github.com/alibaba/ioc-golang/autowire/singleton&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">func</span> <span style="color:#000">init</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#000">singleton</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">RegisterStructDescriptor</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">autowire</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">StructDescriptor</span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#000">Interface</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">App</span><span style="color:#000;font-weight:bold">{},</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#000">Factory</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">func</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{}</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">App</span><span style="color:#000;font-weight:bold">{}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">})</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#000">singleton</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">RegisterStructDescriptor</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">autowire</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">StructDescriptor</span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#000">Interface</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87">new</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Service</span><span style="color:#000;font-weight:bold">),</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#000">Factory</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">func</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{}</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">ServiceImpl1</span><span style="color:#000;font-weight:bold">{}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">})</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#000">singleton</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">RegisterStructDescriptor</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">autowire</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">StructDescriptor</span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#000">Interface</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87">new</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Service</span><span style="color:#000;font-weight:bold">),</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#000">Factory</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">func</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{}</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">ServiceImpl2</span><span style="color:#000;font-weight:bold">{}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">})</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#000">singleton</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">RegisterStructDescriptor</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">autowire</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">StructDescriptor</span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#000">Interface</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">ServiceStruct</span><span style="color:#000;font-weight:bold">{},</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#000">Factory</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">func</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{}</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">ServiceStruct</span><span style="color:#000;font-weight:bold">{}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">})</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>initialize go mod</p>
 <p>implement</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">% go mod tidy
-% tree
-.
-├── go.mod
-├── go.sum
-├── main.go
-└── zz_generated.ioc.go
-</code></pre></div><p>execute program:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>% go mod tidy
+</span></span><span style="display:flex;"><span>% tree
+</span></span><span style="display:flex;"><span>.
+</span></span><span style="display:flex;"><span>├── go.mod
+</span></span><span style="display:flex;"><span>├── go.sum
+</span></span><span style="display:flex;"><span>├── main.go
+</span></span><span style="display:flex;"><span>└── zz_generated.ioc.go
+</span></span></code></pre></div><p>execute program:</p>
 <p><code>go run .</code></p>
 <p>Console printout:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">  ___    ___     ____            ____           _                         
- <span style="color:#000;font-weight:bold">|</span>_ _<span style="color:#000;font-weight:bold">|</span>  / _ <span style="color:#4e9a06">\ </span>  / ___<span style="color:#000;font-weight:bold">|</span>          / ___<span style="color:#000;font-weight:bold">|</span>   ___   <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>   __ _   _ __     __ _ 
-  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>      _____  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>  _   / _ <span style="color:#4e9a06">\ </span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>  / _<span style="color:#4e9a06">`</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#a40000">&#39;</span>_ <span style="color:#4e9a06">\ </span>  / _<span style="color:#4e9a06">`</span> <span style="color:#000;font-weight:bold">|</span>
-  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>___  <span style="color:#000;font-weight:bold">|</span>_____<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#ce5c00;font-weight:bold">(</span>_<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#ce5c00;font-weight:bold">(</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#ce5c00;font-weight:bold">(</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>
- <span style="color:#000;font-weight:bold">|</span>___<span style="color:#000;font-weight:bold">|</span>  <span style="color:#4e9a06">\_</span>__/   <span style="color:#4e9a06">\_</span>___<span style="color:#000;font-weight:bold">|</span>          <span style="color:#4e9a06">\_</span>___<span style="color:#000;font-weight:bold">|</span>  <span style="color:#4e9a06">\_</span>__/  <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span>  <span style="color:#4e9a06">\_</span>_,_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span>  <span style="color:#4e9a06">\_</span>_, <span style="color:#000;font-weight:bold">|</span>
-                                                                    <span style="color:#000;font-weight:bold">|</span>___/ 
-Welcome to use ioc-golang!
-<span style="color:#ce5c00;font-weight:bold">[</span>Boot<span style="color:#ce5c00;font-weight:bold">]</span> Start to load ioc-golang config
-<span style="color:#ce5c00;font-weight:bold">[</span>Config<span style="color:#ce5c00;font-weight:bold">]</span> Load config file from ../conf/ioc_golang.yaml
-Load ioc_golang config file failed. open ../conf/ioc_golang.yaml: no such file or directory
-The load procedure is <span style="color:#204a87;font-weight:bold">continue</span>
-<span style="color:#ce5c00;font-weight:bold">[</span>Boot<span style="color:#ce5c00;font-weight:bold">]</span> Start to load debug
-<span style="color:#ce5c00;font-weight:bold">[</span>Debug<span style="color:#ce5c00;font-weight:bold">]</span> Debug mod is not enabled
-<span style="color:#ce5c00;font-weight:bold">[</span>Boot<span style="color:#ce5c00;font-weight:bold">]</span> Start to load autowire
-<span style="color:#ce5c00;font-weight:bold">[</span>Autowire Type<span style="color:#ce5c00;font-weight:bold">]</span> Found registered autowire <span style="color:#204a87">type</span> singleton
-<span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> singleton registered SD App-App
-<span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> singleton registered SD Service-ServiceImpl1
-<span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> singleton registered SD Service-ServiceImpl2
-<span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> singleton registered SD ServiceStruct-ServiceStruct
-This is ServiceImpl1, hello world
-This is ServiceImpl2, hello world
-This is ServiceStruct, hello world
-</code></pre></div><p>It shows that the injection is successful and the program runs normally.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>  ___    ___     ____            ____           _                         
+</span></span><span style="display:flex;"><span> <span style="color:#000;font-weight:bold">|</span>_ _<span style="color:#000;font-weight:bold">|</span>  / _ <span style="color:#4e9a06">\ </span>  / ___<span style="color:#000;font-weight:bold">|</span>          / ___<span style="color:#000;font-weight:bold">|</span>   ___   <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>   __ _   _ __     __ _ 
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>      _____  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>  _   / _ <span style="color:#4e9a06">\ </span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>  / _<span style="color:#4e9a06">`</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#a40000">&#39;</span>_ <span style="color:#4e9a06">\ </span>  / _<span style="color:#4e9a06">`</span> <span style="color:#000;font-weight:bold">|</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>___  <span style="color:#000;font-weight:bold">|</span>_____<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#ce5c00;font-weight:bold">(</span>_<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#ce5c00;font-weight:bold">(</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#ce5c00;font-weight:bold">(</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>
+</span></span><span style="display:flex;"><span> <span style="color:#000;font-weight:bold">|</span>___<span style="color:#000;font-weight:bold">|</span>  <span style="color:#4e9a06">\_</span>__/   <span style="color:#4e9a06">\_</span>___<span style="color:#000;font-weight:bold">|</span>          <span style="color:#4e9a06">\_</span>___<span style="color:#000;font-weight:bold">|</span>  <span style="color:#4e9a06">\_</span>__/  <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span>  <span style="color:#4e9a06">\_</span>_,_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span>  <span style="color:#4e9a06">\_</span>_, <span style="color:#000;font-weight:bold">|</span>
+</span></span><span style="display:flex;"><span>                                                                    <span style="color:#000;font-weight:bold">|</span>___/ 
+</span></span><span style="display:flex;"><span>Welcome to use ioc-golang!
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Boot<span style="color:#ce5c00;font-weight:bold">]</span> Start to load ioc-golang config
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Config<span style="color:#ce5c00;font-weight:bold">]</span> Load config file from ../conf/ioc_golang.yaml
+</span></span><span style="display:flex;"><span>Load ioc_golang config file failed. open ../conf/ioc_golang.yaml: no such file or directory
+</span></span><span style="display:flex;"><span>The load procedure is <span style="color:#204a87;font-weight:bold">continue</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Boot<span style="color:#ce5c00;font-weight:bold">]</span> Start to load debug
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Debug<span style="color:#ce5c00;font-weight:bold">]</span> Debug mod is not enabled
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Boot<span style="color:#ce5c00;font-weight:bold">]</span> Start to load autowire
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Autowire Type<span style="color:#ce5c00;font-weight:bold">]</span> Found registered autowire <span style="color:#204a87">type</span> singleton
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> singleton registered SD App-App
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> singleton registered SD Service-ServiceImpl1
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> singleton registered SD Service-ServiceImpl2
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> singleton registered SD ServiceStruct-ServiceStruct
+</span></span><span style="display:flex;"><span>This is ServiceImpl1, hello world
+</span></span><span style="display:flex;"><span>This is ServiceImpl2, hello world
+</span></span><span style="display:flex;"><span>This is ServiceStruct, hello world
+</span></span></code></pre></div><p>It shows that the injection is successful and the program runs normally.</p>
 <h3 id="annotation-analysis">Annotation Analysis</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#8f5902;font-style:italic">// +ioc:autowire=true
-</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">The</span> <span style="color:#000">code</span> <span style="color:#000">generation</span> <span style="color:#000">tool</span> <span style="color:#000">recognizes</span> <span style="color:#000">objects</span> <span style="color:#000">marked</span> <span style="color:#000">with</span> <span style="color:#000">the</span> <span style="color:#ce5c00;font-weight:bold">+</span><span style="color:#000">ioc</span><span style="color:#000;font-weight:bold">:</span><span style="color:#000">autowire</span><span style="color:#000;font-weight:bold">=</span><span style="color:#204a87;font-weight:bold">true</span> <span style="color:#000">annotation</span>
-
-<span style="color:#8f5902;font-style:italic">// +ioc:autowire:type=singleton
-</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">The</span> <span style="color:#000">marker</span> <span style="color:#000">injection</span> <span style="color:#000">model</span> <span style="color:#000">is</span> <span style="color:#000">the</span> <span style="color:#000">singleton</span> <span style="color:#000">singleton</span> <span style="color:#000">model</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">as</span> <span style="color:#000">well</span> <span style="color:#000">as</span> <span style="color:#000">the</span> <span style="color:#000">normal</span> <span style="color:#000">multi</span><span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#000">instance</span> <span style="color:#000">model</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">the</span> <span style="color:#000">config</span> <span style="color:#000">configuration</span> <span style="color:#000">model</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">the</span> <span style="color:#000">grpc</span> <span style="color:#000">grpc</span> <span style="color:#000">client</span> <span style="color:#000">model</span> <span style="color:#000">and</span> <span style="color:#000">other</span> <span style="color:#000">extensions</span><span style="color:#000;font-weight:bold">.</span>
-
-<span style="color:#8f5902;font-style:italic">// +ioc:autowire:interface=Service
-</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">Markers</span> <span style="color:#000">implement</span> <span style="color:#000">the</span> <span style="color:#204a87;font-weight:bold">interface</span> <span style="color:#000">Service</span> <span style="color:#000">and</span> <span style="color:#000">can</span> <span style="color:#000">be</span> <span style="color:#000">injected</span> <span style="color:#000">into</span> <span style="color:#000">objects</span> <span style="color:#000">of</span> <span style="color:#204a87;font-weight:bold">type</span> <span style="color:#000">Service</span> <span style="color:#000;font-weight:bold">.</span>
-</code></pre></div><h3 id="more">More</h3>
-<p>More code generation annotations can be viewed at <a href="https://github.com/alibaba/IOC-Golang/tree/master/ioc-go-cli">ioc-golang-cli</a>.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// +ioc:autowire=true
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">The</span> <span style="color:#000">code</span> <span style="color:#000">generation</span> <span style="color:#000">tool</span> <span style="color:#000">recognizes</span> <span style="color:#000">objects</span> <span style="color:#000">marked</span> <span style="color:#000">with</span> <span style="color:#000">the</span> <span style="color:#ce5c00;font-weight:bold">+</span><span style="color:#000">ioc</span><span style="color:#000;font-weight:bold">:</span><span style="color:#000">autowire</span><span style="color:#000;font-weight:bold">=</span><span style="color:#204a87;font-weight:bold">true</span> <span style="color:#000">annotation</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// +ioc:autowire:type=singleton
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">The</span> <span style="color:#000">marker</span> <span style="color:#000">injection</span> <span style="color:#000">model</span> <span style="color:#000">is</span> <span style="color:#000">the</span> <span style="color:#000">singleton</span> <span style="color:#000">singleton</span> <span style="color:#000">model</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">as</span> <span style="color:#000">well</span> <span style="color:#000">as</span> <span style="color:#000">the</span> <span style="color:#000">normal</span> <span style="color:#000">multi</span><span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#000">instance</span> <span style="color:#000">model</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">the</span> <span style="color:#000">config</span> <span style="color:#000">configuration</span> <span style="color:#000">model</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">the</span> <span style="color:#000">grpc</span> <span style="color:#000">grpc</span> <span style="color:#000">client</span> <span style="color:#000">model</span> <span style="color:#000">and</span> <span style="color:#000">other</span> <span style="color:#000">extensions</span><span style="color:#000;font-weight:bold">.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// +ioc:autowire:interface=Service
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">Markers</span> <span style="color:#000">implement</span> <span style="color:#000">the</span> <span style="color:#204a87;font-weight:bold">interface</span> <span style="color:#000">Service</span> <span style="color:#000">and</span> <span style="color:#000">can</span> <span style="color:#000">be</span> <span style="color:#000">injected</span> <span style="color:#000">into</span> <span style="color:#000">objects</span> <span style="color:#000">of</span> <span style="color:#204a87;font-weight:bold">type</span> <span style="color:#000">Service</span> <span style="color:#000;font-weight:bold">.</span>
+</span></span></code></pre></div><h3 id="more">More</h3>
+<p>More code generation annotations can be viewed at <a href="https://github.com/alibaba/IOC-Golang/tree/master/iocli">ioc-golang-cli</a>.</p>
 <p>You can go to <a href="https://github.com/alibaba/IOC-Golang/tree/master/example">ioc-golang-example</a> for more examples and advanced usage.</p>
 <h3 id="license">License</h3>
 <p>IOC-Golang developed by Alibaba and licensed under the Apache License (Version 2.0).
@@ -685,7 +684,7 @@ See the NOTICE file for more information.</p>
 
 
 
-<script src="/js/main.min.7380160122c24d59789a168af05fcec445fe4e5f2069dd9f3a0c991f10269ae0.js" integrity="sha256-c4AWASLCTVl4mhaK8F/OxEX&#43;Tl8gad2fOgyZHxAmmuA=" crossorigin="anonymous"></script>
+<script src="/js/main.min.68e31ec429bf4c76d0cfc803a06912682cfe4274c4cafeb4d70d00cfe3c3b618.js" integrity="sha256-aOMexCm/THbQz8gDoGkSaCz&#43;QnTEyv601w0Az&#43;PDthg=" crossorigin="anonymous"></script>
 
 
 

@@ -36,7 +36,7 @@
 &lt;p&gt;基于 AOP 的思路，为由框架接管的对象方法提供运行时监控、调试能力。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;/cn/docs/reference/ioc-go-cli/#%E7%BB%93%E6%9E%84%E6%B3%A8%E8%A7%A3%E4%B8%8Esdcndocsconceptsd%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90&#34;&gt;结构注册代码生成能力&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;/cn/docs/reference/iocli/#%E7%BB%93%E6%9E%84%E6%B3%A8%E8%A7%A3%E4%B8%8Esdcndocsconceptsd%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90&#34;&gt;结构注册代码生成能力&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;我们提供了代码生成工具，开发者可以通过注解的方式标注结构，从而便捷地生成结构注册代码。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;

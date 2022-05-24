@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.88.1" />
+<meta name="generator" content="Hugo 0.100.0-DEV" />
 <meta name="robots" content="index, follow">
 
 
@@ -30,17 +30,15 @@ ioc-golang 框架提供了注入 Redis 连接的能力，开发者可以在配�
 ioc-golang 框架提供了注入 Redis 连接的能力，开发者可以在配置文件中指定好 Redis 地址、密码、db名等信息，通过标签注入连接，无需手动创建、组装。
 注入模型与结构 多例（normal）依赖注入模型
 预定义的 redis 结构
-关键代码 import( normalMysql &#34;github.com/alibaba/ioc-golang/extension/normal/mysql&#34; ) // &#43;ioc:autowire=true // &#43;ioc:autowire:type=singleton  type App struct { NormalRedis normalRedis.Redis `normal:&#34;Impl&#34;` NormalDB1Redis normalRedis.Redis `normal:&#34;Impl,db1-redis&#34;` NormalDB2Redis normalRedis.Redis `normal:&#34;Impl,db2-redis&#34;` NormalDB3Redis normalRedis.Redis `normal:&#34;Impl,address=127.0.0.1:6379&amp;db=3&#34;` }   被注入字段类型
+关键代码 import( 	normalMysql &#34;github.com/alibaba/ioc-golang/extension/normal/mysql&#34; )  // &#43;ioc:autowire=true // &#43;ioc:autowire:type=singleton  type App struct { 	NormalRedis normalRedis.Redis `normal:&#34;Impl&#34;` 	NormalDB1Redis normalRedis.Redis `normal:&#34;Impl,db1-redis&#34;` 	NormalDB2Redis normalRedis.Redis `normal:&#34;Impl,db2-redis&#34;` 	NormalDB3Redis normalRedis.Redis `normal:&#34;Impl,address=127.0.0.1:6379&amp;db=3&#34;` }   被注入字段类型
 normalRedis.Redis 接口
   标签
 开发人员可以为 normalRedis.Redis 类型的字段增加 normal:&quot;Impl,$(configKey),$(tableName)&quot; 标签。从而注入Redis sdk。
-例子中的 normal:&quot;Impl&quot; 的意义为，将配置文件内 autowire.normal.Redis.Impl.param定义的值作为参数。
-例子中的 normal:&quot;Impl,db1-redis&quot; 的意义为，将配置文件内 autowire.normal.Redis.Impl.db1-redis.param定义的值作为参数。
-例子中的 normal:&quot;Impl,db2-redis&quot;的意义为，将配置文件内 autowire." />
+例子中的 normal:&quot;Impl&quot; 的意义为，将配置文件内 autowire." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/examples/redis/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2017-01-05T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-05-19T01:52:15+08:00" /><meta property="og:site_name" content="IOC-Golang" />
+<meta property="article:modified_time" content="2022-05-22T01:43:54+08:00" /><meta property="og:site_name" content="IOC-Golang" />
 
 <meta itemprop="name" content="redis 客户端注入">
 <meta itemprop="description" content="简介 本示例展示了注入 Redis 客户端能力。
@@ -48,14 +46,12 @@ normalRedis.Redis 接口
 ioc-golang 框架提供了注入 Redis 连接的能力，开发者可以在配置文件中指定好 Redis 地址、密码、db名等信息，通过标签注入连接，无需手动创建、组装。
 注入模型与结构 多例（normal）依赖注入模型
 预定义的 redis 结构
-关键代码 import( normalMysql &#34;github.com/alibaba/ioc-golang/extension/normal/mysql&#34; ) // &#43;ioc:autowire=true // &#43;ioc:autowire:type=singleton  type App struct { NormalRedis normalRedis.Redis `normal:&#34;Impl&#34;` NormalDB1Redis normalRedis.Redis `normal:&#34;Impl,db1-redis&#34;` NormalDB2Redis normalRedis.Redis `normal:&#34;Impl,db2-redis&#34;` NormalDB3Redis normalRedis.Redis `normal:&#34;Impl,address=127.0.0.1:6379&amp;db=3&#34;` }   被注入字段类型
+关键代码 import( 	normalMysql &#34;github.com/alibaba/ioc-golang/extension/normal/mysql&#34; )  // &#43;ioc:autowire=true // &#43;ioc:autowire:type=singleton  type App struct { 	NormalRedis normalRedis.Redis `normal:&#34;Impl&#34;` 	NormalDB1Redis normalRedis.Redis `normal:&#34;Impl,db1-redis&#34;` 	NormalDB2Redis normalRedis.Redis `normal:&#34;Impl,db2-redis&#34;` 	NormalDB3Redis normalRedis.Redis `normal:&#34;Impl,address=127.0.0.1:6379&amp;db=3&#34;` }   被注入字段类型
 normalRedis.Redis 接口
   标签
 开发人员可以为 normalRedis.Redis 类型的字段增加 normal:&quot;Impl,$(configKey),$(tableName)&quot; 标签。从而注入Redis sdk。
-例子中的 normal:&quot;Impl&quot; 的意义为，将配置文件内 autowire.normal.Redis.Impl.param定义的值作为参数。
-例子中的 normal:&quot;Impl,db1-redis&quot; 的意义为，将配置文件内 autowire.normal.Redis.Impl.db1-redis.param定义的值作为参数。
-例子中的 normal:&quot;Impl,db2-redis&quot;的意义为，将配置文件内 autowire."><meta itemprop="datePublished" content="2017-01-05T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-05-19T01:52:15+08:00" />
+例子中的 normal:&quot;Impl&quot; 的意义为，将配置文件内 autowire."><meta itemprop="datePublished" content="2017-01-05T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-05-22T01:43:54+08:00" />
 <meta itemprop="wordCount" content="262">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="redis 客户端注入"/>
@@ -64,13 +60,11 @@ normalRedis.Redis 接口
 ioc-golang 框架提供了注入 Redis 连接的能力，开发者可以在配置文件中指定好 Redis 地址、密码、db名等信息，通过标签注入连接，无需手动创建、组装。
 注入模型与结构 多例（normal）依赖注入模型
 预定义的 redis 结构
-关键代码 import( normalMysql &#34;github.com/alibaba/ioc-golang/extension/normal/mysql&#34; ) // &#43;ioc:autowire=true // &#43;ioc:autowire:type=singleton  type App struct { NormalRedis normalRedis.Redis `normal:&#34;Impl&#34;` NormalDB1Redis normalRedis.Redis `normal:&#34;Impl,db1-redis&#34;` NormalDB2Redis normalRedis.Redis `normal:&#34;Impl,db2-redis&#34;` NormalDB3Redis normalRedis.Redis `normal:&#34;Impl,address=127.0.0.1:6379&amp;db=3&#34;` }   被注入字段类型
+关键代码 import( 	normalMysql &#34;github.com/alibaba/ioc-golang/extension/normal/mysql&#34; )  // &#43;ioc:autowire=true // &#43;ioc:autowire:type=singleton  type App struct { 	NormalRedis normalRedis.Redis `normal:&#34;Impl&#34;` 	NormalDB1Redis normalRedis.Redis `normal:&#34;Impl,db1-redis&#34;` 	NormalDB2Redis normalRedis.Redis `normal:&#34;Impl,db2-redis&#34;` 	NormalDB3Redis normalRedis.Redis `normal:&#34;Impl,address=127.0.0.1:6379&amp;db=3&#34;` }   被注入字段类型
 normalRedis.Redis 接口
   标签
 开发人员可以为 normalRedis.Redis 类型的字段增加 normal:&quot;Impl,$(configKey),$(tableName)&quot; 标签。从而注入Redis sdk。
-例子中的 normal:&quot;Impl&quot; 的意义为，将配置文件内 autowire.normal.Redis.Impl.param定义的值作为参数。
-例子中的 normal:&quot;Impl,db1-redis&quot; 的意义为，将配置文件内 autowire.normal.Redis.Impl.db1-redis.param定义的值作为参数。
-例子中的 normal:&quot;Impl,db2-redis&quot;的意义为，将配置文件内 autowire."/>
+例子中的 normal:&quot;Impl&quot; 的意义为，将配置文件内 autowire."/>
 
 
 
@@ -229,8 +223,8 @@ if (!doNotTrack) {
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsreference-li">
   <a href="/docs/reference/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreference"><span class="">Reference</span></a>
   <ul class="ul-2 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferenceioc-go-cli-li">
-  <a href="/docs/reference/ioc-go-cli/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsreferenceioc-go-cli"><span class="">ioc-go-cli Tool</span></a>
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferenceiocli-li">
+  <a href="/docs/reference/iocli/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsreferenceiocli"><span class="">iocli Tool</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferencetag_format-li">
   <a href="/docs/reference/tag_format/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsreferencetag_format"><span class="">Tag Structure Standard</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferenceyaml_structure-li">
@@ -365,20 +359,20 @@ if (!doNotTrack) {
 <p><a href="https://github.com/alibaba/IOC-Golang/tree/master/extension/normal">多例（normal）依赖注入模型</a></p>
 <p><a href="https://github.com/alibaba/IOC-Golang/tree/master/extension/normal/redis">预定义的 redis 结构</a></p>
 <h3 id="关键代码">关键代码</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#204a87;font-weight:bold">import</span><span style="color:#000;font-weight:bold">(</span>
-	<span style="color:#000">normalMysql</span> <span style="color:#4e9a06">&#34;github.com/alibaba/ioc-golang/extension/normal/mysql&#34;</span>
-<span style="color:#000;font-weight:bold">)</span>
-
-<span style="color:#8f5902;font-style:italic">// +ioc:autowire=true
-</span><span style="color:#8f5902;font-style:italic">// +ioc:autowire:type=singleton
-</span><span style="color:#8f5902;font-style:italic"></span>
-<span style="color:#204a87;font-weight:bold">type</span> <span style="color:#000">App</span> <span style="color:#204a87;font-weight:bold">struct</span> <span style="color:#000;font-weight:bold">{</span>
-	<span style="color:#000">NormalRedis</span>    <span style="color:#000">normalRedis</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Redis</span> <span style="color:#4e9a06">`normal:&#34;Impl&#34;`</span>
-	<span style="color:#000">NormalDB1Redis</span> <span style="color:#000">normalRedis</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Redis</span> <span style="color:#4e9a06">`normal:&#34;Impl,db1-redis&#34;`</span>
-	<span style="color:#000">NormalDB2Redis</span> <span style="color:#000">normalRedis</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Redis</span> <span style="color:#4e9a06">`normal:&#34;Impl,db2-redis&#34;`</span>
-	<span style="color:#000">NormalDB3Redis</span> <span style="color:#000">normalRedis</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Redis</span> <span style="color:#4e9a06">`normal:&#34;Impl,address=127.0.0.1:6379&amp;db=3&#34;`</span>
-<span style="color:#000;font-weight:bold">}</span>
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">import</span><span style="color:#000;font-weight:bold">(</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#000">normalMysql</span> <span style="color:#4e9a06">&#34;github.com/alibaba/ioc-golang/extension/normal/mysql&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// +ioc:autowire=true
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// +ioc:autowire:type=singleton
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">type</span> <span style="color:#000">App</span> <span style="color:#204a87;font-weight:bold">struct</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#000">NormalRedis</span>    <span style="color:#000">normalRedis</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Redis</span> <span style="color:#4e9a06">`normal:&#34;Impl&#34;`</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#000">NormalDB1Redis</span> <span style="color:#000">normalRedis</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Redis</span> <span style="color:#4e9a06">`normal:&#34;Impl,db1-redis&#34;`</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#000">NormalDB2Redis</span> <span style="color:#000">normalRedis</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Redis</span> <span style="color:#4e9a06">`normal:&#34;Impl,db2-redis&#34;`</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#000">NormalDB3Redis</span> <span style="color:#000">normalRedis</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Redis</span> <span style="color:#4e9a06">`normal:&#34;Impl,address=127.0.0.1:6379&amp;db=3&#34;`</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><ul>
 <li>
 <p>被注入字段类型</p>
 <p>normalRedis.Redis 接口</p>
@@ -391,50 +385,50 @@ if (!doNotTrack) {
 <p>例子中的 <code>normal:&quot;Impl,db2-redis&quot;</code>的意义为，将配置文件内 <code>autowire.normal.Redis.Impl.db2-redis.param</code>定义的值作为参数。</p>
 <p>例子中的 <code>normal:&quot;Impl,address=127.0.0.1:6379&amp;db=3&quot;</code> 的意义为，使用标签内定义的 key-value 作为参数配置。</p>
 <p>默认参数加载策略详情请参阅<a href="/cn/docs/concept/param_loader/">参数加载器</a></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">autowire</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">normal</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">Redis</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">Impl</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">db1-redis</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">param</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">address</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">localhost:6379</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">db</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">db2-redis</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">param</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">address</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">localhost:6379</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">db</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">param</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">address</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">localhost:6379</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">db</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">autowire</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">normal</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">Redis</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">Impl</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">db1-redis</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">param</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">address</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">localhost:6379</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">db</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">db2-redis</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">param</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">address</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">localhost:6379</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">db</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">param</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">address</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">localhost:6379</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">db</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span></code></pre></div></li>
 </ul>
 <h3 id="运行示例">运行示例</h3>
 <p>例子会注入多个位于127.0.0.1:6379 的Redis 客户端，数据库id分别为 0、1、2、3.</p>
 <p>需要确保您本地运行了redis，可通过 <code>docker run -p6379:6379 redis:latest</code> 快速启动一个。</p>
 <p>注入后，方可调用该接口提供的方法。可获取裸 Redis 连接，也可以直接使用封装好的 API 操作Redis。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#204a87">cd</span> example/autowire_redis_client/cmd
-go run .
-  ___    ___     ____            ____           _                         
- <span style="color:#000;font-weight:bold">|</span>_ _<span style="color:#000;font-weight:bold">|</span>  / _ <span style="color:#4e9a06">\ </span>  / ___<span style="color:#000;font-weight:bold">|</span>          / ___<span style="color:#000;font-weight:bold">|</span>   ___   <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>   __ _   _ __     __ _ 
-  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>      _____  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>  _   / _ <span style="color:#4e9a06">\ </span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>  / _<span style="color:#4e9a06">`</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#a40000">&#39;</span>_ <span style="color:#4e9a06">\ </span>  / _<span style="color:#4e9a06">`</span> <span style="color:#000;font-weight:bold">|</span>
-  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>___  <span style="color:#000;font-weight:bold">|</span>_____<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#ce5c00;font-weight:bold">(</span>_<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#ce5c00;font-weight:bold">(</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#ce5c00;font-weight:bold">(</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>
- <span style="color:#000;font-weight:bold">|</span>___<span style="color:#000;font-weight:bold">|</span>  <span style="color:#4e9a06">\_</span>__/   <span style="color:#4e9a06">\_</span>___<span style="color:#000;font-weight:bold">|</span>          <span style="color:#4e9a06">\_</span>___<span style="color:#000;font-weight:bold">|</span>  <span style="color:#4e9a06">\_</span>__/  <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span>  <span style="color:#4e9a06">\_</span>_,_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span>  <span style="color:#4e9a06">\_</span>_, <span style="color:#000;font-weight:bold">|</span>
-                                                                    <span style="color:#000;font-weight:bold">|</span>___/ 
-Welcome to use ioc-golang!
-<span style="color:#ce5c00;font-weight:bold">[</span>Boot<span style="color:#ce5c00;font-weight:bold">]</span> Start to load ioc-golang config
-<span style="color:#ce5c00;font-weight:bold">[</span>Config<span style="color:#ce5c00;font-weight:bold">]</span> Load config file from ../conf/ioc_golang.yaml
-<span style="color:#ce5c00;font-weight:bold">[</span>Boot<span style="color:#ce5c00;font-weight:bold">]</span> Start to load debug
-<span style="color:#ce5c00;font-weight:bold">[</span>Debug<span style="color:#ce5c00;font-weight:bold">]</span> Debug mod is not enabled
-<span style="color:#ce5c00;font-weight:bold">[</span>Boot<span style="color:#ce5c00;font-weight:bold">]</span> Start to load autowire
-<span style="color:#ce5c00;font-weight:bold">[</span>Autowire Type<span style="color:#ce5c00;font-weight:bold">]</span> Found registered autowire <span style="color:#204a87">type</span> singleton
-<span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> singleton registered SD App-App
-<span style="color:#ce5c00;font-weight:bold">[</span>Autowire Type<span style="color:#ce5c00;font-weight:bold">]</span> Found registered autowire <span style="color:#204a87">type</span> normal
-<span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> normal registered SD Redis-Impl
-client0 get  db0
-client1 get  db1
-client2 get  db2
-client3 get  db3
-</code></pre></div><p>可看到打印出了已经写入四个 redis db 的值。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#204a87">cd</span> example/autowire_redis_client/cmd
+</span></span><span style="display:flex;"><span>go run .
+</span></span><span style="display:flex;"><span>  ___    ___     ____            ____           _                         
+</span></span><span style="display:flex;"><span> <span style="color:#000;font-weight:bold">|</span>_ _<span style="color:#000;font-weight:bold">|</span>  / _ <span style="color:#4e9a06">\ </span>  / ___<span style="color:#000;font-weight:bold">|</span>          / ___<span style="color:#000;font-weight:bold">|</span>   ___   <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>   __ _   _ __     __ _ 
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>      _____  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>  _   / _ <span style="color:#4e9a06">\ </span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>  / _<span style="color:#4e9a06">`</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#a40000">&#39;</span>_ <span style="color:#4e9a06">\ </span>  / _<span style="color:#4e9a06">`</span> <span style="color:#000;font-weight:bold">|</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>___  <span style="color:#000;font-weight:bold">|</span>_____<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#ce5c00;font-weight:bold">(</span>_<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#ce5c00;font-weight:bold">(</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#ce5c00;font-weight:bold">(</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>
+</span></span><span style="display:flex;"><span> <span style="color:#000;font-weight:bold">|</span>___<span style="color:#000;font-weight:bold">|</span>  <span style="color:#4e9a06">\_</span>__/   <span style="color:#4e9a06">\_</span>___<span style="color:#000;font-weight:bold">|</span>          <span style="color:#4e9a06">\_</span>___<span style="color:#000;font-weight:bold">|</span>  <span style="color:#4e9a06">\_</span>__/  <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span>  <span style="color:#4e9a06">\_</span>_,_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span>  <span style="color:#4e9a06">\_</span>_, <span style="color:#000;font-weight:bold">|</span>
+</span></span><span style="display:flex;"><span>                                                                    <span style="color:#000;font-weight:bold">|</span>___/ 
+</span></span><span style="display:flex;"><span>Welcome to use ioc-golang!
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Boot<span style="color:#ce5c00;font-weight:bold">]</span> Start to load ioc-golang config
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Config<span style="color:#ce5c00;font-weight:bold">]</span> Load config file from ../conf/ioc_golang.yaml
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Boot<span style="color:#ce5c00;font-weight:bold">]</span> Start to load debug
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Debug<span style="color:#ce5c00;font-weight:bold">]</span> Debug mod is not enabled
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Boot<span style="color:#ce5c00;font-weight:bold">]</span> Start to load autowire
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Autowire Type<span style="color:#ce5c00;font-weight:bold">]</span> Found registered autowire <span style="color:#204a87">type</span> singleton
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> singleton registered SD App-App
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Autowire Type<span style="color:#ce5c00;font-weight:bold">]</span> Found registered autowire <span style="color:#204a87">type</span> normal
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> normal registered SD Redis-Impl
+</span></span><span style="display:flex;"><span>client0 get  db0
+</span></span><span style="display:flex;"><span>client1 get  db1
+</span></span><span style="display:flex;"><span>client2 get  db2
+</span></span><span style="display:flex;"><span>client3 get  db3
+</span></span></code></pre></div><p>可看到打印出了已经写入四个 redis db 的值。</p>
 
 	
 		<style>
@@ -501,7 +495,7 @@ client3 get  db3
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified May 19, 2022: <a href="https://github.com/google/docsy-example/commit/2a2941953aa50588fa1148ec3286001baad30241">fix: update docs (2a29419)</a>
+  Last modified May 22, 2022: <a href="https://github.com/google/docsy-example/commit/d65b1567ad9043b505dc0311f5adf0d751547492">update (d65b156)</a>
 </div>
 
 </div>
@@ -615,7 +609,7 @@ client3 get  db3
 
 
 
-<script src="/js/main.min.7380160122c24d59789a168af05fcec445fe4e5f2069dd9f3a0c991f10269ae0.js" integrity="sha256-c4AWASLCTVl4mhaK8F/OxEX&#43;Tl8gad2fOgyZHxAmmuA=" crossorigin="anonymous"></script>
+<script src="/js/main.min.68e31ec429bf4c76d0cfc803a06912682cfe4274c4cafeb4d70d00cfe3c3b618.js" integrity="sha256-aOMexCm/THbQz8gDoGkSaCz&#43;QnTEyv601w0Az&#43;PDthg=" crossorigin="anonymous"></script>
 
 
 

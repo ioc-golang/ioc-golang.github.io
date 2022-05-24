@@ -81,7 +81,7 @@
 &lt;p&gt;&lt;strong&gt;example：&lt;/strong&gt; 示例仓库&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;ioc-go-cli：&lt;/strong&gt; 代码生成/程序调试 工具&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;iocli：&lt;/strong&gt; 代码生成/程序调试 工具&lt;/p&gt;
 &lt;p&gt;提供基于注解的结构描述信息自动生成能力&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
