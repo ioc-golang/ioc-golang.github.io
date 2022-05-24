@@ -41,7 +41,7 @@ func init() { 	singleton.RegisterStructDescriptor(&amp;autowire.StructDescriptor
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/cn/docs/concept/di/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2017-01-05T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-05-22T01:43:54+08:00" /><meta property="og:site_name" content="IOC-Golang" />
+<meta property="article:modified_time" content="2022-05-24T14:19:13+08:00" /><meta property="og:site_name" content="IOC-Golang" />
 
 <meta itemprop="name" content="依赖注入">
 <meta itemprop="description" content="概念 依赖注入(Dependency Injection)是指开发人员无需显式地创建对象，而是通过标签的方式声明字段，由框架负责将实例化对象写入该字段。
@@ -56,7 +56,7 @@ func init() { 	singleton.RegisterStructDescriptor(&amp;autowire.StructDescriptor
 开发人员需要通过标签来标记需要注入的结构字段。
 需要通过标签注入依赖的结构，其本身必须也注册在框架上。
 // &#43;ioc:autowire=true // &#43;ioc:autowire:type=singleton  type App struct { 	MySubService Service `singleton:&#34;ServiceImpl1&#34;` }   通过 API 可获取对象，入参为 结构描述 ID 和构造参数(如需要)。"><meta itemprop="datePublished" content="2017-01-05T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-05-22T01:43:54+08:00" />
+<meta itemprop="dateModified" content="2022-05-24T14:19:13+08:00" />
 <meta itemprop="wordCount" content="93">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="依赖注入"/>
@@ -481,7 +481,7 @@ if (!doNotTrack) {
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified May 22, 2022: <a href="https://github.com/google/docsy-example/commit/d65b1567ad9043b505dc0311f5adf0d751547492">update (d65b156)</a>
+  Last modified May 24, 2022: <a href="https://github.com/google/docsy-example/commit/199ced2d9a5ff887820f8e1e9796c774f18a6701">fix: rename cli to iocli (199ced2)</a>
 </div>
 
 </div>

@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>/docs/reference/iocli/</loc>
-    <lastmod>2017-01-05T00:00:00+00:00</lastmod>
+    <lastmod>2022-05-24T14:19:13+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
@@ -16,7 +16,7 @@
                 />
   </url><url>
     <loc>/docs/developer/project/</loc>
-    <lastmod>2022-05-22T01:43:54+08:00</lastmod>
+    <lastmod>2022-05-24T14:19:13+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
@@ -29,7 +29,7 @@
                 />
   </url><url>
     <loc>/docs/concept/di/</loc>
-    <lastmod>2022-05-22T01:43:54+08:00</lastmod>
+    <lastmod>2022-05-24T14:19:13+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
@@ -55,7 +55,7 @@
                 />
   </url><url>
     <loc>/docs/getting-started/env/</loc>
-    <lastmod>2022-05-22T01:43:54+08:00</lastmod>
+    <lastmod>2022-05-24T14:19:13+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
@@ -146,7 +146,7 @@
                 />
   </url><url>
     <loc>/docs/getting-started/tutorial/</loc>
-    <lastmod>2022-05-22T01:43:54+08:00</lastmod>
+    <lastmod>2022-05-24T14:37:10+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
@@ -185,7 +185,7 @@
                 />
   </url><url>
     <loc>/docs/concept/sd/</loc>
-    <lastmod>2022-05-22T01:43:54+08:00</lastmod>
+    <lastmod>2022-05-24T14:19:13+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
@@ -315,7 +315,7 @@
                 />
   </url><url>
     <loc>/docs/concept/annotation/</loc>
-    <lastmod>2022-05-22T01:43:54+08:00</lastmod>
+    <lastmod>2022-05-24T14:19:13+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
@@ -354,7 +354,7 @@
                 />
   </url><url>
     <loc>/docs/examples/debug/</loc>
-    <lastmod>2022-05-22T01:43:54+08:00</lastmod>
+    <lastmod>2022-05-24T14:19:13+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"

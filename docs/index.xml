@@ -345,7 +345,7 @@
 &lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/ioc-golang/ioc-golang-website/main/resources/video/ioc-golang-demo.gif&#34; alt=&#34;demogif&#34;&gt;&lt;/p&gt;
 &lt;div style=&#34;text-align: center;&#34;&gt;dependency injection and debug show&lt;/div&gt;
 &lt;p&gt;We will develop a project with the following topology, in this example, we can demonstrate code generation, interface injection, object pointer injection, and API access to objects capabilities.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/ioc-golang/ioc-golang-website/main/resources/img/ioc-golang-quickstart-structure-en.png&#34; alt=&#34;ioc-golang-quickstart-structure&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/ioc-golang/ioc-golang-website/main/resources/img/ioc-golang-quickstart-structure.png&#34; alt=&#34;ioc-golang-quickstart-structure&#34;&gt;&lt;/p&gt;
 &lt;p&gt;All the code the user needs to write: main.go&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;main&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
@@ -511,7 +511,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// +ioc:autowire:interface=Service
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Markers&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;implement&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;the&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;interface&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Service&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;and&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;can&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;be&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;injected&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;into&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;objects&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;of&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Service&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;more&#34;&gt;More&lt;/h3&gt;
-&lt;p&gt;More code generation annotations can be viewed at &lt;a href=&#34;https://github.com/alibaba/IOC-Golang/tree/master/iocli&#34;&gt;ioc-golang-cli&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;More code generation annotations can be viewed at &lt;a href=&#34;https://github.com/alibaba/IOC-Golang/tree/master/iocli&#34;&gt;iocli&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;You can go to &lt;a href=&#34;https://github.com/alibaba/IOC-Golang/tree/master/example&#34;&gt;ioc-golang-example&lt;/a&gt; for more examples and advanced usage.&lt;/p&gt;
 &lt;h3 id=&#34;license&#34;&gt;License&lt;/h3&gt;
 &lt;p&gt;IOC-Golang developed by Alibaba and licensed under the Apache License (Version 2.0).

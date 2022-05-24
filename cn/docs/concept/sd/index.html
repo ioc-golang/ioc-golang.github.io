@@ -32,7 +32,7 @@ type Config struct { 	Host string 	Port string 	Username string 	Password string
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/cn/docs/concept/sd/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2017-01-05T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-05-22T01:43:54+08:00" /><meta property="og:site_name" content="IOC-Golang" />
+<meta property="article:modified_time" content="2022-05-24T14:19:13+08:00" /><meta property="og:site_name" content="IOC-Golang" />
 
 <meta itemprop="name" content="结构描述符">
 <meta itemprop="description" content="概念 结构描述符(Struct Descriptor, SD)用于描述一个被开发者定义的结构，包含对象生命周期的全部信息，例如结构类型是什么，实现了哪些接口，如何被构造等等。
@@ -41,7 +41,7 @@ SD可以通过注解的方式使用工具自动生成。但还是推荐开发人
  对象定义：开发人员编码，编写结构，实现接口，确定模型（单例、多例..) 。 加载全部依赖：依赖的下游对象创建、配置读入等。 对象创建：产生一个基于该对象的指针 对象构造：获取全部依赖，并将其组装到空对象中，产生可用对象。 对象使用：调用对象的方法，读写对象字段。 对象销毁：销毁对象，销毁无需再使用的依赖对象。  参数 本框架的“参数”概念，是一个结构体，该结构体包含了创建一个对象所需全部依赖，并提供了构造方法。
 例如
 type Config struct { 	Host string 	Port string 	Username string 	Password string }  func (c *Config) New(mysqlImpl *Impl) (*Impl, error) { 	var err error 	mysqlImpl.db, err = gorm.Open(mysql.Open(getMysqlLinkStr(c)), &amp;gorm.Config{}) 	mysqlImpl.tableName = c.TableName 	return mysqlImpl, err } Config 结构即为 Impl 结构的“参数”。其包含了产生 Impl 结构的全部信息。"><meta itemprop="datePublished" content="2017-01-05T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-05-22T01:43:54+08:00" />
+<meta itemprop="dateModified" content="2022-05-24T14:19:13+08:00" />
 <meta itemprop="wordCount" content="163">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="结构描述符"/>
@@ -505,7 +505,7 @@ if (!doNotTrack) {
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified May 22, 2022: <a href="https://github.com/google/docsy-example/commit/d65b1567ad9043b505dc0311f5adf0d751547492">update (d65b156)</a>
+  Last modified May 24, 2022: <a href="https://github.com/google/docsy-example/commit/199ced2d9a5ff887820f8e1e9796c774f18a6701">fix: rename cli to iocli (199ced2)</a>
 </div>
 
 </div>
