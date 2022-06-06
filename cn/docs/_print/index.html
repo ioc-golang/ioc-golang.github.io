@@ -327,6 +327,14 @@ This is the multi-page printable view of this section.
 
     
   
+    
+    
+	
+<li>4.7: <a href="#pg-ed363abce0d68036a03ba734d63833f3">RPC 能力</a></li>
+
+
+    
+  
 
     </ul>
     
@@ -1122,6 +1130,7 @@ autowire:
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000;font-weight:bold">(</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#4e9a06">&#34;fmt&#34;</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#4e9a06">&#34;time&#34;</span>
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#4e9a06">&#34;github.com/alibaba/ioc-golang&#34;</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#4e9a06">&#34;github.com/alibaba/ioc-golang/autowire/singleton&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">)</span>
@@ -1130,9 +1139,9 @@ autowire:
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// +ioc:autowire:type=singleton
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">type</span> <span style="color:#000">App</span> <span style="color:#204a87;font-weight:bold">struct</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000">ServiceImpl1</span> <span style="color:#000">Service</span> <span style="color:#4e9a06">`singleton:&#34;ServiceImpl1&#34;`</span> <span style="color:#8f5902;font-style:italic">// 要求注入Service 的 ServiceImpl1 实现
-</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>	<span style="color:#000">ServiceImpl2</span> <span style="color:#000">Service</span> <span style="color:#4e9a06">`singleton:&#34;ServiceImpl2&#34;`</span> <span style="color:#8f5902;font-style:italic">// 要求注入Service 的 ServiceImpl2 实现
-</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>	<span style="color:#000">ServiceStruct</span> <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">ServiceStruct</span> <span style="color:#4e9a06">`singleton:&#34;ServiceStruct&#34;`</span> <span style="color:#8f5902;font-style:italic">// 要求注入 ServiceStruct 指针
+</span></span><span style="display:flex;"><span>	<span style="color:#000">ServiceImpl1</span> <span style="color:#000">Service</span> <span style="color:#4e9a06">`singleton:&#34;main.ServiceImpl1&#34;`</span> <span style="color:#8f5902;font-style:italic">// 要求注入Service 的 ServiceImpl1 实现
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>	<span style="color:#000">ServiceImpl2</span> <span style="color:#000">Service</span> <span style="color:#4e9a06">`singleton:&#34;main.ServiceImpl2&#34;`</span> <span style="color:#8f5902;font-style:italic">// 要求注入Service 的 ServiceImpl2 实现
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>	<span style="color:#000">ServiceStruct</span> <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">ServiceStruct</span> <span style="color:#4e9a06">`singleton:&#34;&#34;`</span> <span style="color:#8f5902;font-style:italic">// 要求注入 ServiceStruct 指针
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">func</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">a</span><span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">App</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000">Run</span><span style="color:#000;font-weight:bold">(){</span>
@@ -1152,7 +1161,6 @@ autowire:
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// +ioc:autowire=true
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// +ioc:autowire:type=singleton
-</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// +ioc:autowire:interface=Service
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">type</span> <span style="color:#000">ServiceImpl1</span> <span style="color:#204a87;font-weight:bold">struct</span> <span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>
@@ -1164,7 +1172,6 @@ autowire:
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// +ioc:autowire=true
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// +ioc:autowire:type=singleton
-</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// +ioc:autowire:interface=Service
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">type</span> <span style="color:#000">ServiceImpl2</span> <span style="color:#204a87;font-weight:bold">struct</span> <span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>
@@ -1191,9 +1198,8 @@ autowire:
 </span></span><span style="display:flex;"><span>		<span style="color:#204a87">panic</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">err</span><span style="color:#000;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#8f5902;font-style:italic">// App-App 即结构ID： &#39;$(接口名)-$(结构名)&#39;， 对于结构指针，接口名默认为结构名
-</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>	<span style="color:#8f5902;font-style:italic">// 可通过这一 ID 获取实例
-</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>	<span style="color:#000">appInterface</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">singleton</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">GetImpl</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;App-App&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#8f5902;font-style:italic">// 可通过这一 ID 获取实例: &#34;包名.结构名&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>	<span style="color:#000">appInterface</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">singleton</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">GetImpl</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;main.App&#34;</span><span style="color:#000;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#204a87;font-weight:bold">nil</span><span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>		<span style="color:#204a87">panic</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">err</span><span style="color:#000;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">}</span>
@@ -1269,10 +1275,10 @@ autowire:
 </span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Debug<span style="color:#ce5c00;font-weight:bold">]</span> Debug mod is not enabled
 </span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Boot<span style="color:#ce5c00;font-weight:bold">]</span> Start to load autowire
 </span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Autowire Type<span style="color:#ce5c00;font-weight:bold">]</span> Found registered autowire <span style="color:#204a87">type</span> singleton
-</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> singleton registered SD App-App
-</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> singleton registered SD Service-ServiceImpl1
-</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> singleton registered SD Service-ServiceImpl2
-</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> singleton registered SD ServiceStruct-ServiceStruct
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> singleton registered SD main.App
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> singleton registered SD main.ServiceImpl1
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> singleton registered SD main.ServiceImpl2
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> singleton registered SD main.ServiceStruct
 </span></span><span style="display:flex;"><span>This is ServiceImpl1, hello world
 </span></span><span style="display:flex;"><span>This is ServiceImpl2, hello world
 </span></span><span style="display:flex;"><span>Hello laurence
@@ -1282,33 +1288,29 @@ autowire:
 <p><code>GOARCH=amd64 go run -gcflags=&quot;-N -l&quot; -tags iocdebug .</code></p>
 <p>可看到打印出的日志中包含</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Debug<span style="color:#ce5c00;font-weight:bold">]</span> Debug server listening at :1999
-</span></span></code></pre></div><p>查看所有接口、实现和方法</p>
+</span></span></code></pre></div><p>查看所有结构和方法</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>% iocli list
-</span></span><span style="display:flex;"><span>App
-</span></span><span style="display:flex;"><span>App
+</span></span><span style="display:flex;"><span>main.App
 </span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Run<span style="color:#ce5c00;font-weight:bold">]</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Service
-</span></span><span style="display:flex;"><span>ServiceImpl1
+</span></span><span style="display:flex;"><span>main.ServiceImpl1
 </span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Hello<span style="color:#ce5c00;font-weight:bold">]</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Service
-</span></span><span style="display:flex;"><span>ServiceImpl2
+</span></span><span style="display:flex;"><span>main.ServiceImpl2
 </span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Hello<span style="color:#ce5c00;font-weight:bold">]</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>ServiceStruct
-</span></span><span style="display:flex;"><span>ServiceStruct
+</span></span><span style="display:flex;"><span>main.ServiceStruct
 </span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>GetString<span style="color:#ce5c00;font-weight:bold">]</span>
 </span></span></code></pre></div><p>监听方法的参数和返回值。以监听 GetString 方法为例，每隔三秒钟函数被调用的时候，打印参数和返回值。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>% iocli watch ServiceStruct ServiceStruct <span style="color:#000">GetString</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>% iocli watch main.ServiceStruct <span style="color:#000">GetString</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">==========</span> On <span style="color:#000">Call</span> <span style="color:#ce5c00;font-weight:bold">==========</span>
-</span></span><span style="display:flex;"><span>ServiceStruct.<span style="color:#ce5c00;font-weight:bold">(</span>ServiceStruct<span style="color:#ce5c00;font-weight:bold">)</span>.GetString<span style="color:#ce5c00;font-weight:bold">()</span>
+</span></span><span style="display:flex;"><span>main.ServiceStruct.GetString<span style="color:#ce5c00;font-weight:bold">()</span>
 </span></span><span style="display:flex;"><span>Param 1: <span style="color:#ce5c00;font-weight:bold">(</span>string<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">len</span><span style="color:#ce5c00;font-weight:bold">=</span>8<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#4e9a06">&#34;laurence&#34;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">==========</span> On <span style="color:#000">Response</span> <span style="color:#ce5c00;font-weight:bold">==========</span>
-</span></span><span style="display:flex;"><span>ServiceStruct.<span style="color:#ce5c00;font-weight:bold">(</span>ServiceStruct<span style="color:#ce5c00;font-weight:bold">)</span>.GetString<span style="color:#ce5c00;font-weight:bold">()</span>
+</span></span><span style="display:flex;"><span>main.ServiceStruct.GetString<span style="color:#ce5c00;font-weight:bold">()</span>
 </span></span><span style="display:flex;"><span>Response 1: <span style="color:#ce5c00;font-weight:bold">(</span>string<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">len</span><span style="color:#ce5c00;font-weight:bold">=</span>14<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#4e9a06">&#34;Hello laurence&#34;</span>
 </span></span><span style="display:flex;"><span>...
 </span></span></code></pre></div><h3 id="更多">更多</h3>
@@ -1976,6 +1978,109 @@ autowire:
     
 	
   
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-ed363abce0d68036a03ba734d63833f3">4.7 - RPC 能力</h1>
+    
+	<h2 id="使用-rpc-能力">使用 RPC 能力</h2>
+<h3 id="简介">简介</h3>
+<p>本示例展示了基于 IOC-Golang 框架的 RPC 能力</p>
+<p>在微服务开发过程中，暴露一些对象的方法给外部程序调用是一种常见的场景。</p>
+<p>在 IOC-Golang 的 RPC 能力的使用场景下，客户端可以直接注入下游接口的客户端存根，以方法调用的形式发起RPC请求。</p>
+<h3 id="关键代码">关键代码</h3>
+<p><strong>服务端</strong></p>
+<p>需要暴露的RPC服务结构使用  <code>// +ioc:autowire:type=rpc</code> 标注，例如 service.go：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000;font-weight:bold">(</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#4e9a06">&#34;github.com/alibaba/ioc-golang/example/autowire_rpc/server/pkg/dto&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// +ioc:autowire=true
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// +ioc:autowire:type=rpc
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">type</span> <span style="color:#000">ServiceStruct</span> <span style="color:#204a87;font-weight:bold">struct</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">func</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">s</span> <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">ServiceStruct</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000">GetUser</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">name</span> <span style="color:#204a87;font-weight:bold">string</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">age</span> <span style="color:#204a87;font-weight:bold">int</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">dto</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">User</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">error</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">dto</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">User</span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#000">Id</span><span style="color:#000;font-weight:bold">:</span>   <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#000">Name</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">name</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#000">Age</span><span style="color:#000;font-weight:bold">:</span>  <span style="color:#000">age</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">},</span> <span style="color:#204a87;font-weight:bold">nil</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>使用 iocli 工具生成相关代码。</p>
+<p><code>sudo iocli gen</code></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>% tree
+</span></span><span style="display:flex;"><span>.
+</span></span><span style="display:flex;"><span>├── api
+</span></span><span style="display:flex;"><span>│   └── zz_generated.ioc_rpc_client_servicestruct.go
+</span></span><span style="display:flex;"><span>├── service.go
+</span></span><span style="display:flex;"><span>└── zz_generated.ioc.go
+</span></span></code></pre></div><p>会在当前文件目录下生成 <code>zz_generated.ioc.go</code> 包含了服务提供者的结构描述信息。也会在当前目录下创建 api/ 文件夹，并创建当前结构的客户端存根文件 <code>zz_generated.ioc_rpc_client_servicestruct.go</code></p>
+<p><strong>客户端</strong></p>
+<p>可以通过标签注入的方法，注入客户端存根，存根中给出下游地址。默认服务暴露端口为<code>2022</code></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">import</span><span style="color:#000;font-weight:bold">(</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#4e9a06">&#34;github.com/alibaba/ioc-golang/example/autowire_rpc/server/pkg/service/api&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// +ioc:autowire=true
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// +ioc:autowire:type=singleton
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">type</span> <span style="color:#000">App</span> <span style="color:#204a87;font-weight:bold">struct</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#000">ServiceStruct</span> <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">api</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">ServiceStructIOCRPCClient</span> <span style="color:#4e9a06">`rpc-client:&#34;,address=127.0.0.1:2022&#34;`</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">func</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">a</span> <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">App</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000">Run</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#000">time</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Sleep</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">time</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Second</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#000">usr</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">a</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">ServiceStruct</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">GetUser</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;laurence&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">23</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#8f5902;font-style:italic">// RPC调用
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>		<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#204a87;font-weight:bold">nil</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#204a87">panic</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">err</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#000">fmt</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Printf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;get user = %+v\n&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">usr</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h3 id="运行示例">运行示例</h3>
+<p><strong>启动服务端</strong></p>
+<p>服务端需要确保引入对应服务提供者结构包： <code>_ &quot;github.com/alibaba/ioc-golang/example/autowire_rpc/server/pkg/service&quot;</code></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">package</span> <span style="color:#000">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000;font-weight:bold">(</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#4e9a06">&#34;github.com/alibaba/ioc-golang&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#000">_</span> <span style="color:#4e9a06">&#34;github.com/alibaba/ioc-golang/example/autowire_rpc/server/pkg/service&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">func</span> <span style="color:#000">main</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#8f5902;font-style:italic">// start
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>	<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">ioc</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Load</span><span style="color:#000;font-weight:bold">();</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#204a87;font-weight:bold">nil</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#204a87">panic</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">err</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#204a87;font-weight:bold">select</span> <span style="color:#000;font-weight:bold">{}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>启动服务端进程，默认 rpc 服务监听 2022 端口</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>% <span style="color:#204a87">cd</span> server
+</span></span><span style="display:flex;"><span>% go run .
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>negroni<span style="color:#ce5c00;font-weight:bold">]</span> listening on :2022
+</span></span></code></pre></div><p><strong>启动客户端</strong></p>
+<p>开启另一个终端，进入client目录，启动进程，不断发起调用，获得返回值。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>% <span style="color:#204a87">cd</span> client
+</span></span><span style="display:flex;"><span>% go run .
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>get <span style="color:#000">user</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">&amp;</span><span style="color:#ce5c00;font-weight:bold">{</span>Id:1 Name:laurence Age:23<span style="color:#ce5c00;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>get <span style="color:#000">user</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">&amp;</span><span style="color:#ce5c00;font-weight:bold">{</span>Id:1 Name:laurence Age:23<span style="color:#ce5c00;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>get <span style="color:#000">user</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">&amp;</span><span style="color:#ce5c00;font-weight:bold">{</span>Id:1 Name:laurence Age:23<span style="color:#ce5c00;font-weight:bold">}</span>
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+	
+  
 
     
 	
@@ -2346,7 +2451,27 @@ autowire:
     
 	<h1 id="pg-2cef3c6755217e322bb8d43947b44822">7 - 开发者文档</h1>
     
-	
+	<h3 id="框架可扩展性">框架可扩展性</h3>
+<p>ioc-golang 全面拥抱可扩展性，我们希望您在框架内接触到的任何概念都是可横向扩展的。可扩展性不意味着任何事情都要手动编写，而是在拥有足够预置实现方案的基础之上，支持针对特殊场景的定制化。如果您的方案足够通用，也可以提交至开源侧，让更多人可以享受你的方案带来的便利。</p>
+<p>ioc-golang 的可扩展性体现在多个方面，其中最重要的是依赖注入过程的可扩展性，这也是框架能的核心能力。</p>
+<p>依赖注入的可扩展性包含三个维度，从具体到抽象分别是：</p>
+<ul>
+<li>
+<p>对象的可扩展性</p>
+<p>对象的可扩展性，即针对确定的一个结构（非单例），你可以通过传入不同的参数来获取多个期望的对象。这个过程往往被结构使用者关注，他需要思考如何传入参数，获得对象，调用对象从而实现正确的业务逻辑。通过这一可扩展性，结构使用者可以扩展出多个对象实例。</p>
+</li>
+<li>
+<p>结构的可扩展性</p>
+<p>结构的可扩展性，即针对一个确定的自动装载模型，你可以通过定义自己的结构描述信息，将你的结构体注册在框架上，以供使用。这个过程是结构提供者关心的，他需要思考选用哪个自动装载模型，思考提供的结构的全部生命周期信息。通过这一可扩展性，结构提供者可以为框架注入多种多样的结构，这些结构都会按照被选择的自动装载模型执行加载逻辑。</p>
+<p>框架提供了一些预置的结构，例如 redis 客户端、gorm客户端等等，开发者可以直接传入参数，注入或通过API获取，直接使用，但这些预置的结构一定无法覆盖业务需求的。开发者注册自己的任何结构到框架上，都是使用了结构的可扩展性，这些被注册的结构和框架提供的预置结构，都是同一层面的概念。</p>
+</li>
+<li>
+<p>自动装载模型的可扩展性</p>
+<p>自动装载模型描述了一类结构的装载方式，例如是否单例模型、参数从哪里加载、注入标签应该符合什么格式等等。这个过程也是结构提供者关心的。</p>
+<p>框架提供了一些预置的自动装载模型，例如单例模型、多例模型、配置模型、rpc 模型等，开发者可以根据按照业务需要，将一个或多个结构注册在期望的自动装载模型上，当已有的自动装载模型不足以适配业务场景，开发者可以调用API进行定制化</p>
+</li>
+</ul>
+
 </div>
 
 
@@ -2367,7 +2492,7 @@ autowire:
 	
     
 
-<div class="td-content" style="">
+<div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-9496b24f376e1e851c99a37b88d75cf3">7.1 - 项目结构</h1>
     <div class="lead">IOC-Golang 框架项目结构</div>

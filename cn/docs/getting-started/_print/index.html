@@ -220,6 +220,7 @@ This is the multi-page printable view of this section.
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000;font-weight:bold">(</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#4e9a06">&#34;fmt&#34;</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#4e9a06">&#34;time&#34;</span>
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#4e9a06">&#34;github.com/alibaba/ioc-golang&#34;</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#4e9a06">&#34;github.com/alibaba/ioc-golang/autowire/singleton&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">)</span>
@@ -228,9 +229,9 @@ This is the multi-page printable view of this section.
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// +ioc:autowire:type=singleton
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">type</span> <span style="color:#000">App</span> <span style="color:#204a87;font-weight:bold">struct</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000">ServiceImpl1</span> <span style="color:#000">Service</span> <span style="color:#4e9a06">`singleton:&#34;ServiceImpl1&#34;`</span> <span style="color:#8f5902;font-style:italic">// 要求注入Service 的 ServiceImpl1 实现
-</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>	<span style="color:#000">ServiceImpl2</span> <span style="color:#000">Service</span> <span style="color:#4e9a06">`singleton:&#34;ServiceImpl2&#34;`</span> <span style="color:#8f5902;font-style:italic">// 要求注入Service 的 ServiceImpl2 实现
-</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>	<span style="color:#000">ServiceStruct</span> <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">ServiceStruct</span> <span style="color:#4e9a06">`singleton:&#34;ServiceStruct&#34;`</span> <span style="color:#8f5902;font-style:italic">// 要求注入 ServiceStruct 指针
+</span></span><span style="display:flex;"><span>	<span style="color:#000">ServiceImpl1</span> <span style="color:#000">Service</span> <span style="color:#4e9a06">`singleton:&#34;main.ServiceImpl1&#34;`</span> <span style="color:#8f5902;font-style:italic">// 要求注入Service 的 ServiceImpl1 实现
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>	<span style="color:#000">ServiceImpl2</span> <span style="color:#000">Service</span> <span style="color:#4e9a06">`singleton:&#34;main.ServiceImpl2&#34;`</span> <span style="color:#8f5902;font-style:italic">// 要求注入Service 的 ServiceImpl2 实现
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>	<span style="color:#000">ServiceStruct</span> <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">ServiceStruct</span> <span style="color:#4e9a06">`singleton:&#34;&#34;`</span> <span style="color:#8f5902;font-style:italic">// 要求注入 ServiceStruct 指针
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">func</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">a</span><span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">App</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000">Run</span><span style="color:#000;font-weight:bold">(){</span>
@@ -250,7 +251,6 @@ This is the multi-page printable view of this section.
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// +ioc:autowire=true
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// +ioc:autowire:type=singleton
-</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// +ioc:autowire:interface=Service
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">type</span> <span style="color:#000">ServiceImpl1</span> <span style="color:#204a87;font-weight:bold">struct</span> <span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>
@@ -262,7 +262,6 @@ This is the multi-page printable view of this section.
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// +ioc:autowire=true
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// +ioc:autowire:type=singleton
-</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// +ioc:autowire:interface=Service
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">type</span> <span style="color:#000">ServiceImpl2</span> <span style="color:#204a87;font-weight:bold">struct</span> <span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>
@@ -289,9 +288,8 @@ This is the multi-page printable view of this section.
 </span></span><span style="display:flex;"><span>		<span style="color:#204a87">panic</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">err</span><span style="color:#000;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#8f5902;font-style:italic">// App-App 即结构ID： &#39;$(接口名)-$(结构名)&#39;， 对于结构指针，接口名默认为结构名
-</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>	<span style="color:#8f5902;font-style:italic">// 可通过这一 ID 获取实例
-</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>	<span style="color:#000">appInterface</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">singleton</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">GetImpl</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;App-App&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#8f5902;font-style:italic">// 可通过这一 ID 获取实例: &#34;包名.结构名&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>	<span style="color:#000">appInterface</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">singleton</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">GetImpl</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;main.App&#34;</span><span style="color:#000;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#204a87;font-weight:bold">nil</span><span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>		<span style="color:#204a87">panic</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">err</span><span style="color:#000;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">}</span>
@@ -367,10 +365,10 @@ This is the multi-page printable view of this section.
 </span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Debug<span style="color:#ce5c00;font-weight:bold">]</span> Debug mod is not enabled
 </span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Boot<span style="color:#ce5c00;font-weight:bold">]</span> Start to load autowire
 </span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Autowire Type<span style="color:#ce5c00;font-weight:bold">]</span> Found registered autowire <span style="color:#204a87">type</span> singleton
-</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> singleton registered SD App-App
-</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> singleton registered SD Service-ServiceImpl1
-</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> singleton registered SD Service-ServiceImpl2
-</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> singleton registered SD ServiceStruct-ServiceStruct
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> singleton registered SD main.App
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> singleton registered SD main.ServiceImpl1
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> singleton registered SD main.ServiceImpl2
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> singleton registered SD main.ServiceStruct
 </span></span><span style="display:flex;"><span>This is ServiceImpl1, hello world
 </span></span><span style="display:flex;"><span>This is ServiceImpl2, hello world
 </span></span><span style="display:flex;"><span>Hello laurence
@@ -380,33 +378,29 @@ This is the multi-page printable view of this section.
 <p><code>GOARCH=amd64 go run -gcflags=&quot;-N -l&quot; -tags iocdebug .</code></p>
 <p>可看到打印出的日志中包含</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Debug<span style="color:#ce5c00;font-weight:bold">]</span> Debug server listening at :1999
-</span></span></code></pre></div><p>查看所有接口、实现和方法</p>
+</span></span></code></pre></div><p>查看所有结构和方法</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>% iocli list
-</span></span><span style="display:flex;"><span>App
-</span></span><span style="display:flex;"><span>App
+</span></span><span style="display:flex;"><span>main.App
 </span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Run<span style="color:#ce5c00;font-weight:bold">]</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Service
-</span></span><span style="display:flex;"><span>ServiceImpl1
+</span></span><span style="display:flex;"><span>main.ServiceImpl1
 </span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Hello<span style="color:#ce5c00;font-weight:bold">]</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Service
-</span></span><span style="display:flex;"><span>ServiceImpl2
+</span></span><span style="display:flex;"><span>main.ServiceImpl2
 </span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Hello<span style="color:#ce5c00;font-weight:bold">]</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>ServiceStruct
-</span></span><span style="display:flex;"><span>ServiceStruct
+</span></span><span style="display:flex;"><span>main.ServiceStruct
 </span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>GetString<span style="color:#ce5c00;font-weight:bold">]</span>
 </span></span></code></pre></div><p>监听方法的参数和返回值。以监听 GetString 方法为例，每隔三秒钟函数被调用的时候，打印参数和返回值。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>% iocli watch ServiceStruct ServiceStruct <span style="color:#000">GetString</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>% iocli watch main.ServiceStruct <span style="color:#000">GetString</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">==========</span> On <span style="color:#000">Call</span> <span style="color:#ce5c00;font-weight:bold">==========</span>
-</span></span><span style="display:flex;"><span>ServiceStruct.<span style="color:#ce5c00;font-weight:bold">(</span>ServiceStruct<span style="color:#ce5c00;font-weight:bold">)</span>.GetString<span style="color:#ce5c00;font-weight:bold">()</span>
+</span></span><span style="display:flex;"><span>main.ServiceStruct.GetString<span style="color:#ce5c00;font-weight:bold">()</span>
 </span></span><span style="display:flex;"><span>Param 1: <span style="color:#ce5c00;font-weight:bold">(</span>string<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">len</span><span style="color:#ce5c00;font-weight:bold">=</span>8<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#4e9a06">&#34;laurence&#34;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">==========</span> On <span style="color:#000">Response</span> <span style="color:#ce5c00;font-weight:bold">==========</span>
-</span></span><span style="display:flex;"><span>ServiceStruct.<span style="color:#ce5c00;font-weight:bold">(</span>ServiceStruct<span style="color:#ce5c00;font-weight:bold">)</span>.GetString<span style="color:#ce5c00;font-weight:bold">()</span>
+</span></span><span style="display:flex;"><span>main.ServiceStruct.GetString<span style="color:#ce5c00;font-weight:bold">()</span>
 </span></span><span style="display:flex;"><span>Response 1: <span style="color:#ce5c00;font-weight:bold">(</span>string<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">len</span><span style="color:#ce5c00;font-weight:bold">=</span>14<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#4e9a06">&#34;Hello laurence&#34;</span>
 </span></span><span style="display:flex;"><span>...
 </span></span></code></pre></div><h3 id="更多">更多</h3>
