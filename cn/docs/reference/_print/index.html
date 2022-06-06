@@ -230,6 +230,7 @@ This is the multi-page printable view of this section.
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// +ioc:autowire:paramType=Config
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// +ioc:autowire:constructFunc=New
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// +ioc:autowire:baseType=true
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// +ioc:autowire:alias=myAppAliasName
 </span></span></span></code></pre></div><ul>
 <li>
 <p>ioc:autowire</p>
@@ -352,6 +353,10 @@ This is the multi-page printable view of this section.
 <p>该类型是否为基础类型</p>
 <p>go 基础类型不可直接通过&amp;在构造时取地址，因此我们针对基础类型单独设计了该注解。在 <a href="http://github.com/alibaba/ioc-golang/extension/tree/master/config">http://github.com/alibaba/ioc-golang/extension/tree/master/config</a> 配置扩展中被使用较多。</p>
 </li>
+<li>
+<p>ioc:autowire:alias=MyAppAliasName （非必填）</p>
+<p>该类型的别名，可在标签、API获取、配置中，通过该别名替代掉较长的类型全名来指定结构。</p>
+</li>
 </ul>
 
 </div>
@@ -391,16 +396,14 @@ This is the multi-page printable view of this section.
 <p>配置文件 ioc_golang.yaml 的默认参数默认配置层级依此为：</p>
 <pre tabindex="0"><code>autowire:
   $(自动装载模型名):
-    $(接口名):
-      $(实现结构名):
-        $(多例模式下的对象名):
-          param:
+    $(SDID):
+      $(多例模式下的对象名):
         param:
+      param:
 </code></pre><p>例如，一个基于多例模型的结构 Impl，实现了 Redis 接口，其多个实例参数可以配置为：</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">autowire</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">normal</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">Redis</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">Impl</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">github.com/alibaba/ioc-golang/extension/normal/redis.Impl</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">db1-redis</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">param</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">address</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">localhost:6379</span><span style="color:#f8f8f8;text-decoration:underline">

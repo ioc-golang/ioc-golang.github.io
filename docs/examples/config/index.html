@@ -28,16 +28,16 @@ ioc-golang 框架提供了便捷的基于文件注入配置的能力，使开发
 在应用开发过程中，从配置文件中读入配置是一个常见的诉求。例如读取数据库的账号密码、下游服务的主机名，以及一些业务配置等。
 ioc-golang 框架提供了便捷的基于文件注入配置的能力，使开发者无需手动解析配置文件，无需手动组装对象。
 注入模型与结构 config 依赖注入模型
-关键代码： import (  github.com/alibaba/ioc-golang/extension/config )  // &#43;ioc:autowire=true // &#43;ioc:autowire:type=singleton  type App struct { 	DemoConfigString *config.ConfigString `config:&#34;ConfigString,autowire.config.demo-config.string-value&#34;` 	DemoConfigInt *config.ConfigInt `config:&#34;ConfigInt,autowire.config.demo-config.int-value&#34;` 	DemoConfigMap *config.ConfigMap `config:&#34;ConfigMap,autowire.config.demo-config.map-value&#34;` 	DemoConfigSlice *config.ConfigSlice `config:&#34;ConfigSlice,autowire.config.demo-config.slice-value&#34;` }   被注入字段类型
+关键代码： import (  github.com/alibaba/ioc-golang/extension/config )  // &#43;ioc:autowire=true // &#43;ioc:autowire:type=singleton  type App struct { 	DemoConfigString *config.ConfigString `config:&#34;,autowire.config.demo-config.string-value&#34;` 	DemoConfigInt *config.ConfigInt `config:&#34;,autowire.config.demo-config.int-value&#34;` 	DemoConfigMap *config.ConfigMap `config:&#34;,autowire.config.demo-config.map-value&#34;` 	DemoConfigSlice *config.ConfigSlice `config:&#34;,autowire.config.demo-config.slice-value&#34;` }   被注入字段类型
 目前支持 ConfigString，ConfigInt，ConfigMap，ConfigSlice 四种类型。
 需要以 指针 的形式声明字段类型
   标签与注入位置
-开发人员可以给结构增加 ``config:&quot;xxx&quot;  标签, 标注需要注入的值类型，以及该字段位于配置文件的位置。
+开发人员可以给结构增加 ``config:&quot;,xxx&quot;  标签, 标注需要注入的值类型，以及该字段位于配置文件的位置。
 例子中的
-config:&quot;ConfigString,autowire.config.demo-config.string-value&quot;
-的意义为，将配置文件内 autowire.config.demo-config.string-value 的值以 string 的方式注入到该字段。
+config:&quot;,autowire.config.demo-config.string-value&quot;
+的意义为，将配置文件内 autowire.config.demo-config.string-value 的值注入到该字段。
 对应配置文件：ioc_golang.yaml 中的字符串 &ldquo;stringValue&rdquo;
-autowire:config:demo-config:int-value:123string-value:stringValuemap-value:key1:value1key2:value2key3:value3obj:objkey1:objvalue1objkey2:objvalue2objkeyslice:objslicevalueslice-value:- sliceValue1- sliceValue2- sliceValue3- sliceValue4  运行示例 cd example/autowire_config/cmd go run ." />
+autowire:config:demo-config:int-value:123int64-value:130117537261158665float64-value:0.001string-value:stringValuemap-value:key1:value1key2:value2key3:value3obj:objkey1:objvalue1objkey2:objvalue2objkeyslice:objslicevalueslice-value:- sliceValue1- sliceValue2- sliceValue3- sliceValue4  运行示例 cd example/autowire_config/cmd go run ." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/examples/config/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2017-01-05T00:00:00+00:00" />
@@ -48,34 +48,34 @@ autowire:config:demo-config:int-value:123string-value:stringValuemap-value:key1:
 在应用开发过程中，从配置文件中读入配置是一个常见的诉求。例如读取数据库的账号密码、下游服务的主机名，以及一些业务配置等。
 ioc-golang 框架提供了便捷的基于文件注入配置的能力，使开发者无需手动解析配置文件，无需手动组装对象。
 注入模型与结构 config 依赖注入模型
-关键代码： import (  github.com/alibaba/ioc-golang/extension/config )  // &#43;ioc:autowire=true // &#43;ioc:autowire:type=singleton  type App struct { 	DemoConfigString *config.ConfigString `config:&#34;ConfigString,autowire.config.demo-config.string-value&#34;` 	DemoConfigInt *config.ConfigInt `config:&#34;ConfigInt,autowire.config.demo-config.int-value&#34;` 	DemoConfigMap *config.ConfigMap `config:&#34;ConfigMap,autowire.config.demo-config.map-value&#34;` 	DemoConfigSlice *config.ConfigSlice `config:&#34;ConfigSlice,autowire.config.demo-config.slice-value&#34;` }   被注入字段类型
+关键代码： import (  github.com/alibaba/ioc-golang/extension/config )  // &#43;ioc:autowire=true // &#43;ioc:autowire:type=singleton  type App struct { 	DemoConfigString *config.ConfigString `config:&#34;,autowire.config.demo-config.string-value&#34;` 	DemoConfigInt *config.ConfigInt `config:&#34;,autowire.config.demo-config.int-value&#34;` 	DemoConfigMap *config.ConfigMap `config:&#34;,autowire.config.demo-config.map-value&#34;` 	DemoConfigSlice *config.ConfigSlice `config:&#34;,autowire.config.demo-config.slice-value&#34;` }   被注入字段类型
 目前支持 ConfigString，ConfigInt，ConfigMap，ConfigSlice 四种类型。
 需要以 指针 的形式声明字段类型
   标签与注入位置
-开发人员可以给结构增加 ``config:&quot;xxx&quot;  标签, 标注需要注入的值类型，以及该字段位于配置文件的位置。
+开发人员可以给结构增加 ``config:&quot;,xxx&quot;  标签, 标注需要注入的值类型，以及该字段位于配置文件的位置。
 例子中的
-config:&quot;ConfigString,autowire.config.demo-config.string-value&quot;
-的意义为，将配置文件内 autowire.config.demo-config.string-value 的值以 string 的方式注入到该字段。
+config:&quot;,autowire.config.demo-config.string-value&quot;
+的意义为，将配置文件内 autowire.config.demo-config.string-value 的值注入到该字段。
 对应配置文件：ioc_golang.yaml 中的字符串 &ldquo;stringValue&rdquo;
-autowire:config:demo-config:int-value:123string-value:stringValuemap-value:key1:value1key2:value2key3:value3obj:objkey1:objvalue1objkey2:objvalue2objkeyslice:objslicevalueslice-value:- sliceValue1- sliceValue2- sliceValue3- sliceValue4  运行示例 cd example/autowire_config/cmd go run ."><meta itemprop="datePublished" content="2017-01-05T00:00:00+00:00" />
+autowire:config:demo-config:int-value:123int64-value:130117537261158665float64-value:0.001string-value:stringValuemap-value:key1:value1key2:value2key3:value3obj:objkey1:objvalue1objkey2:objvalue2objkeyslice:objslicevalueslice-value:- sliceValue1- sliceValue2- sliceValue3- sliceValue4  运行示例 cd example/autowire_config/cmd go run ."><meta itemprop="datePublished" content="2017-01-05T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-05-22T01:43:54+08:00" />
-<meta itemprop="wordCount" content="265">
+<meta itemprop="wordCount" content="312">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="配置注入"/>
 <meta name="twitter:description" content="简介 本示例展示了从配置文件注入字段的能力。
 在应用开发过程中，从配置文件中读入配置是一个常见的诉求。例如读取数据库的账号密码、下游服务的主机名，以及一些业务配置等。
 ioc-golang 框架提供了便捷的基于文件注入配置的能力，使开发者无需手动解析配置文件，无需手动组装对象。
 注入模型与结构 config 依赖注入模型
-关键代码： import (  github.com/alibaba/ioc-golang/extension/config )  // &#43;ioc:autowire=true // &#43;ioc:autowire:type=singleton  type App struct { 	DemoConfigString *config.ConfigString `config:&#34;ConfigString,autowire.config.demo-config.string-value&#34;` 	DemoConfigInt *config.ConfigInt `config:&#34;ConfigInt,autowire.config.demo-config.int-value&#34;` 	DemoConfigMap *config.ConfigMap `config:&#34;ConfigMap,autowire.config.demo-config.map-value&#34;` 	DemoConfigSlice *config.ConfigSlice `config:&#34;ConfigSlice,autowire.config.demo-config.slice-value&#34;` }   被注入字段类型
+关键代码： import (  github.com/alibaba/ioc-golang/extension/config )  // &#43;ioc:autowire=true // &#43;ioc:autowire:type=singleton  type App struct { 	DemoConfigString *config.ConfigString `config:&#34;,autowire.config.demo-config.string-value&#34;` 	DemoConfigInt *config.ConfigInt `config:&#34;,autowire.config.demo-config.int-value&#34;` 	DemoConfigMap *config.ConfigMap `config:&#34;,autowire.config.demo-config.map-value&#34;` 	DemoConfigSlice *config.ConfigSlice `config:&#34;,autowire.config.demo-config.slice-value&#34;` }   被注入字段类型
 目前支持 ConfigString，ConfigInt，ConfigMap，ConfigSlice 四种类型。
 需要以 指针 的形式声明字段类型
   标签与注入位置
-开发人员可以给结构增加 ``config:&quot;xxx&quot;  标签, 标注需要注入的值类型，以及该字段位于配置文件的位置。
+开发人员可以给结构增加 ``config:&quot;,xxx&quot;  标签, 标注需要注入的值类型，以及该字段位于配置文件的位置。
 例子中的
-config:&quot;ConfigString,autowire.config.demo-config.string-value&quot;
-的意义为，将配置文件内 autowire.config.demo-config.string-value 的值以 string 的方式注入到该字段。
+config:&quot;,autowire.config.demo-config.string-value&quot;
+的意义为，将配置文件内 autowire.config.demo-config.string-value 的值注入到该字段。
 对应配置文件：ioc_golang.yaml 中的字符串 &ldquo;stringValue&rdquo;
-autowire:config:demo-config:int-value:123string-value:stringValuemap-value:key1:value1key2:value2key3:value3obj:objkey1:objvalue1objkey2:objvalue2objkeyslice:objslicevalueslice-value:- sliceValue1- sliceValue2- sliceValue3- sliceValue4  运行示例 cd example/autowire_config/cmd go run ."/>
+autowire:config:demo-config:int-value:123int64-value:130117537261158665float64-value:0.001string-value:stringValuemap-value:key1:value1key2:value2key3:value3obj:objkey1:objvalue1objkey2:objvalue2objkeyslice:objslicevalueslice-value:- sliceValue1- sliceValue2- sliceValue3- sliceValue4  运行示例 cd example/autowire_config/cmd go run ."/>
 
 
 
@@ -213,7 +213,7 @@ if (!doNotTrack) {
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplesredis-li">
   <a href="/docs/examples/redis/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplesredis"><span class="">redis 客户端注入</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplesgorm-li">
-  <a href="/docs/examples/gorm/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplesgorm"><span class="">配置注入</span></a>
+  <a href="/docs/examples/gorm/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplesgorm"><span class="">GORM 客户端注入</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplesgrpc-li">
   <a href="/docs/examples/grpc/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplesgrpc"><span class="">gRPC 客户端注入</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-docsexamplesconfig-li">
@@ -379,10 +379,10 @@ if (!doNotTrack) {
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// +ioc:autowire:type=singleton
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">type</span> <span style="color:#000">App</span> <span style="color:#204a87;font-weight:bold">struct</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000">DemoConfigString</span> <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">config</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">ConfigString</span> <span style="color:#4e9a06">`config:&#34;ConfigString,autowire.config.demo-config.string-value&#34;`</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000">DemoConfigInt</span>    <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">config</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">ConfigInt</span>    <span style="color:#4e9a06">`config:&#34;ConfigInt,autowire.config.demo-config.int-value&#34;`</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000">DemoConfigMap</span>    <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">config</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">ConfigMap</span>    <span style="color:#4e9a06">`config:&#34;ConfigMap,autowire.config.demo-config.map-value&#34;`</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000">DemoConfigSlice</span>  <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">config</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">ConfigSlice</span>  <span style="color:#4e9a06">`config:&#34;ConfigSlice,autowire.config.demo-config.slice-value&#34;`</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#000">DemoConfigString</span> <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">config</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">ConfigString</span> <span style="color:#4e9a06">`config:&#34;,autowire.config.demo-config.string-value&#34;`</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#000">DemoConfigInt</span>    <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">config</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">ConfigInt</span>    <span style="color:#4e9a06">`config:&#34;,autowire.config.demo-config.int-value&#34;`</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#000">DemoConfigMap</span>    <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">config</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">ConfigMap</span>    <span style="color:#4e9a06">`config:&#34;,autowire.config.demo-config.map-value&#34;`</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#000">DemoConfigSlice</span>  <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">config</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">ConfigSlice</span>  <span style="color:#4e9a06">`config:&#34;,autowire.config.demo-config.slice-value&#34;`</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
 </span></span></code></pre></div><ul>
 <li>
@@ -392,15 +392,17 @@ if (!doNotTrack) {
 </li>
 <li>
 <p>标签与注入位置</p>
-<p>开发人员可以给结构增加 ``config:<code>&quot;xxx&quot; </code> 标签, 标注需要注入的值类型，以及该字段位于配置文件的位置。</p>
+<p>开发人员可以给结构增加 ``config:<code>&quot;,xxx&quot; </code> 标签, 标注需要注入的值类型，以及该字段位于配置文件的位置。</p>
 <p>例子中的</p>
-<p><code>config:&quot;ConfigString,autowire.config.demo-config.string-value&quot;</code></p>
-<p>的意义为，将配置文件内 <code>autowire.config.demo-config.string-value</code> 的值以 string 的方式注入到该字段。</p>
+<p><code>config:&quot;,autowire.config.demo-config.string-value&quot;</code></p>
+<p>的意义为，将配置文件内 <code>autowire.config.demo-config.string-value</code> 的值注入到该字段。</p>
 <p>对应配置文件：ioc_golang.yaml 中的字符串 &ldquo;stringValue&rdquo;</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">autowire</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">config</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">demo-config</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">int-value</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">123</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">int64-value</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">130117537261158665</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">float64-value</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">0.001</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">string-value</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">stringValue</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">map-value</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">key1</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">value1</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -422,28 +424,39 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>go run .
 </span></span><span style="display:flex;"><span>  ___    ___     ____            ____           _                         
 </span></span><span style="display:flex;"><span> <span style="color:#000;font-weight:bold">|</span>_ _<span style="color:#000;font-weight:bold">|</span>  / _ <span style="color:#4e9a06">\ </span>  / ___<span style="color:#000;font-weight:bold">|</span>          / ___<span style="color:#000;font-weight:bold">|</span>   ___   <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>   __ _   _ __     __ _ 
-</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>      _____  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>  _   / _ <span style="color:#4e9a06">\ </span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>  / _<span style="color:#4e9a06">`</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#a40000">&#39;</span>_ <span style="color:#4e9a06">\ </span>  / _<span style="color:#4e9a06">`</span> <span style="color:#000;font-weight:bold">|</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>___  <span style="color:#000;font-weight:bold">|</span>_____<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#ce5c00;font-weight:bold">(</span>_<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#ce5c00;font-weight:bold">(</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#ce5c00;font-weight:bold">(</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>
-</span></span><span style="display:flex;"><span> <span style="color:#000;font-weight:bold">|</span>___<span style="color:#000;font-weight:bold">|</span>  <span style="color:#4e9a06">\_</span>__/   <span style="color:#4e9a06">\_</span>___<span style="color:#000;font-weight:bold">|</span>          <span style="color:#4e9a06">\_</span>___<span style="color:#000;font-weight:bold">|</span>  <span style="color:#4e9a06">\_</span>__/  <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span>  <span style="color:#4e9a06">\_</span>_,_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span>  <span style="color:#4e9a06">\_</span>_, <span style="color:#000;font-weight:bold">|</span>
-</span></span><span style="display:flex;"><span>                                                                    <span style="color:#000;font-weight:bold">|</span>___/ 
-</span></span><span style="display:flex;"><span>Welcome to use ioc-golang!
-</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Boot<span style="color:#ce5c00;font-weight:bold">]</span> Start to load ioc-golang config
-</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Config<span style="color:#ce5c00;font-weight:bold">]</span> Load config file from ../conf/ioc_golang.yaml
-</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Boot<span style="color:#ce5c00;font-weight:bold">]</span> Start to load debug
-</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Debug<span style="color:#ce5c00;font-weight:bold">]</span> Debug mod is not enabled
-</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Boot<span style="color:#ce5c00;font-weight:bold">]</span> Start to load autowire
-</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Autowire Type<span style="color:#ce5c00;font-weight:bold">]</span> Found registered autowire <span style="color:#204a87">type</span> singleton
-</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> singleton registered SD App-App
-</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Autowire Type<span style="color:#ce5c00;font-weight:bold">]</span> Found registered autowire <span style="color:#204a87">type</span> normal
-</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Autowire Type<span style="color:#ce5c00;font-weight:bold">]</span> Found registered autowire <span style="color:#204a87">type</span> config
-</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> config registered SD ConfigInt-ConfigInt
-</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> config registered SD ConfigMap-ConfigMap
-</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> config registered SD ConfigSlice-ConfigSlice
-</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> config registered SD ConfigString-ConfigString
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>      _____  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>  _   / _ <span style="color:#4e9a06">\ </span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>  / _<span style="color:#4e9a06">`</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#4e9a06">&#39;_ \   / _` |
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">  | |  | |_| | | |___  |_____| | |_| | | (_) | | | | (_| | | | | | | (_| |
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"> |___|  \___/   \____|          \____|  \___/  |_|  \__,_| |_| |_|  \__, |
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">                                                                    |___/ 
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">Welcome to use ioc-golang!
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">[Boot] Start to load ioc-golang config
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">[Config] merge config map, depth: [0]
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">[Boot] Start to load debug
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">[Debug] Debug mod is not enabled
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">[Boot] Start to load autowire
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">[Autowire Type] Found registered autowire type singleton
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">[Autowire Struct Descriptor] Found type singleton registered SD main.App
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">[Autowire Type] Found registered autowire type normal
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">[Autowire Type] Found registered autowire type config
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">[Autowire Struct Descriptor] Found type config registered SD github.com/alibaba/ioc-golang/extension/config.ConfigInt64
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">[Autowire Struct Descriptor] Found type config registered SD github.com/alibaba/ioc-golang/extension/config.ConfigInt
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">[Autowire Struct Descriptor] Found type config registered SD github.com/alibaba/ioc-golang/extension/config.ConfigMap
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">[Autowire Struct Descriptor] Found type config registered SD github.com/alibaba/ioc-golang/extension/config.ConfigSlice
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">[Autowire Struct Descriptor] Found type config registered SD github.com/alibaba/ioc-golang/extension/config.ConfigString
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">[Autowire Struct Descriptor] Found type config registered SD github.com/alibaba/ioc-golang/extension/config.ConfigFloat64
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">2022/06/06 18:01:22 load config path autowire.config#demo-config#float64-value error =  property [autowire config#demo-config#float64-value]&#39;</span>s key config#demo-config#float64-value not found
 </span></span><span style="display:flex;"><span>stringValue
 </span></span><span style="display:flex;"><span><span style="color:#0000cf;font-weight:bold">123</span>
 </span></span><span style="display:flex;"><span>map<span style="color:#ce5c00;font-weight:bold">[</span>key1:value1 key2:value2 key3:value3 obj:map<span style="color:#ce5c00;font-weight:bold">[</span>objkey1:objvalue1 objkey2:objvalue2 objkeyslice:objslicevalue<span style="color:#ce5c00;font-weight:bold">]]</span>
 </span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>sliceValue1 sliceValue2 sliceValue3 sliceValue4<span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#0000cf;font-weight:bold">130117537261158665</span>
+</span></span><span style="display:flex;"><span><span style="color:#0000cf;font-weight:bold">0</span>
+</span></span><span style="display:flex;"><span>stringValue
+</span></span><span style="display:flex;"><span><span style="color:#0000cf;font-weight:bold">123</span>
+</span></span><span style="display:flex;"><span>map<span style="color:#ce5c00;font-weight:bold">[</span>key1:value1 key2:value2 key3:value3 obj:map<span style="color:#ce5c00;font-weight:bold">[</span>objkey1:objvalue1 objkey2:objvalue2 objkeyslice:objslicevalue<span style="color:#ce5c00;font-weight:bold">]]</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>sliceValue1 sliceValue2 sliceValue3 sliceValue4<span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#0000cf;font-weight:bold">130117537261158665</span>
+</span></span><span style="display:flex;"><span><span style="color:#0000cf;font-weight:bold">0</span>
 </span></span></code></pre></div><p>可看到依次打印出了不同结构的注入配置。</p>
 
 	

@@ -319,18 +319,18 @@ This is the multi-page printable view of this section.
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// +ioc:autowire:type=singleton
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">type</span> <span style="color:#000">App</span> <span style="color:#204a87;font-weight:bold">struct</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000">MySubService</span> <span style="color:#000">Service</span> <span style="color:#4e9a06">`singleton:&#34;ServiceImpl1&#34;`</span> 
+</span></span><span style="display:flex;"><span>	<span style="color:#000">MySubService</span> <span style="color:#000">Service</span> <span style="color:#4e9a06">`singleton:&#34;main.ServiceImpl1&#34;`</span> 
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
 </span></span></code></pre></div></li>
 <li>
 <p>通过 API 可获取对象，入参为 <a href="/cn/docs/concept/sd/#%E7%BB%93%E6%9E%84%E6%8F%8F%E8%BF%B0id">结构描述 ID</a> 和构造参数(如需要)。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000">appInterface</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">singleton</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">GetImpl</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;App-App&#34;</span><span style="color:#000;font-weight:bold">)</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000">appInterface</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">singleton</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">GetImpl</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;main.App&#34;</span><span style="color:#000;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#204a87;font-weight:bold">nil</span> <span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#204a87">panic</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">err</span><span style="color:#000;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#000">app</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">appInterface</span><span style="color:#000;font-weight:bold">.(</span><span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">App</span><span style="color:#000;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000">redisInterface</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">normal</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">GetImpl</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Redis-Impl&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">Config</span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">redisInterface</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">normal</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">GetImpl</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;github.com/alibaba/ioc-golang/extension/normal/redis.Impl&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">Config</span><span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000">Address</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;localhost:6379&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">})</span>
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#204a87;font-weight:bold">nil</span> <span style="color:#000;font-weight:bold">{</span>
@@ -413,7 +413,6 @@ This is the multi-page printable view of this section.
 <h3 id="结构描述符-struct-descriptor">结构描述符 （Struct Descriptor）</h3>
 <p>本框架定义的结构描述符如下：</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">type</span> <span style="color:#000">StructDescriptor</span> <span style="color:#204a87;font-weight:bold">struct</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000">Interface</span>     <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{}</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#000">Factory</span>       <span style="color:#204a87;font-weight:bold">func</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{}</span> 
 </span></span><span style="display:flex;"><span>	<span style="color:#000">ParamFactory</span>  <span style="color:#204a87;font-weight:bold">func</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{}</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#000">ParamLoader</span>   <span style="color:#000">ParamLoader</span>
@@ -423,13 +422,6 @@ This is the multi-page printable view of this section.
 </span></span><span style="display:flex;"><span>	<span style="color:#000">autowireType</span>    <span style="color:#204a87;font-weight:bold">string</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
 </span></span></code></pre></div><ul>
-<li>
-<p>Interface 【必要】</p>
-<p>结构实现的接口指针</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000">new</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">MyInterface</span><span style="color:#000;font-weight:bold">)</span>
-</span></span></code></pre></div><p>如果结构没有实现任何接口，则使用结构指针。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">Impl</span><span style="color:#000;font-weight:bold">{}</span>
-</span></span></code></pre></div></li>
 <li>
 <p>Factory【必要】</p>
 <p>结构的工厂函数，返回值是未经初始化的空结构指针，例如</p>
@@ -473,10 +465,9 @@ This is the multi-page printable view of this section.
 <ul>
 <li>定义</li>
 </ul>
+<p>结构描述ID定义为：&quot;$(包名).$(结构名)&quot;</p>
 <p>结构描述 ID （Struct Description Identification) 在本文档和项目中多处被缩写为 SDID。</p>
-<p>SDID 是一类“自动装载模型“内唯一的，用于索引结构的键，类型为字符串。</p>
-<p>如果一个类实现了接口，SDID为：&quot;$(接口名)-$(结构名)“</p>
-<p>如果一个类没有实现任何接口，SDID为：“&quot;$(结构名)-$(结构名)“</p>
+<p>SDID 是唯一的，用于索引结构的键，类型为字符串。</p>
 <ul>
 <li>使用</li>
 </ul>
@@ -510,7 +501,6 @@ This is the multi-page printable view of this section.
 <pre tabindex="0"><code>Load support load struct described like:
 ```go
 normal.RegisterStructDescriptor(&amp;autowire.StructDescriptor{
-		Interface: new(Redis),
 		Factory:   func() interface{}{
 			return &amp;Impl{}
 		},
@@ -532,18 +522,16 @@ type Config struct {
 ```
 with
 Autowire type &#39;normal&#39;
-InterfaceName &#39;Redis&#39;
 StructName &#39;Impl&#39;
 Field:
-	MyRedis Redis `normal:&#34;Impl, redis-1&#34;`
+	MyRedis Redis `normal:&#34;github.com/alibaba/ioc-golang/extension/normal/redis.Impl, redis-1&#34;`
 
 from:
 
 ```yaml
 extension:
   normal:
-    Redis:
-      Impl:
+    github.com/alibaba/ioc-golang/extension/normal/redis.Impl:
         redis-1:
           param:
             address: 127.0.0.1
@@ -564,7 +552,7 @@ type Config struct {
 from field:
 
 ```go
-NormalRedis  normalRedis.Redis  `normal:&#34;Impl,address=127.0.0.1&amp;password=xxx&amp;db=0&#34;`
+NormalRedis  normalRedis.Redis  `normal:&#34;github.com/alibaba/ioc-golang/extension/normal/redis.Impl,address=127.0.0.1&amp;password=xxx&amp;db=0&#34;`
 ```
 </code></pre></li>
 <li>
@@ -572,7 +560,6 @@ NormalRedis  normalRedis.Redis  `normal:&#34;Impl,address=127.0.0.1&amp;password
 <pre tabindex="0"><code>Load support load struct described like:
 ```go
 normal.RegisterStructDescriptor(&amp;autowire.StructDescriptor{
-		Interface: new(Redis),
 		Factory:   func() interface{}{
 			return &amp;Impl{}
 		},
@@ -593,7 +580,6 @@ type Config struct {
 ```
 with
 Autowire type &#39;normal&#39;
-InterfaceName &#39;Redis&#39;
 StructName &#39;Impl&#39;
 
 from:
@@ -601,8 +587,7 @@ from:
 ```yaml
 autowire:
   normal:
-    Redis:
-      Impl:
+      github.com/alibaba/ioc-golang/extension/normal/redis.Impl:
         param:
           address: 127.0.0.1
           password: xxx

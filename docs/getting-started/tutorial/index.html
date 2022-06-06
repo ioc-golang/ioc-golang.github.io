@@ -30,14 +30,14 @@ package main  import ( 	&#34;fmt&#34; 	&#34;github.com/alibaba/ioc-golang&#34; 	
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/getting-started/tutorial/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2022-05-24T14:37:10+08:00" /><meta property="og:site_name" content="IOC-Golang" />
+<meta property="article:modified_time" content="2022-06-06T17:52:31+08:00" /><meta property="og:site_name" content="IOC-Golang" />
 
 <meta itemprop="name" content="Start dependency injection demo">
 <meta itemprop="description" content="Tutorial dependency injection and debug show We will develop a project with the following topology, in this example, we can demonstrate code generation, interface injection, object pointer injection, and API access to objects capabilities.
 All the code the user needs to write: main.go
 package main  import ( 	&#34;fmt&#34; 	&#34;github.com/alibaba/ioc-golang&#34; 	&#34;github.com/alibaba/ioc-golang/autowire/singleton&#34; )  // &#43;ioc:autowire=true // &#43;ioc:autowire:type=singleton  type App struct { 	ServiceImpl1 Service `singleton:&#34;ServiceImpl1&#34;` // inject Service &#39;s ServiceImpl1 implementation 	ServiceImpl2 Service `singleton:&#34;ServiceImpl2&#34;` // inject Service &#39;s ServiceImpl2 implementation 	ServiceStruct *ServiceStruct `singleton:&#34;&#34;` // inject ServiceStruct struct pointer }  func (a*App) Run(){ 	a.">
-<meta itemprop="dateModified" content="2022-05-24T14:37:10+08:00" />
-<meta itemprop="wordCount" content="711">
+<meta itemprop="dateModified" content="2022-06-06T17:52:31+08:00" />
+<meta itemprop="wordCount" content="703">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Start dependency injection demo"/>
 <meta name="twitter:description" content="Tutorial dependency injection and debug show We will develop a project with the following topology, in this example, we can demonstrate code generation, interface injection, object pointer injection, and API access to objects capabilities.
@@ -180,7 +180,7 @@ if (!doNotTrack) {
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsexamplesredis-li">
   <a href="/docs/examples/redis/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplesredis"><span class="">redis 客户端注入</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsexamplesgorm-li">
-  <a href="/docs/examples/gorm/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplesgorm"><span class="">配置注入</span></a>
+  <a href="/docs/examples/gorm/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplesgorm"><span class="">GORM 客户端注入</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsexamplesgrpc-li">
   <a href="/docs/examples/grpc/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplesgrpc"><span class="">gRPC 客户端注入</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsexamplesconfig-li">
@@ -430,25 +430,21 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">func</span> <span style="color:#000">init</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#000">singleton</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">RegisterStructDescriptor</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">autowire</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">StructDescriptor</span><span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#000">Interface</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">App</span><span style="color:#000;font-weight:bold">{},</span>
 </span></span><span style="display:flex;"><span>		<span style="color:#000">Factory</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">func</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{}</span> <span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>			<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">App</span><span style="color:#000;font-weight:bold">{}</span>
 </span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">},</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">})</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#000">singleton</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">RegisterStructDescriptor</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">autowire</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">StructDescriptor</span><span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#000">Interface</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87">new</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Service</span><span style="color:#000;font-weight:bold">),</span>
 </span></span><span style="display:flex;"><span>		<span style="color:#000">Factory</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">func</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{}</span> <span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>			<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">ServiceImpl1</span><span style="color:#000;font-weight:bold">{}</span>
 </span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">},</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">})</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#000">singleton</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">RegisterStructDescriptor</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">autowire</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">StructDescriptor</span><span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#000">Interface</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87">new</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Service</span><span style="color:#000;font-weight:bold">),</span>
 </span></span><span style="display:flex;"><span>		<span style="color:#000">Factory</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">func</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{}</span> <span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>			<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">ServiceImpl2</span><span style="color:#000;font-weight:bold">{}</span>
 </span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">},</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">})</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#000">singleton</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">RegisterStructDescriptor</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">autowire</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">StructDescriptor</span><span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#000">Interface</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">ServiceStruct</span><span style="color:#000;font-weight:bold">{},</span>
 </span></span><span style="display:flex;"><span>		<span style="color:#000">Factory</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">func</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{}</span> <span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>			<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">ServiceStruct</span><span style="color:#000;font-weight:bold">{}</span>
 </span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">},</span>
@@ -596,7 +592,7 @@ See the NOTICE file for more information.</p>
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified May 24, 2022: <a href="https://github.com/google/docsy-example/commit/8374e189eb9394fd29ba2c925a16a76f742bc0c2">fix: update (8374e18)</a>
+  Last modified June 6, 2022: <a href="https://github.com/google/docsy-example/commit/35bf6d4781cc5a9ed001aa54eb46ff4b62462e32">Fix: udpate (35bf6d4)</a>
 </div>
 
 </div>

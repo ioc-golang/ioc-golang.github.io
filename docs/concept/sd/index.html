@@ -20,13 +20,11 @@
 
 <title>结构描述符 | IOC-Golang</title>
 <meta name="description" content="概念
-结构描述符用于描述一个开发者定义的结构，其包含了对象生命周期的全部信息，例如结构类型是什么，实现了哪些接口，如何被构造等等。
-结构描述符可以通过注解的方式使用工具自动生成。但还是推荐开发人员了解本框架定义的结构生命周期和结构描述信息，以便更清晰地开发应用。
-对象生命周期
-开发人员在 Go 语言 …">
+结构描述符(Struct Descriptor, SD)用于描述一个被开发者定义的结构，包含对象生命周期的全部信息，例如结构类型是什么，实现了哪些接口，如何被构造等等。
+SD可以通过注解的方式使用工具自动生成。但还是推荐开发人员了解本框架定义的结构生命周期和结构描述信息，以便更清晰地开发应用。 …">
 <meta property="og:title" content="结构描述符" />
-<meta property="og:description" content="概念 结构描述符用于描述一个开发者定义的结构，其包含了对象生命周期的全部信息，例如结构类型是什么，实现了哪些接口，如何被构造等等。
-结构描述符可以通过注解的方式使用工具自动生成。但还是推荐开发人员了解本框架定义的结构生命周期和结构描述信息，以便更清晰地开发应用。
+<meta property="og:description" content="概念 结构描述符(Struct Descriptor, SD)用于描述一个被开发者定义的结构，包含对象生命周期的全部信息，例如结构类型是什么，实现了哪些接口，如何被构造等等。
+SD可以通过注解的方式使用工具自动生成。但还是推荐开发人员了解本框架定义的结构生命周期和结构描述信息，以便更清晰地开发应用。
 对象生命周期 开发人员在 Go 语言开发过程中需要时时关注对象的生命周期，一个常见的对象生命周期如下：
  对象定义：开发人员编码，编写结构，实现接口，确定模型（单例、多例..) 。 加载全部依赖：依赖的下游对象创建、配置读入等。 对象创建：产生一个基于该对象的指针 对象构造：获取全部依赖，并将其组装到空对象中，产生可用对象。 对象使用：调用对象的方法，读写对象字段。 对象销毁：销毁对象，销毁无需再使用的依赖对象。  参数 本框架的“参数”概念，是一个结构体，该结构体包含了创建一个对象所需全部依赖，并提供了构造方法。
 例如
@@ -37,18 +35,18 @@ type Config struct { 	Host string 	Port string 	Username string 	Password string
 <meta property="article:modified_time" content="2022-05-24T14:19:13+08:00" /><meta property="og:site_name" content="IOC-Golang" />
 
 <meta itemprop="name" content="结构描述符">
-<meta itemprop="description" content="概念 结构描述符用于描述一个开发者定义的结构，其包含了对象生命周期的全部信息，例如结构类型是什么，实现了哪些接口，如何被构造等等。
-结构描述符可以通过注解的方式使用工具自动生成。但还是推荐开发人员了解本框架定义的结构生命周期和结构描述信息，以便更清晰地开发应用。
+<meta itemprop="description" content="概念 结构描述符(Struct Descriptor, SD)用于描述一个被开发者定义的结构，包含对象生命周期的全部信息，例如结构类型是什么，实现了哪些接口，如何被构造等等。
+SD可以通过注解的方式使用工具自动生成。但还是推荐开发人员了解本框架定义的结构生命周期和结构描述信息，以便更清晰地开发应用。
 对象生命周期 开发人员在 Go 语言开发过程中需要时时关注对象的生命周期，一个常见的对象生命周期如下：
  对象定义：开发人员编码，编写结构，实现接口，确定模型（单例、多例..) 。 加载全部依赖：依赖的下游对象创建、配置读入等。 对象创建：产生一个基于该对象的指针 对象构造：获取全部依赖，并将其组装到空对象中，产生可用对象。 对象使用：调用对象的方法，读写对象字段。 对象销毁：销毁对象，销毁无需再使用的依赖对象。  参数 本框架的“参数”概念，是一个结构体，该结构体包含了创建一个对象所需全部依赖，并提供了构造方法。
 例如
 type Config struct { 	Host string 	Port string 	Username string 	Password string }  func (c *Config) New(mysqlImpl *Impl) (*Impl, error) { 	var err error 	mysqlImpl.db, err = gorm.Open(mysql.Open(getMysqlLinkStr(c)), &amp;gorm.Config{}) 	mysqlImpl.tableName = c.TableName 	return mysqlImpl, err } Config 结构即为 Impl 结构的“参数”。其包含了产生 Impl 结构的全部信息。"><meta itemprop="datePublished" content="2017-01-05T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-05-24T14:19:13+08:00" />
-<meta itemprop="wordCount" content="161">
+<meta itemprop="wordCount" content="153">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="结构描述符"/>
-<meta name="twitter:description" content="概念 结构描述符用于描述一个开发者定义的结构，其包含了对象生命周期的全部信息，例如结构类型是什么，实现了哪些接口，如何被构造等等。
-结构描述符可以通过注解的方式使用工具自动生成。但还是推荐开发人员了解本框架定义的结构生命周期和结构描述信息，以便更清晰地开发应用。
+<meta name="twitter:description" content="概念 结构描述符(Struct Descriptor, SD)用于描述一个被开发者定义的结构，包含对象生命周期的全部信息，例如结构类型是什么，实现了哪些接口，如何被构造等等。
+SD可以通过注解的方式使用工具自动生成。但还是推荐开发人员了解本框架定义的结构生命周期和结构描述信息，以便更清晰地开发应用。
 对象生命周期 开发人员在 Go 语言开发过程中需要时时关注对象的生命周期，一个常见的对象生命周期如下：
  对象定义：开发人员编码，编写结构，实现接口，确定模型（单例、多例..) 。 加载全部依赖：依赖的下游对象创建、配置读入等。 对象创建：产生一个基于该对象的指针 对象构造：获取全部依赖，并将其组装到空对象中，产生可用对象。 对象使用：调用对象的方法，读写对象字段。 对象销毁：销毁对象，销毁无需再使用的依赖对象。  参数 本框架的“参数”概念，是一个结构体，该结构体包含了创建一个对象所需全部依赖，并提供了构造方法。
 例如
@@ -190,7 +188,7 @@ if (!doNotTrack) {
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsexamplesredis-li">
   <a href="/docs/examples/redis/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplesredis"><span class="">redis 客户端注入</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsexamplesgorm-li">
-  <a href="/docs/examples/gorm/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplesgorm"><span class="">配置注入</span></a>
+  <a href="/docs/examples/gorm/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplesgorm"><span class="">GORM 客户端注入</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsexamplesgrpc-li">
   <a href="/docs/examples/grpc/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplesgrpc"><span class="">gRPC 客户端注入</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsexamplesconfig-li">
@@ -343,8 +341,8 @@ if (!doNotTrack) {
 		
 	</header>    
 	<h3 id="概念">概念</h3>
-<p>结构描述符用于描述一个开发者定义的结构，其包含了对象生命周期的全部信息，例如结构类型是什么，实现了哪些接口，如何被构造等等。</p>
-<p>结构描述符可以通过注解的方式使用工具<a href="/cn/docs/reference/iocli/#%E7%BB%93%E6%9E%84%E6%B3%A8%E8%A7%A3">自动生成</a>。但还是推荐开发人员了解本框架定义的结构生命周期和结构描述信息，以便更清晰地开发应用。</p>
+<p><a href="/cn/docs/concept/sd/#%E7%BB%93%E6%9E%84%E6%8F%8F%E8%BF%B0%E7%AC%A6-struct-descriptor">结构描述符</a>(Struct Descriptor, SD)用于描述一个被开发者定义的结构，包含对象生命周期的全部信息，例如结构类型是什么，实现了哪些接口，如何被构造等等。</p>
+<p>SD可以通过<a href="/cn/docs/concept/annotation">注解</a>的方式使用工具<a href="/cn/docs/reference/iocli/#%E7%BB%93%E6%9E%84%E6%B3%A8%E8%A7%A3%E4%B8%8Esdcndocsconceptsd%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90">自动生成</a>。但还是推荐开发人员了解本框架定义的结构生命周期和结构描述信息，以便更清晰地开发应用。</p>
 <h3 id="对象生命周期">对象生命周期</h3>
 <p>开发人员在 Go 语言开发过程中需要时时关注对象的生命周期，一个常见的对象生命周期如下：</p>
 <ol>
@@ -375,7 +373,6 @@ if (!doNotTrack) {
 <h3 id="结构描述符-struct-descriptor">结构描述符 （Struct Descriptor）</h3>
 <p>本框架定义的结构描述符如下：</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">type</span> <span style="color:#000">StructDescriptor</span> <span style="color:#204a87;font-weight:bold">struct</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000">Interface</span>     <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{}</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#000">Factory</span>       <span style="color:#204a87;font-weight:bold">func</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{}</span> 
 </span></span><span style="display:flex;"><span>	<span style="color:#000">ParamFactory</span>  <span style="color:#204a87;font-weight:bold">func</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{}</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#000">ParamLoader</span>   <span style="color:#000">ParamLoader</span>
@@ -385,13 +382,6 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>	<span style="color:#000">autowireType</span>    <span style="color:#204a87;font-weight:bold">string</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
 </span></span></code></pre></div><ul>
-<li>
-<p>Interface 【必要】</p>
-<p>结构实现的接口指针</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000">new</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">MyInterface</span><span style="color:#000;font-weight:bold">)</span>
-</span></span></code></pre></div><p>如果结构没有实现任何接口，则使用结构指针。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">Impl</span><span style="color:#000;font-weight:bold">{}</span>
-</span></span></code></pre></div></li>
 <li>
 <p>Factory【必要】</p>
 <p>结构的工厂函数，返回值是未经初始化的空结构指针，例如</p>
@@ -435,10 +425,9 @@ if (!doNotTrack) {
 <ul>
 <li>定义</li>
 </ul>
+<p>结构描述ID定义为：&quot;$(包名).$(结构名)&quot;</p>
 <p>结构描述 ID （Struct Description Identification) 在本文档和项目中多处被缩写为 SDID。</p>
-<p>SDID 是一类“自动装载模型“内唯一的，用于索引结构的键，类型为字符串。</p>
-<p>如果一个类实现了接口，SDID为：&quot;$(接口名)-$(结构名)“</p>
-<p>如果一个类没有实现任何接口，SDID为：“&quot;$(结构名)-$(结构名)“</p>
+<p>SDID 是唯一的，用于索引结构的键，类型为字符串。</p>
 <ul>
 <li>使用</li>
 </ul>

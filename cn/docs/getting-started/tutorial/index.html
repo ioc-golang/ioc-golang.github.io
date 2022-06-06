@@ -27,13 +27,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/cn/docs/getting-started/tutorial/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2022-05-24T14:19:13+08:00" /><meta property="og:site_name" content="IOC-Golang" />
+<meta property="article:modified_time" content="2022-06-06T17:52:31+08:00" /><meta property="og:site_name" content="IOC-Golang" />
 
 <meta itemprop="name" content="实现依赖注入demo">
 <meta itemprop="description" content="使用 ioc-golang 实现依赖注入demo
 ">
-<meta itemprop="dateModified" content="2022-05-24T14:19:13+08:00" />
-<meta itemprop="wordCount" content="515">
+<meta itemprop="dateModified" content="2022-06-06T17:52:31+08:00" />
+<meta itemprop="wordCount" content="507">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="实现依赖注入demo"/>
 <meta name="twitter:description" content="使用 ioc-golang 实现依赖注入demo
@@ -426,25 +426,21 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">func</span> <span style="color:#000">init</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#000">singleton</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">RegisterStructDescriptor</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">autowire</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">StructDescriptor</span><span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#000">Interface</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">App</span><span style="color:#000;font-weight:bold">{},</span>
 </span></span><span style="display:flex;"><span>		<span style="color:#000">Factory</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">func</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{}</span> <span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>			<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">App</span><span style="color:#000;font-weight:bold">{}</span>
 </span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">},</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">})</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#000">singleton</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">RegisterStructDescriptor</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">autowire</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">StructDescriptor</span><span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#000">Interface</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87">new</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Service</span><span style="color:#000;font-weight:bold">),</span>
 </span></span><span style="display:flex;"><span>		<span style="color:#000">Factory</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">func</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{}</span> <span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>			<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">ServiceImpl1</span><span style="color:#000;font-weight:bold">{}</span>
 </span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">},</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">})</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#000">singleton</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">RegisterStructDescriptor</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">autowire</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">StructDescriptor</span><span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#000">Interface</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87">new</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Service</span><span style="color:#000;font-weight:bold">),</span>
 </span></span><span style="display:flex;"><span>		<span style="color:#000">Factory</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">func</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{}</span> <span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>			<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">ServiceImpl2</span><span style="color:#000;font-weight:bold">{}</span>
 </span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">},</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">})</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#000">singleton</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">RegisterStructDescriptor</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">autowire</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">StructDescriptor</span><span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#000">Interface</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">ServiceStruct</span><span style="color:#000;font-weight:bold">{},</span>
 </span></span><span style="display:flex;"><span>		<span style="color:#000">Factory</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">func</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{}</span> <span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>			<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">ServiceStruct</span><span style="color:#000;font-weight:bold">{}</span>
 </span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">},</span>
@@ -582,7 +578,7 @@ if (!doNotTrack) {
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified May 24, 2022: <a href="https://github.com/google/docsy-example/commit/199ced2d9a5ff887820f8e1e9796c774f18a6701">fix: rename cli to iocli (199ced2)</a>
+  Last modified June 6, 2022: <a href="https://github.com/google/docsy-example/commit/35bf6d4781cc5a9ed001aa54eb46ff4b62462e32">Fix: udpate (35bf6d4)</a>
 </div>
 
 </div>

@@ -18,23 +18,23 @@
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
-<title>配置注入 | IOC-Golang</title>
+<title>GORM 客户端注入 | IOC-Golang</title>
 <meta name="description" content="简介
 本示例展示了注入基于 GORM 的数据库客户端能力。
 在应用开发过程中，通过 SDK 操作数据库是一个常见的诉求，GORM 是应用较广泛的 Go 数据库 sdk。
 ioc-golang 框架提供了注入数据库连接的能力，开发者可以在配置文件中指定好数据库地址、密码信息，通过标签注入连接，无需手动 …">
-<meta property="og:title" content="配置注入" />
+<meta property="og:title" content="GORM 客户端注入" />
 <meta property="og:description" content="简介 本示例展示了注入基于 GORM 的数据库客户端能力。
 在应用开发过程中，通过 SDK 操作数据库是一个常见的诉求，GORM 是应用较广泛的 Go 数据库 sdk。
 ioc-golang 框架提供了注入数据库连接的能力，开发者可以在配置文件中指定好数据库地址、密码信息，通过标签注入连接，无需手动创建、组装 GORM 客户端。
 注入模型与结构 多例（normal）依赖注入模型
 预定义的 mysql 结构
-关键代码 import( 	normalMysql &#34;github.com/alibaba/ioc-golang/extension/normal/mysql&#34; )  // &#43;ioc:autowire=true // &#43;ioc:autowire:type=singleton  type App struct { 	MyDataTable normalMysql.Mysql `normal:&#34;Impl,my-mysql,mydata&#34;` }   被注入字段类型
+关键代码 import( 	normalMysql &#34;github.com/alibaba/ioc-golang/extension/normal/mysql&#34; )  // &#43;ioc:autowire=true // &#43;ioc:autowire:type=singleton  type App struct { 	MyDataTable normalMysql.Mysql `normal:&#34;github.com/alibaba/ioc-golang/extension/normal.Impl,my-mysql,mydata&#34;` }   被注入字段类型
 normalMysql.Mysql 接口
   标签
-开发人员可以为 normalMysql.Mysql 类型的字段增加 normal:&quot;Impl,$(configKey),$(tableName)&quot; 标签。从而注入指定数据库的指定表 sdk。
-例子中的 normal:&quot;Impl,my-mysql,mydata&quot; 的意义为，将配置文件内 autowire.normal.Mysql.Impl,my-mysql.param定义的值作为参数。
-autowire:normal:Mysql:Impl:my-mysql:param:host:&#34;127.0.0.1&#34;port:3306username:&#34;root&#34;password:&#34;root&#34;dbname:&#34;test&#34;例子会建立一个位于127.0.0.1:3306 的数据库连接，用户名为root、密码为 root、数据库名为test、表名为mydata。
+开发人员可以为 normalMysql.Mysql 类型的字段增加 normal:&quot;github.com/alibaba/ioc-golang/extension/normal.Impl,$(configKey),$(tableName)&quot; 标签。从而注入指定数据库的指定表 sdk。
+例子中的 normal:&quot;github.com/alibaba/ioc-golang/extension/normal.Impl,my-mysql,mydata&quot; 的意义为，将配置文件内 autowire.normal.&lt;github.com/alibaba/ioc-golang/extension/normal/mysql.Impl&gt;.my-mysql.param定义的值作为参数。
+autowire:normal:github.com/alibaba/ioc-golang/extension/normal/mysql.Impl:my-mysql:param:host:&#34;127.0.0.1&#34;port:3306username:&#34;root&#34;password:&#34;root&#34;dbname:&#34;test&#34;例子会建立一个位于127.0.0.1:3306 的数据库连接，用户名为root、密码为 root、数据库名为test、表名为mydata。
 注入后，方可调用该接口提供的方法，获取裸 gorm 连接，或者直接使用封装好的 API 操作数据表。
 type Mysql interface { 	GetDB() *gorm." />
 <meta property="og:type" content="article" />
@@ -42,35 +42,35 @@ type Mysql interface { 	GetDB() *gorm." />
 <meta property="article:published_time" content="2017-01-05T00:00:00+00:00" />
 <meta property="article:modified_time" content="2022-05-22T01:43:54+08:00" /><meta property="og:site_name" content="IOC-Golang" />
 
-<meta itemprop="name" content="配置注入">
+<meta itemprop="name" content="GORM 客户端注入">
 <meta itemprop="description" content="简介 本示例展示了注入基于 GORM 的数据库客户端能力。
 在应用开发过程中，通过 SDK 操作数据库是一个常见的诉求，GORM 是应用较广泛的 Go 数据库 sdk。
 ioc-golang 框架提供了注入数据库连接的能力，开发者可以在配置文件中指定好数据库地址、密码信息，通过标签注入连接，无需手动创建、组装 GORM 客户端。
 注入模型与结构 多例（normal）依赖注入模型
 预定义的 mysql 结构
-关键代码 import( 	normalMysql &#34;github.com/alibaba/ioc-golang/extension/normal/mysql&#34; )  // &#43;ioc:autowire=true // &#43;ioc:autowire:type=singleton  type App struct { 	MyDataTable normalMysql.Mysql `normal:&#34;Impl,my-mysql,mydata&#34;` }   被注入字段类型
+关键代码 import( 	normalMysql &#34;github.com/alibaba/ioc-golang/extension/normal/mysql&#34; )  // &#43;ioc:autowire=true // &#43;ioc:autowire:type=singleton  type App struct { 	MyDataTable normalMysql.Mysql `normal:&#34;github.com/alibaba/ioc-golang/extension/normal.Impl,my-mysql,mydata&#34;` }   被注入字段类型
 normalMysql.Mysql 接口
   标签
-开发人员可以为 normalMysql.Mysql 类型的字段增加 normal:&quot;Impl,$(configKey),$(tableName)&quot; 标签。从而注入指定数据库的指定表 sdk。
-例子中的 normal:&quot;Impl,my-mysql,mydata&quot; 的意义为，将配置文件内 autowire.normal.Mysql.Impl,my-mysql.param定义的值作为参数。
-autowire:normal:Mysql:Impl:my-mysql:param:host:&#34;127.0.0.1&#34;port:3306username:&#34;root&#34;password:&#34;root&#34;dbname:&#34;test&#34;例子会建立一个位于127.0.0.1:3306 的数据库连接，用户名为root、密码为 root、数据库名为test、表名为mydata。
+开发人员可以为 normalMysql.Mysql 类型的字段增加 normal:&quot;github.com/alibaba/ioc-golang/extension/normal.Impl,$(configKey),$(tableName)&quot; 标签。从而注入指定数据库的指定表 sdk。
+例子中的 normal:&quot;github.com/alibaba/ioc-golang/extension/normal.Impl,my-mysql,mydata&quot; 的意义为，将配置文件内 autowire.normal.&lt;github.com/alibaba/ioc-golang/extension/normal/mysql.Impl&gt;.my-mysql.param定义的值作为参数。
+autowire:normal:github.com/alibaba/ioc-golang/extension/normal/mysql.Impl:my-mysql:param:host:&#34;127.0.0.1&#34;port:3306username:&#34;root&#34;password:&#34;root&#34;dbname:&#34;test&#34;例子会建立一个位于127.0.0.1:3306 的数据库连接，用户名为root、密码为 root、数据库名为test、表名为mydata。
 注入后，方可调用该接口提供的方法，获取裸 gorm 连接，或者直接使用封装好的 API 操作数据表。
 type Mysql interface { 	GetDB() *gorm."><meta itemprop="datePublished" content="2017-01-05T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-05-22T01:43:54+08:00" />
 <meta itemprop="wordCount" content="94">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="配置注入"/>
+<meta name="twitter:title" content="GORM 客户端注入"/>
 <meta name="twitter:description" content="简介 本示例展示了注入基于 GORM 的数据库客户端能力。
 在应用开发过程中，通过 SDK 操作数据库是一个常见的诉求，GORM 是应用较广泛的 Go 数据库 sdk。
 ioc-golang 框架提供了注入数据库连接的能力，开发者可以在配置文件中指定好数据库地址、密码信息，通过标签注入连接，无需手动创建、组装 GORM 客户端。
 注入模型与结构 多例（normal）依赖注入模型
 预定义的 mysql 结构
-关键代码 import( 	normalMysql &#34;github.com/alibaba/ioc-golang/extension/normal/mysql&#34; )  // &#43;ioc:autowire=true // &#43;ioc:autowire:type=singleton  type App struct { 	MyDataTable normalMysql.Mysql `normal:&#34;Impl,my-mysql,mydata&#34;` }   被注入字段类型
+关键代码 import( 	normalMysql &#34;github.com/alibaba/ioc-golang/extension/normal/mysql&#34; )  // &#43;ioc:autowire=true // &#43;ioc:autowire:type=singleton  type App struct { 	MyDataTable normalMysql.Mysql `normal:&#34;github.com/alibaba/ioc-golang/extension/normal.Impl,my-mysql,mydata&#34;` }   被注入字段类型
 normalMysql.Mysql 接口
   标签
-开发人员可以为 normalMysql.Mysql 类型的字段增加 normal:&quot;Impl,$(configKey),$(tableName)&quot; 标签。从而注入指定数据库的指定表 sdk。
-例子中的 normal:&quot;Impl,my-mysql,mydata&quot; 的意义为，将配置文件内 autowire.normal.Mysql.Impl,my-mysql.param定义的值作为参数。
-autowire:normal:Mysql:Impl:my-mysql:param:host:&#34;127.0.0.1&#34;port:3306username:&#34;root&#34;password:&#34;root&#34;dbname:&#34;test&#34;例子会建立一个位于127.0.0.1:3306 的数据库连接，用户名为root、密码为 root、数据库名为test、表名为mydata。
+开发人员可以为 normalMysql.Mysql 类型的字段增加 normal:&quot;github.com/alibaba/ioc-golang/extension/normal.Impl,$(configKey),$(tableName)&quot; 标签。从而注入指定数据库的指定表 sdk。
+例子中的 normal:&quot;github.com/alibaba/ioc-golang/extension/normal.Impl,my-mysql,mydata&quot; 的意义为，将配置文件内 autowire.normal.&lt;github.com/alibaba/ioc-golang/extension/normal/mysql.Impl&gt;.my-mysql.param定义的值作为参数。
+autowire:normal:github.com/alibaba/ioc-golang/extension/normal/mysql.Impl:my-mysql:param:host:&#34;127.0.0.1&#34;port:3306username:&#34;root&#34;password:&#34;root&#34;dbname:&#34;test&#34;例子会建立一个位于127.0.0.1:3306 的数据库连接，用户名为root、密码为 root、数据库名为test、表名为mydata。
 注入后，方可调用该接口提供的方法，获取裸 gorm 连接，或者直接使用封装好的 API 操作数据表。
 type Mysql interface { 	GetDB() *gorm."/>
 
@@ -210,7 +210,7 @@ if (!doNotTrack) {
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplesredis-li">
   <a href="/docs/examples/redis/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplesredis"><span class="">redis 客户端注入</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-docsexamplesgorm-li">
-  <a href="/docs/examples/gorm/" class="align-left pl-0 active td-sidebar-link td-sidebar-link__page" id="m-docsexamplesgorm"><span class="td-sidebar-nav-active-item">配置注入</span></a>
+  <a href="/docs/examples/gorm/" class="align-left pl-0 active td-sidebar-link td-sidebar-link__page" id="m-docsexamplesgorm"><span class="td-sidebar-nav-active-item">GORM 客户端注入</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplesgrpc-li">
   <a href="/docs/examples/grpc/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplesgrpc"><span class="">gRPC 客户端注入</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsexamplesconfig-li">
@@ -270,7 +270,7 @@ if (!doNotTrack) {
 <a href="https://github.com/google/docsy-example/tree/master/content/en/docs/Examples/gorm.md" class="td-page-meta--view" target="_blank" rel="noopener"><i class="fa fa-file-alt fa-fw"></i> View page source</a>
   <a href="https://github.com/google/docsy-example/edit/master/content/en/docs/Examples/gorm.md" class="td-page-meta--edit" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
   <a href="https://github.com/google/docsy-example/new/master/content/en/docs/Examples/gorm.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Create child page</a>
-  <a href="https://github.com/google/docsy-example/issues/new?title=%e9%85%8d%e7%bd%ae%e6%b3%a8%e5%85%a5" class="td-page-meta--issue" target="_blank" rel="noopener"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
+  <a href="https://github.com/google/docsy-example/issues/new?title=GORM%20%e5%ae%a2%e6%88%b7%e7%ab%af%e6%b3%a8%e5%85%a5" class="td-page-meta--issue" target="_blank" rel="noopener"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
   <a href="https://github.com/google/docsy/issues/new" class="td-page-meta--project-issue" target="_blank" rel="noopener"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
   <a id="print" href="/docs/examples/_print/"><i class="fa fa-print fa-fw"></i> Print entire section</a>
 
@@ -335,13 +335,13 @@ if (!doNotTrack) {
     <a href="/docs/examples/">Example</a>
   </li>
   <li class="breadcrumb-item active" aria-current="page">
-    <a href="/docs/examples/gorm/">配置注入</a>
+    <a href="/docs/examples/gorm/">GORM 客户端注入</a>
   </li>
   </ol>
 </nav>
             
 <div class="td-content">
-	<h1>配置注入</h1>
+	<h1>GORM 客户端注入</h1>
 	
 	<header class="article-meta">
 		
@@ -376,7 +376,7 @@ if (!doNotTrack) {
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// +ioc:autowire:type=singleton
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">type</span> <span style="color:#000">App</span> <span style="color:#204a87;font-weight:bold">struct</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000">MyDataTable</span> <span style="color:#000">normalMysql</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Mysql</span> <span style="color:#4e9a06">`normal:&#34;Impl,my-mysql,mydata&#34;`</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#000">MyDataTable</span> <span style="color:#000">normalMysql</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Mysql</span> <span style="color:#4e9a06">`normal:&#34;github.com/alibaba/ioc-golang/extension/normal.Impl,my-mysql,mydata&#34;`</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
 </span></span></code></pre></div><ul>
 <li>
@@ -385,19 +385,18 @@ if (!doNotTrack) {
 </li>
 <li>
 <p>标签</p>
-<p>开发人员可以为 normalMysql.Mysql 类型的字段增加 <code>normal:&quot;Impl,$(configKey),$(tableName)&quot; </code>标签。从而注入指定数据库的指定表 sdk。</p>
-<p>例子中的 <code>normal:&quot;Impl,my-mysql,mydata&quot;</code> 的意义为，将配置文件内 <code>autowire.normal.Mysql.Impl,my-mysql.param</code>定义的值作为参数。</p>
+<p>开发人员可以为 normalMysql.Mysql 类型的字段增加 <code>normal:&quot;github.com/alibaba/ioc-golang/extension/normal.Impl,$(configKey),$(tableName)&quot; </code>标签。从而注入指定数据库的指定表 sdk。</p>
+<p>例子中的 <code>normal:&quot;github.com/alibaba/ioc-golang/extension/normal.Impl,my-mysql,mydata&quot;</code> 的意义为，将配置文件内 <code>autowire.normal.&lt;github.com/alibaba/ioc-golang/extension/normal/mysql.Impl&gt;.my-mysql.param</code>定义的值作为参数。</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">autowire</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">normal</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">Mysql</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">Impl</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">my-mysql</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">param</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">host</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;127.0.0.1&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">port</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">3306</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">username</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;root&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">password</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;root&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">dbname</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;test&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">github.com/alibaba/ioc-golang/extension/normal/mysql.Impl</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">my-mysql</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">param</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">host</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;127.0.0.1&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">port</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">3306</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">username</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;root&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">password</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;root&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">dbname</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;test&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span></code></pre></div><p>例子会建立一个位于127.0.0.1:3306 的数据库连接，用户名为root、密码为 root、数据库名为test、表名为mydata。</p>
 <p>注入后，方可调用该接口提供的方法，获取裸 gorm 连接，或者直接使用封装好的 API 操作数据表。</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">type</span> <span style="color:#000">Mysql</span> <span style="color:#204a87;font-weight:bold">interface</span> <span style="color:#000;font-weight:bold">{</span>

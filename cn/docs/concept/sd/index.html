@@ -42,7 +42,7 @@ SD可以通过注解的方式使用工具自动生成。但还是推荐开发人
 例如
 type Config struct { 	Host string 	Port string 	Username string 	Password string }  func (c *Config) New(mysqlImpl *Impl) (*Impl, error) { 	var err error 	mysqlImpl.db, err = gorm.Open(mysql.Open(getMysqlLinkStr(c)), &amp;gorm.Config{}) 	mysqlImpl.tableName = c.TableName 	return mysqlImpl, err } Config 结构即为 Impl 结构的“参数”。其包含了产生 Impl 结构的全部信息。"><meta itemprop="datePublished" content="2017-01-05T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-05-24T14:19:13+08:00" />
-<meta itemprop="wordCount" content="163">
+<meta itemprop="wordCount" content="153">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="结构描述符"/>
 <meta name="twitter:description" content="概念 结构描述符(Struct Descriptor, SD)用于描述一个被开发者定义的结构，包含对象生命周期的全部信息，例如结构类型是什么，实现了哪些接口，如何被构造等等。
@@ -373,7 +373,6 @@ if (!doNotTrack) {
 <h3 id="结构描述符-struct-descriptor">结构描述符 （Struct Descriptor）</h3>
 <p>本框架定义的结构描述符如下：</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">type</span> <span style="color:#000">StructDescriptor</span> <span style="color:#204a87;font-weight:bold">struct</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000">Interface</span>     <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{}</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#000">Factory</span>       <span style="color:#204a87;font-weight:bold">func</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{}</span> 
 </span></span><span style="display:flex;"><span>	<span style="color:#000">ParamFactory</span>  <span style="color:#204a87;font-weight:bold">func</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{}</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#000">ParamLoader</span>   <span style="color:#000">ParamLoader</span>
@@ -383,13 +382,6 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>	<span style="color:#000">autowireType</span>    <span style="color:#204a87;font-weight:bold">string</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
 </span></span></code></pre></div><ul>
-<li>
-<p>Interface 【必要】</p>
-<p>结构实现的接口指针</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#000">new</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">MyInterface</span><span style="color:#000;font-weight:bold">)</span>
-</span></span></code></pre></div><p>如果结构没有实现任何接口，则使用结构指针。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">Impl</span><span style="color:#000;font-weight:bold">{}</span>
-</span></span></code></pre></div></li>
 <li>
 <p>Factory【必要】</p>
 <p>结构的工厂函数，返回值是未经初始化的空结构指针，例如</p>
@@ -433,10 +425,9 @@ if (!doNotTrack) {
 <ul>
 <li>定义</li>
 </ul>
+<p>结构描述ID定义为：&quot;$(包名).$(结构名)&quot;</p>
 <p>结构描述 ID （Struct Description Identification) 在本文档和项目中多处被缩写为 SDID。</p>
-<p>SDID 是一类“自动装载模型“内唯一的，用于索引结构的键，类型为字符串。</p>
-<p>如果一个类实现了接口，SDID为：&quot;$(接口名)-$(结构名)“</p>
-<p>如果一个类没有实现任何接口，SDID为：“&quot;$(结构名)-$(结构名)“</p>
+<p>SDID 是唯一的，用于索引结构的键，类型为字符串。</p>
 <ul>
 <li>使用</li>
 </ul>

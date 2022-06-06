@@ -21,16 +21,16 @@
 <title>参数加载器 | IOC-Golang</title>
 <meta name="description" content="概念
 参数加载器描述了依赖参数如何在对象构造之前被加载，包括但不限于从配置加载、从标签参数加载等等。
-参数加载器作为 SD（文件描述符）的一部分，可以被结构提供方定制化，也可以使用自动装载模型提供的默认参数加载器。
+参数加载器作为 SD(结构描述符)的一部分，可以被结构提供方定制化，也可以使用自动装载模型提供的默认参数加载器。
 默认参数加载器
 任何 SD 内定义参数加载器均被优先执行，如果加载失败，则尝试使用默 …">
 <meta property="og:title" content="参数加载器" />
 <meta property="og:description" content="概念 参数加载器描述了依赖参数如何在对象构造之前被加载，包括但不限于从配置加载、从标签参数加载等等。
-参数加载器作为 SD（文件描述符）的一部分，可以被结构提供方定制化，也可以使用自动装载模型提供的默认参数加载器。
+参数加载器作为 SD(结构描述符)的一部分，可以被结构提供方定制化，也可以使用自动装载模型提供的默认参数加载器。
 默认参数加载器 任何 SD 内定义参数加载器均被优先执行，如果加载失败，则尝试使用默认参数加载器加载。
 默认参数加载器被两个基础自动装载模型（singleton、normal）引入。依此采用三种方式加载参数，如果三种方式均加载失败，则抛出错误。
   方式1 从标签指向的对象名加载参数，参考 配置文件结构规范
-Load support load struct described like: ```go normal.RegisterStructDescriptor(&amp;autowire.StructDescriptor{ Interface: new(Redis), Factory: func() interface{}{ return &amp;Impl{} }, ParamFactory: func() interface{}{ return &amp;Config{} }, ConstructFunc: func(i interface{}, p interface{}) (interface{}, error) { return i, nil }, }) } type Config struct { Address string Password string DB string } ``` with Autowire type &#39;normal&#39; InterfaceName &#39;Redis&#39; StructName &#39;Impl&#39; Field: MyRedis Redis `normal:&#34;Impl, redis-1&#34;` from: ```yaml extension: normal: Redis: Impl: redis-1: param: address: 127." />
+Load support load struct described like: ```go normal.RegisterStructDescriptor(&amp;autowire.StructDescriptor{ Factory: func() interface{}{ return &amp;Impl{} }, ParamFactory: func() interface{}{ return &amp;Config{} }, ConstructFunc: func(i interface{}, p interface{}) (interface{}, error) { return i, nil }, }) } type Config struct { Address string Password string DB string } ``` with Autowire type &#39;normal&#39; StructName &#39;Impl&#39; Field: MyRedis Redis `normal:&#34;github.com/alibaba/ioc-golang/extension/normal/redis.Impl, redis-1&#34;` from: ```yaml extension: normal: github." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/concept/param_loader/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2017-01-05T00:00:00+00:00" />
@@ -38,21 +38,21 @@ Load support load struct described like: ```go normal.RegisterStructDescriptor(&
 
 <meta itemprop="name" content="参数加载器">
 <meta itemprop="description" content="概念 参数加载器描述了依赖参数如何在对象构造之前被加载，包括但不限于从配置加载、从标签参数加载等等。
-参数加载器作为 SD（文件描述符）的一部分，可以被结构提供方定制化，也可以使用自动装载模型提供的默认参数加载器。
+参数加载器作为 SD(结构描述符)的一部分，可以被结构提供方定制化，也可以使用自动装载模型提供的默认参数加载器。
 默认参数加载器 任何 SD 内定义参数加载器均被优先执行，如果加载失败，则尝试使用默认参数加载器加载。
 默认参数加载器被两个基础自动装载模型（singleton、normal）引入。依此采用三种方式加载参数，如果三种方式均加载失败，则抛出错误。
   方式1 从标签指向的对象名加载参数，参考 配置文件结构规范
-Load support load struct described like: ```go normal.RegisterStructDescriptor(&amp;autowire.StructDescriptor{ Interface: new(Redis), Factory: func() interface{}{ return &amp;Impl{} }, ParamFactory: func() interface{}{ return &amp;Config{} }, ConstructFunc: func(i interface{}, p interface{}) (interface{}, error) { return i, nil }, }) } type Config struct { Address string Password string DB string } ``` with Autowire type &#39;normal&#39; InterfaceName &#39;Redis&#39; StructName &#39;Impl&#39; Field: MyRedis Redis `normal:&#34;Impl, redis-1&#34;` from: ```yaml extension: normal: Redis: Impl: redis-1: param: address: 127."><meta itemprop="datePublished" content="2017-01-05T00:00:00+00:00" />
+Load support load struct described like: ```go normal.RegisterStructDescriptor(&amp;autowire.StructDescriptor{ Factory: func() interface{}{ return &amp;Impl{} }, ParamFactory: func() interface{}{ return &amp;Config{} }, ConstructFunc: func(i interface{}, p interface{}) (interface{}, error) { return i, nil }, }) } type Config struct { Address string Password string DB string } ``` with Autowire type &#39;normal&#39; StructName &#39;Impl&#39; Field: MyRedis Redis `normal:&#34;github.com/alibaba/ioc-golang/extension/normal/redis.Impl, redis-1&#34;` from: ```yaml extension: normal: github."><meta itemprop="datePublished" content="2017-01-05T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-05-22T01:43:54+08:00" />
-<meta itemprop="wordCount" content="186">
+<meta itemprop="wordCount" content="176">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="参数加载器"/>
 <meta name="twitter:description" content="概念 参数加载器描述了依赖参数如何在对象构造之前被加载，包括但不限于从配置加载、从标签参数加载等等。
-参数加载器作为 SD（文件描述符）的一部分，可以被结构提供方定制化，也可以使用自动装载模型提供的默认参数加载器。
+参数加载器作为 SD(结构描述符)的一部分，可以被结构提供方定制化，也可以使用自动装载模型提供的默认参数加载器。
 默认参数加载器 任何 SD 内定义参数加载器均被优先执行，如果加载失败，则尝试使用默认参数加载器加载。
 默认参数加载器被两个基础自动装载模型（singleton、normal）引入。依此采用三种方式加载参数，如果三种方式均加载失败，则抛出错误。
   方式1 从标签指向的对象名加载参数，参考 配置文件结构规范
-Load support load struct described like: ```go normal.RegisterStructDescriptor(&amp;autowire.StructDescriptor{ Interface: new(Redis), Factory: func() interface{}{ return &amp;Impl{} }, ParamFactory: func() interface{}{ return &amp;Config{} }, ConstructFunc: func(i interface{}, p interface{}) (interface{}, error) { return i, nil }, }) } type Config struct { Address string Password string DB string } ``` with Autowire type &#39;normal&#39; InterfaceName &#39;Redis&#39; StructName &#39;Impl&#39; Field: MyRedis Redis `normal:&#34;Impl, redis-1&#34;` from: ```yaml extension: normal: Redis: Impl: redis-1: param: address: 127."/>
+Load support load struct described like: ```go normal.RegisterStructDescriptor(&amp;autowire.StructDescriptor{ Factory: func() interface{}{ return &amp;Impl{} }, ParamFactory: func() interface{}{ return &amp;Config{} }, ConstructFunc: func(i interface{}, p interface{}) (interface{}, error) { return i, nil }, }) } type Config struct { Address string Password string DB string } ``` with Autowire type &#39;normal&#39; StructName &#39;Impl&#39; Field: MyRedis Redis `normal:&#34;github.com/alibaba/ioc-golang/extension/normal/redis.Impl, redis-1&#34;` from: ```yaml extension: normal: github."/>
 
 
 
@@ -190,7 +190,7 @@ if (!doNotTrack) {
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsexamplesredis-li">
   <a href="/docs/examples/redis/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplesredis"><span class="">redis 客户端注入</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsexamplesgorm-li">
-  <a href="/docs/examples/gorm/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplesgorm"><span class="">配置注入</span></a>
+  <a href="/docs/examples/gorm/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplesgorm"><span class="">GORM 客户端注入</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsexamplesgrpc-li">
   <a href="/docs/examples/grpc/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsexamplesgrpc"><span class="">gRPC 客户端注入</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsexamplesconfig-li">
@@ -340,8 +340,8 @@ if (!doNotTrack) {
 		
 	</header>    
 	<h3 id="概念">概念</h3>
-<p>参数加载器描述了依赖参数如何在对象构造之前被加载，包括但不限于从配置加载、从标签参数加载等等。</p>
-<p>参数加载器作为 SD（文件描述符）的一部分，可以被结构提供方定制化，也可以使用自动装载模型提供的默认参数加载器。</p>
+<p>参数加载器描述了依赖参数如何在对象构造之前被加载，包括但不限于从配置加载、从<a href="/cn/docs/reference/tag_format">标签</a>参数加载等等。</p>
+<p>参数加载器作为 <a href="/cn/docs/concept/sd">SD(结构描述符)</a>的一部分，可以被结构提供方定制化，也可以使用自动装载模型提供的默认参数加载器。</p>
 <h3 id="默认参数加载器">默认参数加载器</h3>
 <p>任何 SD 内定义参数加载器均被优先执行，如果加载失败，则尝试使用默认参数加载器加载。</p>
 <p>默认参数加载器被两个基础自动装载模型（singleton、normal）引入。依此采用三种方式加载参数，如果三种方式均加载失败，则抛出错误。</p>
@@ -351,7 +351,6 @@ if (!doNotTrack) {
 <pre tabindex="0"><code>Load support load struct described like:
 ```go
 normal.RegisterStructDescriptor(&amp;autowire.StructDescriptor{
-		Interface: new(Redis),
 		Factory:   func() interface{}{
 			return &amp;Impl{}
 		},
@@ -373,18 +372,16 @@ type Config struct {
 ```
 with
 Autowire type &#39;normal&#39;
-InterfaceName &#39;Redis&#39;
 StructName &#39;Impl&#39;
 Field:
-	MyRedis Redis `normal:&#34;Impl, redis-1&#34;`
+	MyRedis Redis `normal:&#34;github.com/alibaba/ioc-golang/extension/normal/redis.Impl, redis-1&#34;`
 
 from:
 
 ```yaml
 extension:
   normal:
-    Redis:
-      Impl:
+    github.com/alibaba/ioc-golang/extension/normal/redis.Impl:
         redis-1:
           param:
             address: 127.0.0.1
@@ -405,7 +402,7 @@ type Config struct {
 from field:
 
 ```go
-NormalRedis  normalRedis.Redis  `normal:&#34;Impl,address=127.0.0.1&amp;password=xxx&amp;db=0&#34;`
+NormalRedis  normalRedis.Redis  `normal:&#34;github.com/alibaba/ioc-golang/extension/normal/redis.Impl,address=127.0.0.1&amp;password=xxx&amp;db=0&#34;`
 ```
 </code></pre></li>
 <li>
@@ -413,7 +410,6 @@ NormalRedis  normalRedis.Redis  `normal:&#34;Impl,address=127.0.0.1&amp;password
 <pre tabindex="0"><code>Load support load struct described like:
 ```go
 normal.RegisterStructDescriptor(&amp;autowire.StructDescriptor{
-		Interface: new(Redis),
 		Factory:   func() interface{}{
 			return &amp;Impl{}
 		},
@@ -434,7 +430,6 @@ type Config struct {
 ```
 with
 Autowire type &#39;normal&#39;
-InterfaceName &#39;Redis&#39;
 StructName &#39;Impl&#39;
 
 from:
@@ -442,8 +437,7 @@ from:
 ```yaml
 autowire:
   normal:
-    Redis:
-      Impl:
+      github.com/alibaba/ioc-golang/extension/normal/redis.Impl:
         param:
           address: 127.0.0.1
           password: xxx

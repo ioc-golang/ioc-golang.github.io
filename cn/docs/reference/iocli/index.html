@@ -39,8 +39,7 @@
 基于该思路，我们可以扩展出更丰富的 cli 端调试能力，例如：
  流量过滤、监控 参数编辑 故障注入 耗时瓶颈分析 &hellip;  结构注解与SD代码生成 iocli 可以一键生成当前目录和子目录下的所有标记结构的描述符
 sudo iocli gen 可以识别以下注解：
-// &#43;ioc:autowire=true // &#43;ioc:autowire:type=normal // &#43;ioc:autowire:interface=Redis // &#43;ioc:autowire:paramLoader=paramLoader // &#43;ioc:autowire:paramType=Config // &#43;ioc:autowire:constructFunc=New // &#43;ioc:autowire:baseType=true   ioc:autowire
-bool 类型，为 true 则该结构被识别到。" />
+// &#43;ioc:autowire=true // &#43;ioc:autowire:type=normal // &#43;ioc:autowire:interface=Redis // &#43;ioc:autowire:paramLoader=paramLoader // &#43;ioc:autowire:paramType=Config // &#43;ioc:autowire:constructFunc=New // &#43;ioc:autowire:baseType=true // &#43;ioc:autowire:alias=myAppAliasName   ioc:autowire" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/cn/docs/reference/iocli/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2017-01-05T00:00:00+00:00" />
@@ -57,10 +56,9 @@ bool 类型，为 true 则该结构被识别到。" />
 基于该思路，我们可以扩展出更丰富的 cli 端调试能力，例如：
  流量过滤、监控 参数编辑 故障注入 耗时瓶颈分析 &hellip;  结构注解与SD代码生成 iocli 可以一键生成当前目录和子目录下的所有标记结构的描述符
 sudo iocli gen 可以识别以下注解：
-// &#43;ioc:autowire=true // &#43;ioc:autowire:type=normal // &#43;ioc:autowire:interface=Redis // &#43;ioc:autowire:paramLoader=paramLoader // &#43;ioc:autowire:paramType=Config // &#43;ioc:autowire:constructFunc=New // &#43;ioc:autowire:baseType=true   ioc:autowire
-bool 类型，为 true 则该结构被识别到。"><meta itemprop="datePublished" content="2017-01-05T00:00:00+00:00" />
+// &#43;ioc:autowire=true // &#43;ioc:autowire:type=normal // &#43;ioc:autowire:interface=Redis // &#43;ioc:autowire:paramLoader=paramLoader // &#43;ioc:autowire:paramType=Config // &#43;ioc:autowire:constructFunc=New // &#43;ioc:autowire:baseType=true // &#43;ioc:autowire:alias=myAppAliasName   ioc:autowire"><meta itemprop="datePublished" content="2017-01-05T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-05-24T14:19:13+08:00" />
-<meta itemprop="wordCount" content="296">
+<meta itemprop="wordCount" content="301">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="iocli 工具"/>
 <meta name="twitter:description" content="iocli 是一款命令行工具，提供了以下能力：
@@ -73,8 +71,7 @@ bool 类型，为 true 则该结构被识别到。"><meta itemprop="datePublishe
 基于该思路，我们可以扩展出更丰富的 cli 端调试能力，例如：
  流量过滤、监控 参数编辑 故障注入 耗时瓶颈分析 &hellip;  结构注解与SD代码生成 iocli 可以一键生成当前目录和子目录下的所有标记结构的描述符
 sudo iocli gen 可以识别以下注解：
-// &#43;ioc:autowire=true // &#43;ioc:autowire:type=normal // &#43;ioc:autowire:interface=Redis // &#43;ioc:autowire:paramLoader=paramLoader // &#43;ioc:autowire:paramType=Config // &#43;ioc:autowire:constructFunc=New // &#43;ioc:autowire:baseType=true   ioc:autowire
-bool 类型，为 true 则该结构被识别到。"/>
+// &#43;ioc:autowire=true // &#43;ioc:autowire:type=normal // &#43;ioc:autowire:interface=Redis // &#43;ioc:autowire:paramLoader=paramLoader // &#43;ioc:autowire:paramType=Config // &#43;ioc:autowire:constructFunc=New // &#43;ioc:autowire:baseType=true // &#43;ioc:autowire:alias=myAppAliasName   ioc:autowire"/>
 
 
 
@@ -393,6 +390,7 @@ if (!doNotTrack) {
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// +ioc:autowire:paramType=Config
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// +ioc:autowire:constructFunc=New
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// +ioc:autowire:baseType=true
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// +ioc:autowire:alias=myAppAliasName
 </span></span></span></code></pre></div><ul>
 <li>
 <p>ioc:autowire</p>
@@ -514,6 +512,10 @@ if (!doNotTrack) {
 <p>ioc:autowire:baseType=true （非必填）</p>
 <p>该类型是否为基础类型</p>
 <p>go 基础类型不可直接通过&amp;在构造时取地址，因此我们针对基础类型单独设计了该注解。在 <a href="http://github.com/alibaba/ioc-golang/extension/tree/master/config">http://github.com/alibaba/ioc-golang/extension/tree/master/config</a> 配置扩展中被使用较多。</p>
+</li>
+<li>
+<p>ioc:autowire:alias=MyAppAliasName （非必填）</p>
+<p>该类型的别名，可在标签、API获取、配置中，通过该别名替代掉较长的类型全名来指定结构。</p>
 </li>
 </ul>
 

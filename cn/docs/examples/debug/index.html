@@ -56,7 +56,7 @@ debug 模式下，本框架基于 AOP 的思路，为每个注册在框架的结
 正确在 ioc_golang.yaml 中开启debug模式后，会打印
 [Debug] Debug port is set to default :1999 的日志。"><meta itemprop="datePublished" content="2017-01-05T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-05-24T14:19:13+08:00" />
-<meta itemprop="wordCount" content="426">
+<meta itemprop="wordCount" content="513">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="使用调试功能"/>
 <meta name="twitter:description" content="简介 本示例展示了 ioc-golang 框架提供的代码调试能力
@@ -398,18 +398,19 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>                                                                    <span style="color:#000;font-weight:bold">|</span>___/ 
 </span></span><span style="display:flex;"><span>Welcome to use ioc-golang!
 </span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Boot<span style="color:#ce5c00;font-weight:bold">]</span> Start to load ioc-golang config
-</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Config<span style="color:#ce5c00;font-weight:bold">]</span> Load config file from ../conf/ioc_golang.yaml
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Config<span style="color:#ce5c00;font-weight:bold">]</span> Load default config file from ../conf/ioc_golang.yaml
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Config<span style="color:#ce5c00;font-weight:bold">]</span> merge config map, depth: <span style="color:#ce5c00;font-weight:bold">[</span>0<span style="color:#ce5c00;font-weight:bold">]</span>
 </span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Boot<span style="color:#ce5c00;font-weight:bold">]</span> Start to load debug
 </span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Debug<span style="color:#ce5c00;font-weight:bold">]</span> Debug port is <span style="color:#204a87">set</span> to default :1999
 </span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Boot<span style="color:#ce5c00;font-weight:bold">]</span> Start to load autowire
 </span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Autowire Type<span style="color:#ce5c00;font-weight:bold">]</span> Found registered autowire <span style="color:#204a87">type</span> singleton
-</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> singleton registered SD Service1-Impl1
-</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> singleton registered SD Service2-Impl1
-</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> singleton registered SD Service2-Impl2
-</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> singleton registered SD Struct1-Struct1
-</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> singleton registered SD App-App
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> singleton registered SD github.com/alibaba/ioc-golang/example/debug/cmd/service2.Impl2
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> singleton registered SD github.com/alibaba/ioc-golang/example/debug/cmd/struct1.Struct1
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> singleton registered SD main.App
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> singleton registered SD github.com/alibaba/ioc-golang/example/debug/cmd/service1.Impl1
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> singleton registered SD github.com/alibaba/ioc-golang/example/debug/cmd/service2.Impl1
 </span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Autowire Type<span style="color:#ce5c00;font-weight:bold">]</span> Found registered autowire <span style="color:#204a87">type</span> grpc
-</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> grpc registered SD HelloServiceClient-HelloServiceClient
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> grpc registered SD github.com/alibaba/ioc-golang/example/debug/api.HelloServiceClient
 </span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Debug<span style="color:#ce5c00;font-weight:bold">]</span> Debug server listening at :1999
 </span></span><span style="display:flex;"><span>create conn target  localhost:8080
 </span></span><span style="display:flex;"><span>App call grpc get: Hello laurence
@@ -422,71 +423,113 @@ if (!doNotTrack) {
 <li>
 <p>新开一个终端，查看所有接口、实现和方法。</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>% iocli list
-</span></span><span style="display:flex;"><span>App
-</span></span><span style="display:flex;"><span>App
-</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Run<span style="color:#ce5c00;font-weight:bold">]</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>HelloServiceClient
-</span></span><span style="display:flex;"><span>HelloServiceClient
+</span></span><span style="display:flex;"><span>github.com/alibaba/ioc-golang/example/debug/api.HelloServiceClient
 </span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>SayHello<span style="color:#ce5c00;font-weight:bold">]</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Service1
-</span></span><span style="display:flex;"><span>Impl1
+</span></span><span style="display:flex;"><span>github.com/alibaba/ioc-golang/example/debug/cmd/service1.Impl1
 </span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Hello<span style="color:#ce5c00;font-weight:bold">]</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Service2
-</span></span><span style="display:flex;"><span>Impl1
+</span></span><span style="display:flex;"><span>github.com/alibaba/ioc-golang/example/debug/cmd/service2.Impl1
 </span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Hello<span style="color:#ce5c00;font-weight:bold">]</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Service2
-</span></span><span style="display:flex;"><span>Impl2
+</span></span><span style="display:flex;"><span>github.com/alibaba/ioc-golang/example/debug/cmd/service2.Impl2
 </span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Hello<span style="color:#ce5c00;font-weight:bold">]</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Struct1
-</span></span><span style="display:flex;"><span>Struct1
+</span></span><span style="display:flex;"><span>github.com/alibaba/ioc-golang/example/debug/cmd/struct1.Struct1
 </span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Hello<span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>main.App
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Run<span style="color:#ce5c00;font-weight:bold">]</span>
 </span></span></code></pre></div></li>
 <li>
 <p>监听 gRPC Client 的所有流量，每隔 5s 会打印出相关的请求、返回值信息。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>% iocli watch HelloServiceClient HelloServiceClient <span style="color:#000">SayHello</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>% iocli watch github.com/alibaba/ioc-golang/example/debug/api.HelloServiceClient  <span style="color:#000">SayHello</span>
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">==========</span> On <span style="color:#000">Call</span> <span style="color:#ce5c00;font-weight:bold">==========</span>
-</span></span><span style="display:flex;"><span>HelloServiceClient.<span style="color:#ce5c00;font-weight:bold">(</span>HelloServiceClient<span style="color:#ce5c00;font-weight:bold">)</span>.SayHello<span style="color:#ce5c00;font-weight:bold">()</span>
+</span></span><span style="display:flex;"><span>github.com/alibaba/ioc-golang/example/debug/api.HelloServiceClient.SayHello<span style="color:#ce5c00;font-weight:bold">()</span>
 </span></span><span style="display:flex;"><span>Param 1: <span style="color:#ce5c00;font-weight:bold">(</span>*context.emptyCtx<span style="color:#ce5c00;font-weight:bold">)(</span>0xc0000280e0<span style="color:#ce5c00;font-weight:bold">)(</span>context.Background<span style="color:#ce5c00;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Param 2: <span style="color:#ce5c00;font-weight:bold">(</span>*api.HelloRequest<span style="color:#ce5c00;font-weight:bold">)(</span>0xc000298640<span style="color:#ce5c00;font-weight:bold">)(</span>name:<span style="color:#4e9a06">&#34;laurence&#34;</span><span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>Param 2: <span style="color:#ce5c00;font-weight:bold">(</span>*api.HelloRequest<span style="color:#ce5c00;font-weight:bold">)(</span>0xc000260280<span style="color:#ce5c00;font-weight:bold">)(</span>name:<span style="color:#4e9a06">&#34;laurence&#34;</span><span style="color:#ce5c00;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>Param 3: <span style="color:#ce5c00;font-weight:bold">([]</span>grpc.CallOption<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">len</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">2</span> <span style="color:#000">cap</span><span style="color:#ce5c00;font-weight:bold">=</span>2<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span> <span style="color:#ce5c00;font-weight:bold">(</span>grpc.MaxRecvMsgSizeCallOption<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>  MaxRecvMsgSize: <span style="color:#ce5c00;font-weight:bold">(</span>int<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#0000cf;font-weight:bold">1024</span>
-</span></span><span style="display:flex;"><span> <span style="color:#ce5c00;font-weight:bold">}</span>,
-</span></span><span style="display:flex;"><span> <span style="color:#ce5c00;font-weight:bold">(</span>grpc.MaxRecvMsgSizeCallOption<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>  MaxRecvMsgSize: <span style="color:#ce5c00;font-weight:bold">(</span>int<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#0000cf;font-weight:bold">1024</span>
-</span></span><span style="display:flex;"><span> <span style="color:#ce5c00;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">(</span>grpc.MaxRecvMsgSizeCallOption<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>MaxRecvMsgSize: <span style="color:#ce5c00;font-weight:bold">(</span>int<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#0000cf;font-weight:bold">1024</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">}</span>,
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">(</span>grpc.MaxRecvMsgSizeCallOption<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>MaxRecvMsgSize: <span style="color:#ce5c00;font-weight:bold">(</span>int<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#0000cf;font-weight:bold">1024</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">==========</span> On <span style="color:#000">Response</span> <span style="color:#ce5c00;font-weight:bold">==========</span>
-</span></span><span style="display:flex;"><span>HelloServiceClient.<span style="color:#ce5c00;font-weight:bold">(</span>HelloServiceClient<span style="color:#ce5c00;font-weight:bold">)</span>.SayHello<span style="color:#ce5c00;font-weight:bold">()</span>
-</span></span><span style="display:flex;"><span>Response 1: <span style="color:#ce5c00;font-weight:bold">(</span>*api.HelloResponse<span style="color:#ce5c00;font-weight:bold">)(</span>0xc000298740<span style="color:#ce5c00;font-weight:bold">)(</span>reply:<span style="color:#4e9a06">&#34;Hello laurence&#34;</span><span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>github.com/alibaba/ioc-golang/example/debug/api.HelloServiceClient.SayHello<span style="color:#ce5c00;font-weight:bold">()</span>
+</span></span><span style="display:flex;"><span>Response 1: <span style="color:#ce5c00;font-weight:bold">(</span>*api.HelloResponse<span style="color:#ce5c00;font-weight:bold">)(</span>0xc000260380<span style="color:#ce5c00;font-weight:bold">)(</span>reply:<span style="color:#4e9a06">&#34;Hello laurence&#34;</span><span style="color:#ce5c00;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>Response 2: <span style="color:#ce5c00;font-weight:bold">(</span>interface <span style="color:#ce5c00;font-weight:bold">{})</span> &lt;nil&gt;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">==========</span> On <span style="color:#000">Call</span> <span style="color:#ce5c00;font-weight:bold">==========</span>
-</span></span><span style="display:flex;"><span>HelloServiceClient.<span style="color:#ce5c00;font-weight:bold">(</span>HelloServiceClient<span style="color:#ce5c00;font-weight:bold">)</span>.SayHello<span style="color:#ce5c00;font-weight:bold">()</span>
+</span></span><span style="display:flex;"><span>github.com/alibaba/ioc-golang/example/debug/api.HelloServiceClient.SayHello<span style="color:#ce5c00;font-weight:bold">()</span>
 </span></span><span style="display:flex;"><span>Param 1: <span style="color:#ce5c00;font-weight:bold">(</span>*context.emptyCtx<span style="color:#ce5c00;font-weight:bold">)(</span>0xc0000280e0<span style="color:#ce5c00;font-weight:bold">)(</span>context.Background<span style="color:#ce5c00;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Param 2: <span style="color:#ce5c00;font-weight:bold">(</span>*api.HelloRequest<span style="color:#ce5c00;font-weight:bold">)(</span>0xc000298900<span style="color:#ce5c00;font-weight:bold">)(</span>name:<span style="color:#4e9a06">&#34;laurence_service1_impl1&#34;</span><span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>Param 2: <span style="color:#ce5c00;font-weight:bold">(</span>*api.HelloRequest<span style="color:#ce5c00;font-weight:bold">)(</span>0xc0003988c0<span style="color:#ce5c00;font-weight:bold">)(</span>name:<span style="color:#4e9a06">&#34;laurence_service1_impl1&#34;</span><span style="color:#ce5c00;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>Param 3: <span style="color:#ce5c00;font-weight:bold">([]</span>grpc.CallOption<span style="color:#ce5c00;font-weight:bold">)</span> &lt;nil&gt;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">==========</span> On <span style="color:#000">Response</span> <span style="color:#ce5c00;font-weight:bold">==========</span>
-</span></span><span style="display:flex;"><span>HelloServiceClient.<span style="color:#ce5c00;font-weight:bold">(</span>HelloServiceClient<span style="color:#ce5c00;font-weight:bold">)</span>.SayHello<span style="color:#ce5c00;font-weight:bold">()</span>
-</span></span><span style="display:flex;"><span>Response 1: <span style="color:#ce5c00;font-weight:bold">(</span>*api.HelloResponse<span style="color:#ce5c00;font-weight:bold">)(</span>0xc0002989c0<span style="color:#ce5c00;font-weight:bold">)(</span>reply:<span style="color:#4e9a06">&#34;Hello laurence_service1_impl1&#34;</span><span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>github.com/alibaba/ioc-golang/example/debug/api.HelloServiceClient.SayHello<span style="color:#ce5c00;font-weight:bold">()</span>
+</span></span><span style="display:flex;"><span>Response 1: <span style="color:#ce5c00;font-weight:bold">(</span>*api.HelloResponse<span style="color:#ce5c00;font-weight:bold">)(</span>0xc000398980<span style="color:#ce5c00;font-weight:bold">)(</span>reply:<span style="color:#4e9a06">&#34;Hello laurence_service1_impl1&#34;</span><span style="color:#ce5c00;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>Response 2: <span style="color:#ce5c00;font-weight:bold">(</span>interface <span style="color:#ce5c00;font-weight:bold">{})</span> &lt;nil&gt;
 </span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">==========</span> On <span style="color:#000">Call</span> <span style="color:#ce5c00;font-weight:bold">==========</span>
+</span></span><span style="display:flex;"><span>github.com/alibaba/ioc-golang/example/debug/api.HelloServiceClient.SayHello<span style="color:#ce5c00;font-weight:bold">()</span>
+</span></span><span style="display:flex;"><span>Param 1: <span style="color:#ce5c00;font-weight:bold">(</span>*context.emptyCtx<span style="color:#ce5c00;font-weight:bold">)(</span>0xc0000280e0<span style="color:#ce5c00;font-weight:bold">)(</span>context.Background<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Param 2: <span style="color:#ce5c00;font-weight:bold">(</span>*api.HelloRequest<span style="color:#ce5c00;font-weight:bold">)(</span>0xc000260480<span style="color:#ce5c00;font-weight:bold">)(</span>name:<span style="color:#4e9a06">&#34;laurence_service2_impl1&#34;</span><span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Param 3: <span style="color:#ce5c00;font-weight:bold">([]</span>grpc.CallOption<span style="color:#ce5c00;font-weight:bold">)</span> &lt;nil&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">==========</span> On <span style="color:#000">Response</span> <span style="color:#ce5c00;font-weight:bold">==========</span>
+</span></span><span style="display:flex;"><span>github.com/alibaba/ioc-golang/example/debug/api.HelloServiceClient.SayHello<span style="color:#ce5c00;font-weight:bold">()</span>
+</span></span><span style="display:flex;"><span>Response 1: <span style="color:#ce5c00;font-weight:bold">(</span>*api.HelloResponse<span style="color:#ce5c00;font-weight:bold">)(</span>0xc000260540<span style="color:#ce5c00;font-weight:bold">)(</span>reply:<span style="color:#4e9a06">&#34;Hello laurence_service2_impl1&#34;</span><span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Response 2: <span style="color:#ce5c00;font-weight:bold">(</span>interface <span style="color:#ce5c00;font-weight:bold">{})</span> &lt;nil&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">==========</span> On <span style="color:#000">Call</span> <span style="color:#ce5c00;font-weight:bold">==========</span>
+</span></span><span style="display:flex;"><span>github.com/alibaba/ioc-golang/example/debug/api.HelloServiceClient.SayHello<span style="color:#ce5c00;font-weight:bold">()</span>
+</span></span><span style="display:flex;"><span>Param 1: <span style="color:#ce5c00;font-weight:bold">(</span>*context.emptyCtx<span style="color:#ce5c00;font-weight:bold">)(</span>0xc0000280e0<span style="color:#ce5c00;font-weight:bold">)(</span>context.Background<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Param 2: <span style="color:#ce5c00;font-weight:bold">(</span>*api.HelloRequest<span style="color:#ce5c00;font-weight:bold">)(</span>0xc00041c200<span style="color:#ce5c00;font-weight:bold">)(</span>name:<span style="color:#4e9a06">&#34;laurence_service2_impl2&#34;</span><span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Param 3: <span style="color:#ce5c00;font-weight:bold">([]</span>grpc.CallOption<span style="color:#ce5c00;font-weight:bold">)</span> &lt;nil&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">==========</span> On <span style="color:#000">Response</span> <span style="color:#ce5c00;font-weight:bold">==========</span>
+</span></span><span style="display:flex;"><span>github.com/alibaba/ioc-golang/example/debug/api.HelloServiceClient.SayHello<span style="color:#ce5c00;font-weight:bold">()</span>
+</span></span><span style="display:flex;"><span>Response 1: <span style="color:#ce5c00;font-weight:bold">(</span>*api.HelloResponse<span style="color:#ce5c00;font-weight:bold">)(</span>0xc00041c2c0<span style="color:#ce5c00;font-weight:bold">)(</span>reply:<span style="color:#4e9a06">&#34;Hello laurence_service2_impl2&#34;</span><span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Response 2: <span style="color:#ce5c00;font-weight:bold">(</span>interface <span style="color:#ce5c00;font-weight:bold">{})</span> &lt;nil&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">==========</span> On <span style="color:#000">Call</span> <span style="color:#ce5c00;font-weight:bold">==========</span>
+</span></span><span style="display:flex;"><span>github.com/alibaba/ioc-golang/example/debug/api.HelloServiceClient.SayHello<span style="color:#ce5c00;font-weight:bold">()</span>
+</span></span><span style="display:flex;"><span>Param 1: <span style="color:#ce5c00;font-weight:bold">(</span>*context.emptyCtx<span style="color:#ce5c00;font-weight:bold">)(</span>0xc0000280e0<span style="color:#ce5c00;font-weight:bold">)(</span>context.Background<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Param 2: <span style="color:#ce5c00;font-weight:bold">(</span>*api.HelloRequest<span style="color:#ce5c00;font-weight:bold">)(</span>0xc000260700<span style="color:#ce5c00;font-weight:bold">)(</span>name:<span style="color:#4e9a06">&#34;laurence_service1_impl1&#34;</span><span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Param 3: <span style="color:#ce5c00;font-weight:bold">([]</span>grpc.CallOption<span style="color:#ce5c00;font-weight:bold">)</span> &lt;nil&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">==========</span> On <span style="color:#000">Response</span> <span style="color:#ce5c00;font-weight:bold">==========</span>
+</span></span><span style="display:flex;"><span>github.com/alibaba/ioc-golang/example/debug/api.HelloServiceClient.SayHello<span style="color:#ce5c00;font-weight:bold">()</span>
+</span></span><span style="display:flex;"><span>Response 1: <span style="color:#ce5c00;font-weight:bold">(</span>*api.HelloResponse<span style="color:#ce5c00;font-weight:bold">)(</span>0xc0002607c0<span style="color:#ce5c00;font-weight:bold">)(</span>reply:<span style="color:#4e9a06">&#34;Hello laurence_service1_impl1&#34;</span><span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Response 2: <span style="color:#ce5c00;font-weight:bold">(</span>interface <span style="color:#ce5c00;font-weight:bold">{})</span> &lt;nil&gt;
 </span></span><span style="display:flex;"><span>...
 </span></span></code></pre></div></li>
 </ol>
