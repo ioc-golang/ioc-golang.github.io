@@ -26,23 +26,23 @@ We will develop a project with the following topology, in this example, we can d
 <meta property="og:title" content="Start dependency injection demo" />
 <meta property="og:description" content="Tutorial dependency injection and debug show We will develop a project with the following topology, in this example, we can demonstrate code generation, interface injection, object pointer injection, and API access to objects capabilities.
 All the code the user needs to write: main.go
-package main  import ( 	&#34;fmt&#34; 	&#34;github.com/alibaba/ioc-golang&#34; 	&#34;github.com/alibaba/ioc-golang/autowire/singleton&#34; )  // &#43;ioc:autowire=true // &#43;ioc:autowire:type=singleton  type App struct { 	ServiceImpl1 Service `singleton:&#34;ServiceImpl1&#34;` // inject Service &#39;s ServiceImpl1 implementation 	ServiceImpl2 Service `singleton:&#34;ServiceImpl2&#34;` // inject Service &#39;s ServiceImpl2 implementation 	ServiceStruct *ServiceStruct `singleton:&#34;&#34;` // inject ServiceStruct struct pointer }  func (a*App) Run(){ 	a." />
+package main  import ( 	&#34;fmt&#34; 	&#34;github.com/alibaba/ioc-golang&#34; 	&#34;github.com/alibaba/ioc-golang/autowire/singleton&#34; )  // &#43;ioc:autowire=true // &#43;ioc:autowire:type=singleton  type App struct { 	ServiceImpl1 Service `singleton:&#34;main.ServiceImpl1&#34;` // inject Service &#39;s ServiceImpl1 implementation 	ServiceImpl2 Service `singleton:&#34;main." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/getting-started/tutorial/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2022-06-06T17:52:31+08:00" /><meta property="og:site_name" content="IOC-Golang" />
+<meta property="article:modified_time" content="2022-06-06T19:38:36+08:00" /><meta property="og:site_name" content="IOC-Golang" />
 
 <meta itemprop="name" content="Start dependency injection demo">
 <meta itemprop="description" content="Tutorial dependency injection and debug show We will develop a project with the following topology, in this example, we can demonstrate code generation, interface injection, object pointer injection, and API access to objects capabilities.
 All the code the user needs to write: main.go
-package main  import ( 	&#34;fmt&#34; 	&#34;github.com/alibaba/ioc-golang&#34; 	&#34;github.com/alibaba/ioc-golang/autowire/singleton&#34; )  // &#43;ioc:autowire=true // &#43;ioc:autowire:type=singleton  type App struct { 	ServiceImpl1 Service `singleton:&#34;ServiceImpl1&#34;` // inject Service &#39;s ServiceImpl1 implementation 	ServiceImpl2 Service `singleton:&#34;ServiceImpl2&#34;` // inject Service &#39;s ServiceImpl2 implementation 	ServiceStruct *ServiceStruct `singleton:&#34;&#34;` // inject ServiceStruct struct pointer }  func (a*App) Run(){ 	a.">
-<meta itemprop="dateModified" content="2022-06-06T17:52:31+08:00" />
+package main  import ( 	&#34;fmt&#34; 	&#34;github.com/alibaba/ioc-golang&#34; 	&#34;github.com/alibaba/ioc-golang/autowire/singleton&#34; )  // &#43;ioc:autowire=true // &#43;ioc:autowire:type=singleton  type App struct { 	ServiceImpl1 Service `singleton:&#34;main.ServiceImpl1&#34;` // inject Service &#39;s ServiceImpl1 implementation 	ServiceImpl2 Service `singleton:&#34;main.">
+<meta itemprop="dateModified" content="2022-06-06T19:38:36+08:00" />
 <meta itemprop="wordCount" content="703">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Start dependency injection demo"/>
 <meta name="twitter:description" content="Tutorial dependency injection and debug show We will develop a project with the following topology, in this example, we can demonstrate code generation, interface injection, object pointer injection, and API access to objects capabilities.
 All the code the user needs to write: main.go
-package main  import ( 	&#34;fmt&#34; 	&#34;github.com/alibaba/ioc-golang&#34; 	&#34;github.com/alibaba/ioc-golang/autowire/singleton&#34; )  // &#43;ioc:autowire=true // &#43;ioc:autowire:type=singleton  type App struct { 	ServiceImpl1 Service `singleton:&#34;ServiceImpl1&#34;` // inject Service &#39;s ServiceImpl1 implementation 	ServiceImpl2 Service `singleton:&#34;ServiceImpl2&#34;` // inject Service &#39;s ServiceImpl2 implementation 	ServiceStruct *ServiceStruct `singleton:&#34;&#34;` // inject ServiceStruct struct pointer }  func (a*App) Run(){ 	a."/>
+package main  import ( 	&#34;fmt&#34; 	&#34;github.com/alibaba/ioc-golang&#34; 	&#34;github.com/alibaba/ioc-golang/autowire/singleton&#34; )  // &#43;ioc:autowire=true // &#43;ioc:autowire:type=singleton  type App struct { 	ServiceImpl1 Service `singleton:&#34;main.ServiceImpl1&#34;` // inject Service &#39;s ServiceImpl1 implementation 	ServiceImpl2 Service `singleton:&#34;main."/>
 
 
 
@@ -349,8 +349,8 @@ if (!doNotTrack) {
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// +ioc:autowire:type=singleton
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">type</span> <span style="color:#000">App</span> <span style="color:#204a87;font-weight:bold">struct</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000">ServiceImpl1</span> <span style="color:#000">Service</span> <span style="color:#4e9a06">`singleton:&#34;ServiceImpl1&#34;`</span> <span style="color:#8f5902;font-style:italic">// inject Service &#39;s ServiceImpl1 implementation
-</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>	<span style="color:#000">ServiceImpl2</span> <span style="color:#000">Service</span> <span style="color:#4e9a06">`singleton:&#34;ServiceImpl2&#34;`</span> <span style="color:#8f5902;font-style:italic">// inject Service &#39;s ServiceImpl2 implementation
+</span></span><span style="display:flex;"><span>	<span style="color:#000">ServiceImpl1</span> <span style="color:#000">Service</span> <span style="color:#4e9a06">`singleton:&#34;main.ServiceImpl1&#34;`</span> <span style="color:#8f5902;font-style:italic">// inject Service &#39;s ServiceImpl1 implementation
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>	<span style="color:#000">ServiceImpl2</span> <span style="color:#000">Service</span> <span style="color:#4e9a06">`singleton:&#34;main.ServiceImpl2&#34;`</span> <span style="color:#8f5902;font-style:italic">// inject Service &#39;s ServiceImpl2 implementation
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>	<span style="color:#000">ServiceStruct</span> <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">ServiceStruct</span> <span style="color:#4e9a06">`singleton:&#34;&#34;`</span> <span style="color:#8f5902;font-style:italic">// inject ServiceStruct struct pointer
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span>
@@ -592,7 +592,7 @@ See the NOTICE file for more information.</p>
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified June 6, 2022: <a href="https://github.com/google/docsy-example/commit/35bf6d4781cc5a9ed001aa54eb46ff4b62462e32">Fix: udpate (35bf6d4)</a>
+  Last modified June 6, 2022: <a href="https://github.com/google/docsy-example/commit/e6b3e5ee1cb387dca12b10a408df55b96ee19ade">Fix: update (e6b3e5e)</a>
 </div>
 
 </div>

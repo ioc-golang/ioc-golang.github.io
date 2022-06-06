@@ -29,7 +29,7 @@
                 />
   </url><url>
     <loc>/docs/concept/di/</loc>
-    <lastmod>2022-05-24T14:19:13+08:00</lastmod>
+    <lastmod>2022-06-06T19:38:36+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
@@ -94,7 +94,7 @@
                 />
   </url><url>
     <loc>/docs/examples/redis/</loc>
-    <lastmod>2022-05-22T01:43:54+08:00</lastmod>
+    <lastmod>2022-06-06T19:38:36+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
@@ -146,7 +146,7 @@
                 />
   </url><url>
     <loc>/docs/getting-started/tutorial/</loc>
-    <lastmod>2022-06-06T17:52:31+08:00</lastmod>
+    <lastmod>2022-06-06T19:38:36+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
@@ -172,7 +172,7 @@
                 />
   </url><url>
     <loc>/docs/examples/gorm/</loc>
-    <lastmod>2022-05-22T01:43:54+08:00</lastmod>
+    <lastmod>2022-06-06T19:38:36+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
@@ -198,7 +198,7 @@
                 />
   </url><url>
     <loc>/docs/concept/sd/</loc>
-    <lastmod>2022-05-24T14:19:13+08:00</lastmod>
+    <lastmod>2022-06-06T19:38:36+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
@@ -263,7 +263,7 @@
                 />
   </url><url>
     <loc>/docs/examples/grpc/</loc>
-    <lastmod>2022-05-22T01:43:54+08:00</lastmod>
+    <lastmod>2022-06-06T19:38:36+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
@@ -289,7 +289,7 @@
                 />
   </url><url>
     <loc>/docs/concept/param_loader/</loc>
-    <lastmod>2022-05-22T01:43:54+08:00</lastmod>
+    <lastmod>2022-06-06T19:38:36+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
@@ -302,7 +302,7 @@
                 />
   </url><url>
     <loc>/docs/examples/config/</loc>
-    <lastmod>2022-05-22T01:43:54+08:00</lastmod>
+    <lastmod>2022-06-06T19:38:36+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
@@ -328,7 +328,7 @@
                 />
   </url><url>
     <loc>/docs/examples/api/</loc>
-    <lastmod>2022-05-22T01:43:54+08:00</lastmod>
+    <lastmod>2022-06-06T19:38:36+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
@@ -354,7 +354,7 @@
                 />
   </url><url>
     <loc>/docs/examples/debug/</loc>
-    <lastmod>2022-05-24T14:19:13+08:00</lastmod>
+    <lastmod>2022-06-06T19:38:36+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"

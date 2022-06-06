@@ -35,7 +35,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/examples/grpc/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2017-01-05T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-05-22T01:43:54+08:00" /><meta property="og:site_name" content="IOC-Golang" />
+<meta property="article:modified_time" content="2022-06-06T19:38:36+08:00" /><meta property="og:site_name" content="IOC-Golang" />
 
 <meta itemprop="name" content="gRPC 客户端注入">
 <meta itemprop="description" content="简介 本示例展示了基于 ioc-golang 框架的 gRPC 客户端注入能力。
@@ -46,7 +46,7 @@
 在这个例子中，App 结构会依此调用所有依赖对象，进而调用一个单例模型注入的 gRPC 客户端，该客户端发起网络请求，并获得结果。
 依赖注入模型 grpc 依赖注入模型
 关键代码 import(  &#34;github.com/alibaba/ioc-golang/extension/autowire/grpc&#34; 	googleGRPC &#34;google.golang.org/grpc&#34; ) func init() { 	// register grpc client 	grpc.RegisterStructDescriptor(&amp;autowire.StructDescriptor{ 	Interface: new(api.HelloServiceClient), 	Factory: func() interface{} { 	return new(api.HelloServiceClient) 	}, 	ParamFactory: func() interface{} { 	return &amp;googleGRPC.ClientConn{} 	}, 	ConstructFunc: func(impl interface{}, param interface{}) (interface{}, error) { 	conn := param."><meta itemprop="datePublished" content="2017-01-05T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-05-22T01:43:54+08:00" />
+<meta itemprop="dateModified" content="2022-06-06T19:38:36+08:00" />
 <meta itemprop="wordCount" content="346">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="gRPC 客户端注入"/>
@@ -502,7 +502,7 @@ if (!doNotTrack) {
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified May 22, 2022: <a href="https://github.com/google/docsy-example/commit/d65b1567ad9043b505dc0311f5adf0d751547492">update (d65b156)</a>
+  Last modified June 6, 2022: <a href="https://github.com/google/docsy-example/commit/e6b3e5ee1cb387dca12b10a408df55b96ee19ade">Fix: update (e6b3e5e)</a>
 </div>
 
 </div>

@@ -34,7 +34,7 @@ Load support load struct described like: ```go normal.RegisterStructDescriptor(&
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/concept/param_loader/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2017-01-05T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-05-22T01:43:54+08:00" /><meta property="og:site_name" content="IOC-Golang" />
+<meta property="article:modified_time" content="2022-06-06T19:38:36+08:00" /><meta property="og:site_name" content="IOC-Golang" />
 
 <meta itemprop="name" content="参数加载器">
 <meta itemprop="description" content="概念 参数加载器描述了依赖参数如何在对象构造之前被加载，包括但不限于从配置加载、从标签参数加载等等。
@@ -43,7 +43,7 @@ Load support load struct described like: ```go normal.RegisterStructDescriptor(&
 默认参数加载器被两个基础自动装载模型（singleton、normal）引入。依此采用三种方式加载参数，如果三种方式均加载失败，则抛出错误。
   方式1 从标签指向的对象名加载参数，参考 配置文件结构规范
 Load support load struct described like: ```go normal.RegisterStructDescriptor(&amp;autowire.StructDescriptor{ Factory: func() interface{}{ return &amp;Impl{} }, ParamFactory: func() interface{}{ return &amp;Config{} }, ConstructFunc: func(i interface{}, p interface{}) (interface{}, error) { return i, nil }, }) } type Config struct { Address string Password string DB string } ``` with Autowire type &#39;normal&#39; StructName &#39;Impl&#39; Field: MyRedis Redis `normal:&#34;github.com/alibaba/ioc-golang/extension/normal/redis.Impl, redis-1&#34;` from: ```yaml extension: normal: github."><meta itemprop="datePublished" content="2017-01-05T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-05-22T01:43:54+08:00" />
+<meta itemprop="dateModified" content="2022-06-06T19:38:36+08:00" />
 <meta itemprop="wordCount" content="176">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="参数加载器"/>
@@ -510,7 +510,7 @@ autowire:
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified May 22, 2022: <a href="https://github.com/google/docsy-example/commit/d65b1567ad9043b505dc0311f5adf0d751547492">update (d65b156)</a>
+  Last modified June 6, 2022: <a href="https://github.com/google/docsy-example/commit/e6b3e5ee1cb387dca12b10a408df55b96ee19ade">Fix: update (e6b3e5e)</a>
 </div>
 
 </div>
