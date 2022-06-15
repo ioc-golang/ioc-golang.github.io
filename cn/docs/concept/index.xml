@@ -26,7 +26,7 @@
 &lt;p&gt;依赖注入(Dependency Injection)是指开发人员无需显式地创建对象，而是通过&lt;a href=&#34;/cn/docs/reference/tag_format&#34;&gt;标签&lt;/a&gt;的方式声明字段，由框架负责将实例化对象写入该字段。&lt;/p&gt;
 &lt;h3 id=&#34;优点&#34;&gt;优点&lt;/h3&gt;
 &lt;p&gt;依赖注入可以降低代码的耦合度，减少冗余代码量，优化代码逻辑。帮助开发人员面向对象编程，面向接口编程。&lt;/p&gt;
-&lt;h3 id=&#34;ioc-golang-的依赖注入能力&#34;&gt;IOC-Golang 的依赖注入能力&lt;/h3&gt;
+&lt;h3 id=&#34;ioc-golang-的依赖注入能力&#34;&gt;IOC-golang 的依赖注入能力&lt;/h3&gt;
 &lt;p&gt;本框架从两个角度实现依赖注入：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;

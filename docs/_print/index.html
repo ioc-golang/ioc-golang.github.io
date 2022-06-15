@@ -507,7 +507,7 @@ This is the multi-page printable view of this section.
     
 	<h1 id="pg-6e17e09fffc1050f46600282def85180">1 - Overview</h1>
     
-	<p><a href="https://github.com/alibaba/ioc-golang">Alibaba/IOC-Golang</a> is a Golang dependency injection framework that provides a complete set of IoC containers.</p>
+	<p><a href="https://github.com/alibaba/ioc-golang">Alibaba/IOC-golang</a> is a Golang dependency injection framework that provides a complete set of IoC containers.</p>
 <p>It is suitable for any scenario developed in Golang, helping developers manage dependencies and reducing code coupling.</p>
 
 </div>
@@ -561,7 +561,7 @@ This is the multi-page printable view of this section.
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-81177481276e72af57e3d137f0e28b27">1.2 - Features</h1>
-    <div class="lead">IOC-Golang Features</div>
+    <div class="lead">IOC-golang Features</div>
 	<ul>
 <li>
 <p>Dependency Injection</p>
@@ -690,7 +690,7 @@ This is the multi-page printable view of this section.
 <p>依赖注入(Dependency Injection)是指开发人员无需显式地创建对象，而是通过<a href="/cn/docs/reference/tag_format">标签</a>的方式声明字段，由框架负责将实例化对象写入该字段。</p>
 <h3 id="优点">优点</h3>
 <p>依赖注入可以降低代码的耦合度，减少冗余代码量，优化代码逻辑。帮助开发人员面向对象编程，面向接口编程。</p>
-<h3 id="ioc-golang-的依赖注入能力">IOC-Golang 的依赖注入能力</h3>
+<h3 id="ioc-golang-的依赖注入能力">IOC-golang 的依赖注入能力</h3>
 <p>本框架从两个角度实现依赖注入：</p>
 <ul>
 <li>
@@ -1277,10 +1277,10 @@ autowire:
 </span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// +ioc:autowire:type=singleton
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">The</span> <span style="color:#000">marker</span> <span style="color:#000">injection</span> <span style="color:#000">model</span> <span style="color:#000">is</span> <span style="color:#000">the</span> <span style="color:#000">singleton</span> <span style="color:#000">singleton</span> <span style="color:#000">model</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">as</span> <span style="color:#000">well</span> <span style="color:#000">as</span> <span style="color:#000">the</span> <span style="color:#000">normal</span> <span style="color:#000">multi</span><span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#000">instance</span> <span style="color:#000">model</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">the</span> <span style="color:#000">config</span> <span style="color:#000">configuration</span> <span style="color:#000">model</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">the</span> <span style="color:#000">grpc</span> <span style="color:#000">grpc</span> <span style="color:#000">client</span> <span style="color:#000">model</span> <span style="color:#000">and</span> <span style="color:#000">other</span> <span style="color:#000">extensions</span><span style="color:#000;font-weight:bold">.</span>
 </span></span></code></pre></div><h3 id="more">More</h3>
-<p>More code generation annotations can be viewed at <a href="https://github.com/alibaba/IOC-Golang/tree/master/iocli">iocli</a>.</p>
-<p>You can go to <a href="https://github.com/alibaba/IOC-Golang/tree/master/example">ioc-golang-example</a> for more examples and advanced usage.</p>
+<p>More code generation annotations can be viewed at <a href="https://github.com/alibaba/IOC-golang/tree/master/iocli">iocli</a>.</p>
+<p>You can go to <a href="https://github.com/alibaba/IOC-golang/tree/master/example">ioc-golang-example</a> for more examples and advanced usage.</p>
 <h3 id="license">License</h3>
-<p>IOC-Golang developed by Alibaba and licensed under the Apache License (Version 2.0).
+<p>IOC-golang developed by Alibaba and licensed under the Apache License (Version 2.0).
 See the NOTICE file for more information.</p>
 
 </div>
@@ -1333,8 +1333,8 @@ See the NOTICE file for more information.</p>
 <p>在应用开发过程中，通过 SDK 操作 Redis 是一个常见的诉求。</p>
 <p>ioc-golang 框架提供了注入 Redis 连接的能力，开发者可以在配置文件中指定好 Redis 地址、密码、db名等信息，通过标签注入连接，无需手动创建、组装。</p>
 <h3 id="注入模型与结构">注入模型与结构</h3>
-<p><a href="https://github.com/alibaba/IOC-Golang/tree/master/extension/normal">多例（normal）依赖注入模型</a></p>
-<p><a href="https://github.com/alibaba/IOC-Golang/tree/master/extension/normal/redis">预定义的 redis 结构</a></p>
+<p><a href="https://github.com/alibaba/IOC-golang/tree/master/extension/normal">多例（normal）依赖注入模型</a></p>
+<p><a href="https://github.com/alibaba/IOC-golang/tree/master/extension/normal/redis">预定义的 redis 结构</a></p>
 <h3 id="关键代码">关键代码</h3>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">import</span><span style="color:#000;font-weight:bold">(</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#000">normalMysql</span> <span style="color:#4e9a06">&#34;github.com/alibaba/ioc-golang/extension/normal/mysql&#34;</span>
@@ -1427,8 +1427,8 @@ See the NOTICE file for more information.</p>
 <p>在应用开发过程中，通过 SDK 操作数据库是一个常见的诉求，GORM 是应用较广泛的 Go 数据库 sdk。</p>
 <p>ioc-golang 框架提供了注入数据库连接的能力，开发者可以在配置文件中指定好数据库地址、密码信息，通过标签注入连接，无需手动创建、组装 GORM 客户端。</p>
 <h3 id="注入模型与结构">注入模型与结构</h3>
-<p><a href="https://github.com/alibaba/IOC-Golang/tree/master/extension/normal">多例（normal）依赖注入模型</a></p>
-<p><a href="https://github.com/alibaba/IOC-Golang/tree/master/extension/normal/mysql">预定义的 mysql 结构</a></p>
+<p><a href="https://github.com/alibaba/IOC-golang/tree/master/extension/normal">多例（normal）依赖注入模型</a></p>
+<p><a href="https://github.com/alibaba/IOC-golang/tree/master/extension/normal/mysql">预定义的 mysql 结构</a></p>
 <h3 id="关键代码">关键代码</h3>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">import</span><span style="color:#000;font-weight:bold">(</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#000">normalMysql</span> <span style="color:#4e9a06">&#34;github.com/alibaba/ioc-golang/extension/normal/mysql&#34;</span>
@@ -1498,7 +1498,7 @@ See the NOTICE file for more information.</p>
 <p><img src="https://raw.githubusercontent.com/ioc-golang/ioc-golang-website/main/resources/img/debug-topology.png" alt="debug"></p>
 <p>在这个例子中，App 结构会依此调用所有依赖对象，进而调用一个单例模型注入的 gRPC 客户端，该客户端发起网络请求，并获得结果。</p>
 <h3 id="依赖注入模型">依赖注入模型</h3>
-<p><a href="https://github.com/alibaba/IOC-Golang/tree/master/extension/grpc">grpc 依赖注入模型</a></p>
+<p><a href="https://github.com/alibaba/IOC-golang/tree/master/extension/grpc">grpc 依赖注入模型</a></p>
 <h3 id="关键代码">关键代码</h3>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">import</span><span style="color:#000;font-weight:bold">(</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#4e9a06">&#34;github.com/alibaba/ioc-golang/extension/autowire/grpc&#34;</span>
@@ -1598,7 +1598,7 @@ See the NOTICE file for more information.</p>
 <p>在应用开发过程中，从配置文件中读入配置是一个常见的诉求。例如读取数据库的账号密码、下游服务的主机名，以及一些业务配置等。</p>
 <p>ioc-golang 框架提供了便捷的基于文件注入配置的能力，使开发者无需手动解析配置文件，无需手动组装对象。</p>
 <h3 id="注入模型与结构">注入模型与结构</h3>
-<p><a href="https://github.com/alibaba/IOC-Golang/tree/master/extension/config">config 依赖注入模型</a></p>
+<p><a href="https://github.com/alibaba/IOC-golang/tree/master/extension/config">config 依赖注入模型</a></p>
 <h3 id="关键代码">关键代码：</h3>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000;font-weight:bold">(</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#000">github</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">com</span><span style="color:#ce5c00;font-weight:bold">/</span><span style="color:#000">alibaba</span><span style="color:#ce5c00;font-weight:bold">/</span><span style="color:#000">ioc</span><span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#000">golang</span><span style="color:#ce5c00;font-weight:bold">/</span><span style="color:#000">extension</span><span style="color:#ce5c00;font-weight:bold">/</span><span style="color:#000">config</span>
@@ -2010,9 +2010,9 @@ See the NOTICE file for more information.</p>
     
 	<h2 id="使用-rpc-能力">使用 RPC 能力</h2>
 <h3 id="简介">简介</h3>
-<p>本示例展示了基于 IOC-Golang 框架的 RPC 能力</p>
+<p>本示例展示了基于 IOC-golang 框架的 RPC 能力</p>
 <p>在微服务开发过程中，暴露一些对象的方法给外部程序调用是一种常见的场景。</p>
-<p>在 IOC-Golang 的 RPC 能力的使用场景下，客户端可以直接注入下游接口的客户端存根，以方法调用的形式发起RPC请求。</p>
+<p>在 IOC-golang 的 RPC 能力的使用场景下，客户端可以直接注入下游接口的客户端存根，以方法调用的形式发起RPC请求。</p>
 <h3 id="关键代码">关键代码</h3>
 <p><strong>服务端</strong></p>
 <p>需要暴露的RPC服务结构使用  <code>// +ioc:autowire:type=rpc</code> 标注，例如 service.go：</p>
@@ -2314,7 +2314,7 @@ See the NOTICE file for more information.</p>
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-9496b24f376e1e851c99a37b88d75cf3">7.1 - Project Structure</h1>
-    <div class="lead">IOC-Golang Project Structure</div>
+    <div class="lead">IOC-golang Project Structure</div>
 	<ul>
 <li>
 <p><strong>autowire:</strong> Provides two basic injection models: singleton model and multi-instance model</p>

@@ -21,15 +21,15 @@
 <title>RPC 能力 | IOC-Golang</title>
 <meta name="description" content="使用 RPC 能力
 简介
-本示例展示了基于 IOC-Golang 框架的 RPC 能力
+本示例展示了基于 IOC-golang 框架的 RPC 能力
 在微服务开发过程中，暴露一些对象的方法给外部程序调用是一种常见的场景。
-在 IOC-Golang 的 RPC 能力的使用场景下，客户端可以直接注入下游接口的客户端存根，以方法调用的形式发起RPC请求。
+在 IOC-golang 的 RPC 能力的使用场景下，客户端可以直接注入下游接口的客户端存根，以方法调用的形式发起RPC请求。
 关键代码
  …">
 <meta property="og:title" content="RPC 能力" />
-<meta property="og:description" content="使用 RPC 能力 简介 本示例展示了基于 IOC-Golang 框架的 RPC 能力
+<meta property="og:description" content="使用 RPC 能力 简介 本示例展示了基于 IOC-golang 框架的 RPC 能力
 在微服务开发过程中，暴露一些对象的方法给外部程序调用是一种常见的场景。
-在 IOC-Golang 的 RPC 能力的使用场景下，客户端可以直接注入下游接口的客户端存根，以方法调用的形式发起RPC请求。
+在 IOC-golang 的 RPC 能力的使用场景下，客户端可以直接注入下游接口的客户端存根，以方法调用的形式发起RPC请求。
 关键代码 服务端
 需要暴露的RPC服务结构使用 // &#43;ioc:autowire:type=rpc 标注，例如 service.go：
 import ( 	&#34;github.com/alibaba/ioc-golang/example/autowire_rpc/server/pkg/dto&#34; )  // &#43;ioc:autowire=true // &#43;ioc:autowire:type=rpc  type ServiceStruct struct { }  func (s *ServiceStruct) GetUser(name string, age int) (*dto.User, error) { 	return &amp;dto.User{ 	Id: 1, 	Name: name, 	Age: age, 	}, nil } 使用 iocli 工具生成相关代码。
@@ -40,9 +40,9 @@ sudo iocli gen" />
 <meta property="article:modified_time" content="2022-06-06T17:52:31+08:00" /><meta property="og:site_name" content="IOC-Golang" />
 
 <meta itemprop="name" content="RPC 能力">
-<meta itemprop="description" content="使用 RPC 能力 简介 本示例展示了基于 IOC-Golang 框架的 RPC 能力
+<meta itemprop="description" content="使用 RPC 能力 简介 本示例展示了基于 IOC-golang 框架的 RPC 能力
 在微服务开发过程中，暴露一些对象的方法给外部程序调用是一种常见的场景。
-在 IOC-Golang 的 RPC 能力的使用场景下，客户端可以直接注入下游接口的客户端存根，以方法调用的形式发起RPC请求。
+在 IOC-golang 的 RPC 能力的使用场景下，客户端可以直接注入下游接口的客户端存根，以方法调用的形式发起RPC请求。
 关键代码 服务端
 需要暴露的RPC服务结构使用 // &#43;ioc:autowire:type=rpc 标注，例如 service.go：
 import ( 	&#34;github.com/alibaba/ioc-golang/example/autowire_rpc/server/pkg/dto&#34; )  // &#43;ioc:autowire=true // &#43;ioc:autowire:type=rpc  type ServiceStruct struct { }  func (s *ServiceStruct) GetUser(name string, age int) (*dto.User, error) { 	return &amp;dto.User{ 	Id: 1, 	Name: name, 	Age: age, 	}, nil } 使用 iocli 工具生成相关代码。
@@ -51,9 +51,9 @@ sudo iocli gen"><meta itemprop="datePublished" content="2022-06-05T00:00:00+00:0
 <meta itemprop="wordCount" content="204">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="RPC 能力"/>
-<meta name="twitter:description" content="使用 RPC 能力 简介 本示例展示了基于 IOC-Golang 框架的 RPC 能力
+<meta name="twitter:description" content="使用 RPC 能力 简介 本示例展示了基于 IOC-golang 框架的 RPC 能力
 在微服务开发过程中，暴露一些对象的方法给外部程序调用是一种常见的场景。
-在 IOC-Golang 的 RPC 能力的使用场景下，客户端可以直接注入下游接口的客户端存根，以方法调用的形式发起RPC请求。
+在 IOC-golang 的 RPC 能力的使用场景下，客户端可以直接注入下游接口的客户端存根，以方法调用的形式发起RPC请求。
 关键代码 服务端
 需要暴露的RPC服务结构使用 // &#43;ioc:autowire:type=rpc 标注，例如 service.go：
 import ( 	&#34;github.com/alibaba/ioc-golang/example/autowire_rpc/server/pkg/dto&#34; )  // &#43;ioc:autowire=true // &#43;ioc:autowire:type=rpc  type ServiceStruct struct { }  func (s *ServiceStruct) GetUser(name string, age int) (*dto.User, error) { 	return &amp;dto.User{ 	Id: 1, 	Name: name, 	Age: age, 	}, nil } 使用 iocli 工具生成相关代码。
@@ -203,7 +203,7 @@ if (!doNotTrack) {
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-cndocsexamplesapi-li">
   <a href="/cn/docs/examples/api/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocsexamplesapi"><span class="">通过 API 获取对象</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-cndocsexamplesdebug-li">
-  <a href="/cn/docs/examples/debug/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocsexamplesdebug"><span class="">使用调试功能</span></a>
+  <a href="/cn/docs/examples/debug/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocsexamplesdebug"><span class="">使用基于monkey指针的调试功能</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-cndocsexamplesrpc-li">
   <a href="/cn/docs/examples/rpc/" class="align-left pl-0 active td-sidebar-link td-sidebar-link__page" id="m-cndocsexamplesrpc"><span class="td-sidebar-nav-active-item">RPC 能力</span></a>
 </li>
@@ -347,9 +347,9 @@ if (!doNotTrack) {
 	</header>    
 	<h2 id="使用-rpc-能力">使用 RPC 能力</h2>
 <h3 id="简介">简介</h3>
-<p>本示例展示了基于 IOC-Golang 框架的 RPC 能力</p>
+<p>本示例展示了基于 IOC-golang 框架的 RPC 能力</p>
 <p>在微服务开发过程中，暴露一些对象的方法给外部程序调用是一种常见的场景。</p>
-<p>在 IOC-Golang 的 RPC 能力的使用场景下，客户端可以直接注入下游接口的客户端存根，以方法调用的形式发起RPC请求。</p>
+<p>在 IOC-golang 的 RPC 能力的使用场景下，客户端可以直接注入下游接口的客户端存根，以方法调用的形式发起RPC请求。</p>
 <h3 id="关键代码">关键代码</h3>
 <p><strong>服务端</strong></p>
 <p>需要暴露的RPC服务结构使用  <code>// +ioc:autowire:type=rpc</code> 标注，例如 service.go：</p>

@@ -322,7 +322,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>4.6: <a href="#pg-ec4de8464ec8e0be0c9210cab691fe5a">使用调试功能</a></li>
+<li>4.6: <a href="#pg-ec4de8464ec8e0be0c9210cab691fe5a">使用基于monkey指针的调试功能</a></li>
 
 
     
@@ -507,8 +507,8 @@ This is the multi-page printable view of this section.
     
 	<h1 id="pg-6e17e09fffc1050f46600282def85180">1 - 总体介绍</h1>
     
-	<p><a href="https://github.com/alibaba/ioc-golang">Alibaba/IOC-Golang</a> 是一款 Go 语言依赖注入框架，提供了一套完善的 IoC 容器。</p>
-<p>适配于任何使用 Go 语言开发的场景，帮助开发者管理依赖对象，降低代码耦合度。</p>
+	<p><a href="https://github.com/alibaba/ioc-golang">Alibaba/IOC-golang</a> 是一款 Go 语言依赖注入框架，提供了一套完善的 IoC 容器。</p>
+<p>适配于任何使用 Go 语言开发的场景，帮助开发者管理依赖对象，降低代码耦合度。在运维场景下，可以通过扩展框架自动注入的代理 AOP 层实现各种运维能力。</p>
 
 </div>
 
@@ -533,30 +533,27 @@ This is the multi-page printable view of this section.
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-81177481276e72af57e3d137f0e28b27">1.1 - 功能</h1>
-    <div class="lead">IOC-Golang 框架提供的能力</div>
+    <div class="lead">IOC-golang 框架提供的能力</div>
 	<ul>
 <li>
-<p><a href="/cn/docs/getting-started/tutorial/">依赖注入</a></p>
-<p>支持任何结构、接口的依赖注入。</p>
-</li>
-<li>
-<p>完善的对象生命周期管理机制。</p>
+<p><a href="https://ioc-golang.github.io/cn/docs/getting-started/tutorial/">依赖注入</a></p>
+<p>支持任何结构、接口的依赖注入，具备完善的对象生命周期管理机制。</p>
 <p>可以接管对象的创建、参数注入、工厂方法。可定制化对象参数来源。</p>
 </li>
 <li>
-<p><a href="/cn/docs/examples/debug/">代码调试能力</a></p>
-<p>基于 AOP 的思路，为由框架接管的对象方法提供运行时监控、调试能力。</p>
+<p><a href="https://ioc-golang.github.io/cn/docs/getting-started/tutorial/">结构代理层</a></p>
+<p>基于 AOP 的思路，为由框架接管的对象提供默认的结构代理层，在面向接口编程的情景下，可以使用基于结构代理 AOP 层扩展的丰富运维能力。例如接口查询，参数动态监听，方法粒度链路追踪，性能瓶颈分析，分布式场景下全链路方法粒度追踪等。</p>
 </li>
 <li>
-<p><a href="/cn/docs/reference/iocli/#%E7%BB%93%E6%9E%84%E6%B3%A8%E8%A7%A3%E4%B8%8Esdcndocsconceptsd%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90">结构注册代码生成能力</a></p>
-<p>我们提供了代码生成工具，开发者可以通过注解的方式标注结构，从而便捷地生成结构注册代码。</p>
+<p><a href="https://ioc-golang.github.io/cn/docs/reference/iocli/#%E7%BB%93%E6%9E%84%E6%B3%A8%E8%A7%A3">代码生成能力</a></p>
+<p>我们提供了代码生成工具，开发者可以通过注解的方式标注结构，从而便捷地生成结构注册代码、结构代理、结构专属接口等。</p>
 </li>
 <li>
-<p><a href="/cn/docs/developer/">可扩展能力</a></p>
+<p><a href="https://ioc-golang.github.io/cn/docs/contribution-guidelines/">可扩展能力</a></p>
 <p>支持被注入结构的扩展、自动装载模型的扩展、调试 AOP 层的扩展。</p>
 </li>
 <li>
-<p><a href="/cn/docs/examples/">完备的预制组件</a></p>
+<p><a href="https://ioc-golang.github.io/cn/docs/examples/">丰富的预置组件</a></p>
 <p>提供覆盖主流中间件的预制对象，方便直接注入使用。</p>
 </li>
 </ul>
@@ -576,7 +573,7 @@ This is the multi-page printable view of this section.
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-6b90057e20cdeeaca82243b3a75f706b">1.2 - 设计理念</h1>
-    <div class="lead">IOC-Golang 框架设计理念</div>
+    <div class="lead">IOC-golang 框架设计理念</div>
 	<ul>
 <li>
 <p>通过标签与配置文件，实现依赖注入和参数读取</p>
@@ -585,7 +582,7 @@ This is the multi-page printable view of this section.
 <p>通过注解，实现注册代码自动生成</p>
 </li>
 <li>
-<p>通过函数交换技术，实现业务方法的 AOP 可扩展调试层。</p>
+<p>通过注入接口代理，实现 AOP 可扩展调试层</p>
 </li>
 </ul>
 
@@ -690,7 +687,7 @@ This is the multi-page printable view of this section.
 <p>依赖注入(Dependency Injection)是指开发人员无需显式地创建对象，而是通过<a href="/cn/docs/reference/tag_format">标签</a>的方式声明字段，由框架负责将实例化对象写入该字段。</p>
 <h3 id="优点">优点</h3>
 <p>依赖注入可以降低代码的耦合度，减少冗余代码量，优化代码逻辑。帮助开发人员面向对象编程，面向接口编程。</p>
-<h3 id="ioc-golang-的依赖注入能力">IOC-Golang 的依赖注入能力</h3>
+<h3 id="ioc-golang-的依赖注入能力">IOC-golang 的依赖注入能力</h3>
 <p>本框架从两个角度实现依赖注入：</p>
 <ul>
 <li>
@@ -1106,7 +1103,7 @@ autowire:
 <li>接口注入</li>
 <li>对象指针注入</li>
 <li>API 获取对象</li>
-<li>调试能力，查看运行中的接口、实现、方法；以及实时监听参数值、返回值。</li>
+<li>调试能力，查看运行中的接口、方法；以及实时监听参数值、返回值。</li>
 </ol>
 <p><img src="https://raw.githubusercontent.com/ioc-golang/ioc-golang-website/main/resources/img/ioc-golang-quickstart-structure.png" alt="ioc-golang-quickstart-structure"></p>
 <p>用户所需编写的全部代码：main.go</p>
@@ -1117,85 +1114,93 @@ autowire:
 </span></span><span style="display:flex;"><span>	<span style="color:#4e9a06">&#34;time&#34;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#4e9a06">&#34;github.com/alibaba/ioc-golang&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#4e9a06">&#34;github.com/alibaba/ioc-golang/autowire/singleton&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// +ioc:autowire=true
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// +ioc:autowire:type=singleton
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">type</span> <span style="color:#000">App</span> <span style="color:#204a87;font-weight:bold">struct</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000">ServiceImpl1</span> <span style="color:#000">Service</span> <span style="color:#4e9a06">`singleton:&#34;main.ServiceImpl1&#34;`</span> <span style="color:#8f5902;font-style:italic">// 要求注入Service 的 ServiceImpl1 实现
-</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>	<span style="color:#000">ServiceImpl2</span> <span style="color:#000">Service</span> <span style="color:#4e9a06">`singleton:&#34;main.ServiceImpl2&#34;`</span> <span style="color:#8f5902;font-style:italic">// 要求注入Service 的 ServiceImpl2 实现
-</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>	<span style="color:#000">ServiceStruct</span> <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">ServiceStruct</span> <span style="color:#4e9a06">`singleton:&#34;&#34;`</span> <span style="color:#8f5902;font-style:italic">// 要求注入 ServiceStruct 指针
-</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#8f5902;font-style:italic">// 将封装了代理层的 main.ServiceImpl1 指针注入到 Service 接口，单例模型，需要在标签中指定被注入结构
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>	<span style="color:#000">ServiceImpl1</span> <span style="color:#000">Service</span> <span style="color:#4e9a06">`singleton:&#34;main.ServiceImpl1&#34;`</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">func</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">a</span><span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">App</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000">Run</span><span style="color:#000;font-weight:bold">(){</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#000">time</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Sleep</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">time</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Second</span><span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#000">a</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">ServiceImpl1</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Hello</span><span style="color:#000;font-weight:bold">()</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#000">a</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">ServiceImpl2</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Hello</span><span style="color:#000;font-weight:bold">()</span>
-</span></span><span style="display:flex;"><span>		
-</span></span><span style="display:flex;"><span>		<span style="color:#000">fmt</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">a</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">ServiceStruct</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">GetString</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;laurence&#34;</span><span style="color:#000;font-weight:bold">))</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#8f5902;font-style:italic">// 将封装了代理层的 main.ServiceImpl2 指针注入到 Service 接口，单例模型，需要在标签中指定被注入结构
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>	<span style="color:#000">ServiceImpl2</span> <span style="color:#000">Service</span> <span style="color:#4e9a06">`singleton:&#34;main.ServiceImpl2&#34;`</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#8f5902;font-style:italic">// 将封装了代理层的 main.ServiceImpl1 指针注入到他的专属接口 &#39;ServiceImpl1IOCInterface&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>  <span style="color:#8f5902;font-style:italic">// 注入专属接口的命名规则是 &#39;${结构名}IOCInterface&#39;，注入专属接口无需指定被注入结构，标签值为空即可。
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>	<span style="color:#000">Service1OwnInterface</span> <span style="color:#000">ServiceImpl1IOCInterface</span> <span style="color:#4e9a06">`singleton:&#34;&#34;`</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#8f5902;font-style:italic">// 将结构体指针注入当前字段
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>	<span style="color:#000">ServiceStruct</span> <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">ServiceStruct</span> <span style="color:#4e9a06">`singleton:&#34;&#34;`</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">func</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">a</span> <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">App</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000">Run</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#000">time</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Sleep</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">time</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Second</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#000">fmt</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">a</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">ServiceImpl1</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">GetHelloString</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;laurence&#34;</span><span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#000">fmt</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">a</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">ServiceImpl2</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">GetHelloString</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;laurence&#34;</span><span style="color:#000;font-weight:bold">))</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">type</span> <span style="color:#000">Service</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000">Hello</span><span style="color:#000;font-weight:bold">()</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#000">fmt</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">a</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Service1OwnInterface</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">GetHelloString</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;laurence&#34;</span><span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span>		
+</span></span><span style="display:flex;"><span>		<span style="color:#000">fmt</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">a</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">ServiceStruct</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">GetString</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;laurence&#34;</span><span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">type</span> <span style="color:#000">Service</span> <span style="color:#204a87;font-weight:bold">interface</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#000">GetHelloString</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">string</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#204a87;font-weight:bold">string</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// +ioc:autowire=true
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// +ioc:autowire:type=singleton
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">type</span> <span style="color:#000">ServiceImpl1</span> <span style="color:#204a87;font-weight:bold">struct</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">func</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">s</span> <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">ServiceImpl1</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000">Hello</span><span style="color:#000;font-weight:bold">(){</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000">fmt</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;This is ServiceImpl1, hello world&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">func</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">s</span> <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">ServiceImpl1</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000">GetHelloString</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">name</span> <span style="color:#204a87;font-weight:bold">string</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#204a87;font-weight:bold">string</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">fmt</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Sprintf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;This is ServiceImpl1, hello %s&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">name</span><span style="color:#000;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// +ioc:autowire=true
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// +ioc:autowire:type=singleton
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">type</span> <span style="color:#000">ServiceImpl2</span> <span style="color:#204a87;font-weight:bold">struct</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">func</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">s</span> <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">ServiceImpl2</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000">Hello</span><span style="color:#000;font-weight:bold">(){</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000">fmt</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;This is ServiceImpl2, hello world&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">func</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">s</span> <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">ServiceImpl2</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000">GetHelloString</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">name</span> <span style="color:#204a87;font-weight:bold">string</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#204a87;font-weight:bold">string</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">fmt</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Sprintf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;This is ServiceImpl2, hello %s&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">name</span><span style="color:#000;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// +ioc:autowire=true
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// +ioc:autowire:type=singleton
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">type</span> <span style="color:#000">ServiceStruct</span> <span style="color:#204a87;font-weight:bold">struct</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">func</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">s</span> <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">ServiceStruct</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000">GetString</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">name</span> <span style="color:#204a87;font-weight:bold">string</span><span style="color:#000;font-weight:bold">)</span><span style="color:#204a87;font-weight:bold">string</span><span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">fmt</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Sprintf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Hello %s&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">name</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">func</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">s</span> <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">ServiceStruct</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000">GetString</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">name</span> <span style="color:#204a87;font-weight:bold">string</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#204a87;font-weight:bold">string</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">fmt</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Sprintf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;This is ServiceStruct, hello %s&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">name</span><span style="color:#000;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">func</span> <span style="color:#000">main</span><span style="color:#000;font-weight:bold">(){</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#8f5902;font-style:italic">// 框架启动
-</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>	<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">ioc</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Load</span><span style="color:#000;font-weight:bold">();</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#204a87;font-weight:bold">nil</span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">func</span> <span style="color:#000">main</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#8f5902;font-style:italic">// start
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>	<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">ioc</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Load</span><span style="color:#000;font-weight:bold">();</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#204a87;font-weight:bold">nil</span> <span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>		<span style="color:#204a87">panic</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">err</span><span style="color:#000;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#8f5902;font-style:italic">// 可通过这一 ID 获取实例: &#34;包名.结构名&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>	<span style="color:#000">appInterface</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">singleton</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">GetImpl</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;main.App&#34;</span><span style="color:#000;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#204a87;font-weight:bold">nil</span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#8f5902;font-style:italic">// app, err := GetAppIOCInterface 也可以，获取到的是封装了代理层的接口，如下获取到的是未封装的结构体指针。
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>	<span style="color:#000">app</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">GetApp</span><span style="color:#000;font-weight:bold">()</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#204a87;font-weight:bold">nil</span> <span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>		<span style="color:#204a87">panic</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">err</span><span style="color:#000;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000">app</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">appInterface</span><span style="color:#000;font-weight:bold">.(</span><span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">App</span><span style="color:#000;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#000">app</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Run</span><span style="color:#000;font-weight:bold">()</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
-</span></span></code></pre></div><p>编写完毕后，当前目录执行以下命令，初始化 go mod ，生成结构注册代码。（mac 环境可能因权限原因需要sudo）：</p>
+</span></span></code></pre></div><p>上述所说的“代理层”，是框架为“以接口形式注入/获取”的结构体，默认封装的代理，可以扩展一系列运维操作。我们推荐开发者在编写代码的过程中基于接口编程，则所有对象都可拥有运维能力。</p>
+<p>编写完毕后，当前目录执行以下命令，初始化 go mod ，拉取最新代码，生成结构注册代码。（mac 环境可能因权限原因需要sudo）：</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>% go mod init ioc-golang-demo
+</span></span><span style="display:flex;"><span>% <span style="color:#204a87">export</span> <span style="color:#000">GOPROXY</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;https://goproxy.cn&#34;</span>
 </span></span><span style="display:flex;"><span>% go mod tidy
+</span></span><span style="display:flex;"><span>% go get github.com/alibaba/ioc-golang@master
 </span></span><span style="display:flex;"><span>% sudo iocli gen
-</span></span></code></pre></div><p>会在当前目录生成：zz_generated.ioc.go，开发者无需关心这一文件，该文件包含了所有接口的描述信息，</p>
+</span></span></code></pre></div><p>会在当前目录生成：zz_generated.ioc.go，开发者无需关心这一文件，这一文件中就包含了上面使用的 GetApp 方法</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">//go:build !ignore_autogenerated
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// +build !ignore_autogenerated
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
@@ -1204,31 +1209,31 @@ autowire:
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">package</span> <span style="color:#000">main</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000;font-weight:bold">(</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000">autowire</span> <span style="color:#4e9a06">&#34;github.com/alibaba/ioc-golang/autowire&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#4e9a06">&#34;github.com/alibaba/ioc-golang/autowire/singleton&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">autowire</span> <span style="color:#4e9a06">&#34;github.com/alibaba/ioc-golang/autowire&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">normal</span> <span style="color:#4e9a06">&#34;github.com/alibaba/ioc-golang/autowire/normal&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;github.com/alibaba/ioc-golang/autowire/singleton&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">util</span> <span style="color:#4e9a06">&#34;github.com/alibaba/ioc-golang/autowire/util&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">func</span> <span style="color:#000">init</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000">singleton</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">RegisterStructDescriptor</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">autowire</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">StructDescriptor</span><span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#000">Factory</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">func</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{}</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>			<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">App</span><span style="color:#000;font-weight:bold">{}</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">},</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">})</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000">singleton</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">RegisterStructDescriptor</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">autowire</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">StructDescriptor</span><span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#000">Factory</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">func</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{}</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>			<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">ServiceImpl1</span><span style="color:#000;font-weight:bold">{}</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">},</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">})</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000">singleton</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">RegisterStructDescriptor</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">autowire</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">StructDescriptor</span><span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#000">Factory</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">func</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{}</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>			<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">ServiceImpl2</span><span style="color:#000;font-weight:bold">{}</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">},</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">})</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000">singleton</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">RegisterStructDescriptor</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">autowire</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">StructDescriptor</span><span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#000">Factory</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">func</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{}</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>			<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">ServiceStruct</span><span style="color:#000;font-weight:bold">{}</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#000;font-weight:bold">},</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#000;font-weight:bold">})</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">normal</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">RegisterStructDescriptor</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">autowire</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">StructDescriptor</span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000">Factory</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">func</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{}</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">app_</span><span style="color:#000;font-weight:bold">{}</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">})</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">singleton</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">RegisterStructDescriptor</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">autowire</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">StructDescriptor</span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000">Factory</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">func</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">interface</span><span style="color:#000;font-weight:bold">{}</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">App</span><span style="color:#000;font-weight:bold">{}</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">})</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ce5c00;font-weight:bold">...</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">func</span> <span style="color:#000">GetServiceStructIOCInterface</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">ServiceStructIOCInterface</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">error</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">i</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">singleton</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">GetImplWithProxy</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">util</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">GetSDIDByStructPtr</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">new</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">ServiceStruct</span><span style="color:#000;font-weight:bold">)),</span> <span style="color:#204a87;font-weight:bold">nil</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#204a87;font-weight:bold">nil</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#204a87;font-weight:bold">nil</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">err</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">impl</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">i</span><span style="color:#000;font-weight:bold">.(</span><span style="color:#000">ServiceStructIOCInterface</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">impl</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">nil</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
 </span></span></code></pre></div><p>查看当前目录文件</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>% tree
@@ -1237,63 +1242,76 @@ autowire:
 </span></span><span style="display:flex;"><span>├── go.sum
 </span></span><span style="display:flex;"><span>├── main.go
 </span></span><span style="display:flex;"><span>└── zz_generated.ioc.go
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#0000cf;font-weight:bold">0</span> directories, <span style="color:#0000cf;font-weight:bold">4</span> files
 </span></span></code></pre></div><h4 id="执行程序">执行程序</h4>
-<p><strong>正常方式启动程序</strong></p>
 <p><code>go run .</code></p>
 <p>控制台打印输出：</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>  ___    ___     ____            ____           _                         
-</span></span><span style="display:flex;"><span> <span style="color:#000;font-weight:bold">|</span>_ _<span style="color:#000;font-weight:bold">|</span>  / _ <span style="color:#4e9a06">\ </span>  / ___<span style="color:#000;font-weight:bold">|</span>          / ___<span style="color:#000;font-weight:bold">|</span>   ___   <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>   __ _   _ __     __ _ 
-</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>      _____  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>  _   / _ <span style="color:#4e9a06">\ </span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>  / _<span style="color:#4e9a06">`</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#a40000">&#39;</span>_ <span style="color:#4e9a06">\ </span>  / _<span style="color:#4e9a06">`</span> <span style="color:#000;font-weight:bold">|</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>___  <span style="color:#000;font-weight:bold">|</span>_____<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#ce5c00;font-weight:bold">(</span>_<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#ce5c00;font-weight:bold">(</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#ce5c00;font-weight:bold">(</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>
-</span></span><span style="display:flex;"><span> <span style="color:#000;font-weight:bold">|</span>___<span style="color:#000;font-weight:bold">|</span>  <span style="color:#4e9a06">\_</span>__/   <span style="color:#4e9a06">\_</span>___<span style="color:#000;font-weight:bold">|</span>          <span style="color:#4e9a06">\_</span>___<span style="color:#000;font-weight:bold">|</span>  <span style="color:#4e9a06">\_</span>__/  <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span>  <span style="color:#4e9a06">\_</span>_,_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span>  <span style="color:#4e9a06">\_</span>_, <span style="color:#000;font-weight:bold">|</span>
-</span></span><span style="display:flex;"><span>                                                                    <span style="color:#000;font-weight:bold">|</span>___/ 
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>  ___    ___     ____                           _                         
+</span></span><span style="display:flex;"><span> <span style="color:#000;font-weight:bold">|</span>_ _<span style="color:#000;font-weight:bold">|</span>  / _ <span style="color:#4e9a06">\ </span>  / ___<span style="color:#000;font-weight:bold">|</span>           __ _    ___   <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>   __ _   _ __     __ _ 
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>      _____   / _<span style="color:#4e9a06">`</span> <span style="color:#000;font-weight:bold">|</span>  / _ <span style="color:#4e9a06">\ </span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>  / _<span style="color:#4e9a06">`</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#a40000">&#39;</span>_ <span style="color:#4e9a06">\ </span>  / _<span style="color:#4e9a06">`</span> <span style="color:#000;font-weight:bold">|</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>  <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>___  <span style="color:#000;font-weight:bold">|</span>_____<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#ce5c00;font-weight:bold">(</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#ce5c00;font-weight:bold">(</span>_<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#ce5c00;font-weight:bold">(</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span> <span style="color:#ce5c00;font-weight:bold">(</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>
+</span></span><span style="display:flex;"><span> <span style="color:#000;font-weight:bold">|</span>___<span style="color:#000;font-weight:bold">|</span>  <span style="color:#4e9a06">\_</span>__/   <span style="color:#4e9a06">\_</span>___<span style="color:#000;font-weight:bold">|</span>          <span style="color:#4e9a06">\_</span>_, <span style="color:#000;font-weight:bold">|</span>  <span style="color:#4e9a06">\_</span>__/  <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span>  <span style="color:#4e9a06">\_</span>_,_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span> <span style="color:#000;font-weight:bold">|</span>_<span style="color:#000;font-weight:bold">|</span>  <span style="color:#4e9a06">\_</span>_, <span style="color:#000;font-weight:bold">|</span>
+</span></span><span style="display:flex;"><span>                                <span style="color:#000;font-weight:bold">|</span>___/                               <span style="color:#000;font-weight:bold">|</span>___/ 
 </span></span><span style="display:flex;"><span>Welcome to use ioc-golang!
 </span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Boot<span style="color:#ce5c00;font-weight:bold">]</span> Start to load ioc-golang config
-</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Config<span style="color:#ce5c00;font-weight:bold">]</span> Load config file from ../conf/ioc_golang.yaml
-</span></span><span style="display:flex;"><span>Load ioc-golang config file failed. open ../conf/ioc_golang.yaml: no such file or directory
-</span></span><span style="display:flex;"><span>The load procedure is <span style="color:#204a87;font-weight:bold">continue</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Config<span style="color:#ce5c00;font-weight:bold">]</span> Load default config file from ../conf/ioc_golang.yaml
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Config<span style="color:#ce5c00;font-weight:bold">]</span> Load ioc-golang config file failed. open /Users/laurence/Desktop/workplace/alibaba/conf/ioc_golang.yaml: no such file or directory
+</span></span><span style="display:flex;"><span> The load procedure is <span style="color:#204a87;font-weight:bold">continue</span>
 </span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Boot<span style="color:#ce5c00;font-weight:bold">]</span> Start to load debug
-</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Debug<span style="color:#ce5c00;font-weight:bold">]</span> Debug mod is not enabled
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Debug<span style="color:#ce5c00;font-weight:bold">]</span> Debug port is <span style="color:#204a87">set</span> to default :1999
 </span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Boot<span style="color:#ce5c00;font-weight:bold">]</span> Start to load autowire
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Autowire Type<span style="color:#ce5c00;font-weight:bold">]</span> Found registered autowire <span style="color:#204a87">type</span> normal
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> normal registered SD main.serviceStruct_
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> normal registered SD main.app_
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> normal registered SD main.serviceImpl1_
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> normal registered SD main.serviceImpl2_
 </span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Autowire Type<span style="color:#ce5c00;font-weight:bold">]</span> Found registered autowire <span style="color:#204a87">type</span> singleton
 </span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> singleton registered SD main.App
 </span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> singleton registered SD main.ServiceImpl1
 </span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> singleton registered SD main.ServiceImpl2
 </span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Autowire Struct Descriptor<span style="color:#ce5c00;font-weight:bold">]</span> Found <span style="color:#204a87">type</span> singleton registered SD main.ServiceStruct
-</span></span><span style="display:flex;"><span>This is ServiceImpl1, hello world
-</span></span><span style="display:flex;"><span>This is ServiceImpl2, hello world
-</span></span><span style="display:flex;"><span>Hello laurence
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Debug<span style="color:#ce5c00;font-weight:bold">]</span> Debug server listening at :1999
+</span></span><span style="display:flex;"><span>This is ServiceImpl1, hello laurence
+</span></span><span style="display:flex;"><span>This is ServiceImpl2, hello laurence
+</span></span><span style="display:flex;"><span>This is ServiceImpl1, hello laurence
+</span></span><span style="display:flex;"><span>This is ServiceStruct, hello laurence
 </span></span><span style="display:flex;"><span>...
-</span></span></code></pre></div><p>可看到，注入成功，程序正常运行。</p>
-<p><strong>以调试模式启动程序</strong></p>
-<p><code>GOARCH=amd64 go run -gcflags=&quot;-N -l&quot; -tags iocdebug .</code></p>
-<p>可看到打印出的日志中包含</p>
+</span></span></code></pre></div><p>可看到，依赖注入成功，程序正常运行。</p>
+<h3 id="调试程序">调试程序</h3>
+<p>可看到打印出的日志中包含，说明 Debug 服务已经启动。</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Debug<span style="color:#ce5c00;font-weight:bold">]</span> Debug server listening at :1999
-</span></span></code></pre></div><p>查看所有结构和方法</p>
+</span></span></code></pre></div><p>新开一个终端，使用 iocli 的调试功能，查看所有拥有代理层的结构和方法。默认端口为 1999。</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>% iocli list
-</span></span><span style="display:flex;"><span>main.App
-</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Run<span style="color:#ce5c00;font-weight:bold">]</span>
-</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>main.ServiceImpl1
-</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Hello<span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>GetHelloString<span style="color:#ce5c00;font-weight:bold">]</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>main.ServiceImpl2
-</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Hello<span style="color:#ce5c00;font-weight:bold">]</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>main.ServiceStruct
-</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>GetString<span style="color:#ce5c00;font-weight:bold">]</span>
-</span></span></code></pre></div><p>监听方法的参数和返回值。以监听 GetString 方法为例，每隔三秒钟函数被调用的时候，打印参数和返回值。</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>% iocli watch main.ServiceStruct <span style="color:#000">GetString</span>
-</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>GetHelloString<span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span></code></pre></div><p>监听方法的参数和返回值。以监听 main.ServiceImpl 结构的 GetHelloString 方法为例，每隔三秒钟，函数被调用两次，打印参数和返回值。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>% iocli watch main.ServiceImpl1 <span style="color:#000">GetHelloString</span>
 </span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">==========</span> On <span style="color:#000">Call</span> <span style="color:#ce5c00;font-weight:bold">==========</span>
-</span></span><span style="display:flex;"><span>main.ServiceStruct.GetString<span style="color:#ce5c00;font-weight:bold">()</span>
+</span></span><span style="display:flex;"><span>main.ServiceImpl1.GetHelloString<span style="color:#ce5c00;font-weight:bold">()</span>
 </span></span><span style="display:flex;"><span>Param 1: <span style="color:#ce5c00;font-weight:bold">(</span>string<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">len</span><span style="color:#ce5c00;font-weight:bold">=</span>8<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#4e9a06">&#34;laurence&#34;</span>
 </span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">==========</span> On <span style="color:#000">Response</span> <span style="color:#ce5c00;font-weight:bold">==========</span>
+</span></span><span style="display:flex;"><span>main.ServiceImpl1.GetHelloString<span style="color:#ce5c00;font-weight:bold">()</span>
+</span></span><span style="display:flex;"><span>Response 1: <span style="color:#ce5c00;font-weight:bold">(</span>string<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">len</span><span style="color:#ce5c00;font-weight:bold">=</span>36<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#4e9a06">&#34;This is ServiceImpl1, hello laurence&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">==========</span> On <span style="color:#000">Call</span> <span style="color:#ce5c00;font-weight:bold">==========</span>
+</span></span><span style="display:flex;"><span>main.ServiceImpl1.GetHelloString<span style="color:#ce5c00;font-weight:bold">()</span>
+</span></span><span style="display:flex;"><span>Param 1: <span style="color:#ce5c00;font-weight:bold">(</span>string<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">len</span><span style="color:#ce5c00;font-weight:bold">=</span>8<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#4e9a06">&#34;laurence&#34;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">==========</span> On <span style="color:#000">Response</span> <span style="color:#ce5c00;font-weight:bold">==========</span>
-</span></span><span style="display:flex;"><span>main.ServiceStruct.GetString<span style="color:#ce5c00;font-weight:bold">()</span>
-</span></span><span style="display:flex;"><span>Response 1: <span style="color:#ce5c00;font-weight:bold">(</span>string<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">len</span><span style="color:#ce5c00;font-weight:bold">=</span>14<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#4e9a06">&#34;Hello laurence&#34;</span>
-</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>main.ServiceImpl1.GetHelloString<span style="color:#ce5c00;font-weight:bold">()</span>
+</span></span><span style="display:flex;"><span>Response 1: <span style="color:#ce5c00;font-weight:bold">(</span>string<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">len</span><span style="color:#ce5c00;font-weight:bold">=</span>36<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#4e9a06">&#34;This is ServiceImpl1, hello laurence&#34;</span>
+</span></span><span style="display:flex;"><span>,,,
+</span></span></code></pre></div><h3 id="注解分析">注解分析</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// +ioc:autowire=true
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">代码生成工具会识别到标有</span> <span style="color:#ce5c00;font-weight:bold">+</span><span style="color:#000">ioc</span><span style="color:#000;font-weight:bold">:</span><span style="color:#000">autowire</span><span style="color:#000;font-weight:bold">=</span><span style="color:#204a87;font-weight:bold">true</span> <span style="color:#000">注解的对象</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// +ioc:autowire:type=singleton
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">标记注入模型为</span> <span style="color:#000">singleton</span> <span style="color:#000">单例模型</span><span style="color:#a40000">，</span><span style="color:#000">还有</span> <span style="color:#000">normal</span> <span style="color:#000">多例模型等扩展</span>
 </span></span></code></pre></div><h3 id="更多">更多</h3>
 <p>您可以参阅 <a href="/cn/docs/examples">示例</a> 查阅更多例子和框架高级用法</p>
 
@@ -1317,7 +1335,8 @@ autowire:
     
 	<h1 id="pg-fb0f854c53f1ba28ad4c2ccf8d24df34">4 - 示例</h1>
     
-	
+	<p>最新示例代码，位于 <a href="https://github.com/alibaba/IOC-golang/tree/master/example">ioc-golang/example</a></p>
+
 </div>
 
 
@@ -1347,8 +1366,8 @@ autowire:
 <p>在应用开发过程中，通过 SDK 操作 Redis 是一个常见的诉求。</p>
 <p>ioc-golang 框架提供了注入 Redis 连接的能力，开发者可以在配置文件中指定好 Redis 地址、密码、db名等信息，通过标签注入连接，无需手动创建、组装。</p>
 <h3 id="注入模型与结构">注入模型与结构</h3>
-<p><a href="https://github.com/alibaba/IOC-Golang/tree/master/extension/normal">多例（normal）依赖注入模型</a></p>
-<p><a href="https://github.com/alibaba/IOC-Golang/tree/master/extension/normal/redis">预定义的 redis 结构</a></p>
+<p><a href="https://github.com/alibaba/IOC-golang/tree/master/extension/normal">多例（normal）依赖注入模型</a></p>
+<p><a href="https://github.com/alibaba/IOC-golang/tree/master/extension/normal/redis">预定义的 redis 结构</a></p>
 <h3 id="关键代码">关键代码</h3>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">import</span><span style="color:#000;font-weight:bold">(</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#000">normalMysql</span> <span style="color:#4e9a06">&#34;github.com/alibaba/ioc-golang/extension/normal/mysql&#34;</span>
@@ -1441,8 +1460,8 @@ autowire:
 <p>在应用开发过程中，通过 SDK 操作数据库是一个常见的诉求，GORM 是应用较广泛的 Go 数据库 sdk。</p>
 <p>ioc-golang 框架提供了注入数据库连接的能力，开发者可以在配置文件中指定好数据库地址、密码信息，通过标签注入连接，无需手动创建、组装 GORM 客户端。</p>
 <h3 id="注入模型与结构">注入模型与结构</h3>
-<p><a href="https://github.com/alibaba/IOC-Golang/tree/master/extension/normal">多例（normal）依赖注入模型</a></p>
-<p><a href="https://github.com/alibaba/IOC-Golang/tree/master/extension/normal/mysql">预定义的 mysql 结构</a></p>
+<p><a href="https://github.com/alibaba/IOC-golang/tree/master/extension/normal">多例（normal）依赖注入模型</a></p>
+<p><a href="https://github.com/alibaba/IOC-golang/tree/master/extension/normal/mysql">预定义的 mysql 结构</a></p>
 <h3 id="关键代码">关键代码</h3>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">import</span><span style="color:#000;font-weight:bold">(</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#000">normalMysql</span> <span style="color:#4e9a06">&#34;github.com/alibaba/ioc-golang/extension/normal/mysql&#34;</span>
@@ -1512,7 +1531,7 @@ autowire:
 <p><img src="https://raw.githubusercontent.com/ioc-golang/ioc-golang-website/main/resources/img/debug-topology.png" alt="debug"></p>
 <p>在这个例子中，App 结构会依此调用所有依赖对象，进而调用一个单例模型注入的 gRPC 客户端，该客户端发起网络请求，并获得结果。</p>
 <h3 id="依赖注入模型">依赖注入模型</h3>
-<p><a href="https://github.com/alibaba/IOC-Golang/tree/master/extension/grpc">grpc 依赖注入模型</a></p>
+<p><a href="https://github.com/alibaba/IOC-golang/tree/master/extension/grpc">grpc 依赖注入模型</a></p>
 <h3 id="关键代码">关键代码</h3>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">import</span><span style="color:#000;font-weight:bold">(</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#4e9a06">&#34;github.com/alibaba/ioc-golang/extension/autowire/grpc&#34;</span>
@@ -1612,7 +1631,7 @@ autowire:
 <p>在应用开发过程中，从配置文件中读入配置是一个常见的诉求。例如读取数据库的账号密码、下游服务的主机名，以及一些业务配置等。</p>
 <p>ioc-golang 框架提供了便捷的基于文件注入配置的能力，使开发者无需手动解析配置文件，无需手动组装对象。</p>
 <h3 id="注入模型与结构">注入模型与结构</h3>
-<p><a href="https://github.com/alibaba/IOC-Golang/tree/master/extension/config">config 依赖注入模型</a></p>
+<p><a href="https://github.com/alibaba/IOC-golang/tree/master/extension/config">config 依赖注入模型</a></p>
 <h3 id="关键代码">关键代码：</h3>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000;font-weight:bold">(</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#000">github</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">com</span><span style="color:#ce5c00;font-weight:bold">/</span><span style="color:#000">alibaba</span><span style="color:#ce5c00;font-weight:bold">/</span><span style="color:#000">ioc</span><span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#000">golang</span><span style="color:#ce5c00;font-weight:bold">/</span><span style="color:#000">extension</span><span style="color:#ce5c00;font-weight:bold">/</span><span style="color:#000">config</span>
@@ -1826,12 +1845,13 @@ autowire:
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-ec4de8464ec8e0be0c9210cab691fe5a">4.6 - 使用调试功能</h1>
+	<h1 id="pg-ec4de8464ec8e0be0c9210cab691fe5a">4.6 - 使用基于monkey指针的调试功能</h1>
     
 	<h3 id="简介">简介</h3>
-<p>本示例展示了 ioc-golang 框架提供的代码调试能力</p>
-<p>调试能力对于程序性能有损耗，请您不要在追求性能的场景下开启调试能力。</p>
-<p>debug 模式下，本框架基于 AOP 的思路，为每个注册在框架的结构方法都封装了一组拦截器。基于这些拦截器，可以实现具有扩展性的调试功能。</p>
+<p>本示例展示了 ioc-golang 框架提供的基于monkey指针的调试功能。</p>
+<p>注入到接口的对象已经默认支持调试层。本例子针对注入到接口体指针的对象，可通过这种方式赋予其代理层运维能力。</p>
+<p>基于monkey指针的调试功能对于程序性能有损耗，请您不要在追求性能的场景下开启调试能力。</p>
+<p>本框架基于 AOP 的思路，为每个注册在框架的结构方法都封装了一组拦截器。基于这些拦截器，可以实现具有扩展性的调试功能。</p>
 <p>调试能力包括：</p>
 <ul>
 <li>基于 <a href="/cn/docs/reference/ioc_debug_protocol">ioc-debug</a> 协议，暴露调试端口</li>
@@ -2024,9 +2044,9 @@ autowire:
     
 	<h2 id="使用-rpc-能力">使用 RPC 能力</h2>
 <h3 id="简介">简介</h3>
-<p>本示例展示了基于 IOC-Golang 框架的 RPC 能力</p>
+<p>本示例展示了基于 IOC-golang 框架的 RPC 能力</p>
 <p>在微服务开发过程中，暴露一些对象的方法给外部程序调用是一种常见的场景。</p>
-<p>在 IOC-Golang 的 RPC 能力的使用场景下，客户端可以直接注入下游接口的客户端存根，以方法调用的形式发起RPC请求。</p>
+<p>在 IOC-golang 的 RPC 能力的使用场景下，客户端可以直接注入下游接口的客户端存根，以方法调用的形式发起RPC请求。</p>
 <h3 id="关键代码">关键代码</h3>
 <p><strong>服务端</strong></p>
 <p>需要暴露的RPC服务结构使用  <code>// +ioc:autowire:type=rpc</code> 标注，例如 service.go：</p>
@@ -2467,7 +2487,7 @@ autowire:
 	<h1 id="pg-e0731d809e52152c1666e371c203a0ac">6.4 - ioc_debug 协议</h1>
     
 	<p>我们期望推出一个通用的代码调试协议，目前在设计阶段</p>
-<p>proto 位于：<a href="https://github.com/alibaba/IOC-Golang/blob/master/debug/api/ioc_golang/boot/debug.proto">debug.proto</a></p>
+<p>proto 位于：<a href="https://github.com/alibaba/IOC-golang/blob/master/debug/api/ioc_golang/boot/debug.proto">debug.proto</a></p>
 
 </div>
 
@@ -2533,7 +2553,7 @@ autowire:
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-9496b24f376e1e851c99a37b88d75cf3">7.1 - 项目结构</h1>
-    <div class="lead">IOC-Golang 框架项目结构</div>
+    <div class="lead">IOC-golang 框架项目结构</div>
 	<ul>
 <li>
 <p><strong>autowire：</strong> 提供单例模型、多例模型两种基本注入模型</p>
@@ -2613,7 +2633,7 @@ autowire:
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-aaebf5db7edcfa451ca582b9cd19abc0">7.2 - 开发接口或结构</h1>
-    <div class="lead">基于 IOC-Golang 框架开发接口或结构</div>
+    <div class="lead">基于 IOC-golang 框架开发接口或结构</div>
 	
 </div>
 
@@ -2630,7 +2650,7 @@ autowire:
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-f1fa4a389630b3878b129a8c740366eb">7.3 - 开发自动装载模型</h1>
-    <div class="lead">基于 IOC-Golang 框架开发自动装载模型</div>
+    <div class="lead">基于 IOC-golang 框架开发自动装载模型</div>
 	
 </div>
 
@@ -2647,7 +2667,7 @@ autowire:
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-9e51bcdde9763db5df2dbe8667d3b63c">7.4 - 开发 debug 拦截器</h1>
-    <div class="lead">开发基于 IOC-Golang 框架 debug 模式的拦截器</div>
+    <div class="lead">开发基于 IOC-golang 框架 debug 模式的拦截器</div>
 	
 </div>
 

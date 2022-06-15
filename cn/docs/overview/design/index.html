@@ -19,10 +19,10 @@
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
 <title>设计理念 | IOC-Golang</title>
-<meta name="description" content="IOC-Golang 框架设计理念
+<meta name="description" content="IOC-golang 框架设计理念
 ">
 <meta property="og:title" content="设计理念" />
-<meta property="og:description" content="IOC-Golang 框架设计理念
+<meta property="og:description" content="IOC-golang 框架设计理念
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/cn/docs/overview/design/" /><meta property="article:section" content="docs" />
@@ -30,13 +30,13 @@
 <meta property="article:modified_time" content="2022-05-22T01:43:54+08:00" /><meta property="og:site_name" content="IOC-Golang" />
 
 <meta itemprop="name" content="设计理念">
-<meta itemprop="description" content="IOC-Golang 框架设计理念
+<meta itemprop="description" content="IOC-golang 框架设计理念
 "><meta itemprop="datePublished" content="2017-01-05T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-05-22T01:43:54+08:00" />
 <meta itemprop="wordCount" content="5">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="设计理念"/>
-<meta name="twitter:description" content="IOC-Golang 框架设计理念
+<meta name="twitter:description" content="IOC-golang 框架设计理念
 "/>
 
 
@@ -183,7 +183,7 @@ if (!doNotTrack) {
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-cndocsexamplesapi-li">
   <a href="/cn/docs/examples/api/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocsexamplesapi"><span class="">通过 API 获取对象</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-cndocsexamplesdebug-li">
-  <a href="/cn/docs/examples/debug/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocsexamplesdebug"><span class="">使用调试功能</span></a>
+  <a href="/cn/docs/examples/debug/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocsexamplesdebug"><span class="">使用基于monkey指针的调试功能</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-cndocsexamplesrpc-li">
   <a href="/cn/docs/examples/rpc/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-cndocsexamplesrpc"><span class="">RPC 能力</span></a>
 </li>
@@ -295,7 +295,7 @@ if (!doNotTrack) {
             
 <div class="td-content">
 	<h1>设计理念</h1>
-	<div class="lead">IOC-Golang 框架设计理念</div>
+	<div class="lead">IOC-golang 框架设计理念</div>
 	<header class="article-meta">
 		
 
@@ -321,7 +321,7 @@ if (!doNotTrack) {
 <p>通过注解，实现注册代码自动生成</p>
 </li>
 <li>
-<p>通过函数交换技术，实现业务方法的 AOP 可扩展调试层。</p>
+<p>通过注入接口代理，实现 AOP 可扩展调试层</p>
 </li>
 </ul>
 

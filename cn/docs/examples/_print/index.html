@@ -21,7 +21,8 @@
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
 <title>示例 | IOC-Golang</title>
-<meta name="description" content="">
+<meta name="description" content="最新示例代码，位于 ioc-golang/example
+">
 <meta property="og:title" content="示例" />
 <meta property="og:description" content="IOC-Golang doc site" />
 <meta property="og:type" content="website" />
@@ -178,7 +179,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>6: <a href="#pg-ec4de8464ec8e0be0c9210cab691fe5a">使用调试功能</a></li>
+<li>6: <a href="#pg-ec4de8464ec8e0be0c9210cab691fe5a">使用基于monkey指针的调试功能</a></li>
 
 
     
@@ -196,7 +197,8 @@ This is the multi-page printable view of this section.
 
 
 <div class="content">
-      
+      <p>最新示例代码，位于 <a href="https://github.com/alibaba/IOC-golang/tree/master/example">ioc-golang/example</a></p>
+
 </div>
 </div>
 
@@ -224,8 +226,8 @@ This is the multi-page printable view of this section.
 <p>在应用开发过程中，通过 SDK 操作 Redis 是一个常见的诉求。</p>
 <p>ioc-golang 框架提供了注入 Redis 连接的能力，开发者可以在配置文件中指定好 Redis 地址、密码、db名等信息，通过标签注入连接，无需手动创建、组装。</p>
 <h3 id="注入模型与结构">注入模型与结构</h3>
-<p><a href="https://github.com/alibaba/IOC-Golang/tree/master/extension/normal">多例（normal）依赖注入模型</a></p>
-<p><a href="https://github.com/alibaba/IOC-Golang/tree/master/extension/normal/redis">预定义的 redis 结构</a></p>
+<p><a href="https://github.com/alibaba/IOC-golang/tree/master/extension/normal">多例（normal）依赖注入模型</a></p>
+<p><a href="https://github.com/alibaba/IOC-golang/tree/master/extension/normal/redis">预定义的 redis 结构</a></p>
 <h3 id="关键代码">关键代码</h3>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">import</span><span style="color:#000;font-weight:bold">(</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#000">normalMysql</span> <span style="color:#4e9a06">&#34;github.com/alibaba/ioc-golang/extension/normal/mysql&#34;</span>
@@ -318,8 +320,8 @@ This is the multi-page printable view of this section.
 <p>在应用开发过程中，通过 SDK 操作数据库是一个常见的诉求，GORM 是应用较广泛的 Go 数据库 sdk。</p>
 <p>ioc-golang 框架提供了注入数据库连接的能力，开发者可以在配置文件中指定好数据库地址、密码信息，通过标签注入连接，无需手动创建、组装 GORM 客户端。</p>
 <h3 id="注入模型与结构">注入模型与结构</h3>
-<p><a href="https://github.com/alibaba/IOC-Golang/tree/master/extension/normal">多例（normal）依赖注入模型</a></p>
-<p><a href="https://github.com/alibaba/IOC-Golang/tree/master/extension/normal/mysql">预定义的 mysql 结构</a></p>
+<p><a href="https://github.com/alibaba/IOC-golang/tree/master/extension/normal">多例（normal）依赖注入模型</a></p>
+<p><a href="https://github.com/alibaba/IOC-golang/tree/master/extension/normal/mysql">预定义的 mysql 结构</a></p>
 <h3 id="关键代码">关键代码</h3>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">import</span><span style="color:#000;font-weight:bold">(</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#000">normalMysql</span> <span style="color:#4e9a06">&#34;github.com/alibaba/ioc-golang/extension/normal/mysql&#34;</span>
@@ -389,7 +391,7 @@ This is the multi-page printable view of this section.
 <p><img src="https://raw.githubusercontent.com/ioc-golang/ioc-golang-website/main/resources/img/debug-topology.png" alt="debug"></p>
 <p>在这个例子中，App 结构会依此调用所有依赖对象，进而调用一个单例模型注入的 gRPC 客户端，该客户端发起网络请求，并获得结果。</p>
 <h3 id="依赖注入模型">依赖注入模型</h3>
-<p><a href="https://github.com/alibaba/IOC-Golang/tree/master/extension/grpc">grpc 依赖注入模型</a></p>
+<p><a href="https://github.com/alibaba/IOC-golang/tree/master/extension/grpc">grpc 依赖注入模型</a></p>
 <h3 id="关键代码">关键代码</h3>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">import</span><span style="color:#000;font-weight:bold">(</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#4e9a06">&#34;github.com/alibaba/ioc-golang/extension/autowire/grpc&#34;</span>
@@ -489,7 +491,7 @@ This is the multi-page printable view of this section.
 <p>在应用开发过程中，从配置文件中读入配置是一个常见的诉求。例如读取数据库的账号密码、下游服务的主机名，以及一些业务配置等。</p>
 <p>ioc-golang 框架提供了便捷的基于文件注入配置的能力，使开发者无需手动解析配置文件，无需手动组装对象。</p>
 <h3 id="注入模型与结构">注入模型与结构</h3>
-<p><a href="https://github.com/alibaba/IOC-Golang/tree/master/extension/config">config 依赖注入模型</a></p>
+<p><a href="https://github.com/alibaba/IOC-golang/tree/master/extension/config">config 依赖注入模型</a></p>
 <h3 id="关键代码">关键代码：</h3>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000;font-weight:bold">(</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#000">github</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">com</span><span style="color:#ce5c00;font-weight:bold">/</span><span style="color:#000">alibaba</span><span style="color:#ce5c00;font-weight:bold">/</span><span style="color:#000">ioc</span><span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#000">golang</span><span style="color:#ce5c00;font-weight:bold">/</span><span style="color:#000">extension</span><span style="color:#ce5c00;font-weight:bold">/</span><span style="color:#000">config</span>
@@ -703,12 +705,13 @@ This is the multi-page printable view of this section.
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-ec4de8464ec8e0be0c9210cab691fe5a">6 - 使用调试功能</h1>
+	<h1 id="pg-ec4de8464ec8e0be0c9210cab691fe5a">6 - 使用基于monkey指针的调试功能</h1>
     
 	<h3 id="简介">简介</h3>
-<p>本示例展示了 ioc-golang 框架提供的代码调试能力</p>
-<p>调试能力对于程序性能有损耗，请您不要在追求性能的场景下开启调试能力。</p>
-<p>debug 模式下，本框架基于 AOP 的思路，为每个注册在框架的结构方法都封装了一组拦截器。基于这些拦截器，可以实现具有扩展性的调试功能。</p>
+<p>本示例展示了 ioc-golang 框架提供的基于monkey指针的调试功能。</p>
+<p>注入到接口的对象已经默认支持调试层。本例子针对注入到接口体指针的对象，可通过这种方式赋予其代理层运维能力。</p>
+<p>基于monkey指针的调试功能对于程序性能有损耗，请您不要在追求性能的场景下开启调试能力。</p>
+<p>本框架基于 AOP 的思路，为每个注册在框架的结构方法都封装了一组拦截器。基于这些拦截器，可以实现具有扩展性的调试功能。</p>
 <p>调试能力包括：</p>
 <ul>
 <li>基于 <a href="/cn/docs/reference/ioc_debug_protocol">ioc-debug</a> 协议，暴露调试端口</li>
@@ -901,9 +904,9 @@ This is the multi-page printable view of this section.
     
 	<h2 id="使用-rpc-能力">使用 RPC 能力</h2>
 <h3 id="简介">简介</h3>
-<p>本示例展示了基于 IOC-Golang 框架的 RPC 能力</p>
+<p>本示例展示了基于 IOC-golang 框架的 RPC 能力</p>
 <p>在微服务开发过程中，暴露一些对象的方法给外部程序调用是一种常见的场景。</p>
-<p>在 IOC-Golang 的 RPC 能力的使用场景下，客户端可以直接注入下游接口的客户端存根，以方法调用的形式发起RPC请求。</p>
+<p>在 IOC-golang 的 RPC 能力的使用场景下，客户端可以直接注入下游接口的客户端存根，以方法调用的形式发起RPC请求。</p>
 <h3 id="关键代码">关键代码</h3>
 <p><strong>服务端</strong></p>
 <p>需要暴露的RPC服务结构使用  <code>// +ioc:autowire:type=rpc</code> 标注，例如 service.go：</p>

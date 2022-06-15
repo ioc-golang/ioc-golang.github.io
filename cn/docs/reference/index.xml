@@ -265,7 +265,7 @@
         
         
         &lt;p&gt;我们期望推出一个通用的代码调试协议，目前在设计阶段&lt;/p&gt;
-&lt;p&gt;proto 位于：&lt;a href=&#34;https://github.com/alibaba/IOC-Golang/blob/master/debug/api/ioc_golang/boot/debug.proto&#34;&gt;debug.proto&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;proto 位于：&lt;a href=&#34;https://github.com/alibaba/IOC-golang/blob/master/debug/api/ioc_golang/boot/debug.proto&#34;&gt;debug.proto&lt;/a&gt;&lt;/p&gt;
 
       </description>
     </item>
