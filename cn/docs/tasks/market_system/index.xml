@@ -1,18 +1,1 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>IOC-Golang – 电商系统搭建</title>
-    <link>/cn/docs/tasks/market_system/</link>
-    <description>Recent content in 电商系统搭建 on IOC-Golang</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 05 Jan 2017 00:00:00 +0000</lastBuildDate>
-    
-	  <atom:link href="/cn/docs/tasks/market_system/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-      
-        
-      
-    
-    
-  </channel>
-</rss>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>IOC-Golang – 电商系统搭建</title><link>/cn/docs/tasks/market_system/</link><description>Recent content in 电商系统搭建 on IOC-Golang</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Thu, 05 Jan 2017 00:00:00 +0000</lastBuildDate><atom:link href="/cn/docs/tasks/market_system/index.xml" rel="self" type="application/rss+xml"/></channel></rss>
