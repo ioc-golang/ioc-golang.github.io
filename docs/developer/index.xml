@@ -1,64 +1,12 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>IOC-Golang – Developer</title><link>/docs/developer/</link><description>Recent content in Developer on IOC-Golang</description><generator>Hugo -- gohugo.io</generator><atom:link href="/docs/developer/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Project Structure</title><link>/docs/developer/project/</link><pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate><guid>/docs/developer/project/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>IOC-golang – 开发者文档</title><link>/docs/developer/</link><description>Recent content in 开发者文档 on IOC-golang</description><generator>Hugo -- gohugo.io</generator><atom:link href="/docs/developer/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: 项目结构</title><link>/docs/developer/project/</link><pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate><guid>/docs/developer/project/</guid><description>
 &lt;ul>
-&lt;li>
-&lt;p>&lt;strong>autowire:&lt;/strong> Provides two basic injection models: singleton model and multi-instance model&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;strong>config:&lt;/strong> Configuration loading module, responsible for parsing user yaml configuration files&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;strong>debug:&lt;/strong> Debug module: Provide debugging API, provide debugging injection layer implementation&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;strong>extension:&lt;/strong> Component extension directory: Provides preset implementation structures based on various injection models:&lt;/p>
-&lt;ul>
-&lt;li>
-&lt;p>autowire: autoload model extensions&lt;/p>
-&lt;ul>
-&lt;li>
-&lt;p>grpc: grpc client model definition&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>config: configure the model definition&lt;/p>
-&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>
-&lt;p>config: configuration injection model extension structure&lt;/p>
-&lt;ul>
-&lt;li>string,int,map,slice&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>
-&lt;p>normal: multi-instance model extension structure&lt;/p>
-&lt;ul>
-&lt;li>
-&lt;p>redis&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>mysql&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>rocketmq&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>nacos&lt;/p>
-&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>
-&lt;p>singleton: singleton model extension structure&lt;/p>
-&lt;ul>
-&lt;li>http-server&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;strong>example:&lt;/strong> example repository&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;strong>iocli:&lt;/strong> code generation/program debugging tool&lt;/p>
-&lt;p>Provides the ability to automatically generate annotation-based structural description information&lt;/p>
-&lt;/li>
-&lt;/ul></description></item><item><title>Docs: Develop autowire model</title><link>/docs/developer/develop_autowire/</link><pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate><guid>/docs/developer/develop_autowire/</guid><description/></item><item><title>Docs: Develop Struct or Interface</title><link>/docs/developer/develop_struct_or_interface/</link><pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate><guid>/docs/developer/develop_struct_or_interface/</guid><description/></item><item><title>Docs: Develop Debug Interceptor</title><link>/docs/developer/develop_debug_interceptor/</link><pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate><guid>/docs/developer/develop_debug_interceptor/</guid><description/></item></channel></rss>
+&lt;li>&lt;strong>aop：&lt;/strong> 结构代理 AOP 模块：提供 AOP 代理层的基础能力，和可扩展API。&lt;/li>
+&lt;li>&lt;strong>autowire：&lt;/strong> 提供依赖注入内核，以及单例模型、多例模型两种基本自动装载模型&lt;/li>
+&lt;li>&lt;strong>config：&lt;/strong> 配置加载模块，负责解析框架配置文件。&lt;/li>
+&lt;li>&lt;strong>extension：&lt;/strong> 组件扩展：提供基于多个领域模型的的预置实现结构，比如缓存、数据库、消息。&lt;/li>
+&lt;li>&lt;strong>example：&lt;/strong> 示例&lt;/li>
+&lt;li>&lt;strong>iocli：&lt;/strong> 代码生成/程序调试 工具&lt;/li>
+&lt;/ul></description></item><item><title>Docs: 注册自定义结构</title><link>/docs/developer/develop_struct_or_interface/</link><pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate><guid>/docs/developer/develop_struct_or_interface/</guid><description>
+&lt;p>参考内置的结构实现 &lt;code>Redis&lt;/code>： &lt;a href="https://github.com/alibaba/IOC-golang/tree/master/extension/state/redis">extension/state/redis&lt;/a>&lt;/p></description></item><item><title>Docs: 自定义 AOP 实现</title><link>/docs/developer/develop_debug_interceptor/</link><pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate><guid>/docs/developer/develop_debug_interceptor/</guid><description>
+&lt;p>参考内置的 AOP 实现 &lt;code>monitor&lt;/code>： &lt;a href="https://github.com/alibaba/IOC-golang/tree/master/extension/aop/monitor">extension/aop/monitor&lt;/a>&lt;/p></description></item><item><title>Docs: 自定义自动装载模型</title><link>/docs/developer/develop_autowire/</link><pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate><guid>/docs/developer/develop_autowire/</guid><description>
+&lt;p>参考内置的自动装载模型实现 &lt;code>grpc 客户端自动装载模型&lt;/code> &lt;a href="https://github.com/alibaba/IOC-golang/tree/master/extension/autowire/grpc">extension/autowire/grpc&lt;/a>&lt;/p></description></item></channel></rss>

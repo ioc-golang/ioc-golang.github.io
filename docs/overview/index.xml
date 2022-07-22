@@ -1,38 +1,41 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>IOC-Golang – Overview</title><link>/docs/overview/</link><description>Recent content in Overview on IOC-Golang</description><generator>Hugo -- gohugo.io</generator><atom:link href="/docs/overview/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Designs</title><link>/docs/overview/design/</link><pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate><guid>/docs/overview/design/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>IOC-golang – 总体介绍</title><link>/docs/overview/</link><description>Recent content in 总体介绍 on IOC-golang</description><generator>Hugo -- gohugo.io</generator><atom:link href="/docs/overview/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: 功能</title><link>/docs/overview/feature/</link><pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate><guid>/docs/overview/feature/</guid><description>
 &lt;ul>
 &lt;li>
-&lt;p>Dependency injection and parameter reading through tags and configuration files&lt;/p>
+&lt;p>&lt;a href="../../concept/ioc/di/">依赖注入&lt;/a>&lt;/p>
+&lt;p>支持任何结构、接口的依赖注入，具备完善的对象生命周期管理机制。&lt;/p>
+&lt;p>可以接管对象的创建、参数注入、工厂方法、参数来源等等，并拥有可扩展性。&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>Automatically generate struct description registry code through annotations&lt;/p>
+&lt;p>&lt;a href="/docs/concept/aop/proxy/">接口代理&lt;/a>&lt;/p>
+&lt;p>基于 AOP 的思路，为由框架接管的对象提供默认的接口代理层，在面向接口编程的情景下，可以在 &lt;strong>业务无侵入&lt;/strong> 的前提下，使用基于结构代理 AOP 层扩展的丰富运维能力。例如接口查询，参数动态监听，方法粒度链路追踪，性能瓶颈分析，分布式场景下全链路方法粒度追踪等。&lt;/p>
+&lt;ul>
+&lt;li>监控&lt;/li>
+&lt;li>日志采集&lt;/li>
+&lt;li>链路追踪&lt;/li>
+&lt;li>事务能力&lt;/li>
+&lt;/ul>
 &lt;/li>
 &lt;li>
-&lt;p>AOP based extensible debugging layer, which implements business methods through function exchange technology.&lt;/p>
+&lt;p>&lt;a href="/docs/reference/iocli/#%E6%B3%A8%E8%A7%A3%E4%B8%8E%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90">代码生成能力&lt;/a>&lt;/p>
+&lt;p>我们提供了代码生成工具，开发者可以通过注解的方式标注结构，从而便捷地生成结构注册代码、结构代理、结构专属接口等。&lt;/p>
 &lt;/li>
-&lt;/ul></description></item><item><title>Docs: Features</title><link>/docs/overview/feature/</link><pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate><guid>/docs/overview/feature/</guid><description>
+&lt;li>
+&lt;p>&lt;a href="/docs/developer/">可扩展能力&lt;/a>&lt;/p>
+&lt;p>支持被注入结构的扩展、自动装载模型的扩展、调试 AOP 层的扩展。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://ioc-golang.github.io/cn/docs/examples/">丰富的预置组件&lt;/a>&lt;/p>
+&lt;p>提供覆盖主流中间件的预制对象，方便直接注入使用。&lt;/p>
+&lt;/li>
+&lt;/ul></description></item><item><title>Docs: 设计理念</title><link>/docs/overview/design/</link><pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate><guid>/docs/overview/design/</guid><description>
 &lt;ul>
 &lt;li>
-&lt;p>Dependency Injection&lt;/p>
-&lt;p>Supports dependency injection of any structure and interface.&lt;/p>
+&lt;p>通过标签与配置文件，实现依赖注入和参数读取&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>Perfect object life cycle management mechanism.&lt;/p>
-&lt;p>Can take over object creation, parameter injection, factory methods. Customizable object parameter source.&lt;/p>
+&lt;p>通过注解，实现注册代码自动生成&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>Code debugging ability&lt;/p>
-&lt;p>Based on the idea of OP, it provides runtime monitoring and debugging capabilities for object methods taken over by the framework.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Automatic struct descriptors codes generation capability&lt;/p>
-&lt;p>We provide a code generation tool, and developers can annotate the structure through annotations, so as to easily generate structure registration code.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Scalability&lt;/p>
-&lt;p>Supports the extension of the auto-loading model, the extension of the injection parameter source, and the extension of the object method AOP layer.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Complete prefabricated components&lt;/p>
-&lt;p>Provides prefabricated objects covering mainstream middleware for direct injection.&lt;/p>
+&lt;p>通过注入接口代理，实现 AOP 可扩展调试层&lt;/p>
 &lt;/li>
 &lt;/ul></description></item></channel></rss>
