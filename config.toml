@@ -2,8 +2,8 @@ baseURL = "/"
 title = "Goldydocs"
 
 # Language settings
-contentDir = "content/en"
-defaultContentLanguage = "en"
+contentDir = "content/cn"
+defaultContentLanguage = "cn"
 defaultContentLanguageInSubdir = false
 # Useful when translating.
 enableMissingTranslationPlaceholders = true
@@ -66,17 +66,16 @@ id = "UA-00000000-0"
 # Language configuration
 
 [languages]
-[languages.en]
-title = "IOC-Golang"
-description = "IOC-Golang doc site"
-languageName ="English"
-# Weight used for sorting.
-weight = 1
+#[languages.en]
+#title = "IOC-golang"
+#description = "IOC-golang doc site"
+#languageName ="English"
+## Weight used for sorting.
+#weight = 1
 [languages.cn]
-title = "IOC-Golang"
-description = "IOC-Golang doc site"
+title = "IOC-golang"
+description = "IOC-golang 文档"
 languageName ="中文"
-contentDir = "content/cn"
 
 [markup]
   [markup.goldmark]

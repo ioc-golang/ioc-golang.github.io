@@ -5,98 +5,88 @@ date: 2017-01-05
 weight: 1
 ---
 
-iocli 是一款命令行工具，提供了以下能力：
+**iocli** 源码位于 [github.com/alibaba/IOC-golang/iocli](https://github.com/alibaba/IOC-golang/tree/master/iocli) ，是一款命令行工具，提供了以下能力：
 
 - 代码调试
 
-  开发者启动 ioc-golang 框架提供的[调试](/cn/docs/examples/debug)能力，iocli 作为调试客户端。
+  开发者可以使用 **iocli** 作为调试客户端，调试基于 ioc-golang 框架开发的 go 应用程序。
 
-- 结构描述注册信息生成
+- 结构相关代码生成
 
-  开发者可以为需要依赖注入的结构体增加[注解](/cn/docs/concept/annotation)，iocli 会识别这些[注解](/cn/docs/concept/annotation)，自动生成[SD(结构描述符)](/cn/docs/concept/sd)代码，注册至框架。
+  开发者可以为需要依赖注入的结构体增加注解，**iocli** 会识别这些注解，并产生符合要求的结构相关代码。包括结构描述信息、结构代理层、结构专属接口、结构 Get 方法等。
 
-## 安装
+## 调试能力
 
-```shell
-go install github.com/alibaba/ioc-golang/iocli@latest
-```
+ioc-golang 框架拥有基于 AOP 的 Go 运行时程序调试能力，帮助故障排查，性能分析，提高应用可观测能力。在 [快速开始](/docs/getting-started/tutorial/) 部分展示了接口信息的查看、参数监听能力。在 [基于 IOC-golang 的电商系统demo](https://github.com/ioc-golang/shopping-system)  中，可以展示基于 ioc-golang 的，业务无侵入的，方法粒度全链路追踪能力。
 
-## 代码调试能力
+## 注解与代码生成
 
-ioc-golang 框架拥有首创的基于 AOP 思路的 Go 运行时程序调试能力。基于 [ioc debug 协议](/cn/docs/reference/ioc_debug_protocol)
+[注解](/docs/concept/ioc/annotation/) 是以特定字符串开头的注释，标注在期望注入的结构前。[注解](/docs/concept/ioc/annotation/) 只具备静态意义，即在代码生成阶段，被 iocl i工具扫描识别到，从而获取结构相关信息。[注解](/docs/concept/ioc/annotation/) 本身不具备程序运行时的意义。
 
-代码调试示例可参考 [调试能力示例](/cn/docs/examples/debug) 或 [快速开始](/cn/docs/getting-started/tutorial)
-
-基于该思路，我们可以扩展出更丰富的 cli 端调试能力，例如：
-
-- 流量过滤、监控
-- 参数编辑
-- 故障注入
-- 耗时瓶颈分析
-- ...
-
-
-## 结构注解与[SD](/cn/docs/concept/sd)代码生成
-
-iocli 可以一键生成当前目录和子目录下的所有标记结构的描述符
-
-```bash
-sudo iocli gen
-```
-
-可以识别以下注解：
+iocli 可以识别以下注解 key，其中 = 后面的 value 为示例。
 
 ```go
 // +ioc:autowire=true
 // +ioc:autowire:type=normal
-// +ioc:autowire:interface=Redis
 // +ioc:autowire:paramLoader=paramLoader
 // +ioc:autowire:paramType=Config
 // +ioc:autowire:constructFunc=New
 // +ioc:autowire:baseType=true
-// +ioc:autowire:alias=myAppAliasName
+// +ioc:autowire:alias=MyAppAlias
+// +ioc:tx:func=MyTransactionFunction
 ```
 
-- ioc:autowire
+- ioc:autowire  （必填）
 
-  bool 类型，为 true 则该结构被识别到。
+  bool 类型，为 true 则在代码生成阶段被识别到。
 
-- ioc:autowire:type
+- ioc:autowire:type （必填）
 
-  string类型，表示依赖注入模型，目前支持四种：
+  string类型，表示依赖注入模型，目前支持以下五种，结构提供者可以选择五种中的一种或多种进行标注，从而生成相关的结构信息与 API，供结构使用者选用。
 
-    - singleton
+  ```go
+  // +ioc:autowire:type=singleton
+  // +ioc:autowire:type=normal
+  
+  type MyStruct struct{
+  
+  }
+  ```
 
-      单例模型，该结构体全局只能产生一个对象，无论是 API 获取还是字段注入。
+  - singleton
 
-    - normal
+    单例模型，使用该注入模型获取到的结构体，全局只存在一个对象。
 
-      多例模型，每一个标签注入字段、每一次 API 获取，都会产生一个新的对象。
+  - normal
 
-    - config:
+    多例模型，使用该注入模型，每一个标签注入字段、每一次 API 获取，都会产生一个新的对象。
 
-      配置模型是基于多例模型的封装扩展，基于配置模型定义的结构体方便从 yaml 配置文件中注入信息。
+  - config:
 
-    - grpc:
+    配置模型是基于多例模型的封装扩展，基于配置模型定义的结构体方便从 yaml 配置文件中注入信息。参考例子 [example/autowire/autowire_config](https://github.com/alibaba/IOC-golang/tree/master/example/autowire/autowire_config)
 
-      grpc 模型是基于单例模型的封装扩展，基于 grpc 模型可以方便地从 yaml 配置文件中读取参数，生成 grpc 客户端。
+  - grpc:
 
-- ioc:autowire:interface（非必填）
+    grpc 模型是基于单例模型的封装扩展，基于 grpc 模型可以方便地从 yaml 配置文件中读取参数，生成 grpc 客户端。参考例子  [example/third_party/autowire/grpc](https://github.com/alibaba/IOC-golang/tree/master/example/third_party/autowire/grpc)
 
-  string类型，表示实现的接口名，如果不存在这个标注，将作为结构体指针注入给使用方。
+  - rpc:
+
+    rpc 模型会在代码生成阶段产生 rpc 服务端注册代码，以及 rpc 客户端调用存根。参考例子 [example/autowire/autowire_rpc](https://github.com/alibaba/IOC-golang/tree/master/example/autowire/autowire_rpc)
+
+  
 
 - ioc:autowire:paramLoader（非必填）
 
   string类型，表示需要定制的“参数加载器“类型名
 
-  参数加载器由结构定义者可选定制。可参考：[ioc-go-extension/normal/redis](http://github.com/alibaba/ioc-golang/extension/blob/master/normal)
+  参数加载器由结构定义者可选定制。可参考：[extension/state/redis](http://github.com/alibaba/ioc-golang/extension/blob/state/redis)
 
   参数加载器需要实现Load方法：
 
   ```go
   // ParamLoader is interface to load param
   type ParamLoader interface {
-  	Load(sd *StructDescriptor, fi *FieldInfo) (interface{}, error)
+   Load(sd *StructDescriptor, fi *FieldInfo) (interface{}, error)
   }
   ```
 
@@ -104,27 +94,27 @@ sudo iocli gen
 
   ```go
   type Config struct {
-  	Address  string
-  	Password string
-  	DB       string
+   Address  string
+   Password string
+   DB       string
   }
   
   func (c *Config) New(impl *Impl) (*Impl, error) {
-  	dbInt, err := strconv.Atoi(c.DB)
-  	if err != nil {
-  		return impl, err
-  	}
-  	client := redis.NewClient(&redis.Options{
-  		Addr:     c.Address,
-  		Password: c.Password,
-  		DB:       dbInt,
-  	})
-  	_, err = client.Ping().Result()
-  	if err != nil {
-  		return impl, err
-  	}
-  	impl.client = client
-  	return impl, nil
+   dbInt, err := strconv.Atoi(c.DB)
+   if err != nil {
+      return impl, err
+   }
+   client := redis.NewClient(&redis.Options{
+      Addr:     c.Address,
+      Password: c.Password,
+      DB:       dbInt,
+   })
+   _, err = client.Ping().Result()
+   if err != nil {
+      return impl, err
+   }
+   impl.client = client
+   return impl, nil
   }
   ```
 
@@ -139,23 +129,23 @@ sudo iocli gen
   }
   
   func (p *paramLoader) Load(sd *autowire.StructDescriptor, fi *autowire.FieldInfo) (interface{}, error) {
-  	splitedTagValue := strings.Split(fi.TagValue, ",")
-  	param := &Config{}
-  	if len(splitedTagValue) == 1 {
-  		return nil, fmt.Errorf("file info %s doesn't contain param infomration, create param from sd paramLoader failed", fi)
-  	}
-  	if err := config.LoadConfigByPrefix("extension.normal.redis."+splitedTagValue[1], param); err != nil {
-  		return nil, err
-  	}
-  	return param, nil
+   splitedTagValue := strings.Split(fi.TagValue, ",")
+   param := &Config{}
+   if len(splitedTagValue) == 1 {
+      return nil, fmt.Errorf("file info %s doesn't contain param infomration, create param from sd paramLoader failed", fi)
+   }
+   if err := config.LoadConfigByPrefix("extension.normal.redis."+splitedTagValue[1], param); err != nil {
+      return nil, err
+   }
+   return param, nil
   }
   ```
 
-  例如
+  例如 
 
   ```go
   type App struct {
-  	NormalDB3Redis normalRedis.Redis `normal:"Impl,address=127.0.0.1:6379&db=3"`
+   NormalDB3Redis normalRedis.Redis `normal:"github.com/alibaba/ioc-golang/extension/state/redis.Redis,address=127.0.0.1:6379&db=3"`
   }
   ```
 
@@ -163,7 +153,7 @@ sudo iocli gen
 
   ```go
   type App struct {
-  	NormalDB3Redis normalRedis.Redis `normal:"Impl,db1-redis"`
+   NormalDB3Redis normalRedis.Redis `normal:"github.com/alibaba/ioc-golang/extension/state/redis.Redis,db1-redis"`
   }
   ```
 
@@ -172,35 +162,34 @@ sudo iocli gen
   ```yaml
   autowire:
     normal:
-      Redis:
-        Impl:
-          db1-redis:
-            param:
-              address: localhost:6379
-              db: 1
+      github.com/alibaba/ioc-golang/extension/state/redis.Redis:
+        db1-redis:
+          param:
+            address: localhost:6379
+            db: 1
   ```
-
-
-
-**我们提供了预置的参数加载器**
-
-除非用户有强烈需求，我们更推荐用户直接使用我们预置的参数加载器：http://github.com/alibaba/ioc-golang/tree/master/autowire/param_loader。
-
-我们会先后尝试：标签重定向到配置、标签读入参数、配置文件的默认位置读入参数。每个注册到框架的结构都有唯一的ID，因此也会在配置文件中拥有配置参数的位置，这一默认位置在这里定义：http://github.com/alibaba/ioc-golang/blob/master/autowire/param_loader/default_config.go#L21，我们更希望和用户约定好这一点。
-
-当所有加载器都加载参数失败后，将会抛出错误。使用者应当查阅自己引入的结构加载器实现，并按照要求配置好参数。
-
+  
+  
+  
+  **我们提供了预置的参数加载器**
+  
+  除非用户有强烈需求，我们更推荐用户直接使用我们预置的参数加载器：http://github.com/alibaba/ioc-golang/tree/master/autowire/param_loader。
+  
+  我们会先后尝试：标签重定向到配置、标签读入参数、配置文件的默认位置读入参数。每个注册到框架的结构都有唯一的ID，因此也会在配置文件中拥有配置参数的位置，这一默认位置在这里定义：http://github.com/alibaba/ioc-golang/blob/master/autowire/param_loader/default_config.go#L21，我们更希望和用户约定好这一点。
+  
+  当所有加载器都加载参数失败后，将会抛出错误。使用者应当查阅自己引入的结构加载器实现，并按照要求配置好参数。
+  
 - ioc:autowire:paramType（非必填）
 
   string类型，表示依赖参数的类型名，在上述例子，该类型名为 Config
 
 - ioc:autowire:constructFunc（非必填）
 
-  string类型，表示结构的构造方法名，作为依赖参数的一个函数。
+  string类型，表示结构的构造方法名
 
-  在上述例子中，该方法名为 New。
+  在给出 ioc:autowire:paramType 参数类型名的情况下，会使用参数的函数作为构造函数，例如在上述例子中，该构造方法为 Config 对象的 New 方法。
 
-  思路为：依赖参数是构造对象的前提，因此该方法放置在参数下，会被框架调用。对于不依赖外部传递参数，但拥有构造函数的对象，可以使用一个空Struct 作为参数，在这一Struct 内实现构造方法。
+  如果没有给出 ioc:autowire:paramType 参数类型名，则会直接使用这一方法作为构造函数。
 
   我们要求该构造方法的函数签名是固定的，即：
 
@@ -212,11 +201,41 @@ sudo iocli gen
 
   该类型是否为基础类型
 
-  go 基础类型不可直接通过&在构造时取地址，因此我们针对基础类型单独设计了该注解。在 http://github.com/alibaba/ioc-golang/extension/tree/master/config 配置扩展中被使用较多。
+  go 基础类型不可直接通过&在构造时取地址，因此我们针对基础类型单独设计了该注解。在 [配置扩展](https://github.com/alibaba/IOC-golang/tree/master/extension/config) 中被使用较多。
 
-
-- ioc:autowire:alias=MyAppAliasName （非必填）
+- ioc:autowire:alias=MyAppAlias （非必填）
 
   该类型的别名，可在标签、API获取、配置中，通过该别名替代掉较长的类型全名来指定结构。
 
+- ioc:tx:func=MyTransactionFunction（非必填）
 
+  指定事务函数和回滚函数，参考事务例子 [example/aop/transaction](https://github.com/alibaba/IOC-golang/tree/master/example/aop/transaction)
+
+## iocli 操作命令
+
+- `iocli init`
+
+  生成初始化工程
+
+- `iocli gen`
+
+  递归遍历当前目录下的所有 go pkg ，根据注解生成结构体相关代码。
+
+- `iocli list`
+
+  查看应用所有接口和方法信息，默认端口 :1999
+
+- `iocli watch [structID] [methodName]`
+
+  监听一个方法的实时调用信息
+
+
+- `iocli monitor [structID] [methodName]`
+
+  开启调用监控，structID 和 methodName 可不指定，则监控所有接口方法。
+
+- `iocli trace [structID] [methodName]`
+
+  以当前方法为入口，开启调用链路追踪
+
+具体操作参数可通过 -h 查看。

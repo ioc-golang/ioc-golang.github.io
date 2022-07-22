@@ -2,7 +2,7 @@
 title: "RPC 能力"
 linkTitle: "RPC 能力"
 date: 2022-06-05
-weight: 7
+weight: 2
 ---
 
 ## 使用 RPC 能力

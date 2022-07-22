@@ -2,7 +2,7 @@
 title: "gRPC 客户端注入"
 linkTitle: "gRPC 客户端注入"
 date: 2017-01-05
-weight: 4
+weight: 3
 ---
 
 ### 简介

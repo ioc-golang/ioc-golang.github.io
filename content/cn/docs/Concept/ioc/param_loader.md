@@ -6,17 +6,17 @@ weight: 4
 
 ### 概念
 
-参数加载器描述了依赖参数如何在对象构造之前被加载，包括但不限于从配置加载、从[标签](/cn/docs/reference/tag_format)参数加载等等。
+**参数加载器**描述了依赖参数如何在对象构造之前被加载，包括但不限于从配置加载、从 [标签](/docs/reference/tag_format/) 参数加载等等。
 
-参数加载器作为 [SD(结构描述符)](/cn/docs/concept/sd)的一部分，可以被结构提供方定制化，也可以使用自动装载模型提供的默认参数加载器。
+**参数加载器**作为 [SD(结构描述符)](../sd)的一部分，可以被结构提供方定制化，也可以使用自动装载模型提供的默认参数加载器。
 
 ### 默认参数加载器
 
 任何 SD 内定义参数加载器均被优先执行，如果加载失败，则尝试使用默认参数加载器加载。
 
-默认参数加载器被两个基础自动装载模型（singleton、normal）引入。依此采用三种方式加载参数，如果三种方式均加载失败，则抛出错误。
+默认参数加载器被两个基础自动装载模型（singleton、normal）引入。依次采用三种方式加载参数，如果三种方式均加载失败，则抛出错误。
 
-- 方式1 从标签指向的对象名加载参数，参考  [配置文件结构规范](/cn/docs/reference/yaml_structure)
+- 方式1 从标签指向的对象名加载参数，参考  [配置文件结构规范](/docs/reference/yaml_structure/)
 
   ````
   Load support load struct described like:
@@ -53,11 +53,12 @@ weight: 4
   extension:
     normal:
       github.com/alibaba/ioc-golang/extension/normal/redis.Impl:
-          redis-1:
-            param:
-              address: 127.0.0.1
-              password: xxx
-              db: 0
+        redis-1:
+          param:
+            address: 127.0.0.1
+            password: xxx
+            db: 0
+  ```
   ````
 
 - 方式2 从标签加载参数
@@ -112,13 +113,14 @@ weight: 4
   ```yaml
   autowire:
     normal:
-        github.com/alibaba/ioc-golang/extension/normal/redis.Impl:
-          param:
-            address: 127.0.0.1
-            password: xxx
-            db: 0
+      github.com/alibaba/ioc-golang/extension/normal/redis.Impl:
+        param:
+          address: 127.0.0.1
+          password: xxx
+          db: 0
+  ```
   ````
-
+  
   
 
 

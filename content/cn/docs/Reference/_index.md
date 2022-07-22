@@ -1,5 +1,5 @@
 ---
-title: "引用"
-linkTitle: "引用"
+title: "参考"
+linkTitle: "参考"
 weight: 9
 ---

@@ -6,9 +6,9 @@ weight: 3
 
 ### 概念
 
-[结构描述符](/cn/docs/concept/sd/#结构描述符-struct-descriptor)(Struct Descriptor, SD)用于描述一个被开发者定义的结构，包含对象生命周期的全部信息，例如结构类型是什么，实现了哪些接口，如何被构造等等。
+**结构描述符(Struct Descriptor, SD)** 用于描述一个被开发者定义的结构，包含对象生命周期的全部信息，例如结构类型是什么，依赖哪些参数，如何被构造等等信息。
 
-SD可以通过[注解](/cn/docs/concept/annotation)的方式使用工具[自动生成](/cn/docs/reference/iocli/#结构注解与sdcndocsconceptsd代码生成)。但还是推荐开发人员了解本框架定义的结构生命周期和结构描述信息，以便更清晰地开发应用。
+SD可以通过 [注解](/docs/concept/ioc/annotation) 的方式使用工具 [自动生成](/docs/reference/iocli/#结构注解与sdcndocsconceptsd代码生成) 。但还是推荐开发人员了解本框架定义的结构生命周期和结构描述信息，以便更清晰地了解加载过程。
 
 ### 对象生命周期
 
@@ -25,7 +25,7 @@ SD可以通过[注解](/cn/docs/concept/annotation)的方式使用工具[自动�
 
 本框架的“参数”概念，是一个结构体，该结构体包含了创建一个对象所需全部依赖，并提供了构造方法。
 
-例如
+例如：
 
 ```go
 type Config struct {
@@ -47,17 +47,19 @@ Config 结构即为 Impl 结构的“参数”。其包含了产生 Impl 结构�
 
 ### 结构描述符 （Struct Descriptor）
 
-本框架定义的结构描述符如下：
+定义的结构描述符如下：摘自 [autowire/model.go](https://github.com/alibaba/IOC-golang/blob/master/autowire/model.go#L86)
 
 ```go
 type StructDescriptor struct {
-	Factory       func() interface{} 
+	Factory       func() interface{} // raw struct
 	ParamFactory  func() interface{}
 	ParamLoader   ParamLoader
-	ConstructFunc func(impl interface{}, param interface{}) (interface{}, error)
+	ConstructFunc func(impl interface{}, param interface{}) (interface{}, error) 
 	DestroyFunc   func(impl interface{})
+	Alias         string // alias of SDID
+	TransactionMethodsMap map[string]string // transaction
 
-	autowireType    string
+	impledStructPtr interface{} // impledStructPtr is only used to get name
 }
 ```
 
@@ -108,22 +110,26 @@ type StructDescriptor struct {
 
   定义了对象的销毁过程，入参为对象指针。
 
-- autowireType 【必要】
+- Alias 【非必要】
 
-  定义了对象的自动装载模型，例如单例模型、多例模型等，详情参阅 [自动装载模型概念](/cn/docs/concept/autowire)
+  由于 [结构ID](/docs/concept/ioc/sd/#结构id) 一般较长，可以在这里指定结构的别名，可以通过这一别名替换 [结构ID](3/docs/concept/ioc/sd/#结构id)，调用 [对象获取 API](/docs/examples/di/api/)。
 
-### 结构描述ID
+- TransactionMethodsMap 【非必要】
+
+  基于 Saga 模型的事务函数声明， 这一 Map 的 Key 为需要使用事务能力的方法名，Value 为该方法的回滚函数，如果 Value 为空，则无回滚逻辑。参考事务例子 [example/transaction](https://github.com/alibaba/IOC-golang/tree/master/example/aop/transaction)
+
+### 结构ID
 
 - 定义
 
-结构描述ID定义为："$(包名).$(结构名)"
+结构(描述) ID定义为："${包名}.${结构名}"
 
-结构描述 ID （Struct Description Identification) 在本文档和项目中多处被缩写为 SDID。
+结构(描述) ID （Struct Description Identification) 在本文档和项目中多处被缩写为 SDID。
 
 SDID 是唯一的，用于索引结构的键，类型为字符串。
 
 
 - 使用
 
-开发人员在[使用 API 的方式从自动装载模型获取对象](/cn/docs/examples/api)时，需要传入SDID来获取。
+例如，开发人员在 [使用 API 获取对象](/docs/examples/di/api/) 时，需要针对使用的自动装载模型，传入 SDID 来定位结构，从而获取对象。
 

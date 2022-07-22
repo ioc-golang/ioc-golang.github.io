@@ -1,8 +1,8 @@
 ---
-title: "配置注入"
-linkTitle: "配置注入"
+title: "可视化"
+linkTitle: "可视化"
 date: 2017-01-05
-weight: 4
+weight: 1
 ---
 
 ### 简介
