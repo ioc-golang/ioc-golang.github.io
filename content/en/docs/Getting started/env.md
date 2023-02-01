@@ -15,5 +15,5 @@ Add $GOPATH/bin to the environment variable
 ### Install the iocli code generation tool to $GOPATH/bin
 
 ```shell
-go install github.com/alibaba/ioc-golang/iocli@latest
+go install github.com/alibaba/ioc-golang/iocli@v1.0.3
 ````
