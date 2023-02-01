@@ -15,5 +15,5 @@ weight: 1
 ### 安装 iocli 代码生成工具至 $GOPATH/bin
 
 ```shell
-go install github.com/alibaba/ioc-golang/iocli@latest
+go install github.com/alibaba/ioc-golang/iocli@v1.0.3
 ```
